@@ -1,0 +1,27 @@
+{
+  "Test1": {
+    "Name": "Numeric types",
+    "Case": [
+      {
+        "NameCase": "INTEGER",
+        "Query1": "Create table IntData (INTD1 INTEGER,INTD2 INTEGER,INTD3 INTEGER,Primary key(INTD1))",
+        "Query2": "Insert into IntData (INTD1,INTD2,INTD3) values (2147483647, -2147483647, 0)"
+      },
+      {
+        "NameCase": "SMALINT",
+        "Query1": "Create table SmintData (SMINTD1 SMALLINT,SMINTD2 SMALLINT,SMINTD3 SMALLINT,Primary key(SMINTD1))",
+        "Query2": "Insert into SmintData (SMINTD1,SMINTD2,SMINTD3) values (32766, -32766, 0)"
+      },
+      {
+        "NameCase": "NUMERIC",
+        "Query1": "Create table NumData (NUMD1 NUMERIC(10,5),NUMD2 NUMERIC(4,2),NUMD3 NUMERIC(8,4),Primary key(NUMD1))",
+        "Query2": "Insert into NumData(NUMD1,NUMD2,NUMD3) values (128, -50, 19248)"
+      },
+      {
+        "NameCase": "VARCHAR2",
+        "Query1": "Create table Var2Data (VAR21 VARCHAR2(10),Primary key(VAR21))",
+        "Query2": "Insert into Var2Data(VAR21) values ('ghahdha')"
+      }
+    ]
+  }
+}
