@@ -12,6 +12,7 @@ public class Tester {
             String str = (String) obj;
             System.out.println(str);
             if(str.contains("Name")){
+                exctres = 0;
                 str = str.replace("Name:","");
                 results.add("<tr><th colspan = 5>" + str + "</th></tr>");
             }
@@ -33,11 +34,12 @@ public class Tester {
                     results.add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>");
                     System.out.println("Запрос выполнен!");
                 } catch (SQLException throwables) {
-                    exctres = -1;
-                    System.out.println("Запрос не выполнен!");
-                    results.remove(results.size()-1);
-                    results.add("<td colspan = 3 align = right>" + "Failed" + "</td><td width = 50%>"+ throwables.getMessage() +"</td></tr>");
-                    //throwables.printStackTrace();//for debug
+                    if (exctres == 1 || exctres == 0){
+                        exctres = -1;
+                        System.out.println("Запрос не выполнен!");
+                        results.remove(results.size()-1);
+                        results.add("<td colspan = 3 align = right>" + "Failed" + "</td><td width = 50%>"+ throwables.getMessage() +"</td></tr>");
+                    }
                     System.out.println(throwables.getMessage());
                 }
             }
