@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Результат сравнения</title>
+</head>
+<body>
+	<table width = 1024px align = center border = 0>
+		<td align = center>
+			<h2>Отчет по сравнению СУБД H2 со стандартом SQL2011</h2>
+		</td>
+	</table>
+	<table width = 1024px align = center border = 1>
+		<tr><th colspan = 5> E-011 Numeric data types</th></tr><tr><td> E011-01 INTEGER and SMALLINT data types</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-02 REAL, DOUBLE PRECISION and FLOAT data types</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-03 DECIMAL and NUMERIC data types</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-04 Arithmetic operators</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Численное значение вне допустимого диапазона: "4294967294"
+Numeric value out of range: "4294967294"; SQL statement:
+ SELECT INTD1 - INTD2 FROM IntegerData 22003-200</td></tr></table></td></tr><tr><td> E011-05 Numeric comparison</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-06 Implicit casting among the numeric data types</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Синтаксическая ошибка в выражении SQL " CREATE TABLE IMPLICITCASTING (CHARD CHAR(3) DOUBLEP DOUBLE PRECISION(10*2)INTD INTEGERPRIMARY KEY(CHARD))"; ожидалось ")"
+Syntax error in SQL statement " CREATE TABLE IMPLICITCASTING (CHARD CHAR(3) DOUBLEP DOUBLE PRECISION(10*2)INTD INTEGERPRIMARY KEY(CHARD))"; expected ")"; SQL statement:
+ Create table ImplicitCasting (CHARD CHAR(3) DOUBLEP DOUBLE PRECISION(102)INTD INTEGERPrimary key(CHARD)) 42001-200</td></tr></table></td></tr><tr><th colspan = 5> E021 Character string types</th></tr><tr><td> E021-01 CHARACTER data type</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Шестнадцатиричная строка содержит нечетное количество символов: "a"
+Hexadecimal string with odd number of characters: "a"; SQL statement:
+ Insert into BinaryData (BINARYD) values ('a') 90003-200</td></tr></table></td></tr>
+	</table>
+</body>
+</html>

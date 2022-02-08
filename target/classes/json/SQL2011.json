@@ -1,0 +1,67 @@
+{
+  "Test1": {
+    "Name": "E-011 Numeric data types",
+    "Case": [
+      {
+        "NameCase": "E011-01 INTEGER and SMALLINT data types",
+        "Query1": "Create table IntegerData (INTD1 INTEGER,INTD2 INTEGER,INTD3 INTEGER,Primary key(INTD1))",
+        "Query2": "Insert into IntegerData (INTD1,INTD2,INTD3) values (2147483647, -2147483647, 0)",
+        "Query3": "Create table SmallintData (SMINTD1 SMALLINT,SMINTD2 SMALLINT,SMINTD3 SMALLINT,Primary key(SMINTD1))",
+        "Query4": "Insert into SmallintData (SMINTD1,SMINTD2,SMINTD3) values (32766, -32766, 0)"
+      },
+      {
+        "NameCase": "E011-02 REAL, DOUBLE PRECISION and FLOAT data types",
+        "Query1": "Create table RealData (REALD1 REAL(10),REALD2 REAL(4),REALD3 REAL(8),Primary key(REALD1))",
+        "Query2": "Insert into RealData (REALD1,REALD2,REALD3) values (-3.40*EXP(38), 3.40*EXP(38), 0)",
+        "Query3": "Create table DoubleData (DOUBLEP1 DOUBLE PRECISION,DOUBLEP2 DOUBLE PRECISION,DOUBLEP3 DOUBLE PRECISION,Primary key(DOUBLEP1))",
+        "Query4": "Insert into DoubleData (DOUBLEP1,DOUBLEP2,DOUBLEP3) values (-2.22*EXP(308), 2.22*EXP(308), 0)",
+        "Query5": "Create table FloatData (FLOAT1 FLOAT(10),FLOAT2 FLOAT(4),FLOAT3 FLOAT(8),Primary key(FLOAT1))",
+        "Query6": "Insert into FloatData (FLOAT1,FLOAT2,FLOAT3) values (-1.79*EXP(308), 1.79*EXP(308), 0)"
+      },
+      {
+        "NameCase": "E011-03 DECIMAL and NUMERIC data types",
+        "Query1": "Create table NumericData (NUMD1 NUMERIC(10,5),NUMD2 NUMERIC(4,2),NUMD3 NUMERIC(9,4),Primary key(NUMD1))",
+        "Query2": "Insert into NumericData (NUMD1,NUMD2,NUMD3) values (128, -50, 19248)",
+        "Query3": "Create table DecimalData (DEC1 DECIMAL(10,5),DEC2 DECIMAL(4,2),DEC3 DECIMAL(9,4),Primary key(DEC1))",
+        "Query4": "Insert into DecimalData (DEC1,DEC2,DEC3) values (128, -50, 19248)"
+      },
+      {
+        "NameCase": "E011-04 Arithmetic operators",
+        "Query1": "SELECT INTD1 + INTD2 FROM IntegerData",
+        "Query2": "SELECT INTD1 - INTD2 FROM IntegerData",
+        "Query3": "SELECT SMINTD2 * SMINTD1 FROM SmallintData",
+        "Query4": "SELECT SMINTD2 / SMINTD1 FROM SmallintData",
+        "Query5": "SELECT SMINTD1 % SMINTD1 FROM SmallintData"
+      },
+      {
+        "NameCase": "E011-05 Numeric comparison",
+        "Query1": "SELECT INTD1 > INTD2 FROM IntegerData",
+        "Query2": "SELECT SMINTD2 < SMINTD3 FROM SmallintData",
+        "Query3": "SELECT DEC1 = DEC1 FROM DecimalData",
+        "Query4": "SELECT DEC3 >= DEC2 FROM DecimalData",
+        "Query5": "SELECT NUMD1 <= NUMD3 FROM NumericData",
+        "Query6": "SELECT FLOAT1 <> FLOAT2 FROM FloatData"
+      },
+      {
+        "NameCase": "E011-06 Implicit casting among the numeric data types",
+        "Query1": "Create table ImplicitCasting (CHARD CHAR(3), DOUBLEP DOUBLE PRECISION(10,2),INTD INTEGER,Primary key(CHARD))",
+        "Query2": "SELECT CHARD + DOUBLEP FROM ImplicitCasting",
+        "Query3": "SELECT INTD * DOUBLEP FROM ImplicitCasting"
+      }
+    ]
+  },
+  "Test2": {
+    "Name": "E021 Character string types",
+    "Case": [
+      {
+        "NameCase": "E021-01 CHARACTER data type",
+        "Query1": "Create table CharData (CHARD CHAR(11),Primary key(CHARD))",
+        "Query2": "Insert into CharData (CHARD) values ('CharData')",
+        "Query3": "Create table VarCharData (VCAHRD VARCHAR(11),Primary key(VCAHRD))",
+        "Query4": "Insert into VarCharData (VCAHRD) values ('VarCharData')",
+        "Query5": "Create table BinaryData (BINARYD BINARY(3),Primary key(BINARYD))",
+        "Query6": "Insert into BinaryData (BINARYD) values ('a')"
+      }
+    ]
+  }
+}

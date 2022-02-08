@@ -24,11 +24,11 @@ public class Parser {
                 while (itr.hasNext()) {
                     JSONObject jsobj3 = (JSONObject) itr.next();
                     String namecase = (String) jsobj3.get("NameCase");
-                    System.out.println(namecase);
+                    //System.out.println(namecase);
                     testcase.add("Case: " + jsobj3.get("NameCase").toString());
                     for (int y = 1; y < jsobj3.size(); y++) {
                         String query = (String) jsobj3.get("Query"+(y));
-                        System.out.println(query);
+                        //System.out.println(query);
                         testcase.add("Query: " + jsobj3.get("Query"+(y)).toString());
                     }
                 }

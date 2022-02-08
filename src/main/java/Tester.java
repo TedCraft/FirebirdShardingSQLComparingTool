@@ -7,6 +7,7 @@ public class Tester {
     Html htmlgen = new Html();
     int exctres;
     public static ArrayList<String> results = new ArrayList<>();
+    public static ArrayList<String> errors = new ArrayList<>();
     public void testcheck(String sydb, Connection con){
         for (Object obj : Parser.testcase){
             String str = (String) obj;
@@ -18,6 +19,7 @@ public class Tester {
             }
             if(str.contains("Case:")){
                 exctres = 0;
+                errors.clear();
                 str = str.replace("Case:","");
                 results.add("<tr><td>"+str+"</td>");
             }
@@ -28,17 +30,20 @@ public class Tester {
                 Statement statement = null;
                 try {
                     statement = con.createStatement();
-                    statement.executeUpdate(str);
-                    exctres = 1;
-                    results.remove(results.size()-1);
-                    results.add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>");
-                    System.out.println("Запрос выполнен!");
+                    statement.execute(str);
+                    if (exctres == 1 || exctres == 0) {
+                        results.remove(results.size() - 1);
+                        results.add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>");
+                        System.out.println("Запрос выполнен!");
+                        exctres = 1;
+                    }
                 } catch (SQLException throwables) {
+                    errors.add("<table><tr><td>"+throwables.getMessage()+"</td></tr></table>");
                     if (exctres == 1 || exctres == 0){
-                        exctres = -1;
                         System.out.println("Запрос не выполнен!");
                         results.remove(results.size()-1);
-                        results.add("<td colspan = 3 align = right>" + "Failed" + "</td><td width = 50%>"+ throwables.getMessage() +"</td></tr>");
+                        results.add("<td colspan = 3 align = right>" + "Failed" + "</td><td width = 50%>"+ errors.toString().replace("[", "").replace("]","").replace(",","") +"</td></tr>");
+                        exctres = -1;
                     }
                     System.out.println(throwables.getMessage());
                 }
