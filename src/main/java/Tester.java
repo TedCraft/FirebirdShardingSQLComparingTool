@@ -34,9 +34,9 @@ public class Tester {
                     if (exctres == 1 || exctres == 0) {
                         results.remove(results.size() - 1);
                         results.add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>");
-                        System.out.println("Запрос выполнен!");
                         exctres = 1;
                     }
+                    System.out.println("Запрос выполнен!");
                 } catch (SQLException throwables) {
                     errors.add("<table><tr><td>"+throwables.getMessage()+"</td></tr></table>");
                     if (exctres == 1 || exctres == 0){

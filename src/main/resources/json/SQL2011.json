@@ -1,6 +1,6 @@
 {
   "Test1": {
-    "Name": "E-011 Numeric data types",
+    "Name": "E011 Numeric data types",
     "Case": [
       {
         "NameCase": "E011-01 INTEGER and SMALLINT data types",
@@ -11,12 +11,12 @@
       },
       {
         "NameCase": "E011-02 REAL, DOUBLE PRECISION and FLOAT data types",
-        "Query1": "Create table RealData (REALD1 REAL(10),REALD2 REAL(4),REALD3 REAL(8),Primary key(REALD1))",
+        "Query1": "Create table RealData (REALD1 REAL,REALD2 REAL,REALD3 REAL,Primary key(REALD1))",
         "Query2": "Insert into RealData (REALD1,REALD2,REALD3) values (-3.40*EXP(38), 3.40*EXP(38), 0)",
         "Query3": "Create table DoubleData (DOUBLEP1 DOUBLE PRECISION,DOUBLEP2 DOUBLE PRECISION,DOUBLEP3 DOUBLE PRECISION,Primary key(DOUBLEP1))",
         "Query4": "Insert into DoubleData (DOUBLEP1,DOUBLEP2,DOUBLEP3) values (-2.22*EXP(308), 2.22*EXP(308), 0)",
         "Query5": "Create table FloatData (FLOAT1 FLOAT(10),FLOAT2 FLOAT(4),FLOAT3 FLOAT(8),Primary key(FLOAT1))",
-        "Query6": "Insert into FloatData (FLOAT1,FLOAT2,FLOAT3) values (-1.79*EXP(308), 1.79*EXP(308), 0)"
+        "Query6": "Insert into FloatData (FLOAT1,FLOAT2,FLOAT3) values (543.23, 5434533453, 0)"
       },
       {
         "NameCase": "E011-03 DECIMAL and NUMERIC data types",
@@ -27,9 +27,9 @@
       },
       {
         "NameCase": "E011-04 Arithmetic operators",
-        "Query1": "SELECT INTD1 + INTD2 FROM IntegerData",
-        "Query2": "SELECT INTD1 - INTD2 FROM IntegerData",
-        "Query3": "SELECT SMINTD2 * SMINTD1 FROM SmallintData",
+        "Query1": "SELECT INTD2 + 1000 FROM IntegerData",
+        "Query2": "SELECT INTD1 - 1000 FROM IntegerData",
+        "Query3": "SELECT SMINTD2 * 1 FROM SmallintData",
         "Query4": "SELECT SMINTD2 / SMINTD1 FROM SmallintData",
         "Query5": "SELECT SMINTD1 % SMINTD1 FROM SmallintData"
       },
@@ -44,9 +44,10 @@
       },
       {
         "NameCase": "E011-06 Implicit casting among the numeric data types",
-        "Query1": "Create table ImplicitCasting (CHARD CHAR(3), DOUBLEP DOUBLE PRECISION(10,2),INTD INTEGER,Primary key(CHARD))",
-        "Query2": "SELECT CHARD + DOUBLEP FROM ImplicitCasting",
-        "Query3": "SELECT INTD * DOUBLEP FROM ImplicitCasting"
+        "Query1": "Create table ImplicitCastingNum (CHARD CHAR(3), DOUBLEP DOUBLE PRECISION,INTD INTEGER,Primary key(CHARD))",
+        "Query2": "Insert into ImplicitCastingNum (CHARD,DOUBLEP,INTD) values ('128', -50.23, 19248)",
+        "Query3": "SELECT CHARD + DOUBLEP FROM ImplicitCastingNum",
+        "Query4": "SELECT INTD * DOUBLEP FROM ImplicitCastingNum"
       }
     ]
   },
@@ -57,10 +58,68 @@
         "NameCase": "E021-01 CHARACTER data type",
         "Query1": "Create table CharData (CHARD CHAR(11),Primary key(CHARD))",
         "Query2": "Insert into CharData (CHARD) values ('CharData')",
-        "Query3": "Create table VarCharData (VCAHRD VARCHAR(11),Primary key(VCAHRD))",
-        "Query4": "Insert into VarCharData (VCAHRD) values ('VarCharData')",
-        "Query5": "Create table BinaryData (BINARYD BINARY(3),Primary key(BINARYD))",
-        "Query6": "Insert into BinaryData (BINARYD) values ('a')"
+        "Query3": "Create table CharacterData (CHARACTERD CHARACTER(22),Primary key(CHARACTERD))",
+        "Query4": "Insert into CharacterData (CHARACTERD) values ('CharacterData')"
+      },
+      {
+        "NameCase": "E021-02 CHARACTER VARYING data type",
+        "Query1": "Create table VarCharData (VCAHRD VARCHAR(11),Primary key(VCAHRD))",
+        "Query2": "Insert into VarCharData (VCAHRD) values ('VarCharData')",
+        "Query3": "Create table CharVaryingData (CHARVD CHARACTER VARYING(20),Primary key(CHARVD))",
+        "Query4": "Insert into CharVaryingData (CHARVD) values ('CharVaryingData')"
+      },
+      {
+        "NameCase": "E021-03 Character literals",
+        "Query1": "Select 'VCHARD VCHARD' from VarCharData",
+        "Query2": "Select 'CHARVD \n CHARVD' from CharVaryingData",
+        "Query3": "Select 'CHARD \\ CHARD' from CharData"
+      },
+      {
+        "NameCase": "E021-04 CHARACTER_LENGTH function",
+        "Query1": "SELECT CHARACTER_LENGTH(CHARVD) from CharVaryingData"
+      },
+      {
+        "NameCase": "E021-05 OCTET_LENGTH function",
+        "Query1": "SELECT OCTET_LENGTH(CHARVD) from CharVaryingData"
+      },
+      {
+        "NameCase": "E021-06 SUBSTRING function",
+        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD,1,1) as FirstSymbol, SUBSTRING(CHARVD,3,2) as ThirdAndFourthCharacters from CharVaryingData"
+      },
+      {
+        "NameCase": "E021-07 Character concatenation",
+        "Query1": "SELECT CHARACTERD + CHARACTERD from CharacterData"
+      },
+      {
+        "NameCase": "E021-08 UPPER and LOWER functions",
+        "Query1": "SELECT CHARACTERD,UPPER(CHARACTERD) as UpSymbol, LOWER(CHARACTERD) as LowSymbol from CharacterData"
+      },
+      {
+        "NameCase": "E021-09 TRIM function",
+        "Query1": "Create table TrimTest (TRTEST VARCHAR(11),Primary key(TRTEST))",
+        "Query2": "Insert into TrimTest (TRTEST) values ('.,! Test.')",
+        "Query3": "SELECT TRIM ('.,! ' from TRTEST) as ResTrimTest  from TrimTest"
+      },
+      {
+        "NameCase": "E021-10 Implicit casting among the fixed-length and variablelength character string types",
+        "Query1": "Create table ImplicitCastingChar (CHARD1 CHAR(35),CHARD2 CHAR,Primary key(CHARD1))",
+        "Query2": "Insert into ImplicitCastingChar (CHARD1,CHARD2) values ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa','1234567')",
+        "Query3": "SELECT CAST(CHARD1 as VARCHAR(30)) from ImplicitCastingChar",
+        "Query4": "SELECT CAST(CHARD2 as VARCHAR) from ImplicitCastingChar"
+      },
+      {
+        "NameCase": "E021-11 POSITION function",
+        "Query1": "Create table PositionTest (CHARD CHAR(10),Primary key(CHARD))",
+        "Query2": "Insert into PositionTest (CHARD) values ('P3SITION1')",
+        "Query3": "SELECT POSITION('3' IN CHARD) as PositionRes from PositionTest"
+      },
+      {
+        "NameCase": "E021-12 Character comparison",
+        "Query1": "Create table CharComparisonTest (CHARD1 CHAR(10),CHARD2 CHAR(15),CHARD3 CHAR(10), Primary key(CHARD1))",
+        "Query2": "Insert into CharComparisonTest (CHARD1,CHARD2,CHARD3) values ('String213','Str23','String213')",
+        "Query3": "SELECT CHARD1 LIKE CHARD3 from CharComparisonTest",
+        "Query4": "SELECT CHARD1 LIKE 'Str' from CharComparisonTest",
+        "Query5": "SELECT CHARD2 NOT LIKE '23' from CharComparisonTest"
       }
     ]
   }
