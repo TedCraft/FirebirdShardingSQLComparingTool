@@ -122,5 +122,69 @@
         "Query5": "SELECT CHARD2 NOT LIKE '23' from CharComparisonTest"
       }
     ]
+  },
+  "Test3": {
+    "Name": "E031 Identifiers",
+    "Case": [
+      {
+        "NameCase": "E031-01 Delimited identifiers",
+        "Query1": "SELECT \"CHARD1\" from CharComparisonTest"
+      },
+      {
+        "NameCase": "E031-02 Lower case identifiers",
+        "Query1": "SELECT chard1 from CharComparisonTest"
+      },
+      {
+        "NameCase": "E031-03 Trailing underscore",
+        "Query1": "Create table TrailingUnderscore_ (CHARD_ CHAR(10), Primary key(CHARD_))"
+      }
+    ]
+  },
+  "Test4": {
+    "Name": "E051 Basic query specification",
+    "Case": [
+      {
+        "NameCase": "E051-01 SELECT DISTINCT",
+        "Query1": "CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Country varchar(255),City varchar(255));",
+        "Query2": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query3": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query4": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query5": "SELECT DISTINCT * FROM Persons"
+      },
+      {
+        "NameCase": "E051-02 GROUP BY clause",
+        "Query1": "CREATE TABLE PersonsNew (PersonID int,LastName varchar(255),FirstName varchar(255),Country varchar(255),City varchar(255),Primary key(PersonID));",
+        "Query2": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query3": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (1,'Michail','Petrov','Russia','St.Pitersburg')",
+        "Query4": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (2,'Sergey','Vesylev','Russia','Vladivostok')",
+        "Query5": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (3,'Peter','Jacson','USA','New-York')",
+        "Query6": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (4,'Claus','Jorgingston','USA','Chicago')",
+        "Query7": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country;"
+      },
+      {
+        "NameCase": "E051-04 GROUP BY can contain columns not in <select list>",
+        "Query1": "SELECT COUNT(*) FROM PersonsNew GROUP BY Country;"
+      },
+      {
+        "NameCase": "E051-05 Select list items can be renamed",
+        "Query1": "SELECT PersonID AS PerID, LastName AS LN, City AS C FROM PersonsNew"
+      },
+      {
+        "NameCase": "E051-06 HAVING clause",
+        "Query1": "SELECT Country, COUNT(*) AS PersonCount from PersonsNew GROUP BY Country HAVING COUNT(*) > 2"
+      },
+      {
+        "NameCase": "E051-07 Qualified * in select list",
+        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country)"
+      },
+      {
+        "NameCase": "E051-08 Correlation names in the FROM clause",
+        "Query1": "SELECT * FROM (SELECT Country FROM PersonsNew GROUP BY Country) AS T1 where T1.Country = 'USA'"
+      },
+      {
+        "NameCase": "E051-09 Rename columns in the FROM clause",
+        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country) AS T1"
+      }
+    ]
   }
 }
