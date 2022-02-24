@@ -145,7 +145,7 @@
     "Case": [
       {
         "NameCase": "E051-01 SELECT DISTINCT",
-        "Query1": "CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Country varchar(255),City varchar(255));",
+        "Query1": "CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Country varchar(255),City varchar(255))",
         "Query2": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
         "Query3": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
         "Query4": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
@@ -184,6 +184,89 @@
       {
         "NameCase": "E051-09 Rename columns in the FROM clause",
         "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country) AS T1"
+      }
+    ]
+  },
+  "Test5": {
+    "Name": "E061 Basic predicates and search conditions",
+    "Case": [
+      {
+        "NameCase": "E061-01 Comparison predicate",
+        "Query1": "CREATE TABLE Computers (ID int ,Model varchar(255),SpeedCPU int,Ram int,HDD int,Price float,Primary key(ID));",
+        "Query2": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (0,'1084','500','2048','500',1200.90)",
+        "Query3": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (1,'1268','960','256','256',800.00)",
+        "Query4": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (2,'1190','2200','128','128',350.50)",
+        "Query5": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (3,'1260','340','4096','1024',900.00)",
+        "Query6": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (4,'1090','400','32','64',1100.00)",
+        "Query7": "SELECT * FROM Computers WHERE SpeedCPU >= 600 and Price < 1000"
+      },
+      {
+        "NameCase": "E061-02 BETWEEN predicate",
+        "Query1": "SELECT model, SpeedCPU FROM Computers WHERE Price BETWEEN 500 AND 900;"
+      },
+      {
+        "NameCase": "E061-03 IN predicate with list of values",
+        "Query1": "SELECT model, HDD FROM Computers WHERE HDD IN (128,500);"
+      },
+      {
+        "NameCase": "E061-04 LIKE predicate",
+        "Query1": "SELECT * FROM Computers WHERE Model LIKE '10%';"
+      },
+      {
+        "NameCase": "E061-05 LIKE predicate: ESCAPE clause",
+        "Query1": "CREATE TABLE Escapepred (Name varchar(25));",
+        "Query2": "Insert into Escapepred (Name) values ('Michaeil_')",
+        "Query3": "Insert into Escapepred (Name) values ('Ivan')",
+        "Query4": "Insert into Escapepred (Name) values ('Petr')",
+        "Query5": "Insert into Escapepred (Name) values ('_Fedor_')",
+        "Query6": "SELECT Name FROM Escapepred WHERE Name LIKE '%#_%' ESCAPE '#'"
+      },
+      {
+        "NameCase": "E061-06 NULL predicate",
+        "Query1": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (5,'1360','2600','4096',null,2000.00);",
+        "Query2": "SELECT * FROM Computers where HDD IS NULL",
+        "Query3": "SELECT * FROM Computers where HDD IS NOT NULL"
+      },
+      {
+        "NameCase": "E061-07 Quantified comparison predicate",
+        "Query1": "ALTER TABLE Computers ADD Namecompany Varchar(100)",
+        "Query2": "UPDATE Computers SET Namecompany = 'INTEL' WHERE Id IN (0,3)",
+        "Query3": "UPDATE Computers SET Namecompany = 'ASUS' WHERE Id IN (1,2)",
+        "Query4": "UPDATE Computers SET Namecompany = 'AMD' WHERE Id IN (4,5)",
+        "Query5": "CREATE TABLE Company (ID int, NameCompany Varchar(100), TypeProduct Varchar(20),Primary key(ID));",
+        "Query6": "Insert into Company (ID,NameCompany,TypeProduct) values (0,'INTEL','pc');",
+        "Query7": "Insert into Company (ID,NameCompany,TypeProduct) values (1,'AMD','pc');",
+        "Query8": "Insert into Company (ID,NameCompany,TypeProduct) values (2,'ASUS','pc');",
+        "Query9": "Insert into Company (ID,NameCompany,TypeProduct) values (3,'ASUS','laptop');",
+        "Query10": "Insert into Company (ID,NameCompany,TypeProduct) values (4,'DELL','pc');",
+        "Query11": "Insert into Company (ID,NameCompany,TypeProduct) values (5,'DELL','laptop');",
+        "Query12": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = ANY (SELECT NameCompany FROM Computers);",
+        "Query13": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = SOME (SELECT NameCompany FROM Computers);"
+      },
+      {
+        "NameCase": "E061-08 EXISTS predicate",
+        "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (6,'ASUS','printer');",
+        "Query2": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany);"
+      },
+      {
+        "NameCase": "E061-09 Subqueries in comparison predicate",
+        "Query1": "SELECT Model FROM Computers WHERE NameCompany = (SELECT NameCompany FROM Company WHERE NameCompany = 'ASUS' AND TypeProduct = 'pc');"
+      },
+      {
+        "NameCase": "E061-11 Subqueries in IN predicate",
+        "Query1": "SELECT Model FROM Computers WHERE SpeedCPU IN(SELECT SpeedCPU FROM Computers WHERE SpeedCPU IN (2600,960));"
+      },
+      {
+        "NameCase": "E061-12 Subqueries in quantified comparison predicate",
+        "Query1": "SELECT DISTINCT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NameCompany = (SELECT DISTINCT NameCompany FROM Company WHERE NOT NameCompany = ANY (SELECT NameCompany FROM Computers));"
+      },
+      {
+        "NameCase": "E061-13 Correlated subqueries",
+        "Query1": "SELECT Id, Model, NameCompany FROM Computers C1 WHERE SpeedCPU = (SELECT MAX(SpeedCPU) from Computers C2 where C1.Id = C2.Id);"
+      },
+      {
+        "NameCase": "E061-14 Search condition",
+        "Query1": "SELECT Model, Price FROM Computers WHERE SpeedCPU > 800 AND HDD < 512;"
       }
     ]
   }
