@@ -269,5 +269,49 @@
         "Query1": "SELECT Model, Price FROM Computers WHERE SpeedCPU > 800 AND HDD < 512;"
       }
     ]
+  },
+  "Test6": {
+    "Name": "E071 Basic query expressions",
+    "Case": [
+      {
+        "NameCase": "E071-01 UNION DISTINCT table operator",
+        "Query1": "CREATE TABLE Laptop (ID int ,Model varchar(255),SpeedCPU int,Ram int,HDD int,Price float, Namecompany varchar(100),Primary key(ID));",
+        "Query2": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (0,'5532','1500','2048','500',4200.90,'DELL')",
+        "Query3": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (1,'9245','360','256','256',2800.00,'ASUS')",
+        "Query4": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (2,'4503','1200','128','128',3350.50,'ASUS')",
+        "Query5": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (3,'5500','1340','4096','1024',1380.00,'DELL')",
+        "Query6": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (4,'9087','900','32','64',2500.00,'DELL')",
+        "Query7": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (5,'9083','900','32','128',2500.00,'DELL')",
+        "Query8": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop"
+      },
+      {
+        "NameCase": "E071-02 UNION ALL table operator",
+        "Query1": "SELECT Price FROM Computers UNION ALL SELECT Price FROM Laptop"
+      },
+      {
+        "NameCase": "E071-03 EXCEPT DISTINCT table operator",
+        "Query1": "SELECT Price FROM Laptop EXCEPT SELECT Price FROM Computers"
+      },
+      {
+        "NameCase": "E071-05 Columns combined via table operators need not have exactly the same data type",
+        "Query1": "SELECT Price FROM Laptop UNION SELECT Namecompany FROM Computers",
+        "Query2": "SELECT Price FROM Laptop UNION ALL SELECT Namecompany FROM Computers",
+        "Query3": "SELECT Price FROM Laptop EXCEPT SELECT Namecompany FROM Computers"
+      },
+      {
+        "NameCase": "E071-06 Table operators in subqueries",
+        "Query1": "SELECT distinct Namecompany FROM Company WHERE Namecompany = (SELECT Namecompany FROM Computers WHERE Price < 1000 UNION ALL SELECT Namecompany FROM Laptop WHERE Price < 2000)"
+      }
+    ]
+  },
+  "Test7": {
+    "Name": "E081 Basic Privileges",
+    "Case": [
+      {
+        "NameCase": "E081-01 SELECT privilege at the table level",
+        "Query1": "CREATE USER seluser PASSWORD 'seluser'",
+        "Query2": "GRANT SELECT ON Company to seluser"
+      }
+    ]
   }
 }

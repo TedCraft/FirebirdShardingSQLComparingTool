@@ -10,19 +10,139 @@
 <body>
 	<table width = 1024px align = center border = 0>
 		<td align = center>
-			<h2>Отчет по сравнению СУБД H2 со стандартом SQL2011</h2>
+			<h2>Отчет по сравнению СУБД FireBird со стандартом SQL2011 for Firebird 3</h2>
 		</td>
 	</table>
 	<table width = 1024px align = center border = 1>
-		<tr><th colspan = 5> E-011 Numeric data types</th></tr><tr><td> E011-01 INTEGER and SMALLINT data types</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-02 REAL, DOUBLE PRECISION and FLOAT data types</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Синтаксическая ошибка в выражении SQL " CREATE TABLE DOUBLEDATA (DOUBLEP1 DOUBLE PRECISION(8*4)DOUBLEP2 DOUBLE PRECISION(84)DOUBLEP3 DOUBLE PRECISION(84)PRIMARY KEY(DOUBLEP1))"; ожидалось ")"
-Syntax error in SQL statement " CREATE TABLE DOUBLEDATA (DOUBLEP1 DOUBLE PRECISION(8*4)DOUBLEP2 DOUBLE PRECISION(84)DOUBLEP3 DOUBLE PRECISION(84)PRIMARY KEY(DOUBLEP1))"; expected ")"; SQL statement:
- Create table DoubleData (DOUBLEP1 DOUBLE PRECISION(84)DOUBLEP2 DOUBLE PRECISION(84)DOUBLEP3 DOUBLE PRECISION(84)Primary key(DOUBLEP1)) 42001-200</td></tr></table></td></tr><tr><td> E011-03 DECIMAL and NUMERIC data types</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-04 Arithmetic operators</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Численное значение вне допустимого диапазона: "4294967294"
-Numeric value out of range: "4294967294"; SQL statement:
- SELECT INTD1 - INTD2 FROM IntegerData 22003-200</td></tr></table></td></tr><tr><td> E011-05 Numeric comparison</td><td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr><tr><td> E011-06 Implicit casting among the numeric data types</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Синтаксическая ошибка в выражении SQL " CREATE TABLE IMPLICITCASTING (CHARD CHAR(3) DOUBLEP DOUBLE PRECISION(10*2)INTD INTEGERPRIMARY KEY(CHARD))"; ожидалось ")"
-Syntax error in SQL statement " CREATE TABLE IMPLICITCASTING (CHARD CHAR(3) DOUBLEP DOUBLE PRECISION(10*2)INTD INTEGERPRIMARY KEY(CHARD))"; expected ")"; SQL statement:
- Create table ImplicitCasting (CHARD CHAR(3) DOUBLEP DOUBLE PRECISION(102)INTD INTEGERPrimary key(CHARD)) 42001-200</td></tr></table></td></tr><tr><th colspan = 5> E021 Character string types</th></tr><tr><td> E021-01 CHARACTER data type</td><td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Шестнадцатиричная строка содержит нечетное количество символов: "a"
-Hexadecimal string with odd number of characters: "a"; SQL statement:
- Insert into BinaryData (BINARYD) values ('a') 90003-200</td></tr></table></td></tr>
+		<tr><th colspan = 5> E011 Numeric data types</th></tr>
+<tr><td> E011-01 INTEGER and SMALLINT data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-02 REAL, DOUBLE PRECISION and FLOAT data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-03 DECIMAL and NUMERIC data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-04 Arithmetic operators</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-05 Numeric comparison</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-06 Implicit casting among the numeric data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E021 Character string types</th></tr>
+<tr><td> E021-01 CHARACTER data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-02 CHARACTER VARYING data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-03 Character literals</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-04 CHARACTER_LENGTH function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-05 OCTET_LENGTH function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-06 SUBSTRING function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-07 Character concatenation</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-08 UPPER and LOWER functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-09 TRIM function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-10 Implicit casting among the fixed-length and variablelength character string types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-11 POSITION function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-12 Character comparison</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E031 Identifiers</th></tr>
+<tr><td> E031-01 Delimited identifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E031-02 Lower case identifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E031-03 Trailing underscore</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E051 Basic query specification</th></tr>
+<tr><td> E051-01 SELECT DISTINCT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-02 GROUP BY clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-04 GROUP BY can contain columns not in <select list></td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-05 Select list items can be renamed</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-06 HAVING clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-07 Qualified * in select list</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-08 Correlation names in the FROM clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-09 Rename columns in the FROM clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E061 Basic predicates and search conditions</th></tr>
+<tr><td> E061-01 Comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-02 BETWEEN predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-03 IN predicate with list of values</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-04 LIKE predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-05 LIKE predicate: ESCAPE clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-06 NULL predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-07 Quantified comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-08 EXISTS predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-09 Subqueries in comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-11 Subqueries in IN predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-12 Subqueries in quantified comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-13 Correlated subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-14 Search condition</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E071 Basic query expressions</th></tr>
+<tr><td> E071-01 UNION DISTINCT table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-02 UNION ALL table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-03 EXCEPT DISTINCT table operator</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Dynamic SQL Error; SQL error code = -104; Token unknown - line 1 column 34; SELECT SQLState:42000 ISC error code:335544634</td></tr></table>
+</td></tr>
+<tr><td> E071-05 Columns combined via table operators need not have exactly the same data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-06 Table operators in subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E081 Basic Privileges</th></tr>
+<tr><td> E081-01 SELECT privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-02 DELETE privilege</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-03 INSERT privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-04 UPDATE privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-05 UPDATE privilege at the column level</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Dynamic SQL Error; SQL error code = -104; Token unknown - line 1 column 25; ( SQLState:42000 ISC error code:335544634</td></tr></table>
+</td></tr>
+<tr><td> E081-06 REFERENCES privilege at the table levell</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-07 REFERENCES privilege at the column level</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Dynamic SQL Error; SQL error code = -104; Token unknown - line 1 column 29; . SQLState:42000 ISC error code:335544634</td></tr></table>
+</td></tr>
+<tr><td> E081-08 WITH GRANT OPTION</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-08 WITH GRANT OPTION</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-09 USAGE privilege</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Dynamic SQL Error; SQL error code = -104; Token unknown - line 1 column 14; ON SQLState:42000 ISC error code:335544634</td></tr></table>
+</td></tr>
+<tr><td> E081-10 EXECUTE privilege</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>Dynamic SQL Error; SQL error code = -104; Token unknown - line 1 column 19; Company SQLState:42000 ISC error code:335544634</td></tr></table>
+</td></tr>
+
 	</table>
 </body>
 </html>

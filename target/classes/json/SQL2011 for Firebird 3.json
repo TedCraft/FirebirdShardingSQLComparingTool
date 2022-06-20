@@ -30,24 +30,22 @@
         "Query1": "SELECT INTD2 + 1000 FROM IntegerData",
         "Query2": "SELECT INTD1 - 1000 FROM IntegerData",
         "Query3": "SELECT SMINTD2 * 1 FROM SmallintData",
-        "Query4": "SELECT SMINTD2 / SMINTD1 FROM SmallintData",
-        "Query5": "SELECT SMINTD1 % SMINTD1 FROM SmallintData"
+        "Query4": "SELECT SMINTD2 / SMINTD1 FROM SmallintData"
       },
       {
         "NameCase": "E011-05 Numeric comparison",
-        "Query1": "SELECT INTD1 > INTD2 FROM IntegerData",
-        "Query2": "SELECT SMINTD2 < SMINTD3 FROM SmallintData",
-        "Query3": "SELECT DEC1 = DEC1 FROM DecimalData",
-        "Query4": "SELECT DEC3 >= DEC2 FROM DecimalData",
-        "Query5": "SELECT NUMD1 <= NUMD3 FROM NumericData",
-        "Query6": "SELECT FLOAT1 <> FLOAT2 FROM FloatData"
+        "Query1": "SELECT * FROM IntegerData WHERE INTD1 > INTD2",
+        "Query2": "SELECT * FROM SmallintData WHERE SMINTD2 < SMINTD3",
+        "Query3": "SELECT * FROM DecimalData WHERE DEC1 = DEC2",
+        "Query4": "SELECT * FROM DecimalData WHERE DEC3 >= DEC2",
+        "Query5": "SELECT * FROM NumericData WHERE NUMD1 <= NUMD3",
+        "Query6": "SELECT * FROM FloatData WHERE FLOAT1 <> FLOAT2"
       },
       {
         "NameCase": "E011-06 Implicit casting among the numeric data types",
         "Query1": "Create table ImplicitCastingNum (CHARD CHAR(3), DOUBLEP DOUBLE PRECISION,INTD INTEGER,Primary key(CHARD))",
         "Query2": "Insert into ImplicitCastingNum (CHARD,DOUBLEP,INTD) values ('128', -50.23, 19248)",
-        "Query3": "SELECT CHARD + DOUBLEP FROM ImplicitCastingNum",
-        "Query4": "SELECT INTD * DOUBLEP FROM ImplicitCastingNum"
+        "Query3": "SELECT INTD * DOUBLEP FROM ImplicitCastingNum"
       }
     ]
   },
@@ -84,11 +82,11 @@
       },
       {
         "NameCase": "E021-06 SUBSTRING function",
-        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD,1,1) as FirstSymbol, SUBSTRING(CHARVD,3,2) as ThirdAndFourthCharacters from CharVaryingData"
+        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from CharVaryingData"
       },
       {
         "NameCase": "E021-07 Character concatenation",
-        "Query1": "SELECT CHARACTERD + CHARACTERD from CharacterData"
+        "Query1": "SELECT CHARACTERD || CHARACTERD from CharacterData"
       },
       {
         "NameCase": "E021-08 UPPER and LOWER functions",
@@ -102,10 +100,10 @@
       },
       {
         "NameCase": "E021-10 Implicit casting among the fixed-length and variablelength character string types",
-        "Query1": "Create table ImplicitCastingChar (CHARD1 CHAR(35),CHARD2 CHAR,Primary key(CHARD1))",
-        "Query2": "Insert into ImplicitCastingChar (CHARD1,CHARD2) values ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa','1234567')",
+        "Query1": "Create table ImplicitCastingChar (CHARD1 CHAR(35),CHARD2 CHAR(10),Primary key(CHARD1))",
+        "Query2": "Insert into ImplicitCastingChar (CHARD1,CHARD2) values ('abcdefhgdg','1234567')",
         "Query3": "SELECT CAST(CHARD1 as VARCHAR(30)) from ImplicitCastingChar",
-        "Query4": "SELECT CAST(CHARD2 as VARCHAR) from ImplicitCastingChar"
+        "Query4": "SELECT CAST(CHARD2 as VARCHAR(30)) from ImplicitCastingChar"
       },
       {
         "NameCase": "E021-11 POSITION function",
@@ -117,9 +115,8 @@
         "NameCase": "E021-12 Character comparison",
         "Query1": "Create table CharComparisonTest (CHARD1 CHAR(10),CHARD2 CHAR(15),CHARD3 CHAR(10), Primary key(CHARD1))",
         "Query2": "Insert into CharComparisonTest (CHARD1,CHARD2,CHARD3) values ('String213','Str23','String213')",
-        "Query3": "SELECT CHARD1 LIKE CHARD3 from CharComparisonTest",
-        "Query4": "SELECT CHARD1 LIKE 'Str' from CharComparisonTest",
-        "Query5": "SELECT CHARD2 NOT LIKE '23' from CharComparisonTest"
+        "Query3": "SELECT * FROM CharComparisonTest WHERE CHARD1 LIKE 'Str%'",
+        "Query4": "SELECT * FROM CharComparisonTest WHERE CHARD2 NOT LIKE '23'"
       }
     ]
   },
@@ -295,12 +292,11 @@
       {
         "NameCase": "E071-05 Columns combined via table operators need not have exactly the same data type",
         "Query1": "SELECT Price FROM Laptop UNION SELECT Namecompany FROM Computers",
-        "Query2": "SELECT Price FROM Laptop UNION ALL SELECT Namecompany FROM Computers",
-        "Query3": "SELECT Price FROM Laptop EXCEPT SELECT Namecompany FROM Computers"
+        "Query2": "SELECT Price FROM Laptop UNION ALL SELECT Namecompany FROM Computers"
       },
       {
         "NameCase": "E071-06 Table operators in subqueries",
-        "Query1": "SELECT distinct Namecompany FROM Company WHERE Namecompany = (SELECT Namecompany FROM Computers WHERE Price < 1000 UNION ALL SELECT Namecompany FROM Laptop WHERE Price < 2000)"
+        "Query1": "SELECT distinct Namecompany FROM Company WHERE Namecompany in (SELECT Namecompany FROM Computers WHERE Price < 1000 UNION ALL SELECT Namecompany FROM Laptop WHERE Price < 2000)"
       }
     ]
   },
@@ -309,8 +305,69 @@
     "Case": [
       {
         "NameCase": "E081-01 SELECT privilege at the table level",
-        "Query1": "CREATE USER seluser PASSWORD 'seluser'",
-        "Query2": "GRANT SELECT ON Company to seluser"
+        "Query1": "CREATE USER selector1 PASSWORD '12345678'",
+        "Query2": "GRANT SELECT ON Company to selector1",
+        "Query3": "DROP USER selector1"
+      },
+      {
+        "NameCase": "E081-02 DELETE privilege",
+        "Query1": "CREATE USER deleter1 PASSWORD '12345678'",
+        "Query2": "GRANT DELETE ON Company to deleter1",
+        "Query3": "DROP USER deleter1"
+      },
+      {
+        "NameCase": "E081-03 INSERT privilege at the table level",
+        "Query1": "CREATE USER inserter1 PASSWORD '12345678'",
+        "Query2": "GRANT INSERT ON Company to inserter1",
+        "Query3": "DROP USER inserter1"
+      },
+      {
+        "NameCase": "E081-04 UPDATE privilege at the table level",
+        "Query1": "CREATE USER updtabler1 PASSWORD '12345678'",
+        "Query2": "GRANT UPDATE ON Company to updtabler1",
+        "Query3": "DROP USER updtabler1"
+      },
+      {
+        "NameCase": "E081-05 UPDATE privilege at the column level",
+        "Query1": "CREATE USER updcolumn1 PASSWORD '12345678'",
+        "Query2": "GRANT UPDATE (NameCompany) ON Company to updcolumn1",
+        "Query3": "DROP USER updcolumn1"
+      },
+      {
+        "NameCase": "E081-06 REFERENCES privilege at the table levell",
+        "Query1": "CREATE USER reftabler1 PASSWORD '12345678'",
+        "Query2": "GRANT REFERENCES ON Company to reftabler1",
+        "Query3": "DROP USER reftabler1"
+      },
+      {
+        "NameCase": "E081-07 REFERENCES privilege at the column level",
+        "Query1": "CREATE USER refcolumn1 PASSWORD '12345678'",
+        "Query2": "GRANT REFERENCES (NameCompany) ON Company to refcolumn1",
+        "Query3": "DROP USER refcolumn1"
+      },
+      {
+        "NameCase": "E081-08 WITH GRANT OPTION",
+        "Query1": "CREATE USER grantoptioner PASSWORD '12345678'",
+        "Query2": "GRANT INSERT ON Company  to grantoptioner",
+        "Query3": "DROP USER grantoptioner"
+      },
+      {
+        "NameCase": "E081-08 WITH GRANT OPTION",
+        "Query1": "CREATE USER grantoptioner PASSWORD '12345678'",
+        "Query2": "GRANT INSERT ON Company  to grantoptioner",
+        "Query3": "DROP USER grantoptioner"
+      },
+      {
+        "NameCase": "E081-09 USAGE privilege",
+        "Query1": "CREATE USER usager1 PASSWORD '12345678'",
+        "Query2": "GRANT USAGE ON Company  to usager1",
+        "Query3": "DROP USER usager1"
+      },
+      {
+        "NameCase": "E081-10 EXECUTE privilege",
+        "Query1": "CREATE USER executer1 PASSWORD '12345678'",
+        "Query2": "GRANT EXECUTE ON Company  to executer1",
+        "Query3": "DROP USER executer1"
       }
     ]
   }
