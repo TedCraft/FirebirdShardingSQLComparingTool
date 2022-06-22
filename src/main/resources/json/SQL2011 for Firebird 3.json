@@ -370,5 +370,105 @@
         "Query3": "DROP USER executer1"
       }
     ]
+  },
+  "Test8": {
+    "Name": "E091 Set functions",
+    "Case": [
+      {
+        "NameCase": "E091-01 AVG",
+        "Query1": "SELECT AVG(price) FROM Computers"
+      },
+      {
+        "NameCase": "E091-02 COUNT",
+        "Query1": "SELECT COUNT(id) FROM Computers"
+      },
+      {
+        "NameCase": "E091-03 MAX",
+        "Query1": "SELECT MAX(RAM) FROM Computers"
+      },
+      {
+        "NameCase": "E091-04 MIN",
+        "Query1": "SELECT MIN(HDD) FROM Computers"
+      },
+      {
+        "NameCase": "E091-05 SUM",
+        "Query1": "SELECT SUM(price) FROM Computers"
+      },
+      {
+        "NameCase": "E091-06 ALL",
+        "Query1": "SELECT ALL namecompany FROM Computers"
+      },
+      {
+        "NameCase": "E091-07 DISTINCT",
+        "Query1": "SELECT DISTINCT namecompany FROM Computers"
+      }
+    ]
+  },
+  "Test9": {
+    "Name": "E101 Basic data manipulation",
+    "Case": [
+      {
+        "NameCase": "E101-01 INSERT statement",
+        "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (7,'Apple','pc')"
+      },
+      {
+        "NameCase": "E101-03 Searched UPDATE statement",
+        "Query1": "UPDATE Computers SET price = 3000 WHERE speedcpu > 1000"
+      },
+      {
+        "NameCase": "E101-04 Searched DELETE statement",
+        "Query1": "DELETE FROM Company WHERE NameCompany = 'Apple'"
+      }
+    ]
+  },
+  "Test10": {
+    "Name": "E111 Single row SELECT statement",
+    "Case": [
+      {
+        "NameCase": "E101 Single row SELECT statement",
+        "Query1": "SELECT * FROM Computers WHERE id = 1"
+      }
+    ]
+  },
+  "Test11": {
+    "Name": "E121 Basic cursor support",
+    "Case": [
+      {
+        "NameCase": "E121-01 DECLARE CURSOR",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR for\n(select id, namecompany, typeproduct from company where typeproduct = 'pc');\nBEGIN\nend"
+      },
+      {
+        "NameCase": "E121-02 ORDER BY columns need not be in select list",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS2\nbefore update on Company\nAS\nDECLARE cursor2 CURSOR for\n(select id, namecompany from company order by typeproduct);\nbegin\nend"
+      },
+      {
+        "NameCase": "E121-03 Value expressions in ORDER BY clause",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS3\nbefore update on Company\nAS\nDECLARE cursor3 CURSOR for\n(select id, namecompany, typeproduct as type from company order by type);\nbegin\nend"
+      },
+      {
+        "NameCase": "E121-04 OPEN statement",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS4\nbefore update on Company\nAS\nDECLARE cursor4 CURSOR for\n(select id, namecompany from company order by namecompany desc);\nbegin\nopen cursor4;\nend"
+      },
+      {
+        "NameCase": "E121-06 Positioned UPDATE statement",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS5\nbefore update on Company\nAS\nDECLARE cursor5 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor5;\nupdate company set typeproduct = 'personal computer' where current of cursor5;\nend"
+      },
+      {
+        "NameCase": "E121-07 Positioned DELETE statement",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS6\nbefore update on Company\nAS\nDECLARE cursor6 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor6;\ndelete from company where current of cursor6;\nend"
+      },
+      {
+        "NameCase": "E121-08 CLOSE statement",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS7\nbefore update on Company\nAS\nDECLARE cursor7 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor7;\ndelete from company where current of cursor7;\nclose cursor7;\nend"
+      },
+      {
+        "NameCase": "E121-09 FETCH statement: implicit NEXT",
+        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY\nRETURNS (NAMECOM CHAR(30))\nAS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc');\nBEGIN\nOPEN curs1;\nWHILE (1=1) DO\nBEGIN\nFETCH curs1 INTO :NAMECOM;\nIF (ROW_COUNT = 0) THEN\nLEAVE;\nSUSPEND;\nEND\nCLOSE curs1;\nEND;"
+      },
+      {
+        "NameCase": "E121-17 WITH HOLD cursors",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR WITH HOLD for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor1;\nclose cursor1;\nend"
+      }
+    ]
   }
 }
