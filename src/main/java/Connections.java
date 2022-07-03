@@ -70,6 +70,7 @@ public class Connections {
             try{
                 Class.forName(DB_Driver);
                 Connection con = DriverManager.getConnection(DB_URL,DB_User,DB_Pass);
+                con.setAutoCommit(false);
                 System.out.println("Соединение с СУБД выполнено.");
                 tester.testcheck("FireBird",con);
                 con.close();

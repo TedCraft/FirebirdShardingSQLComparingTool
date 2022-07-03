@@ -4,48 +4,56 @@
     "Case": [
       {
         "NameCase": "E011-01 INTEGER and SMALLINT data types",
-        "Query1": "Create table IntegerData (INTD1 INTEGER,INTD2 INTEGER,INTD3 INTEGER,Primary key(INTD1))",
-        "Query2": "Insert into IntegerData (INTD1,INTD2,INTD3) values (2147483647, -2147483647, 0)",
-        "Query3": "Create table SmallintData (SMINTD1 SMALLINT,SMINTD2 SMALLINT,SMINTD3 SMALLINT,Primary key(SMINTD1))",
-        "Query4": "Insert into SmallintData (SMINTD1,SMINTD2,SMINTD3) values (32766, -32766, 0)"
+        "Query1": "Create table E011_011 (INTD1 INTEGER,INTD2 INTEGER,INTD3 INTEGER,Primary key(INTD1))",
+        "Query2": "Create table E011_012 (SMINTD1 SMALLINT,SMINTD2 SMALLINT,SMINTD3 SMALLINT,Primary key(SMINTD1))",
+        "Query3": "COMMIT",
+        "Query4": "Insert into E011_011 (INTD1,INTD2,INTD3) values (2147483647, -2147483647, 0)",
+        "Query5": "Insert into E011_012 (SMINTD1,SMINTD2,SMINTD3) values (32766, -32766, 0)",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E011-02 REAL, DOUBLE PRECISION and FLOAT data types",
-        "Query1": "Create table RealData (REALD1 REAL,REALD2 REAL,REALD3 REAL,Primary key(REALD1))",
-        "Query2": "Insert into RealData (REALD1,REALD2,REALD3) values (-3.40*EXP(38), 3.40*EXP(38), 0)",
-        "Query3": "Create table DoubleData (DOUBLEP1 DOUBLE PRECISION,DOUBLEP2 DOUBLE PRECISION,DOUBLEP3 DOUBLE PRECISION,Primary key(DOUBLEP1))",
-        "Query4": "Insert into DoubleData (DOUBLEP1,DOUBLEP2,DOUBLEP3) values (-2.22*EXP(308), 2.22*EXP(308), 0)",
-        "Query5": "Create table FloatData (FLOAT1 FLOAT(10),FLOAT2 FLOAT(4),FLOAT3 FLOAT(8),Primary key(FLOAT1))",
-        "Query6": "Insert into FloatData (FLOAT1,FLOAT2,FLOAT3) values (543.23, 5434533453, 0)"
+        "Query1": "Create table E011_021 (REALD1 REAL,REALD2 REAL,REALD3 REAL,Primary key(REALD1))",
+        "Query2": "Create table E011_022 (DOUBLEP1 DOUBLE PRECISION,DOUBLEP2 DOUBLE PRECISION,DOUBLEP3 DOUBLE PRECISION,Primary key(DOUBLEP1))",
+        "Query3": "Create table E011_023 (FLOAT1 FLOAT(10),FLOAT2 FLOAT(4),FLOAT3 FLOAT(8),Primary key(FLOAT1))",
+        "Query4": "COMMIT",
+        "Query5": "Insert into E011_021 (REALD1,REALD2,REALD3) values (-3.40*EXP(38), 3.40*EXP(38), 0)",
+        "Query6": "Insert into E011_022 (DOUBLEP1,DOUBLEP2,DOUBLEP3) values (-2.22*EXP(308), 2.22*EXP(308), 0)",
+        "Query7": "Insert into E011_023 (FLOAT1,FLOAT2,FLOAT3) values (543.23, 5434533453, 0)",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E011-03 DECIMAL and NUMERIC data types",
-        "Query1": "Create table NumericData (NUMD1 NUMERIC(10,5),NUMD2 NUMERIC(4,2),NUMD3 NUMERIC(9,4),Primary key(NUMD1))",
-        "Query2": "Insert into NumericData (NUMD1,NUMD2,NUMD3) values (128, -50, 19248)",
-        "Query3": "Create table DecimalData (DEC1 DECIMAL(10,5),DEC2 DECIMAL(4,2),DEC3 DECIMAL(9,4),Primary key(DEC1))",
-        "Query4": "Insert into DecimalData (DEC1,DEC2,DEC3) values (128, -50, 19248)"
+        "Query1": "Create table E011_031 (NUMD1 NUMERIC(10,5),NUMD2 NUMERIC(4,2),NUMD3 NUMERIC(9,4),Primary key(NUMD1))",
+        "Query2": "Create table E011_032 (DEC1 DECIMAL(10,5),DEC2 DECIMAL(4,2),DEC3 DECIMAL(9,4),Primary key(DEC1))",
+        "Query3": "COMMIT",
+        "Query4": "Insert into E011_031 (NUMD1,NUMD2,NUMD3) values (128, -50, 19248)",
+        "Query5": "Insert into E011_032 (DEC1,DEC2,DEC3) values (128, -50, 19248)",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E011-04 Arithmetic operators",
-        "Query1": "SELECT INTD2 + 1000 FROM IntegerData",
-        "Query2": "SELECT INTD1 - 1000 FROM IntegerData",
-        "Query3": "SELECT SMINTD2 * 1 FROM SmallintData",
-        "Query4": "SELECT SMINTD2 / SMINTD1 FROM SmallintData"
+        "Query1": "SELECT INTD2 + 1000 FROM E011_011",
+        "Query2": "SELECT INTD1 - 1000 FROM E011_011",
+        "Query3": "SELECT SMINTD2 * 1 FROM E011_012",
+        "Query4": "SELECT SMINTD2 / SMINTD1 FROM E011_012"
       },
       {
         "NameCase": "E011-05 Numeric comparison",
-        "Query1": "SELECT * FROM IntegerData WHERE INTD1 > INTD2",
-        "Query2": "SELECT * FROM SmallintData WHERE SMINTD2 < SMINTD3",
-        "Query3": "SELECT * FROM DecimalData WHERE DEC1 = DEC2",
-        "Query4": "SELECT * FROM DecimalData WHERE DEC3 >= DEC2",
-        "Query5": "SELECT * FROM NumericData WHERE NUMD1 <= NUMD3",
-        "Query6": "SELECT * FROM FloatData WHERE FLOAT1 <> FLOAT2"
+        "Query1": "SELECT * FROM E011_011 WHERE INTD1 > INTD2",
+        "Query2": "SELECT * FROM E011_012 WHERE SMINTD2 < SMINTD3",
+        "Query3": "SELECT * FROM E011_032 WHERE DEC1 = DEC2",
+        "Query4": "SELECT * FROM E011_032 WHERE DEC3 >= DEC2",
+        "Query5": "SELECT * FROM E011_031 WHERE NUMD1 <= NUMD3",
+        "Query6": "SELECT * FROM E011_023 WHERE FLOAT1 <> FLOAT2"
       },
       {
         "NameCase": "E011-06 Implicit casting among the numeric data types",
-        "Query1": "Create table ImplicitCastingNum (CHARD CHAR(3), DOUBLEP DOUBLE PRECISION,INTD INTEGER,Primary key(CHARD))",
-        "Query2": "Insert into ImplicitCastingNum (CHARD,DOUBLEP,INTD) values ('128', -50.23, 19248)",
-        "Query3": "SELECT INTD * DOUBLEP FROM ImplicitCastingNum"
+        "Query1": "Create table E011_06 (CHARD CHAR(3), DOUBLEP DOUBLE PRECISION,INTD INTEGER,Primary key(CHARD))",
+        "Query2": "COMMIT",
+        "Query3": "Insert into E011_06 (CHARD,DOUBLEP,INTD) values ('128', -50.23, 19248)",
+        "Query4": "COMMIT",
+        "Query5": "SELECT INTD * DOUBLEP FROM E011_06"
       }
     ]
   },
@@ -54,69 +62,81 @@
     "Case": [
       {
         "NameCase": "E021-01 CHARACTER data type",
-        "Query1": "Create table CharData (CHARD CHAR(11),Primary key(CHARD))",
-        "Query2": "Insert into CharData (CHARD) values ('CharData')",
-        "Query3": "Create table CharacterData (CHARACTERD CHARACTER(22),Primary key(CHARACTERD))",
-        "Query4": "Insert into CharacterData (CHARACTERD) values ('CharacterData')"
+        "Query1": "Create table E021_011 (CHARD CHAR(11),Primary key(CHARD))",
+        "Query2": "Create table E021_012 (CHARACTERD CHARACTER(22),Primary key(CHARACTERD))",
+        "Query3": "COMMIT",
+        "Query4": "Insert into E021_011 (CHARD) values ('CharData')",
+        "Query5": "Insert into E021_012 (CHARACTERD) values ('CharacterData')",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E021-02 CHARACTER VARYING data type",
-        "Query1": "Create table VarCharData (VCAHRD VARCHAR(11),Primary key(VCAHRD))",
-        "Query2": "Insert into VarCharData (VCAHRD) values ('VarCharData')",
-        "Query3": "Create table CharVaryingData (CHARVD CHARACTER VARYING(20),Primary key(CHARVD))",
-        "Query4": "Insert into CharVaryingData (CHARVD) values ('CharVaryingData')"
+        "Query1": "Create table E021_021 (VCAHRD VARCHAR(11),Primary key(VCAHRD))",
+        "Query2": "Create table E021_022 (CHARVD CHARACTER VARYING(20),Primary key(CHARVD))",
+        "Query3": "COMMIT",
+        "Query4": "Insert into E021_021 (VCAHRD) values ('VarCharData')",
+        "Query5": "Insert into E021_022 (CHARVD) values ('CharVaryingData')",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E021-03 Character literals",
-        "Query1": "Select 'VCHARD VCHARD' from VarCharData",
-        "Query2": "Select 'CHARVD \n CHARVD' from CharVaryingData",
-        "Query3": "Select 'CHARD \\ CHARD' from CharData"
+        "Query1": "Select 'VCHARD VCHARD' from E021_021",
+        "Query2": "Select 'CHARVD \n CHARVD' from E021_022",
+        "Query3": "Select 'CHARD \\ CHARD' from E021_011"
       },
       {
         "NameCase": "E021-04 CHARACTER_LENGTH function",
-        "Query1": "SELECT CHARACTER_LENGTH(CHARVD) from CharVaryingData"
+        "Query1": "SELECT CHARACTER_LENGTH(CHARVD) from E021_022"
       },
       {
         "NameCase": "E021-05 OCTET_LENGTH function",
-        "Query1": "SELECT OCTET_LENGTH(CHARVD) from CharVaryingData"
+        "Query1": "SELECT OCTET_LENGTH(CHARVD) from E021_022"
       },
       {
         "NameCase": "E021-06 SUBSTRING function",
-        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from CharVaryingData"
+        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from E021_022"
       },
       {
         "NameCase": "E021-07 Character concatenation",
-        "Query1": "SELECT CHARACTERD || CHARACTERD from CharacterData"
+        "Query1": "SELECT CHARACTERD || CHARACTERD from E021_012"
       },
       {
         "NameCase": "E021-08 UPPER and LOWER functions",
-        "Query1": "SELECT CHARACTERD,UPPER(CHARACTERD) as UpSymbol, LOWER(CHARACTERD) as LowSymbol from CharacterData"
+        "Query1": "SELECT CHARACTERD,UPPER(CHARACTERD) as UpSymbol, LOWER(CHARACTERD) as LowSymbol from E021_012"
       },
       {
         "NameCase": "E021-09 TRIM function",
-        "Query1": "Create table TrimTest (TRTEST VARCHAR(11),Primary key(TRTEST))",
-        "Query2": "Insert into TrimTest (TRTEST) values ('.,! Test.')",
-        "Query3": "SELECT TRIM ('.,! ' from TRTEST) as ResTrimTest  from TrimTest"
+        "Query1": "Create table E021_09 (TRTEST VARCHAR(11),Primary key(TRTEST))",
+        "Query2": "COMMIT",
+        "Query3": "Insert into E021_09 (TRTEST) values ('.,! Test.')",
+        "Query4": "COMMIT",
+        "Query5": "SELECT TRIM ('.,! ' from TRTEST) as ResTrimTest  from E021_09"
       },
       {
         "NameCase": "E021-10 Implicit casting among the fixed-length and variablelength character string types",
-        "Query1": "Create table ImplicitCastingChar (CHARD1 CHAR(35),CHARD2 CHAR(10),Primary key(CHARD1))",
-        "Query2": "Insert into ImplicitCastingChar (CHARD1,CHARD2) values ('abcdefhgdg','1234567')",
-        "Query3": "SELECT CAST(CHARD1 as VARCHAR(30)) from ImplicitCastingChar",
-        "Query4": "SELECT CAST(CHARD2 as VARCHAR(30)) from ImplicitCastingChar"
+        "Query1": "Create table E021_10 (CHARD1 CHAR(35),CHARD2 CHAR(10),Primary key(CHARD1))",
+        "Query2": "COMMIT",
+        "Query3": "Insert into E021_10 (CHARD1,CHARD2) values ('abcdefhgdg','1234567')",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CAST(CHARD1 as VARCHAR(30)) from E021_10",
+        "Query6": "SELECT CAST(CHARD2 as VARCHAR(30)) from E021_10"
       },
       {
         "NameCase": "E021-11 POSITION function",
-        "Query1": "Create table PositionTest (CHARD CHAR(10),Primary key(CHARD))",
-        "Query2": "Insert into PositionTest (CHARD) values ('P3SITION1')",
-        "Query3": "SELECT POSITION('3' IN CHARD) as PositionRes from PositionTest"
+        "Query1": "Create table E021_11 (CHARD CHAR(10),Primary key(CHARD))",
+        "Query2": "COMMIT",
+        "Query3": "Insert into E021_11 (CHARD) values ('P3SITION1')",
+        "Query4": "COMMIT",
+        "Query5": "SELECT POSITION('3' IN CHARD) as PositionRes from E021_11"
       },
       {
         "NameCase": "E021-12 Character comparison",
-        "Query1": "Create table CharComparisonTest (CHARD1 CHAR(10),CHARD2 CHAR(15),CHARD3 CHAR(10), Primary key(CHARD1))",
-        "Query2": "Insert into CharComparisonTest (CHARD1,CHARD2,CHARD3) values ('String213','Str23','String213')",
-        "Query3": "SELECT * FROM CharComparisonTest WHERE CHARD1 LIKE 'Str%'",
-        "Query4": "SELECT * FROM CharComparisonTest WHERE CHARD2 NOT LIKE '23'"
+        "Query1": "Create table E021_12 (CHARD1 CHAR(10),CHARD2 CHAR(15),CHARD3 CHAR(10), Primary key(CHARD1))",
+        "Query2": "COMMIT",
+        "Query3": "Insert into E021_12 (CHARD1,CHARD2,CHARD3) values ('String213','Str23','String213')",
+        "Query4": "COMMIT",
+        "Query5": "SELECT * FROM E021_12 WHERE CHARD1 LIKE 'Str%'",
+        "Query6": "SELECT * FROM E021_12 WHERE CHARD2 NOT LIKE '23'"
       }
     ]
   },
@@ -125,15 +145,16 @@
     "Case": [
       {
         "NameCase": "E031-01 Delimited identifiers",
-        "Query1": "SELECT \"CHARD1\" from CharComparisonTest"
+        "Query1": "SELECT \"CHARD1\" from E021_12"
       },
       {
         "NameCase": "E031-02 Lower case identifiers",
-        "Query1": "SELECT chard1 from CharComparisonTest"
+        "Query1": "SELECT chard1 from E021_12"
       },
       {
         "NameCase": "E031-03 Trailing underscore",
-        "Query1": "Create table TrailingUnderscore_ (CHARD_ CHAR(10), Primary key(CHARD_))"
+        "Query1": "Create table E031_03 (CHARD_ CHAR(10), Primary key(CHARD_))",
+        "Query2": "COMMIT"
       }
     ]
   },
@@ -143,23 +164,27 @@
       {
         "NameCase": "E051-01 SELECT DISTINCT",
         "Query1": "CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Country varchar(255),City varchar(255))",
-        "Query2": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query2": "COMMIT",
         "Query3": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
         "Query4": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
-        "Query5": "SELECT DISTINCT * FROM Persons"
+        "Query5": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query6": "COMMIT",
+        "Query7": "SELECT DISTINCT * FROM Persons"
       },
       {
         "NameCase": "E051-02 GROUP BY clause",
         "Query1": "CREATE TABLE PersonsNew (PersonID int,LastName varchar(255),FirstName varchar(255),Country varchar(255),City varchar(255),Primary key(PersonID));",
-        "Query2": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
-        "Query3": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (1,'Michail','Petrov','Russia','St.Pitersburg')",
-        "Query4": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (2,'Sergey','Vesylev','Russia','Vladivostok')",
-        "Query5": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (3,'Peter','Jacson','USA','New-York')",
-        "Query6": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (4,'Claus','Jorgingston','USA','Chicago')",
-        "Query7": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country;"
+        "Query2": "COMMIT",
+        "Query3": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
+        "Query4": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (1,'Michail','Petrov','Russia','St.Pitersburg')",
+        "Query5": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (2,'Sergey','Vesylev','Russia','Vladivostok')",
+        "Query6": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (3,'Peter','Jacson','USA','New-York')",
+        "Query7": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (4,'Claus','Jorgingston','USA','Chicago')",
+        "Query8": "COMMIT",
+        "Query9": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country;"
       },
       {
-        "NameCase": "E051-04 GROUP BY can contain columns not in <select list>",
+        "NameCase": "E051-04 GROUP BY can contain columns not in '<select list>'",
         "Query1": "SELECT COUNT(*) FROM PersonsNew GROUP BY Country;"
       },
       {
@@ -190,12 +215,14 @@
       {
         "NameCase": "E061-01 Comparison predicate",
         "Query1": "CREATE TABLE Computers (ID int ,Model varchar(255),SpeedCPU int,Ram int,HDD int,Price float,Primary key(ID));",
-        "Query2": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (0,'1084','500','2048','500',1200.90)",
-        "Query3": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (1,'1268','960','256','256',800.00)",
-        "Query4": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (2,'1190','2200','128','128',350.50)",
-        "Query5": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (3,'1260','340','4096','1024',900.00)",
-        "Query6": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (4,'1090','400','32','64',1100.00)",
-        "Query7": "SELECT * FROM Computers WHERE SpeedCPU >= 600 and Price < 1000"
+        "Query2": "COMMIT",
+        "Query3": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (0,'1084','500','2048','500',1200.90)",
+        "Query4": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (1,'1268','960','256','256',800.00)",
+        "Query5": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (2,'1190','2200','128','128',350.50)",
+        "Query6": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (3,'1260','340','4096','1024',900.00)",
+        "Query7": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (4,'1090','400','32','64',1100.00)",
+        "Query8": "COMMIT",
+        "Query9": "SELECT * FROM Computers WHERE SpeedCPU >= 600 and Price < 1000"
       },
       {
         "NameCase": "E061-02 BETWEEN predicate",
@@ -212,38 +239,46 @@
       {
         "NameCase": "E061-05 LIKE predicate: ESCAPE clause",
         "Query1": "CREATE TABLE Escapepred (Name varchar(25));",
-        "Query2": "Insert into Escapepred (Name) values ('Michaeil_')",
-        "Query3": "Insert into Escapepred (Name) values ('Ivan')",
-        "Query4": "Insert into Escapepred (Name) values ('Petr')",
-        "Query5": "Insert into Escapepred (Name) values ('_Fedor_')",
-        "Query6": "SELECT Name FROM Escapepred WHERE Name LIKE '%#_%' ESCAPE '#'"
+        "Query2": "COMMIT",
+        "Query3": "Insert into Escapepred (Name) values ('Michaeil_')",
+        "Query4": "Insert into Escapepred (Name) values ('Ivan')",
+        "Query5": "Insert into Escapepred (Name) values ('Petr')",
+        "Query6": "Insert into Escapepred (Name) values ('_Fedor_')",
+        "Query7": "COMMIT",
+        "Query8": "SELECT Name FROM Escapepred WHERE Name LIKE '%#_%' ESCAPE '#'"
       },
       {
         "NameCase": "E061-06 NULL predicate",
         "Query1": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (5,'1360','2600','4096',null,2000.00);",
-        "Query2": "SELECT * FROM Computers where HDD IS NULL",
-        "Query3": "SELECT * FROM Computers where HDD IS NOT NULL"
+        "Query2": "COMMIT",
+        "Query3": "SELECT * FROM Computers where HDD IS NULL",
+        "Query4": "SELECT * FROM Computers where HDD IS NOT NULL"
       },
       {
         "NameCase": "E061-07 Quantified comparison predicate",
         "Query1": "ALTER TABLE Computers ADD Namecompany Varchar(100)",
-        "Query2": "UPDATE Computers SET Namecompany = 'INTEL' WHERE Id IN (0,3)",
-        "Query3": "UPDATE Computers SET Namecompany = 'ASUS' WHERE Id IN (1,2)",
-        "Query4": "UPDATE Computers SET Namecompany = 'AMD' WHERE Id IN (4,5)",
-        "Query5": "CREATE TABLE Company (ID int, NameCompany Varchar(100), TypeProduct Varchar(20),Primary key(ID));",
-        "Query6": "Insert into Company (ID,NameCompany,TypeProduct) values (0,'INTEL','pc');",
-        "Query7": "Insert into Company (ID,NameCompany,TypeProduct) values (1,'AMD','pc');",
-        "Query8": "Insert into Company (ID,NameCompany,TypeProduct) values (2,'ASUS','pc');",
-        "Query9": "Insert into Company (ID,NameCompany,TypeProduct) values (3,'ASUS','laptop');",
-        "Query10": "Insert into Company (ID,NameCompany,TypeProduct) values (4,'DELL','pc');",
-        "Query11": "Insert into Company (ID,NameCompany,TypeProduct) values (5,'DELL','laptop');",
-        "Query12": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = ANY (SELECT NameCompany FROM Computers);",
-        "Query13": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = SOME (SELECT NameCompany FROM Computers);"
+        "Query2": "COMMIT",
+        "Query3": "UPDATE Computers SET Namecompany = 'INTEL' WHERE Id IN (0,3)",
+        "Query4": "UPDATE Computers SET Namecompany = 'ASUS' WHERE Id IN (1,2)",
+        "Query5": "UPDATE Computers SET Namecompany = 'AMD' WHERE Id IN (4,5)",
+        "Query6": "COMMIT",
+        "Query7": "CREATE TABLE Company (ID int, NameCompany Varchar(100), TypeProduct Varchar(20),Primary key(ID));",
+        "Query8": "COMMIT",
+        "Query9": "Insert into Company (ID,NameCompany,TypeProduct) values (0,'INTEL','pc');",
+        "Query10": "Insert into Company (ID,NameCompany,TypeProduct) values (1,'AMD','pc');",
+        "Query11": "Insert into Company (ID,NameCompany,TypeProduct) values (2,'ASUS','pc');",
+        "Query12": "Insert into Company (ID,NameCompany,TypeProduct) values (3,'ASUS','laptop');",
+        "Query13": "Insert into Company (ID,NameCompany,TypeProduct) values (4,'DELL','pc');",
+        "Query14": "Insert into Company (ID,NameCompany,TypeProduct) values (5,'DELL','laptop');",
+        "Query15": "COMMIT",
+        "Query16": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = ANY (SELECT NameCompany FROM Computers);",
+        "Query17": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = SOME (SELECT NameCompany FROM Computers);"
       },
       {
         "NameCase": "E061-08 EXISTS predicate",
         "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (6,'ASUS','printer');",
-        "Query2": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany);"
+        "Query2": "COMMIT",
+        "Query3": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany);"
       },
       {
         "NameCase": "E061-09 Subqueries in comparison predicate",
@@ -273,13 +308,15 @@
       {
         "NameCase": "E071-01 UNION DISTINCT table operator",
         "Query1": "CREATE TABLE Laptop (ID int ,Model varchar(255),SpeedCPU int,Ram int,HDD int,Price float, Namecompany varchar(100),Primary key(ID));",
-        "Query2": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (0,'5532','1500','2048','500',4200.90,'DELL')",
-        "Query3": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (1,'9245','360','256','256',2800.00,'ASUS')",
-        "Query4": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (2,'4503','1200','128','128',3350.50,'ASUS')",
-        "Query5": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (3,'5500','1340','4096','1024',1380.00,'DELL')",
-        "Query6": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (4,'9087','900','32','64',2500.00,'DELL')",
-        "Query7": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (5,'9083','900','32','128',2500.00,'DELL')",
-        "Query8": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop"
+        "Query2": "COMMIT",
+        "Query3": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (0,'5532','1500','2048','500',4200.90,'DELL')",
+        "Query4": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (1,'9245','360','256','256',2800.00,'ASUS')",
+        "Query5": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (2,'4503','1200','128','128',3350.50,'ASUS')",
+        "Query6": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (3,'5500','1340','4096','1024',1380.00,'DELL')",
+        "Query7": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (4,'9087','900','32','64',2500.00,'DELL')",
+        "Query8": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (5,'9083','900','32','128',2500.00,'DELL')",
+        "Query9": "COMMIT",
+        "Query10": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop"
       },
       {
         "NameCase": "E071-02 UNION ALL table operator",
@@ -305,69 +342,93 @@
     "Case": [
       {
         "NameCase": "E081-01 SELECT privilege at the table level",
-        "Query1": "CREATE USER selector1 PASSWORD '12345678'",
-        "Query2": "GRANT SELECT ON Company to selector1",
-        "Query3": "DROP USER selector1"
+        "Query1": "CREATE USER E081_01 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT SELECT ON Company to E081_01",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_01",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-02 DELETE privilege",
-        "Query1": "CREATE USER deleter1 PASSWORD '12345678'",
-        "Query2": "GRANT DELETE ON Company to deleter1",
-        "Query3": "DROP USER deleter1"
+        "Query1": "CREATE USER E081_02 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT DELETE ON Company to E081_02",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_02",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-03 INSERT privilege at the table level",
-        "Query1": "CREATE USER inserter1 PASSWORD '12345678'",
-        "Query2": "GRANT INSERT ON Company to inserter1",
-        "Query3": "DROP USER inserter1"
+        "Query1": "CREATE USER E081_03 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT INSERT ON Company to E081_03",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_03",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-04 UPDATE privilege at the table level",
-        "Query1": "CREATE USER updtabler1 PASSWORD '12345678'",
-        "Query2": "GRANT UPDATE ON Company to updtabler1",
-        "Query3": "DROP USER updtabler1"
+        "Query1": "CREATE USER E081_04 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT UPDATE ON Company to E081_04",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_04",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-05 UPDATE privilege at the column level",
-        "Query1": "CREATE USER updcolumn1 PASSWORD '12345678'",
-        "Query2": "GRANT UPDATE (NameCompany) ON Company to updcolumn1",
-        "Query3": "DROP USER updcolumn1"
+        "Query1": "CREATE USER E081_05 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT UPDATE (NameCompany) ON Company to E081_05",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_05",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-06 REFERENCES privilege at the table levell",
-        "Query1": "CREATE USER reftabler1 PASSWORD '12345678'",
-        "Query2": "GRANT REFERENCES ON Company to reftabler1",
-        "Query3": "DROP USER reftabler1"
+        "Query1": "CREATE USER E081_06 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT REFERENCES ON Company to E081_06",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_06",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-07 REFERENCES privilege at the column level",
-        "Query1": "CREATE USER refcolumn1 PASSWORD '12345678'",
-        "Query2": "GRANT REFERENCES (NameCompany) ON Company to refcolumn1",
-        "Query3": "DROP USER refcolumn1"
+        "Query1": "CREATE USER E081_07 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT REFERENCES (NameCompany) ON Company to E081_07",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_07",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-08 WITH GRANT OPTION",
-        "Query1": "CREATE USER grantoptioner PASSWORD '12345678'",
-        "Query2": "GRANT INSERT ON Company  to grantoptioner",
-        "Query3": "DROP USER grantoptioner"
-      },
-      {
-        "NameCase": "E081-08 WITH GRANT OPTION",
-        "Query1": "CREATE USER grantoptioner PASSWORD '12345678'",
-        "Query2": "GRANT INSERT ON Company  to grantoptioner",
-        "Query3": "DROP USER grantoptioner"
+        "Query1": "CREATE USER E081_08 PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT INSERT ON Company to E081_08",
+        "Query4": "COMMIT",
+        "Query5": "DROP USER E081_08",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E081-09 USAGE privilege",
-        "Query1": "CREATE USER usager1 PASSWORD '12345678'",
-        "Query2": "GRANT USAGE ON Company  to usager1",
-        "Query3": "DROP USER usager1"
+        "Query1": "CREATE ROLE E081_09",
+        "Query2": "CREATE SEQUENCE SEQE081_09",
+        "Query3": "COMMIT",
+        "Query4": "GRANT USAGE ON SEQUENCE SEQE081_09 TO ROLE E081_09",
+        "Query5": "COMMIT"
       },
       {
         "NameCase": "E081-10 EXECUTE privilege",
-        "Query1": "CREATE USER executer1 PASSWORD '12345678'",
-        "Query2": "GRANT EXECUTE ON Company  to executer1",
-        "Query3": "DROP USER executer1"
+        "Query1": "CREATE USER E081_10 PASSWORD '12345678'",
+        "Query2": "CREATE PROCEDURE PROCE081_10 AS BEGIN END",
+        "Query3": "COMMIT",
+        "Query4": "GRANT EXECUTE ON PROCEDURE PROCE081_10 to E081_10",
+        "Query5": "COMMIT",
+        "Query6": "DROP USER E081_10",
+        "Query7": "COMMIT"
       }
     ]
   },
@@ -409,15 +470,18 @@
     "Case": [
       {
         "NameCase": "E101-01 INSERT statement",
-        "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (7,'Apple','pc')"
+        "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (7,'Apple','pc')",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E101-03 Searched UPDATE statement",
-        "Query1": "UPDATE Computers SET price = 3000 WHERE speedcpu > 1000"
+        "Query1": "UPDATE Computers SET price = 3000 WHERE speedcpu > 1000",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E101-04 Searched DELETE statement",
-        "Query1": "DELETE FROM Company WHERE NameCompany = 'Apple'"
+        "Query1": "DELETE FROM Company WHERE NameCompany = 'Apple'",
+        "Query2": "COMMIT"
       }
     ]
   },
@@ -425,7 +489,7 @@
     "Name": "E111 Single row SELECT statement",
     "Case": [
       {
-        "NameCase": "E101 Single row SELECT statement",
+        "NameCase": "E111 Single row SELECT statement",
         "Query1": "SELECT * FROM Computers WHERE id = 1"
       }
     ]
@@ -435,39 +499,249 @@
     "Case": [
       {
         "NameCase": "E121-01 DECLARE CURSOR",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR for\n(select id, namecompany, typeproduct from company where typeproduct = 'pc');\nBEGIN\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR for\n(select id, namecompany, typeproduct from company where typeproduct = 'pc');\nBEGIN\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-02 ORDER BY columns need not be in select list",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS2\nbefore update on Company\nAS\nDECLARE cursor2 CURSOR for\n(select id, namecompany from company order by typeproduct);\nbegin\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS2\nbefore update on Company\nAS\nDECLARE cursor2 CURSOR for\n(select id, namecompany from company order by typeproduct);\nbegin\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-03 Value expressions in ORDER BY clause",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS3\nbefore update on Company\nAS\nDECLARE cursor3 CURSOR for\n(select id, namecompany, typeproduct as type from company order by type);\nbegin\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS3\nbefore update on Company\nAS\nDECLARE cursor3 CURSOR for\n(select id, namecompany, typeproduct as type from company order by type);\nbegin\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-04 OPEN statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS4\nbefore update on Company\nAS\nDECLARE cursor4 CURSOR for\n(select id, namecompany from company order by namecompany desc);\nbegin\nopen cursor4;\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS4\nbefore update on Company\nAS\nDECLARE cursor4 CURSOR for\n(select id, namecompany from company order by namecompany desc);\nbegin\nopen cursor4;\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-06 Positioned UPDATE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS5\nbefore update on Company\nAS\nDECLARE cursor5 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor5;\nupdate company set typeproduct = 'personal computer' where current of cursor5;\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS5\nbefore update on Company\nAS\nDECLARE cursor5 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor5;\nupdate company set typeproduct = 'personal computer' where current of cursor5;\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-07 Positioned DELETE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS6\nbefore update on Company\nAS\nDECLARE cursor6 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor6;\ndelete from company where current of cursor6;\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS6\nbefore update on Company\nAS\nDECLARE cursor6 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor6;\ndelete from company where current of cursor6;\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-08 CLOSE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS7\nbefore update on Company\nAS\nDECLARE cursor7 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor7;\ndelete from company where current of cursor7;\nclose cursor7;\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS7\nbefore update on Company\nAS\nDECLARE cursor7 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor7;\ndelete from company where current of cursor7;\nclose cursor7;\nend",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-09 FETCH statement: implicit NEXT",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY\nRETURNS (NAMECOM CHAR(30))\nAS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc');\nBEGIN\nOPEN curs1;\nWHILE (1=1) DO\nBEGIN\nFETCH curs1 INTO :NAMECOM;\nIF (ROW_COUNT = 0) THEN\nLEAVE;\nSUSPEND;\nEND\nCLOSE curs1;\nEND;"
+        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY\nRETURNS (NAMECOM CHAR(30))\nAS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc');\nBEGIN\nOPEN curs1;\nWHILE (1=1) DO\nBEGIN\nFETCH curs1 INTO :NAMECOM;\nIF (ROW_COUNT = 0) THEN\nLEAVE;\nSUSPEND;\nEND\nCLOSE curs1;\nEND;",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-17 WITH HOLD cursors",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR WITH HOLD for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor1;\nclose cursor1;\nend"
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR WITH HOLD for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor1;\nclose cursor1;\nend",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test12": {
+    "Name": "E131 Null value support (nulls in lieu of values)",
+    "Case": [
+      {
+        "NameCase": "E131 Null value support (nulls in lieu of values)",
+        "Query1": "CREATE TABLE E131 (ID int ,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E131 (ID,Chdata,Intdata,Datedata) values (0,null,null,null)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test13": {
+    "Name": "E141 Basic integrity constraints",
+    "Case": [
+      {
+        "NameCase": "E141-01 NOT NULL constraints",
+        "Query1": "CREATE TABLE E141_01 (ID int ,Chdata varchar(255) NOT NULL,Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E141_01 (ID,Chdata,Intdata,Datedata) values (0,null,null,null)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "E141-02 UNIQUE constraints of NOT NULL columns",
+        "Query1": "CREATE TABLE E141_02 (ID int NOT NULL UNIQUE ,Chdata varchar(255),Intdata int,Datedata DATE)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E141_02 (ID,Chdata,Intdata,Datedata) values (0,null,null,null)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "E141-03 PRIMARY KEY constraints",
+        "Query1": "CREATE TABLE E141_03 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E141_03 (ID,Chdata,Intdata,Datedata) values (0,null,null,null)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "E141-04 Basic FOREIGN KEY constraint\nwith the NO ACTION\ndefault for both referential\ndelete action and referential\nupdate action.",
+        "Query1": "CREATE TABLE E141_041 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE E141_042 (ID int,id_041 int, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_041) REFERENCES E141_041 (id))",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO E141_041 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',10,'24.06.2022')",
+        "Query6": "INSERT INTO E141_042 (ID,id_041,Chdata,Intdata,Datedata) values (0,0,'ROW1_1',101,'25.06.2022')",
+        "Query7": "COMMIT",
+        "Query8": "UPDATE E141_041 SET id = 0",
+        "Query9": "DELETE FROM E141_041 WHERE id = 0",
+        "Query10": "COMMIT"
+      },
+      {
+        "NameCase": "E141-06 CHECK constraints",
+        "Query1": "CREATE TABLE E141_06 (ID int,Chdata varchar(255),Intdata int CHECK (Intdata > 10),Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E141_06 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',9,'24.06.2022')",
+        "Query4": "INSERT INTO E141_06 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',11,'24.06.2022')",
+        "Query5": "COMMIT",
+        "Query6": "UPDATE E141_06 SET IntData = 4",
+        "Query7": "COMMIT"
+      },
+      {
+        "NameCase": "E141-07 Column defaults",
+        "Query1": "CREATE TABLE E141_07 (ID int,Chdata varchar(255) DEFAULT 'CharData',Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E141_07 (ID,Intdata,Datedata) values (0,9,'24.06.2022')",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "E141-08 NOT NULL inferred on PRIMARY KEY",
+        "Query1": "CREATE TABLE E141_08 (ID int UNIQUE ,Chdata varchar(255),Intdata int,Datedata DATE)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E141_08 (ID,Chdata,Intdata,Datedata) values (null,null,null,null)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "E141-10 Names in a foreign key can be specified in any order",
+        "Query1": "CREATE TABLE E141_101 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(IntData),Primary key(ID))",
+        "Query2": "CREATE TABLE E141_102 (ID int, Chdata varchar(255),Intdata int,Datedata DATE,id_141 int,Primary key(ID), Foreign key (id_041) REFERENCES E141_101 (id))",
+        "Query3": "COMMIT"
+      }
+    ]
+  },
+  "Test14": {
+    "Name": "E151 Transaction support",
+    "Case": [
+      {
+        "NameCase": "E151_01 COMMIT statement",
+        "Query1": "CREATE TABLE E151_01 (ID int ,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E151_01 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',151,'26.06.2022')",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "E151_02 ROLLBACK statement",
+        "Query1": "CREATE TABLE E151_02 (ID int ,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E151_02 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',151,'26.06.2022')",
+        "Query4": "ROLLBACK"
+      }
+    ]
+  },
+  "Test15": {
+    "Name": "E152 Basic SET TRANSACTION",
+    "Case": [
+      {
+        "NameCase": "E152_01 SET TRANSACTION statement:\nISOLATION LEVEL\nSERIALIZABLE clause",
+        "Query1": "CREATE TABLE E152_01 (ID int ,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO E152_01 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',151,'26.06.2022')",
+        "Query4": "COMMIT",
+        "Query5": "SET TRANSACTION SERIALIZABLE ISOLATION LEVEL SNAPSHOT TABLE STABILITY",
+        "Query6": "COMMIT"
+      },
+      {
+        "NameCase": "E152_02 SET TRANSACTION statement:\nREAD ONLY and\nREAD WRITE clauses",
+        "Query1": "SET TRANSACTION READ ONLY ISOLATION LEVEL SNAPSHOT TABLE STABILITY",
+        "Query2": "COMMIT",
+        "Query3": "SET TRANSACTION READ WRITE ISOLATION LEVEL SNAPSHOT TABLE STABILITY",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test16": {
+    "Name": "E153 Updatable queries with subqueries",
+    "Case": [
+      {
+        "NameCase": "E153 Updatable queries with subqueries",
+        "Query1": "CREATE TABLE AGENTS (AGENT_CODE CHAR(6) NOT NULL PRIMARY KEY,AGENT_NAME CHAR(40), WORKING_AREA CHAR(35), COMMISSION NUMERIC(10,2), PHONE_NO CHAR(15), COUNTRY VARCHAR(25))",
+        "Query2": "CREATE TABLE CUSTOMER (CUST_CODE VARCHAR(6) NOT NULL PRIMARY KEY, CUST_NAME VARCHAR(40) NOT NULL, CUST_CITY CHAR(35), WORKING_AREA VARCHAR(35) NOT NULL, CUST_COUNTRY VARCHAR(20) NOT NULL, GRADE NUMERIC, OPENING_AMT NUMERIC(12,2) NOT NULL, RECEIVE_AMT NUMERIC(12,2) NOT NULL, PAYMENT_AMT NUMERIC(12,2) NOT NULL, OUTSTANDING_AMT NUMERIC(12,2) NOT NULL, PHONE_NO VARCHAR(17) NOT NULL, AGENT_CODE CHAR(6) NOT NULL REFERENCES AGENTS)",
+        "Query3": "COMMIT",
+        "Query4": "INSERT INTO AGENTS VALUES ('A007', 'Ramasundar', 'Bangalore', '0.15', '077-25814763', '')",
+        "Query5": "INSERT INTO AGENTS VALUES ('A003', 'Alex ', 'London', '0.13', '075-12458969', '')",
+        "Query6": "INSERT INTO AGENTS VALUES ('A008', 'Alford', 'New York', '0.12', '044-25874365', '')",
+        "Query7": "INSERT INTO AGENTS VALUES ('A011', 'Ravi Kumar', 'Bangalore', '0.15', '077-45625874', '')",
+        "Query8": "INSERT INTO AGENTS VALUES ('A010', 'Santakumar', 'Chennai', '0.14', '007-22388644', '')",
+        "Query9": "INSERT INTO AGENTS VALUES ('A012', 'Lucida', 'San Jose', '0.12', '044-52981425', '')",
+        "Query10": "INSERT INTO AGENTS VALUES ('A005', 'Anderson', 'Brisban', '0.13', '045-21447739', '')",
+        "Query11": "INSERT INTO AGENTS VALUES ('A001', 'Subbarao', 'Bangalore', '0.14', '077-12346674', '')",
+        "Query12": "INSERT INTO AGENTS VALUES ('A002', 'Mukesh', 'Mumbai', '0.11', '029-12358964', '')",
+        "Query13": "INSERT INTO AGENTS VALUES ('A006', 'McDen', 'London', '0.15', '078-22255588', '')",
+        "Query14": "INSERT INTO AGENTS VALUES ('A004', 'Ivan', 'Torento', '0.15', '008-22544166', '')",
+        "Query15": "INSERT INTO AGENTS VALUES ('A009', 'Benjamin', 'Hampshair', '0.11', '008-22536178', '')",
+        "Query16": "INSERT INTO CUSTOMER VALUES ('C00013', 'Holmes', 'London', 'London', 'UK', '2', '6000.00', '5000.00', '7000.00', '4000.00', 'BBBBBBB', 'A003')",
+        "Query17": "INSERT INTO CUSTOMER VALUES ('C00001', 'Micheal', 'New York', 'New York', 'USA', '2', '3000.00', '5000.00', '2000.00', '6000.00', 'CCCCCCC', 'A008')",
+        "Query18": "INSERT INTO CUSTOMER VALUES ('C00020', 'Albert', 'New York', 'New York', 'USA', '3', '5000.00', '7000.00', '6000.00', '6000.00', 'BBBBSBB', 'A008')",
+        "Query19": "INSERT INTO CUSTOMER VALUES ('C00025', 'Ravindran', 'Bangalore', 'Bangalore', 'India', '2', '5000.00', '7000.00', '4000.00', '8000.00', 'AVAVAVA', 'A011')",
+        "Query20": "INSERT INTO CUSTOMER VALUES ('C00024', 'Cook', 'London', 'London', 'UK', '2', '4000.00', '9000.00', '7000.00', '6000.00', 'FSDDSDF', 'A006')",
+        "Query21": "INSERT INTO CUSTOMER VALUES ('C00015', 'Stuart', 'London', 'London', 'UK', '1', '6000.00', '8000.00', '3000.00', '11000.00', 'GFSGERS', 'A003')",
+        "Query22": "INSERT INTO CUSTOMER VALUES ('C00002', 'Bolt', 'New York', 'New York', 'USA', '3', '5000.00', '7000.00', '9000.00', '3000.00', 'DDNRDRH', 'A008')",
+        "Query23": "INSERT INTO CUSTOMER VALUES ('C00018', 'Fleming', 'Brisban', 'Brisban', 'Australia', '2', '7000.00', '7000.00', '9000.00', '5000.00', 'NHBGVFC', 'A005')",
+        "Query24": "INSERT INTO CUSTOMER VALUES ('C00021', 'Jacks', 'Brisban', 'Brisban', 'Australia', '1', '7000.00', '7000.00', '7000.00', '7000.00', 'WERTGDF', 'A005')",
+        "Query25": "INSERT INTO CUSTOMER VALUES ('C00019', 'Yearannaidu', 'Chennai', 'Chennai', 'India', '1', '8000.00', '7000.00', '7000.00', '8000.00', 'ZZZZBFV', 'A010')",
+        "Query26": "INSERT INTO CUSTOMER VALUES ('C00005', 'Sasikant', 'Mumbai', 'Mumbai', 'India', '1', '7000.00', '11000.00', '7000.00', '11000.00', '147-25896312', 'A002')",
+        "Query27": "INSERT INTO CUSTOMER VALUES ('C00007', 'Ramanathan', 'Chennai', 'Chennai', 'India', '1', '7000.00', '11000.00', '9000.00', '9000.00', 'GHRDWSD', 'A010')",
+        "Query28": "INSERT INTO CUSTOMER VALUES ('C00022', 'Avinash', 'Mumbai', 'Mumbai', 'India', '2', '7000.00', '11000.00', '9000.00', '9000.00', '113-12345678','A002')",
+        "Query29": "INSERT INTO CUSTOMER VALUES ('C00004', 'Winston', 'Brisban', 'Brisban', 'Australia', '1', '5000.00', '8000.00', '7000.00', '6000.00', 'AAAAAAA', 'A005')",
+        "Query30": "INSERT INTO CUSTOMER VALUES ('C00023', 'Karl', 'London', 'London', 'UK', '0', '4000.00', '6000.00', '7000.00', '3000.00', 'AAAABAA', 'A006')",
+        "Query31": "INSERT INTO CUSTOMER VALUES ('C00006', 'Shilton', 'Torento', 'Torento', 'Canada', '1', '10000.00', '7000.00', '6000.00', '11000.00', 'DDDDDDD', 'A004')",
+        "Query32": "INSERT INTO CUSTOMER VALUES ('C00010', 'Charles', 'Hampshair', 'Hampshair', 'UK', '3', '6000.00', '4000.00', '5000.00', '5000.00', 'MMMMMMM', 'A009')",
+        "Query33": "INSERT INTO CUSTOMER VALUES ('C00017', 'Srinivas', 'Bangalore', 'Bangalore', 'India', '2', '8000.00', '4000.00', '3000.00', '9000.00', 'AAAAAAB', 'A007')",
+        "Query34": "INSERT INTO CUSTOMER VALUES ('C00012', 'Steven', 'San Jose', 'San Jose', 'USA', '1', '5000.00', '7000.00', '9000.00', '3000.00', 'KRFYGJK', 'A012')",
+        "Query35": "INSERT INTO CUSTOMER VALUES ('C00008', 'Karolina', 'Torento', 'Torento', 'Canada', '1', '7000.00', '7000.00', '9000.00', '5000.00', 'HJKORED', 'A004')",
+        "Query36": "INSERT INTO CUSTOMER VALUES ('C00003', 'Martin', 'Torento', 'Torento', 'Canada', '2', '8000.00', '7000.00', '7000.00', '8000.00', 'MJYURFD', 'A004')",
+        "Query37": "INSERT INTO CUSTOMER VALUES ('C00009', 'Ramesh', 'Mumbai', 'Mumbai', 'India', '3', '8000.00', '7000.00', '3000.00', '12000.00', 'Phone No', 'A002')",
+        "Query38": "INSERT INTO CUSTOMER VALUES ('C00014', 'Rangarappa', 'Bangalore', 'Bangalore', 'India', '2', '8000.00', '11000.00', '7000.00', '12000.00', 'AAAATGF', 'A001')",
+        "Query39": "INSERT INTO CUSTOMER VALUES ('C00016', 'Venkatpati', 'Bangalore', 'Bangalore', 'India', '2', '8000.00', '11000.00', '7000.00', '12000.00', 'JRTVFDD', 'A007')",
+        "Query40": "INSERT INTO CUSTOMER VALUES ('C00011', 'Sundariya', 'Chennai', 'Chennai', 'India', '3', '7000.00', '11000.00', '7000.00', '11000.00', 'PPHGRTS', 'A010')",
+        "Query41": "COMMIT",
+        "Query42": "UPDATE Agents SET commission=commission+.02 WHERE 2>=(SELECT COUNT(cust_code) FROM Customer WHERE customer.agent_code=agents.agent_code)",
+        "Query43": "COMMIT"
+      }
+    ]
+  },
+  "Test17": {
+    "Name": "E161 SQL comments using leading double minus",
+    "Case": [
+      {
+        "NameCase": "E161 SQL comments using leading double minus",
+        "Query1": "SELECT Cust_code FROM Customer --Comments from query",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test18": {
+    "Name": "E171 SQLSTATE support",
+    "Case": [
+      {
+        "NameCase": "E171 SQLSTATE support",
+        "Query1": "UPDATE table_1 SET table_1_row_1 = 15 WHERE table_1_row_2 = 3",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test19": {
+    "Name": "E181 Host language binding",
+    "Case": [
+      {
+        "NameCase": "E181 Host language binding",
+        "Query1": "COMMIT"
       }
     ]
   }

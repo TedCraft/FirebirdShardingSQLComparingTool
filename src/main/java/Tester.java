@@ -30,7 +30,12 @@ public class Tester {
                 Statement statement = null;
                 try {
                     statement = con.createStatement();
-                    statement.execute(str);
+                    if (str.contains("COMMIT"))
+                        con.commit();
+                    else if (str.contains("ROLLBACK"))
+                        con.rollback();
+                    else
+                        statement.execute(str);
                     if (exctres == 1 || exctres == 0) {
                         results.remove(results.size() - 1);
                         results.add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>"+"\n");
