@@ -737,10 +737,257 @@
     ]
   },
   "Test19": {
-    "Name": "E181 Host language binding",
+    "Name": "E182 Host language binding",
     "Case": [
       {
-        "NameCase": "E181 Host language binding",
+        "NameCase": "E182 Host language binding",
+        "Query1": "COMMIT"
+      }
+    ]
+  },
+  "Test20": {
+    "Name": "F31 Basic schema manipulation",
+    "Case": [
+      {
+        "NameCase": "F31-01 CREATE TABLE statement to\ncreate persistent base tables",
+        "Query1": "CREATE TABLE F31_01 (ROW_ID INT NOT NULL PRIMARY KEY,ROW_NAME CHAR(40), ROW_AREA CHAR(35), ROW_NUM NUMERIC(10,2), ROW_CHAR CHAR(15), ROW_CHAR1 VARCHAR(25))",
+        "Query2": "COMMIT",
+        "Query3": "COMMENT ON TABLE F31_01 IS 'F31-01 CREATE TABLE statement'",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F31-02 CREATE VIEW statement",
+        "Query1": "CREATE VIEW F31_01_VIEW AS SELECT * FROM F31_01",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-03 GRANT statement",
+        "Query1": "GRANT SELECT, DELETE ON F31_01 TO E081_09 WITH GRANT OPTION",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-04 GRALTER TABLE statement:\nADD COLUMN clause",
+        "Query1": "ALTER TABLE F31_01 ADD NEW_COL VARCHAR(25)",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-13 DROP TABLE statement:\nRESTRICT clause",
+        "Query1": "DROP TABLE F31_01 RESTRICT",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-14 DROP VIEW statement:\nRESTRICT clause",
+        "Query1": "DROP VIEW F31_01_ RESTRICT",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-19 REVOKE statement:\nRESTRICT clause",
+        "Query1": "REVOKE SELECT ON F31_01 FROM E081_09 RESTRICT",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test21": {
+    "Name": "F041 Basic joined table",
+    "Case": [
+      {
+        "NameCase": "F041-01 Inner join (but not necessarily\nthe INNER keyword)",
+        "Query1": "SELECT a.agent_name, c.cust_name FROM customer c JOIN agents a ON a.agent_code = c.agent_code",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F041-02 INNER keyword",
+        "Query1": "CREATE TABLE A( A INT, B INT, C INT)",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE B( A INT, B INT, D INT)",
+        "Query4": "COMMIT",
+        "Query5": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD FROM A INNER JOIN B ON A.B <= B.B",
+        "Query6": "COMMIT"
+      },
+      {
+        "NameCase": "F041-03 LEFT OUTER JOIN",
+        "Query1": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A LEFT JOIN B ON A.B = B.B",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F041-04 RIGHT OUTER JOIN",
+        "Query1": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B = B.B",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F041-05 Outer joins can be nested",
+        "Query1": "SELECT a.agent_name, c.cust_name FROM customer c RIGHT JOIN (select * from agents where commission > 0.13) a ON a.agent_code = c.agent_code",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F041-07 Outer joins can be nested",
+        "Query1": "SELECT a.agent_name, c.cust_name FROM customer c RIGHT JOIN\n(select c.cust_name, a.agent_name, a.agent_code from customer c right join agents a ON a.agent_code = c.agent_code\nand a.commission > 0.13 where c.payment_amt > 5000) a\nON a.agent_code = c.agent_code",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F041-08 All comparison operators are\nsupported (rather than just =)",
+        "Query1": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B < B.B",
+        "Query2": "COMMIT",
+        "Query3": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B > B.B",
+        "Query4": "COMMIT",
+        "Query5": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B != B.B",
+        "Query6": "COMMIT",
+        "Query7": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B <= B.B",
+        "Query8": "COMMIT",
+        "Query9": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B => B.B",
+        "Query10": "COMMIT"
+      }
+    ]
+  },
+  "Test22": {
+    "Name": "F051 Basic date and time",
+    "Case": [
+      {
+        "NameCase": "F051-01 DATE data type (including\nsupport of DATE literal).",
+        "Query1": "CREATE TABLE F51_01 (ROW_ID INT NOT NULL,ROW_DATE1 DATE,ROW_DATE2 DATE,ROW_DATE3 DATE)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_01 VALUES ('0', '06.09.22',CURRENT_DATE,'09.12.99')",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F51_01 VALUES ('1', CURRENT_DATE,'11.05.02','14.09.13')",
+        "Query6": "COMMIT",
+        "Query7": "INSERT INTO F51_01 VALUES ('2', '01.01.00','13.06.23',CURRENT_DATE)",
+        "Query8": "COMMIT"
+      },
+      {
+        "NameCase": "F051-02 TIME data type (including\nsupport of TIME literal) with\nfractional seconds precision of\nat least 0.",
+        "Query1": "CREATE TABLE F51_02 (ROW_ID INT NOT NULL,ROW_TIME1 TIME,ROW_TIME2 TIME,ROW_TIME3 TIME)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_02 VALUES ('0', CURRENT_TIME,'23:11:00.00','14:32:00.00')",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F51_02 VALUES ('1', '16:54:11.12','13:59:32.14',CURRENT_TIME)",
+        "Query6": "COMMIT",
+        "Query7": "INSERT INTO F51_02 VALUES ('2', '08:12:00.13',CURRENT_TIME,'00:00:00.01')",
+        "Query8": "COMMIT"
+      },
+      {
+        "NameCase": "F051-03 TIMESTAMP data type\n(including support of TIMESTAMP\nliteral) with fractional\nseconds precision of at least 0\nand 6.",
+        "Query1": "CREATE TABLE F51_03 (ROW_ID INT NOT NULL,ROW_TIMESTAMP1 TIMESTAMP,ROW_TIMESTAMP2 TIMESTAMP,ROW_TIMESTAMP3 TIMESTAMP)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_03 VALUES ('0', CURRENT_TIMESTAMP,'12.12.12 00:15:01.03','14.03.17 19:15:01.00')",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F51_03 VALUES ('1', '03.03.85 00:32:12.03','01.01.99 00:15:01.03',CURRENT_TIMESTAMP)",
+        "Query6": "COMMIT",
+        "Query7": "INSERT INTO F51_03 VALUES ('2', '14.03.17 19:15:01.00',CURRENT_TIMESTAMP,'14.02.05 12:03:25.99')",
+        "Query8": "COMMIT"
+      },
+      {
+        "NameCase": "F051-04 Comparison predicate on\nDATE, TIME, and TIMESTAMP\ndata types.",
+        "Query1": "SELECT * FROM F51_01 WHERE ROW_DATE1 > ROW_DATE3",
+        "Query2": "COMMIT",
+        "Query3": "SELECT * FROM F51_01 WHERE ROW_DATE2 = ROW_DATE3",
+        "Query4": "COMMIT",
+        "Query5": "SELECT * FROM F51_01 WHERE ROW_DATE3 < ROW_DATE2",
+        "Query6": "COMMIT",
+        "Query7": "SELECT * FROM F51_02 WHERE ROW_TIME1 > ROW_TIME3",
+        "Query8": "COMMIT",
+        "Query9": "SELECT * FROM F51_02 WHERE ROW_TIME2 = ROW_TIME3",
+        "Query10": "COMMIT",
+        "Query11": "SELECT * FROM F51_02 WHERE ROW_TIME3 < ROW_TIME2",
+        "Query12": "COMMIT",
+        "Query13": "SELECT * FROM F51_03 WHERE ROW_TIMESTAMP1 > ROW_TIMESTAMP3",
+        "Query14": "COMMIT",
+        "Query15": "SELECT * FROM F51_03 WHERE ROW_TIMESTAMP2 = ROW_TIMESTAMP3",
+        "Query16": "COMMIT",
+        "Query17": "SELECT * FROM F51_03 WHERE ROW_TIMESTAMP3 < ROW_TIMESTAMP2",
+        "Query18": "COMMIT"
+      },
+      {
+        "NameCase": "F051-05 Explicit CAST between datetime\ntypes and character string\ntypes.",
+        "Query1": "CREATE TABLE F51_05 (ROW_ID INT NOT NULL,ROW_DATE1 CHAR(20),ROW_DATE2 DATE,ROW_DATE3 TIME,ROW_DATE4 TIMESTAMP)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_05 VALUES ('0', CAST(CURRENT_DATE as DATE),CAST('10.02.2022' as CHAR(10)),CAST(CURRENT_TIMESTAMP as TIME),CAST (CURRENT_DATE as TIMESTAMP))",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F051-06 CURRENT_DATE",
+        "Query1": "CREATE TABLE F51_06 (ROW_ID INT NOT NULL,ROW_DATE1 TIME,ROW_DATE2 DATE,ROW_DATE3 TIMESTAMP)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_06 VALUES ('0', CURRENT_TIME, CURRENT_DATE, CURRENT_TIMESTAMP)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F051-07 LOCALTIME",
+        "Query1": "CREATE TABLE F51_07 (ROW_ID INT NOT NULL,ROW_DATE1 TIME)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_07 VALUES ('0', LOCALTIME)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F051-08 LOCALTIME",
+        "Query1": "CREATE TABLE F51_08 (ROW_ID INT NOT NULL,ROW_DATE1 TIMESTAMP)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F51_08 VALUES ('0', LOCALTIMESTAMP)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test23": {
+    "Name": "F081 UNION and EXCEPT in\nviews",
+    "Case": [
+      {
+        "NameCase": "F081-01 UNION in views",
+        "Query1": "CREATE view F081_UNION (model,price)as select model,price from computers union select model,price from laptop",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F081-02 EXCEPT in views",
+        "Query1": "CREATE view F082_EXCEPT (model,price)as select model,price from computers except select model,price from laptop",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test24": {
+    "Name": "F131 UNION and EXCEPT in\nviews",
+    "Case": [
+      {
+        "NameCase": "F131-01 WHERE, GROUP BY, and\nHAVING clauses supported in\nqueries with grouped views",
+        "Query1": "CREATE view F131_01 (model,price,speedcpu,ram,hdd,namecompany)as select model,price,speedcpu,ram,hdd,namecompany from computers union select model,price,speedcpu,ram,hdd,namecompany from laptop",
+        "Query2": "COMMIT",
+        "Query3": "SELECT * FROM F131_01 WHERE price > 1000",
+        "Query4": "COMMIT",
+        "Query5": "SELECT COUNT(model), namecompany FROM F131_01 GROUP BY namecompany",
+        "Query6": "COMMIT",
+        "Query7": "SELECT namecompany FROM F131_01 WHERE price > 1000 GROUP BY namecompany HAVING COUNT(model) > 2",
+        "Query8": "COMMIT"
+      },
+      {
+        "NameCase": "F131-02 Multiple tables supported in\nqueries with grouped views",
+        "Query1": "CREATE view F131_02 (namecompany, typeproduct) as select namecompany, typeproduct from company",
+        "Query2": "COMMIT",
+        "Query3": "SELECT a.namecompany, b.typeproduct FROM F131_01 a, F131_02 b GROUP BY a.namecompany, b.typeproduct",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F131-03 Set functions supported in\nqueries with grouped views",
+        "Query1": "SELECT MAX(price) FROM F131_01",
+        "Query2": "COMMIT",
+        "Query3": "SELECT MIN(speedcpu) FROM F131_01",
+        "Query4": "COMMIT",
+        "Query5": "SELECT COUNT(model) FROM F131_01 WHERE namecompany = 'DELL'",
+        "Query6": "COMMIT"
+      },
+      {
+        "NameCase": "F131-04 Subqueries with GROUP BY\nand HAVING clauses and\ngrouped views",
+        "Query1": "SELECT namecompany FROM F131_01 WHERE price > 500 and model = (SELECT model FROM f131_01 WHERE price > 500 GROUP BY model HAVING COUNT(model) > 2)",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F131-05 Single row SELECT with\nGROUP BY and HAVING\nclauses and grouped views",
+        "Query1": "SELECT namecompany FROM F131_01 WHERE price > 1000 GROUP BY namecompany HAVING COUNT(model) > 3",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test25": {
+    "Name": "F181 Multiple module support",
+    "Case": [
+      {
+        "NameCase": "F181 Multiple module support",
         "Query1": "COMMIT"
       }
     ]

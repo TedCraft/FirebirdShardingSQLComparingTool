@@ -737,11 +737,72 @@
     ]
   },
   "Test19": {
-    "Name": "E181 Host language binding",
+    "Name": "E182 Host language binding",
     "Case": [
       {
-        "NameCase": "E181 Host language binding",
+        "NameCase": "E182 Host language binding",
         "Query1": "COMMIT"
+      }
+    ]
+  },
+  "Test20": {
+    "Name": "F31 Basic schema manipulation",
+    "Case": [
+      {
+        "NameCase": "F31-01 CREATE TABLE statement to\ncreate persistent base tables",
+        "Query1": "CREATE TABLE F31_01 (ROW_ID INT NOT NULL PRIMARY KEY,ROW_NAME CHAR(40), ROW_AREA CHAR(35), ROW_NUM NUMERIC(10,2), ROW_CHAR CHAR(15), ROW_CHAR1 VARCHAR(25))",
+        "Query2": "COMMIT",
+        "Query3": "COMMENT ON TABLE F31_01 IS 'F31-01 CREATE TABLE statement'",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F31-02 CREATE VIEW statement",
+        "Query1": "CREATE VIEW F31_01_VIEW AS SELECT * FROM F31_01",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-03 GRANT statement",
+        "Query1": "GRANT SELECT, DELETE ON F31_01 TO E081_09 WITH GRANT OPTION",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-04 GRALTER TABLE statement:\nADD COLUMN clause",
+        "Query1": "ALTER TABLE F31_01 ADD NEW_COL VARCHAR(25)",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-13 DROP TABLE statement:\nRESTRICT clause",
+        "Query1": "DROP TABLE F31_01 RESTRICT",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-14 DROP VIEW statement:\nRESTRICT clause",
+        "Query1": "DROP VIEW F31_01_ RESTRICT",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F31-19 REVOKE statement:\nRESTRICT clause",
+        "Query1": "REVOKE SELECT ON F31_01 FROM E081_09 RESTRICT",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test21": {
+    "Name": "F041 Basic joined table",
+    "Case": [
+      {
+        "NameCase": "F041-01 Inner join (but not necessarily\nthe INNER keyword)",
+        "Query1": "SELECT a.agent_name, c.cust_name FROM customer c JOIN agents a ON a.agent_code = c.agent_code",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F041-02 INNER keyword",
+        "Query1": "CREATE TABLE A( A INT, B INT, C INT)",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE B( A INT, B INT, D INT)",
+        "Query4": "COMMIT",
+        "Query5": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD FROM A INNER JOIN B ON A.B <= B.B",
+        "Query6": "COMMIT"
       }
     ]
   }
