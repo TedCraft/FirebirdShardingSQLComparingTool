@@ -834,7 +834,7 @@
         "Query6": "COMMIT",
         "Query7": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B <= B.B",
         "Query8": "COMMIT",
-        "Query9": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B => B.B",
+        "Query9": "SELECT A.A AS AA, A.B AS AB, A.C AS AC, B.A AS BA, B.B AS BB, B.D AS BD\nFROM A RIGHT JOIN B ON A.B >= B.B",
         "Query10": "COMMIT"
       }
     ]
@@ -987,8 +987,204 @@
     "Name": "F181 Multiple module support",
     "Case": [
       {
-        "NameCase": "F181 Multiple module support",
+        "NameCase": "F181 Multiple module support - not supported",
         "Query1": "COMMIT"
+      }
+    ]
+  },
+  "Test26": {
+    "Name": "F201 CAST function",
+    "Case": [
+      {
+        "NameCase": "F201 CAST function",
+        "Query1": "CREATE TABLE F201 (ROW_ID INT NOT NULL,ROW_NUM NUMERIC,ROW_CHAR CHARACTER(20),ROW_VCHAR CHARACTER VARYING(20),ROW_DATE DATE)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F201 VALUES ('0', CAST('123456' as NUMERIC),CAST('10.02.2022' as CHAR(20)),CAST(932323 as CHARACTER VARYING(20)),CAST ('10.05.20' as DATE))",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F201 VALUES ('1', CAST('3214' as NUMERIC),CAST(CURRENT_DATE as CHAR(20)),CAST(429422 as CHARACTER VARYING(20)),CAST ('10.05.20' as DATE))",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test27": {
+    "Name": "F221 Explicit defaults",
+    "Case": [
+      {
+        "NameCase": "F221 Explicit defaults",
+        "Query1": "CREATE TABLE F221 (ROW_ID INT NOT NULL,ROW_NUM NUMERIC,ROW_CHAR CHARACTER(20),ROW_VCHAR CHARACTER VARYING(20),ROW_DATE DATE)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F221 VALUES ('0', '123456','10.02.2022',932323,'10.05.20')",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test28": {
+    "Name": "F261 CASE expression",
+    "Case": [
+      {
+        "NameCase": "F261-01 Simple CASE",
+        "Query1": "CREATE TABLE F261_01 (ROW_ID INT NOT NULL,SALES_NUM NUMERIC,SALES_STATUS CHAR(20))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F261_01 VALUES ('0', 10101,'Open')",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F261_01 VALUES ('1', 10102,'Waiting')",
+        "Query6": "COMMIT",
+        "Query7": "INSERT INTO F261_01 VALUES ('2', 10203,'Closet')",
+        "Query8": "COMMIT",
+        "Query9": "INSERT INTO F261_01 VALUES ('3', 10105,'Shipped')",
+        "Query10": "COMMIT",
+        "Query11": "INSERT INTO F261_01 VALUES ('4', 10104,'Closet')",
+        "Query12": "COMMIT",
+        "Query13": "INSERT INTO F261_01 VALUES ('5', 10207,'Shipped')",
+        "Query14": "COMMIT",
+        "Query15": "INSERT INTO F261_01 VALUES ('6', 10301,'Open')",
+        "Query16": "COMMIT",
+        "Query17": "INSERT INTO F261_01 VALUES ('7', 10410,'Waiting')",
+        "Query18": "COMMIT",
+        "Query19": "INSERT INTO F261_01 VALUES ('8', null,'')",
+        "Query20": "COMMIT",
+        "Query21": "INSERT INTO F261_01 VALUES ('9', null,'')",
+        "Query22": "COMMIT",
+        "Query23": "SELECT f.sales_num,\n  CASE f.sales_status\n    WHEN 'Open' THEN 'открыт'\n    WHEN 'Waiting' THEN 'в ожидании'\n    WHEN 'Shipped' THEN 'отгруженный'\n    WHEN 'Closet' THEN 'закрытый'\n    ELSE 'ошибка определения!!'\n  END\n FROM F261_01 f",
+        "Query24": "COMMIT"
+      },
+      {
+        "NameCase": "F261-02 Searched CASE",
+        "Query1": "SELECT f.sales_num,\n  CASE\n    WHEN f.sales_status = 'Open' THEN 'открыт'\n    WHEN f.sales_status = 'Waiting' THEN 'в ожидании'\n    WHEN f.sales_status = 'Shipped' THEN 'отгруженный'\n    WHEN f.sales_status = 'Closet' THEN 'закрытый'\n    ELSE 'ошибка определения!!'\n  END\n FROM F261_01 f",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F261-03 NULLIF",
+        "Query1": "SELECT\n  NULLIF(1,1) A,\n  NULLIF(1,2) B,\n  NULLIF(NULL, NULL) C,\n  NULLIF(1, NULL) D,\n  NULLIF(NULL, 1) E\nFROM\n  RDB$DATABASE",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F261-04 COALESCE",
+        "Query1": "SELECT f.sales_num, COALESCE(f.sales_num,'не задан')\nFROM f261_01 f",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test29": {
+    "Name": "F311 Schema definition statement",
+    "Case": [
+      {
+        "NameCase": "F311-01 CREATE SCHEMA",
+        "Query1": "CREATE SCHEMA AUTHORIZATION oe\n   CREATE TABLE new_product \n      (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) \n   CREATE VIEW new_product_view \n      AS SELECT color, quantity FROM new_product WHERE color = 'RED' \n   GRANT select ON new_product_view TO hr",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F311-02 CREATE TABLE for persistent\nbase tables",
+        "Query1": "CREATE SCHEMA AUTHORIZATION oe\n   CREATE TABLE new_product \n      (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) \n   CREATE VIEW new_product_view \n      AS SELECT color, quantity FROM new_product WHERE color = 'RED' \n   GRANT select ON new_product_view TO hr",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F311-03 CREATE VIEW",
+        "Query1": "CREATE SCHEMA AUTHORIZATION oe\n   CREATE TABLE new_product \n      (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) \n   CREATE VIEW new_product_view \n      AS SELECT color, quantity FROM new_product WHERE color = 'RED' \n   GRANT select ON new_product_view TO hr",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F311-04 CREATE VIEW: WITH\nCHECK OPTION",
+        "Query1": "CREATE SCHEMA AUTHORIZATION oe\n   CREATE TABLE new_product \n      (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) \n   CREATE VIEW new_product_view \n      AS SELECT color, quantity FROM new_product WHERE color = 'RED' \n   GRANT select ON new_product_view TO hr",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F311-05 GRANT statement",
+        "Query1": "CREATE SCHEMA AUTHORIZATION oe\n   CREATE TABLE new_product \n      (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) \n   CREATE VIEW new_product_view \n      AS SELECT color, quantity FROM new_product WHERE color = 'RED' \n   GRANT select ON new_product_view TO hr",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test30": {
+    "Name": "F471 Scalar subquery values",
+    "Case": [
+      {
+        "NameCase": "F471 Scalar subquery values",
+        "Query1": "CREATE TABLE F481_1 (ROW_1 INT, ROW_2 INT)",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE F481_2 (ROW_1 INT, ROW_2 INT)",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F481_1 VALUES (13, 3)",
+        "Query6": "COMMIT",
+        "Query7": "INSERT INTO F481_1 VALUES (2, 8)",
+        "Query8": "COMMIT",
+        "Query9": "INSERT INTO F481_2 VALUES (0, 4)",
+        "Query10": "COMMIT",
+        "Query11": "INSERT INTO F481_2 VALUES (6, 18)",
+        "Query12": "COMMIT",
+        "Query13": "SELECT *\nFROM F481_1\nWHERE F481_1.ROW_1 > (SELECT MAX(F481_2.ROW_1) FROM F481_2 WHERE F481_2.ROW_2 < F481_1.ROW_2)",
+        "Query14": "COMMIT"
+      }
+    ]
+  },
+  "Test31": {
+    "Name": "F481 Expanded NULL predicate",
+    "Case": [
+      {
+        "NameCase": "F481 Expanded NULL predicate",
+        "Query1": "SELECT row_id FROM f261_01 WHERE sales_num is null",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test32": {
+    "Name": "F812 Basic flagging",
+    "Case": [
+      {
+        "NameCase": "F812 Basic flagging",
+        "Query1": "COMMIT"
+      }
+    ]
+  },
+  "Test33": {
+    "Name": "S011 Distinct data types",
+    "Case": [
+      {
+        "NameCase": "S011 Distinct data types",
+        "Query1": "CREATE TYPE compfoo AS (f1 int, f2 text)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test34": {
+    "Name": "T321 Basic SQL-invoked routines",
+    "Case": [
+      {
+        "NameCase": "T321-01 User-defined functions with no\noverloading",
+        "Query1": "CREATE FUNCTION ADD_INT(A INT, B INT DEFAULT 0) RETURNS INT AS BEGIN  RETURN A+B; END",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T321-02 User-defined stored procedures\nwith no overloading",
+        "Query1": "CREATE OR ALTER PROCEDURE SUMM (\n     A INTEGER,\n     B INTEGER\n  )\n  RETURNS(C INTEGER)\n  AS\n  BEGIN\n    c = a + b;\n    SUSPEND;\n  END",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T321-03 Function invocation",
+        "Query1": "SELECT rdb$get_context('SYSTEM', 'ENGINE_VERSION') FROM rdb$database",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T321-04 CALL statement",
+        "Query1": "EXECUTE PROCEDURE SUMM (10,10)",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T321-05 RETURN statement",
+        "Query1": "CREATE OR ALTER PROCEDURE SUMM1 (\n     A INTEGER,\n     B INTEGER\n  )\n  RETURNS(C INTEGER)\n  AS\n  BEGIN\n    c = a + b;\n    SUSPEND;\n  END",
+        "Query2": "COMMIT",
+        "Query3": "EXECUTE PROCEDURE SUMM1 (10,10)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test35": {
+    "Name": "T631 IN predicate with one list\nelement",
+    "Case": [
+      {
+        "NameCase": "T631 IN predicate with one list\nelement",
+        "Query1": "SELECT * FROM F261_01 WEHRE ROW_ID in (1)",
+        "Query2": "COMMIT"
       }
     ]
   }
