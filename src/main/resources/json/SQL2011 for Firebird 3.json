@@ -1161,7 +1161,7 @@
       },
       {
         "NameCase": "T321-03 Function invocation",
-        "Query1": "SELECT rdb$get_context('SYSTEM', 'ENGINE_VERSION') FROM rdb$database",
+        "Query1": "SELECT ADD_INT (10,10) FROM rdb$database",
         "Query2": "COMMIT"
       },
       {
@@ -1183,7 +1183,165 @@
     "Case": [
       {
         "NameCase": "T631 IN predicate with one list\nelement",
-        "Query1": "SELECT * FROM F261_01 WEHRE ROW_ID in (1)",
+        "Query1": "SELECT * FROM F261_01 WHERE ROW_ID in (1)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test36": {
+    "Name": "B128 Routine language SQL",
+    "Case": [
+      {
+        "NameCase": "B128 Routine language SQL",
+        "Query1": "SELECT f.sales_num,\n  CASE\n    WHEN f.sales_status = 'Open' THEN 'открыт'\n    WHEN f.sales_status = 'Waiting' THEN 'в ожидании'\n    WHEN f.sales_status = 'Shipped' THEN 'отгруженный'\n    WHEN f.sales_status = 'Closet' THEN 'закрытый'\n    ELSE 'ошибка определения!!'\n  END\n FROM F261_01 f",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test37": {
+    "Name": "F032 CASCADE drop behavior",
+    "Case": [
+      {
+        "NameCase": "F032 CASCADE drop behavior",
+        "Query1": "DROP TABLE AGENTS CASCADE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test38": {
+    "Name": "F033 ALTER TABLE statement: DROP COLUMN clause",
+    "Case": [
+      {
+        "NameCase": "F033 ALTER TABLE statement: DROP COLUMN clause",
+        "Query1": "CREATE TABLE F033 (ROW_1 INT, ROW_2 INT)",
+        "Query2": "COMMIT",
+        "Query3": "ALTER TABLE F033 DROP ROW_1",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test39": {
+    "Name": "F034 Extended REVOKE statement",
+    "Case": [
+      {
+        "NameCase": "F034-01 REVOKE statement performed by other than the owner of a schema object",
+        "Query1": "REVOKE SELECT ON F31_01 FROM E081_09",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F034-02 REVOKE statement: GRANT OPTION FOR clause",
+        "Query1": "REVOKE GRANT OPTION FOR DELETE ON F31_01 FROM E081_09",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F034-03 REVOKE statement to revoke a privilege that the grantee has WITH GRANT\nOPTION",
+        "Query1": "GRANT SELECT, DELETE, UPDATE ON F31_01 TO E081_09 WITH GRANT OPTION",
+        "Query2": "COMMIT",
+        "Query3": "REVOKE GRANT OPTION FOR SELECT, DELETE, UPDATE ON F31_01 FROM E081_09",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test40": {
+    "Name": "F052 Intervals and datetime arithmetic",
+    "Case": [
+      {
+        "NameCase": "F052-01 Intervals arithmetic",
+        "Query1": "SELECT ROW_DATE2 + INTERVAL 1 DAY as new_date FROM f51_06",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F052-02 datetime arithmetic",
+        "Query1": "SELECT ROW_DATE2 + 30 as new_date FROM f51_06",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test41": {
+    "Name": "F053 OVERLAPS predicate",
+    "Case": [
+      {
+        "NameCase": "F053 OVERLAPS predicate",
+        "Query1": "CREATE TABLE F053 (ROW_ID INT NOT NULL,ROW_DATE1 TIMESTAMP,ROW_DATE2 TIMESTAMP)",
+        "Query2": "COMMIT",
+        "Query3": "SELECT ROW_ID\nFROM F053\nWHERE (ROW_DATE1, ROW_DATE2) OVERLAPS\n    (DATE '2000-01-15', DATE '2002-12-31')",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test42": {
+    "Name": "F054 TIMESTAMP in DATE type precedence list",
+    "Case": [
+      {
+        "NameCase": "F054 TIMESTAMP in DATE type precedence list",
+        "Query1": "CREATE TABLE F054 (ROW_ID INT NOT NULL,ROW_DATE1 DATE, ROW_DATE2 TIMESTAMP)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F054 VALUE (0,CURRENT_TIMESTAMP)"
+      }
+    ]
+  },
+  "Test43": {
+    "Name": "F111 Isolation levels other than SERIALIZABLE",
+    "Case": [
+      {
+        "NameCase": "F111-01 READ UNCOMMITTED isolation level",
+        "Query1": "COMMIT"
+      }
+    ]
+  },
+  "Test44": {
+    "Name": "F121 Basic diagnostics management",
+    "Case": [
+      {
+        "NameCase": "F121-01 GET DIAGNOSTICS statement",
+        "Query1": "SELECT MODEL FROM COMPUTERS WHERE PRICE > 1000",
+        "Query2": "COMMIT",
+        "Query3": "GET DIAGNOSTICS @p1 = NUMBER, @p2 = ROW_COUNT",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "F121-02 GET DIAGNOSTICS statement",
+        "Query1": "SET TRANSACTION READ ONLY WAIT ISOLATION LEVEL READ COMMITTED 12",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test45": {
+    "Name": "F122 Enhanced diagnostics management",
+    "Case": [
+      {
+        "NameCase": "F122 Enhanced diagnostics management",
+        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY1\nRETURNS (NAMECOM CHAR(30))\nAS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc');\nDECLARE msg CHAR(30);\nDECLARE code CHAR(5) DEFAULT '00000';\nDECLARE nrows INT;\nBEGIN\nGET DIAGNOSTICS CONDITION 1\ncode = RETURNED_SQLSTATE, msg = MESSAGE_TEXT;\nEND;\nBEGIN\nOPEN curs1;\nWHILE (1=1) DO\nBEGIN\nFETCH curs1 INTO :NAMECOM;\nGET DIAGNOSTICS nrows = ROW_COUNT;\nIF (ROW_COUNT = 0) THEN\nLEAVE;\nSUSPEND;\nEND\nCLOSE curs1;\nEND;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test46": {
+    "Name": "F123 All diagnostics",
+    "Case": [
+      {
+        "NameCase": "F123 All diagnostics",
+        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY2\nRETURNS (NAMECOM CHAR(30))\nAS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc');\nDECLARE msg CHAR(30);\nDECLARE code CHAR(5) DEFAULT '00000';\nDECLARE nrows INT;\nBEGIN\nGET DIAGNOSTICS CONDITION 1\ncode = RETURNED_SQLSTATE, msg = MESSAGE_TEXT;\nEND;\nBEGIN\nOPEN curs1;\nWHILE (1=1) DO\nBEGIN\nFETCH curs1 INTO :NAMECOM;\nGET DIAGNOSTICS nrows = ROW_COUNT;\nIF (ROW_COUNT = 0) THEN\nLEAVE;\nSUSPEND;\nEND\nCLOSE curs1;\nEND;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test47": {
+    "Name": "F171 Multiple schemas per user",
+    "Case": [
+      {
+        "NameCase": "F171 Multiple schemas per user",
+        "Query1": "CREATE SCHEMA AUTHORIZATION oe\n   CREATE TABLE new_product \n      (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) \n   CREATE VIEW new_product_view \n      AS SELECT color, quantity FROM new_product WHERE color = 'RED' \n   GRANT select ON new_product_view TO hr",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test48": {
+    "Name": "F191 Referential delete actions",
+    "Case": [
+      {
+        "NameCase": "F191 Referential delete actions",
+        "Query1": "",
         "Query2": "COMMIT"
       }
     ]
