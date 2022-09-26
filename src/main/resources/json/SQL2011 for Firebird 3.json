@@ -847,33 +847,27 @@
         "Query1": "CREATE TABLE F51_01 (ROW_ID INT NOT NULL,ROW_DATE1 DATE,ROW_DATE2 DATE,ROW_DATE3 DATE)",
         "Query2": "COMMIT",
         "Query3": "INSERT INTO F51_01 VALUES ('0', '06.09.22',CURRENT_DATE,'09.12.99')",
-        "Query4": "COMMIT",
-        "Query5": "INSERT INTO F51_01 VALUES ('1', CURRENT_DATE,'11.05.02','14.09.13')",
-        "Query6": "COMMIT",
-        "Query7": "INSERT INTO F51_01 VALUES ('2', '01.01.00','13.06.23',CURRENT_DATE)",
-        "Query8": "COMMIT"
+        "Query4": "INSERT INTO F51_01 VALUES ('1', CURRENT_DATE,'11.05.02','14.09.13')",
+        "Query5": "INSERT INTO F51_01 VALUES ('2', '01.01.00','13.06.23',CURRENT_DATE)",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "F051-02 TIME data type (including\nsupport of TIME literal) with\nfractional seconds precision of\nat least 0.",
         "Query1": "CREATE TABLE F51_02 (ROW_ID INT NOT NULL,ROW_TIME1 TIME,ROW_TIME2 TIME,ROW_TIME3 TIME)",
         "Query2": "COMMIT",
         "Query3": "INSERT INTO F51_02 VALUES ('0', CURRENT_TIME,'23:11:00.00','14:32:00.00')",
-        "Query4": "COMMIT",
-        "Query5": "INSERT INTO F51_02 VALUES ('1', '16:54:11.12','13:59:32.14',CURRENT_TIME)",
-        "Query6": "COMMIT",
-        "Query7": "INSERT INTO F51_02 VALUES ('2', '08:12:00.13',CURRENT_TIME,'00:00:00.01')",
-        "Query8": "COMMIT"
+        "Query4": "INSERT INTO F51_02 VALUES ('1', '16:54:11.12','13:59:32.14',CURRENT_TIME)",
+        "Query5": "INSERT INTO F51_02 VALUES ('2', '08:12:00.13',CURRENT_TIME,'00:00:00.01')",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "F051-03 TIMESTAMP data type\n(including support of TIMESTAMP\nliteral) with fractional\nseconds precision of at least 0\nand 6.",
         "Query1": "CREATE TABLE F51_03 (ROW_ID INT NOT NULL,ROW_TIMESTAMP1 TIMESTAMP,ROW_TIMESTAMP2 TIMESTAMP,ROW_TIMESTAMP3 TIMESTAMP)",
         "Query2": "COMMIT",
         "Query3": "INSERT INTO F51_03 VALUES ('0', CURRENT_TIMESTAMP,'12.12.12 00:15:01.03','14.03.17 19:15:01.00')",
-        "Query4": "COMMIT",
-        "Query5": "INSERT INTO F51_03 VALUES ('1', '03.03.85 00:32:12.03','01.01.99 00:15:01.03',CURRENT_TIMESTAMP)",
-        "Query6": "COMMIT",
-        "Query7": "INSERT INTO F51_03 VALUES ('2', '14.03.17 19:15:01.00',CURRENT_TIMESTAMP,'14.02.05 12:03:25.99')",
-        "Query8": "COMMIT"
+        "Query4": "INSERT INTO F51_03 VALUES ('1', '03.03.85 00:32:12.03','01.01.99 00:15:01.03',CURRENT_TIMESTAMP)",
+        "Query5": "INSERT INTO F51_03 VALUES ('2', '14.03.17 19:15:01.00',CURRENT_TIMESTAMP,'14.02.05 12:03:25.99')",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "F051-04 Comparison predicate on\nDATE, TIME, and TIMESTAMP\ndata types.",
@@ -1000,9 +994,8 @@
         "Query1": "CREATE TABLE F201 (ROW_ID INT NOT NULL,ROW_NUM NUMERIC,ROW_CHAR CHARACTER(20),ROW_VCHAR CHARACTER VARYING(20),ROW_DATE DATE)",
         "Query2": "COMMIT",
         "Query3": "INSERT INTO F201 VALUES ('0', CAST('123456' as NUMERIC),CAST('10.02.2022' as CHAR(20)),CAST(932323 as CHARACTER VARYING(20)),CAST ('10.05.20' as DATE))",
-        "Query4": "COMMIT",
-        "Query5": "INSERT INTO F201 VALUES ('1', CAST('3214' as NUMERIC),CAST(CURRENT_DATE as CHAR(20)),CAST(429422 as CHARACTER VARYING(20)),CAST ('10.05.20' as DATE))",
-        "Query6": "COMMIT"
+        "Query4": "INSERT INTO F201 VALUES ('1', CAST('3214' as NUMERIC),CAST(CURRENT_DATE as CHAR(20)),CAST(429422 as CHARACTER VARYING(20)),CAST ('10.05.20' as DATE))",
+        "Query5": "COMMIT"
       }
     ]
   },
@@ -1026,27 +1019,18 @@
         "Query1": "CREATE TABLE F261_01 (ROW_ID INT NOT NULL,SALES_NUM NUMERIC,SALES_STATUS CHAR(20))",
         "Query2": "COMMIT",
         "Query3": "INSERT INTO F261_01 VALUES ('0', 10101,'Open')",
-        "Query4": "COMMIT",
-        "Query5": "INSERT INTO F261_01 VALUES ('1', 10102,'Waiting')",
-        "Query6": "COMMIT",
-        "Query7": "INSERT INTO F261_01 VALUES ('2', 10203,'Closet')",
-        "Query8": "COMMIT",
-        "Query9": "INSERT INTO F261_01 VALUES ('3', 10105,'Shipped')",
-        "Query10": "COMMIT",
-        "Query11": "INSERT INTO F261_01 VALUES ('4', 10104,'Closet')",
-        "Query12": "COMMIT",
-        "Query13": "INSERT INTO F261_01 VALUES ('5', 10207,'Shipped')",
-        "Query14": "COMMIT",
-        "Query15": "INSERT INTO F261_01 VALUES ('6', 10301,'Open')",
-        "Query16": "COMMIT",
-        "Query17": "INSERT INTO F261_01 VALUES ('7', 10410,'Waiting')",
-        "Query18": "COMMIT",
-        "Query19": "INSERT INTO F261_01 VALUES ('8', null,'')",
-        "Query20": "COMMIT",
-        "Query21": "INSERT INTO F261_01 VALUES ('9', null,'')",
-        "Query22": "COMMIT",
-        "Query23": "SELECT f.sales_num,\n  CASE f.sales_status\n    WHEN 'Open' THEN 'открыт'\n    WHEN 'Waiting' THEN 'в ожидании'\n    WHEN 'Shipped' THEN 'отгруженный'\n    WHEN 'Closet' THEN 'закрытый'\n    ELSE 'ошибка определения!!'\n  END\n FROM F261_01 f",
-        "Query24": "COMMIT"
+        "Query4": "INSERT INTO F261_01 VALUES ('1', 10102,'Waiting')",
+        "Query5": "INSERT INTO F261_01 VALUES ('2', 10203,'Closet')",
+        "Query6": "INSERT INTO F261_01 VALUES ('3', 10105,'Shipped')",
+        "Query7": "INSERT INTO F261_01 VALUES ('4', 10104,'Closet')",
+        "Query8": "INSERT INTO F261_01 VALUES ('5', 10207,'Shipped')",
+        "Query9": "INSERT INTO F261_01 VALUES ('6', 10301,'Open')",
+        "Query10": "INSERT INTO F261_01 VALUES ('7', 10410,'Waiting')",
+        "Query11": "INSERT INTO F261_01 VALUES ('8', null,'')",
+        "Query12": "INSERT INTO F261_01 VALUES ('9', null,'')",
+        "Query13": "COMMIT",
+        "Query14": "SELECT f.sales_num,\n  CASE f.sales_status\n    WHEN 'Open' THEN 'открыт'\n    WHEN 'Waiting' THEN 'в ожидании'\n    WHEN 'Shipped' THEN 'отгруженный'\n    WHEN 'Closet' THEN 'закрытый'\n    ELSE 'ошибка определения!!'\n  END\n FROM F261_01 f",
+        "Query15": "COMMIT"
       },
       {
         "NameCase": "F261-02 Searched CASE",
@@ -1105,15 +1089,12 @@
         "Query3": "CREATE TABLE F481_2 (ROW_1 INT, ROW_2 INT)",
         "Query4": "COMMIT",
         "Query5": "INSERT INTO F481_1 VALUES (13, 3)",
-        "Query6": "COMMIT",
-        "Query7": "INSERT INTO F481_1 VALUES (2, 8)",
-        "Query8": "COMMIT",
-        "Query9": "INSERT INTO F481_2 VALUES (0, 4)",
-        "Query10": "COMMIT",
-        "Query11": "INSERT INTO F481_2 VALUES (6, 18)",
-        "Query12": "COMMIT",
-        "Query13": "SELECT *\nFROM F481_1\nWHERE F481_1.ROW_1 > (SELECT MAX(F481_2.ROW_1) FROM F481_2 WHERE F481_2.ROW_2 < F481_1.ROW_2)",
-        "Query14": "COMMIT"
+        "Query6": "INSERT INTO F481_1 VALUES (2, 8)",
+        "Query7": "INSERT INTO F481_2 VALUES (0, 4)",
+        "Query8": "INSERT INTO F481_2 VALUES (6, 18)",
+        "Query9": "COMMIT",
+        "Query10": "SELECT *\nFROM F481_1\nWHERE F481_1.ROW_1 > (SELECT MAX(F481_2.ROW_1) FROM F481_2 WHERE F481_2.ROW_2 < F481_1.ROW_2)",
+        "Query11": "COMMIT"
       }
     ]
   },
@@ -1341,7 +1322,187 @@
     "Case": [
       {
         "NameCase": "F191 Referential delete actions",
-        "Query1": "",
+        "Query1": "ALTER TABLE CUSTOMER ADD FOREIGN KEY (AGENT_CODE) REFERENCES AGENTS (AGENT_CODE) ON DELETE CASCADE",
+        "Query2": "COMMIT",
+        "Query3": "DELETE FROM AGENTS WHERE AGENT_CODE = 'A010'",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test49": {
+    "Name": "F200 TRUNCATE TABLE statement",
+    "Case": [
+      {
+        "NameCase": "F200 TRUNCATE TABLE statement",
+        "Query1": "TRUNCATE TABLE AGENTS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test50": {
+    "Name": "F202 TRUNCATE TABLE: identity column restart option",
+    "Case": [
+      {
+        "NameCase": "F202 TRUNCATE TABLE: identity column restart option",
+        "Query1": "TRUNCATE TABLE AGENTS",
+        "Query2": "COMMIT",
+        "Query3": "ALTER TABLE AGENTS ALTER COLUMN AGENT_CODE RESTART",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test51": {
+    "Name": "F222 INSERT statement: DEFAULT VALUES clause",
+    "Case": [
+      {
+        "NameCase": "F222 INSERT statement: DEFAULT VALUES clause",
+        "Query1": "CREATE TABLE F222 (ROW_ID INT NOT NULL,ROW_DEF1 CHAR(20) DEFAULT 'DEFAULT1' NOT NULL, ROW_DEF2 CHAR(20) DEFAULT 'DEFAULT2' NOT NULL)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F222 (ROW_ID) VALUES (0)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test52": {
+    "Name": "F251 Domain support",
+    "Case": [
+      {
+        "NameCase": "F251 Domain support",
+        "Query1": "CREATE DOMAIN PONUMBER AS CHAR(8) CHARACTER SET NONE CHECK (VALUE STARTING WITH 'V') COLLATE NONE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test53": {
+    "Name": "F262 Extended CASE expression",
+    "Case": [
+      {
+        "NameCase": "F262 Extended CASE expression",
+        "Query1": "SELECT count(*),\nSUM(case when c.speedcpu > 2000 THEN 1 ELSE 0 END) as GamePC,\nSUM(case when c.speedcpu <= 2000 THEN 1 ELSE 0 END) as OfficePC\nFROM computers c",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test54": {
+    "Name": "F263 Comma-separated predicates in simple CASE expression",
+    "Case": [
+      {
+        "NameCase": "F263 Comma-separated predicates in simple CASE expression",
+        "Query1": "SELECT f.sales_num,\n  CASE f.sales_status\n    WHEN 'Open' THEN 'открыт',\n    WHEN 'Waiting' THEN 'в ожидании',\n    WHEN 'Shipped' THEN 'отгруженный',\n    WHEN 'Closet' THEN 'закрытый',\n    ELSE 'ошибка определения!!'\n  END\n FROM F261_01 f",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test55": {
+    "Name": "F271 Compound character literals",
+    "Case": [
+      {
+        "NameCase": "F271 Compound character literals",
+        "Query1": "SELECT 'Составной' || ' строковый' || ' литерал'\nFROM\n  RDB$DATABASE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test56": {
+    "Name": "F281 LIKE enhancements",
+    "Case": [
+      {
+        "NameCase": "F281 LIKE enhancements",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, WORKING_AREA FROM CUSTOMER where WORKING_AREA LIKE '%ondo%'",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test57": {
+    "Name": "F291 UNIQUE predicate",
+    "Case": [
+      {
+        "NameCase": "F291 UNIQUE predicate",
+        "Query1": "UNIQUE (SELECT CUST_NAME FROM CUSTOMER\nWHERE AGENT_CODE = 'A004')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test58": {
+    "Name": "F301 CORRESPONDING in query expressions",
+    "Case": [
+      {
+        "NameCase": "F301 CORRESPONDING in query expressions",
+        "Query1": "SELECT *\nFROM CUSTOMER\nUNION ALL CORRESPONDING\nSELECT *\nFROM AGENTS\nUNION ALL CORRESPONDING",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test59": {
+    "Name": "F302 INTERSECT table operator",
+    "Case": [
+      {
+        "NameCase": "F302-01 INTERSECT DISTINCT table operator",
+        "Query1": "SELECT agent_code\n  FROM agents\nINTERSECT DISTINCT\nSELECT agent_code\n  FROM customer",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "F302-02 INTERSECT ALL table operator",
+        "Query1": "SELECT agent_code\n  FROM agents\nINTERSECT ALL\nSELECT agent_code\n  FROM customer",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test60": {
+    "Name": "F304 EXCEPT ALL table operator",
+    "Case": [
+      {
+        "NameCase": "F304 EXCEPT ALL table operator",
+        "Query1": "CREATE TABLE F304_1 (V1 numeric);",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE F304_2 (V1 numeric);",
+        "Query4": "COMMIT",
+        "Query5": "INSERT INTO F304_1 VALUES (1);",
+        "Query6": "INSERT INTO F304_1 VALUES (2);",
+        "Query7": "INSERT INTO F304_1 VALUES (2);",
+        "Query8": "INSERT INTO F304_1 VALUES (2);",
+        "Query9": "INSERT INTO F304_1 VALUES (3);",
+        "Query10": "INSERT INTO F304_1 VALUES (4);",
+        "Query11": "INSERT INTO F304_1 VALUES (4);",
+        "Query12": "COMMIT",
+        "Query13": "INSERT INTO F304_2 VALUES (2);",
+        "Query14": "INSERT INTO F304_2 VALUES (3);",
+        "Query15": "INSERT INTO F304_2 VALUES (4);",
+        "Query16": "INSERT INTO F304_2 VALUES (4);",
+        "Query17": "INSERT INTO F304_2 VALUES (4);",
+        "Query18": "INSERT INTO F304_2 VALUES (5);",
+        "Query19": "COMMIT",
+        "Query20": "SELECT * FROM F304_1 EXCEPT SELECT * FROM F304_2",
+        "Query21": "COMMIT"
+      }
+    ]
+  },
+  "Test61": {
+    "Name": "F312 MERGE statement",
+    "Case": [
+      {
+        "NameCase": "F312 MERGE statement",
+        "Query1": "MERGE\n   INTO customer c\n   USING (SELECT * FROM agents WHERE commission > 0.15) cd\n   ON (c.agent_code = cd.agent_code)\n   WHEN MATCHED THEN\n    UPDATE SET\n     agent_code = cd.agent_code\n   WHEN NOT MATCHED THEN\n    INSERT (agent_code)\n     VALUES (cd.agent_code)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test62": {
+    "Name": "F313 Enhanced MERGE statement",
+    "Case": [
+      {
+        "NameCase": "F313 Enhanced MERGE statement",
+        "Query1": "MERGE\n   INTO customer c\n   USING (SELECT * FROM agents WHERE commission > 0.18) cd\n   ON (c.agent_code = cd.agent_code)\n   WHEN MATCHED THEN\n    UPDATE SET\n     agent_code = cd.agent_code\n   WHEN NOT MATCHED THEN\n    INSERT (agent_code)\n     VALUES (cd.agent_code)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test63": {
+    "Name": "F314 MERGE statement with DELETE branch",
+    "Case": [
+      {
+        "NameCase": "F314 MERGE statement with DELETE branch",
+        "Query1": "MERGE INTO CUSTOMER\nUSING (\n  SELECT AGENT_CODE\n  FROM AGENTS\n  WHERE AGENT_CODE = 'A006') AG\nON CUSTOMER.AGENT_CODE = AG.AGENT_CODE\nWHEN MATCHED THEN DELETE",
         "Query2": "COMMIT"
       }
     ]
