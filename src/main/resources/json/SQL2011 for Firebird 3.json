@@ -2072,5 +2072,281 @@
         "Query2": "COMMIT"
       }
     ]
+  },
+  "Test109": {
+    "Name": "F821 Local table references",
+    "Case": [
+      {
+        "NameCase": "F801 Full set function",
+        "Query1": "CREATE TABLE #TestTable (id INT PRIMARY KEY)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test110": {
+    "Name": "F831 Full cursor update",
+    "Case": [
+      {
+        "NameCase": "F831-01 Updateable scrollable cursors",
+        "Query1": "CREATE TABLE F831_01(StateName  varchar(50),tateAbbr  char(2))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F831_01 VALUES ('Washington','WA')",
+        "Query4": "INSERT INTO F831_01 VALUES ('Oregon','OR')",
+        "Query5": "INSERT INTO F831_01 VALUES ('Idaho', 'ID')",
+        "Query6": "INSERT INTO F831_01 VALUES ('Alaska','AK')",
+        "Query7": "COMMIT",
+        "Query8": "CREATE OR ALTER TRIGGER F831_01_CURS FOR F831_01 ACTIVE BEFORE UPDATE POSITION 0 AS DECLARE f831_01_cursor CURSOR FOR (SELECT StateName, StateAbbr FROM F831_01 FOR UPDATE); DECLARE @StateName varchar(50); DECLARE @StateAbbr char(2); OPEN f831_01_cursor; FETCH NEXT FROM f831_01_cursor INTO @StateName, @StateAbbr; WHILE @@FETCH_STATUS = 0 BEGIN IF (@StateAbbr = 'WA') UPDATE F831_01 SET StateName = 'California', StateAbbr = 'CA' WHERE CURRENT OF f831_01_cursor; IF (@StateAbbr = 'OR') UPDATE F831_01 SET StateName = 'Arizona', StateAbbr = 'AZ' WHERE CURRENT OF f831_01_cursor; FETCH NEXT FROM f831_01_cursor INTO @StateName, @StateAbbr; END",
+        "Query9": "COMMIT"
+      },
+      {
+        "NameCase": "F831-02 Updateable ordered cursors",
+        "Query1": "CREATE OR ALTER TRIGGER F831_02_CURS FOR F831_01 ACTIVE BEFORE UPDATE POSITION 0 AS DECLARE f831_02_cursor CURSOR SCROLL FOR SELECT StateName, StateAbbr FROM F831_01 ORDER BY StateName; SELECT StateName, StateAbbr FROM F831_01 ORDER BY StateName;DECLARE @StateName varchar(50); DECLARE @StateAbbr char(2); OPEN f831_02_cursor; FETCH LAST FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH PRIOR FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH ABSOLUTE 2 FROM f831_02_cursor INTO @StateName, @StateAbbr;SELECT @StateName, @StateAbbr; FETCH RELATIVE 2 FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH RELATIVE -3 FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test111": {
+    "Name": "F841 LIKE_REGEX predicate",
+    "Case": [
+      {
+        "NameCase": "F841 LIKE_REGEX predicate",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEXP_LIKE(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test112": {
+    "Name": "F842 OCCURRENCES_REGEX function",
+    "Case": [
+      {
+        "NameCase": "F842 OCCURRENCES_REGEX function",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEX_OCCURRENCES(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test113": {
+    "Name": "F843 POSITION_REGEX function function",
+    "Case": [
+      {
+        "NameCase": "F843 POSITION_REGEX function",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEX_POSITION(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test114": {
+    "Name": "F844 SUBSTRING_REGEX",
+    "Case": [
+      {
+        "NameCase": "F844 SUBSTRING_REGEX",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEXP_SUBSTR(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test115": {
+    "Name": "F845 TRANSLATE_REGEX",
+    "Case": [
+      {
+        "NameCase": "F845 TRANSLATE_REGEX",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE CUST_NAME = ",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test116": {
+    "Name": "F846 Octet support in regular expression operators",
+    "Case": [
+      {
+        "NameCase": "F846 Octet support in regular expression operators",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET_LENGTH(CUST_CODE)>5",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET(CUST_CODE) > 10032",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test117": {
+    "Name": "F847 Nonconstant regular expressions",
+    "Case": [
+      {
+        "NameCase": "F847 Nonconstant regular expressions",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET_LENGTH(CUST_CODE)>5",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test118": {
+    "Name": "F850 Top-level <order by clause> in <query expression>",
+    "Case": [
+      {
+        "NameCase": "F850 Top-level <order by clause> in <query expression>",
+        "Query1": "SELECT id, namecompany FROM company ORDER BY typeproduct",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test119": {
+    "Name": "F851 <order by clause> in subqueries",
+    "Case": [
+      {
+        "NameCase": "F851 <order by clause> in subqueries",
+        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test120": {
+    "Name": "F852 Top-level <order by clause> in views",
+    "Case": [
+      {
+        "NameCase": "F852 Top-level <order by clause> in views",
+        "Query1": "CREATE OR ALTER VIEW F852(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test121": {
+    "Name": "F855 Nested <order by clause> in <query expression>",
+    "Case": [
+      {
+        "NameCase": "F855 Nested <order by clause> in <query expression>",
+        "Query1": "CREATE TABLE F855 (TERM varchar(3), User_name varchar(5), Item_No int, Score Int);",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F855 VALUES ('man', 'sam', 2, null)",
+        "Query4": "INSERT INTO F855 VALUES ('man', 'sam', 1, 170)",
+        "Query5": "INSERT INTO F855 VALUES ('man', 'jerry', 1, 100)",
+        "Query6": "INSERT INTO F855 VALUES ('man', 'jerry', 2, null)",
+        "Query7": "INSERT INTO F855 VALUES ('man', 'sam', 3, null)",
+        "Query8": "COMMIT",
+        "Query9": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC",
+        "Query10": "COMMIT"
+      }
+    ]
+  },
+  "Test122": {
+    "Name": "F856 Nested <fetch first clause> in <query expression>",
+    "Case": [
+      {
+        "NameCase": "F856 Nested <fetch first clause> in <query expression>",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC OFFSET 0 ROWS FETCH FIRST 2 ROWS ONLY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test123": {
+    "Name": "F857 Top-level <fetch first clause> in <query expression>",
+    "Case": [
+      {
+        "NameCase": "F857 Top-level <fetch first clause> in <query expression>",
+        "Query1": "SELECT term,user_name,score FROM F855 OFFSET 0 ROWS FETCH FIRST 4 ROWS ONLY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test124": {
+    "Name": "F858 <fetch first clause> in subqueries",
+    "Case": [
+      {
+        "NameCase": "F858 <fetch first clause> in subqueries",
+        "Query1": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name OFFSET 0 ROWS FETCH FIRST 3 ROWS ONLY) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test125": {
+    "Name": "F859 Top-level <fetch first clause> in views",
+    "Case": [
+      {
+        "NameCase": "F859 Top-level <fetch first clause> in views",
+        "Query1": "CREATE OR ALTER VIEW F859(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct OFFSET 0 ROWS FETCH FIRST 4 ROWS ONLY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test126": {
+    "Name": "F860 dynamic <fetch first row count> in <fetch first clause>",
+    "Case": [
+      {
+        "NameCase": "F860 dynamic <fetch first row count> in <fetch first clause>",
+        "Query1": "CREATE PROCEDURE F860_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
+        "Query2": "COMMIT",
+        "Query3": "EXECUTE PROCEDURE F860_PROC(0,3)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test127": {
+    "Name": "F861 Top-level <result offset clause> in <query expression>",
+    "Case": [
+      {
+        "NameCase": "F861 Top-level <result offset clause> in <query expression>",
+        "Query1": "SELECT term,user_name,score FROM F855 OFFSET 3 ROWS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test128": {
+    "Name": "F862 <result offset clause> in subqueries",
+    "Case": [
+      {
+        "NameCase": "F862 <result offset clause> in subqueries>",
+        "Query1": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name OFFSET 2 ROWS) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test129": {
+    "Name": "F863 Nested <result offset clause> in <query expression>",
+    "Case": [
+      {
+        "NameCase": "F863 Nested <result offset clause> in <query expression>",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC OFFSET 3 ROWS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test130": {
+    "Name": "F864 Top-level <result offset clause> in views",
+    "Case": [
+      {
+        "NameCase": "F864 Top-level <result offset clause> in views",
+        "Query1": "CREATE OR ALTER VIEW F864(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct OFFSET 2 ROWS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test131": {
+    "Name": "F865 dynamic <offset row count> in <result offset clause>",
+    "Case": [
+      {
+        "NameCase": "F865 dynamic <offset row count> in <result offset clause>",
+        "Query1": "CREATE PROCEDURE F865_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
+        "Query2": "COMMIT",
+        "Query3": "EXECUTE PROCEDURE F860_PROC(2,1)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test132": {
+    "Name": "F866 FETCH FIRST clause: PERCENT option",
+    "Case": [
+      {
+        "NameCase": "F866 FETCH FIRST clause: PERCENT option",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC FETCH FIRST 50 PERCENT ROWS ONLY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test133": {
+    "Name": "F867 FETCH FIRST clause: WITH TIES option",
+    "Case": [
+      {
+        "NameCase": "F867 FETCH FIRST clause: WITH TIES option",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC FETCH FIRST 25 ROWS WITH TIES",
+        "Query2": "COMMIT"
+      }
+    ]
   }
 }
