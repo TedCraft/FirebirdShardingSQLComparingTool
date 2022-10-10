@@ -2348,5 +2348,210 @@
         "Query2": "COMMIT"
       }
     ]
+  },
+  "Test134": {
+    "Name": "S023 Basic structured types",
+    "Case": [
+      {
+        "NameCase": "S023 Basic structured types",
+        "Query1": "CREATE  TYPE S023 as(UserId int, Name varchar(10), Address varchar(255))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test135": {
+    "Name": "S024 Enhanced structured types",
+    "Case": [
+      {
+        "NameCase": "S024 Enhanced structured types",
+        "Query1": "CREATE  TYPE  Person_Type  AS  OBJECT  (person_title VARCHAR2  ( 10 ) , person_first_name VARCHAR2  ( 20 ) , person_last_name VARCHAR2  ( 20 ) , )",
+        "Query2": "COMMIT",
+        "Query3": "CREATE  TABLE  Person_Table  OF  Person_Type",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test136": {
+    "Name": "S025 Final structured types",
+    "Case": [
+      {
+        "NameCase": "S025 Final structured types",
+        "Query1": "CREATE  TYPE  Student_Type  UNDER  Person_Type  (matriculation_number  NUMBER ( 10 ))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test137": {
+    "Name": "S026 Self-referencing structured types",
+    "Case": [
+      {
+        "NameCase": "S026 Self-referencing structured types",
+        "Query1": "CREATE  TABLE  Student_Table  OF  Student_Type  (matriculation_number  PRIMARY  KEY , CONSTRAINT  person_title_not_null_constraint  NOT  NULL  ( person_title ),)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test138": {
+    "Name": "S027 Create method by specific method name",
+    "Case": [
+      {
+        "NameCase": "S027 Create method by specific method name",
+        "Query1": "CREATE METHOD UpdateCommission ( IN AGENT_CODE VARCHAR(6), IN COMMIISSION NUMERIC) FOR AGENTS BEGIN UPDATE AGENTS SET AGENT_CODE = :AGENT_CODE WHERE COMMIISSION = :COMMIISSION; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test139": {
+    "Name": "S041 Basic reference types",
+    "Case": [
+      {
+        "NameCase": "S041 Basic reference types",
+        "Query1": "CREATE  TYPE  Student_Type  UNDER  Person_Type  (matriculation_number  NUMBER ( 10 ));",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test140": {
+    "Name": "S043 Basic reference types",
+    "Case": [
+      {
+        "NameCase": "S043 Basic reference types",
+        "Query1": "CREATE  TYPE  Student_Type  UNDER  Person_Type  (matriculation_number  NUMBER ( 10 ))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test141": {
+    "Name": "S051 Create table of type",
+    "Case": [
+      {
+        "NameCase": "S051 Create table of type",
+        "Query1": "CREATE  TABLE  Student_Table  OF  Student_Type  (matriculation_number  PRIMARY  KEY , CONSTRAINT  person_title_not_null_constraint  NOT  NULL  ( person_title ),)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test142": {
+    "Name": "S071 SQL paths in function and type name resolution",
+    "Case": [
+      {
+        "NameCase": "S071 SQL paths in function and type name resolution",
+        "Query1": "CREATE FUNCTION FB.S071_FUNC(A INT, B INT DEFAULT 0) RETURNS INT AS BEGIN  RETURN A+B; END",
+        "Query2": "COMMIT",
+        "Query3": "CREATE  TYPE  FB.S071_TYPE  AS  OBJECT  (person_title VARCHAR2  ( 10 ) , person_first_name VARCHAR2  ( 20 ) , person_last_name VARCHAR2  ( 20 ) , )",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test143": {
+    "Name": "S081 Subtables",
+    "Case": [
+      {
+        "NameCase": "S081 Subtables",
+        "Query1": "CREATE TABLE S081_1 (ROW_ID INTEGER, ROW_CHAR CHARACTER(30))",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE S081_2 (ROW_NUM NUMERIC) UNDER S081_1",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test144": {
+    "Name": "S091 Basic array support",
+    "Case": [
+      {
+        "NameCase": "S091-01 Arrays of built-in data types",
+        "Query1": "CREATE TABLE S091_01 (ARR_INT2 INTEGER[4,5], ARR_INT3 INTEGER[4,5,6], ARR_INT6 INTEGER[4,5,6,7])",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "S091-02 Arrays of distinct types",
+        "Query1": "CREATE TABLE S091_02 (ARR_ALL [INTEGER[4,5],VARCHAR(30),FLOAT(10))",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "S091-03 Array expressions",
+        "Query1": "SELECT ARRAY(SELECT COMMISSION FROM AGENTS)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test145": {
+    "Name": "S092 Arrays of user-defined types",
+    "Case": [
+      {
+        "NameCase": "S092 Arrays of user-defined types",
+        "Query1": "CREATE TYPE BOOK AS TABLE (id nvarchar(36), title nvarchar(100), author nvarchar(100), student_id nvarchar(36))",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TYPE STUDENT AS TABLE (id nvarchar(36), name nvarchar(100), ationality nvarchar(100),books BOOK)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test146": {
+    "Name": "S094 Arrays of reference types",
+    "Case": [
+      {
+        "NameCase": "S092 Arrays of user-defined types",
+        "Query1": "CREATE TABLE S094 (ARR_INT2 INTEGER[4,5], ARR_INT3 INTEGER[4,5,6], ARR_INT6 INTEGER[4,5,6,7], PRIMARY KEY(ARR_INT6), FOREIGN KEY (ARR_INT2)  REFERENCES S091_01([ARR_INT2,ARR_INT3]))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test147": {
+    "Name": "S095 Array constructors by query",
+    "Case": [
+      {
+        "NameCase": "S095 Array constructors by query",
+        "Query1": "SELECT ARRAY(SELECT COMMISSION FROM AGENTS)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test148": {
+    "Name": "S096 Optional array bounds",
+    "Case": [
+      {
+        "NameCase": "S096 Optional array bounds",
+        "Query1": "CREATE TABLE S096 (ARR_INT2 INTEGER[])",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test149": {
+    "Name": "S097 Array element assignment",
+    "Case": [
+      {
+        "NameCase": "S097 Array element assignment",
+        "Query1": "CREATE TABLE S097 (ARR_INT2 INTEGER[4,5])",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO S097 VALUES ([1,4])",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test150": {
+    "Name": "S098 ARRAY_AGG",
+    "Case": [
+      {
+        "NameCase": "S098 ARRAY_AGG",
+        "Query1": "SELECT array_agg(commission) FROM AGENTS",
+        "Query2": "COMMIT"
+
+      }
+    ]
+  },
+  "Test151": {
+    "Name": "S111 ONLY in query expressions",
+    "Case": [
+      {
+        "NameCase": "S111 ONLY in query expression",
+        "Query1": "CREATE TABLE S111_base (id integer, some_data varchar(100))",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE S111_child (id integer, some_data varchar(100)) inherits (base)",
+        "Query4": "COMMIT",
+        "Query5": "SELECT * FROM ONLY (S111_base)",
+        "Query6": "COMMIT"
+      }
+    ]
   }
 }
