@@ -2364,7 +2364,7 @@
     "Case": [
       {
         "NameCase": "S024 Enhanced structured types",
-        "Query1": "CREATE  TYPE  Person_Type  AS  OBJECT  (person_title VARCHAR2  ( 10 ) , person_first_name VARCHAR2  ( 20 ) , person_last_name VARCHAR2  ( 20 ) , )",
+        "Query1": "CREATE  TYPE  Person_Type  AS  OBJECT  (person_title VARCHAR2  ( 10 ) , person_first_name VARCHAR2  ( 20 ) , person_last_name VARCHAR2  ( 20 ))",
         "Query2": "COMMIT",
         "Query3": "CREATE  TABLE  Person_Table  OF  Person_Type",
         "Query4": "COMMIT"
@@ -2412,10 +2412,10 @@
     ]
   },
   "Test140": {
-    "Name": "S043 Basic reference types",
+    "Name": "S043 Enhanced reference types",
     "Case": [
       {
-        "NameCase": "S043 Basic reference types",
+        "NameCase": "S043 Enhanced reference types",
         "Query1": "CREATE  TYPE  Student_Type  UNDER  Person_Type  (matriculation_number  NUMBER ( 10 ))",
         "Query2": "COMMIT"
       }
@@ -2550,6 +2550,416 @@
         "Query3": "CREATE TABLE S111_child (id integer, some_data varchar(100)) inherits (base)",
         "Query4": "COMMIT",
         "Query5": "SELECT * FROM ONLY (S111_base)",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test152": {
+    "Name": "S151 Type predicate",
+    "Case": [
+      {
+        "NameCase": "S151 Type predicate",
+        "Query1": "SELECT MODEL FROM COMPUTERS WHERE HDD >=500 AND PRICE < 800000",
+        "Query2": "COMMIT",
+        "Query3": "SELECT MODEL FROM COMPUTERS WHERE NOT (NAMECOMPANY = 'AMD') and PRICE < 1000000",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test153": {
+    "Name": "S161 Subtype treatment",
+    "Case": [
+      {
+        "NameCase": "S161 Subtype treatment",
+        "Query1": "SELECT TREAT (matriculation_number AS Student_Type) FROM Student_Table",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test154": {
+    "Name": "S162 Subtype treatment for references",
+    "Case": [
+      {
+        "NameCase": "S162 Subtype treatment for references",
+        "Query1": "SELECT TREAT (matriculation_number AS Student_Type) FROM Student_Table",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test155": {
+    "Name": "S201 SQL-invoked routines on arrays",
+    "Case": [
+      {
+        "NameCase": "S201-01 Array parameters",
+        "Query1": "CREATE TABLE S201_01 (ROW_INT1 INTEGER)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO S201_01 VALUES (1),(2),(3)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "S201-02 Array as result type of functions",
+        "Query1": "create or alter function S201_02 ( A[] integer) returns res[] as BEGIN SELECT ARR_INT2 FROM S091_01 RETURN ARR_INT2; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test156": {
+    "Name": "S202 SQL-invoked routines on multisets",
+    "Case": [
+      {
+        "NameCase": "S202 SQL-invoked routines on multisets",
+        "Query1": "create or alter function S202 (price integer) returns price as BEGIN RETURN (SELECT PRICE FROM COMPUTERS); END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test157": {
+    "Name": "S211 User-defined cast functions",
+    "Case": [
+      {
+        "NameCase": "S211 User-defined cast functions",
+        "Query1": "CREATE TYPE foo FROM int NOT NULL",
+        "Query2": "COMMIT",
+        "Query3": "SELECT cast(1 AS foo)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test158": {
+      "Name": "S231 Structured type locators",
+    "Case": [
+      {
+        "NameCase": "S231 Structured type locators",
+        "Query1": "CREATE TYPE S231 AS LOCATOR S231_LOCATOR",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test159": {
+    "Name": "S232 Array locators",
+    "Case": [
+      {
+        "NameCase": "S232 Array locators",
+        "Query1": "CREATE TYPE S232 INTEGER ARRAY[10] AS LOCATOR S232_LOCATOR",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test160": {
+    "Name": "S233 Multiset locators",
+    "Case": [
+      {
+        "NameCase": "S233 Multiset locators",
+        "Query1": "CREATE TYPE S233 (SELECT PRICE FROM COMPUTERS) AS LOCATOR S233_LOCATOR",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test161": {
+    "Name": "S241 Transform functions",
+    "Case": [
+      {
+        "NameCase": "S241 Transform functions",
+        "Query1": "CREATE TRANSFORM FOR point group1(FROM SQL FROM SQL WITH FUNCTION WITH FUNCTION from point1 from_point1(point), (point), TO SQL WITH FUNCTION to_point1(char(27))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test162": {
+    "Name": "S242 Alter transform statement",
+    "Case": [
+      {
+        "NameCase": "S242 Alter transform statement",
+        "Query1": "ALTER TRANSFORM FOR point group2(FROM SQL FROM SQL WITH FUNCTION WITH FUNCTION from point1 from_point1(point), (point), TO SQL WITH FUNCTION to_point1(char(27))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test163": {
+    "Name": "S251 User-defined orderings",
+    "Case": [
+      {
+        "NameCase": "S251 User-defined orderings",
+        "Query1": "CREATE TABLE S251 (LANG CHAR(3), TEXT CHAR(1))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO S251 VALUES ('ENU','a')",
+        "Query4": "INSERT INTO S251 VALUES ('JPN','b')",
+        "Query5": "INSERT INTO S251 VALUES ('DAN','c')",
+        "Query6": "INSERT INTO S251 VALUES ('ENU','d')",
+        "Query7": "INSERT INTO S251 VALUES ('JPN','e')",
+        "Query8": "INSERT INTO S251 VALUES ('DAN','f')",
+        "Query9": "COMMIT",
+        "Query10": "SELECT TEXT FROM S251 ORDER BY FIELD (LANG,'ENU','JPN','DAN')"
+      }
+    ]
+  },
+  "Test164": {
+    "Name": "S261 Specific type method",
+    "Case": [
+      {
+        "NameCase": "S261 Specific type method",
+        "Query1": "create or alter method ADD_INT (A integer, B integer = 0) returns integer as BEGIN  RETURN A+B; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test165": {
+    "Name": "S271 Basic multiset support",
+    "Case": [
+      {
+        "NameCase": "S271 Basic multiset support",
+        "Query1": "CREATE TABLE customers_demo AS SELECT * FROM customers",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TYPE cust_address_tab_typ AS TABLE OF cust_address_typ",
+        "Query4": "COMMIT",
+        "Query5": "ALTER TABLE customers_demo ADD (cust_address_ntab cust_address_tab_typ, cust_address2_ntab cust_address_tab_typ) NESTED TABLE cust_address_ntab STORE AS cust_address_ntab_store NESTED TABLE cust_address2_ntab STORE AS cust_address2_ntab_store",
+        "Query6": "COMMIT",
+        "Query7": "UPDATE customers_demo cd SET cust_address_ntab = CAST(MULTISET(SELECT cust_address FROM customers c WHERE c.customer_id = cd.customer_id) as cust_address_tab_typ)",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test166": {
+    "Name": "S272 Multisets of user-defined types",
+    "Case": [
+      {
+        "NameCase": "S272 Multisets of user-defined types",
+        "Query1": "UPDATE customers_demo cd SET cust_address2_ntab = CAST(MULTISET(SELECT cust_address FROM customers c WHERE c.customer_id = cd.customer_id) as cust_address_tab_typ)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test167": {
+    "Name": "S274 Multisets of reference types",
+    "Case": [
+      {
+        "NameCase": "S274 Multisets of reference types",
+        "Query1": "CREATE TABLE S274(session_id INT NOT NULL PRIMARY KEY, successful BOOLEAN NOT NULL, uid INT, attempts ROW(VARCHAR(128),VARCHAR(128)) MULTISET)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test168": {
+    "Name": "S275 Advanced multiset support",
+    "Case": [
+      {
+        "NameCase": "S275 Advanced multiset support",
+        "Query1": "CREATE TABLE S275(session_id INT NOT NULL PRIMARY KEY, successful BOOLEAN NOT NULL, uid INT, attempts ROW(VARCHAR(128),VARCHAR(128)) MULTISET)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO S275 VALUES( 1000,true,0, MULTISET( ROW('root','31337'), ROW('scott','tiger'), ROW('root','beer')))",
+        "Query4": "INSERT INTO S275 VALUES( 1001,false,0,MULTISET(SELECT ROW(name,password) FROM bogus_accounts))",
+        "Query5": "COMMIT",
+        "Query6": "SELECT session_id FROM S275 WHERE ROW('root','31337') MEMBER OF attempts",
+        "Query7": "COMMIT",
+        "Query8": "SELECT session_id FROM S275 WHERE attempts IS A SET",
+        "Query9": "COMMIT",
+        "Query10": "SELECT a.session_id as sub_id,b.session_id as super_id FROM S275 a,logins b WHERE a.attempts SUBMULTISET OF b.attempts",
+        "Query11": "COMMIT",
+        "Query12": "SELECT session_id,ELEMENT(attempts).name FROM S275 WHERE CARDINALITY(attempts) = 1",
+        "Query13": "COMMIT",
+        "Query14": "SELECT uid, COLLECT(session_id) AS session_ids, FUSION(attempts) AS all_attempts, INTERSECTION(attempts) AS common_attempts FROM logins WHERE successful GROUP BY uid",
+        "Query15": "COMMIT"
+      }
+    ]
+  },
+  "Test169": {
+    "Name": "S281 Nested collection types",
+    "Case": [
+      {
+        "NameCase": "S281 Nested collection types",
+        "Query1": "CREATE TABLE students (graduation DATE, math_majors people_typ, chem_majors people_typ, physics_majors people_typ) NESTED TABLE math_majors STORE AS math_majors_nt NESTED TABLE chem_majors STORE AS chem_majors_nt NESTED TABLE physics_majors STORE AS physics_majors_nt",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test170": {
+    "Name": "S291 Unique constraint on entire row",
+    "Case": [
+      {
+        "NameCase": "S291 Unique constraint on entire row",
+        "Query1": "CREATE TABLE S291_01 (ROW1 INTEGER, ROW2 INTEGER,constraint ROW_S291 unique (ROW1,ROW2))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test171": {
+    "Name": "S301 Enhanced UNNEST",
+    "Case": [
+      {
+        "NameCase": "S301 Enhanced UNNEST",
+        "Query1": "CREATE TABLE S301 (row_id integer not null, row_num character varying(100) not null, constraint numbers_pkey primary key (row_id,row_num))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO S301 VALUES(row_id, row_num) select 5, unnest(array['123', '456', '789', '258', '147'])",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test172": {
+    "Name": "S401 Distinct types based on array types",
+    "Case": [
+      {
+        "NameCase": "S401 Distinct types based on array types",
+        "Query1": "CREATE TYPE S401_01 as(ROW_INT INTEGER[4,5])",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TYPE S401_02 UNDER S401_01 (ROW_NUM NUMBER ( 10 ))",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test173": {
+    "Name": "S402 Distinct types based on distinct types",
+    "Case": [
+      {
+        "NameCase": "S402 Distinct types based on distinct types",
+        "Query1": "CREATE TYPE S402_01 as(ROW_ID INT, ROW_CHAR varchar(10))",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TYPE S402_02 UNDER S401_01 (ROW_NUM NUMBER ( 10 ))",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test174": {
+    "Name": "S403 ARRAY_MAX_CARDINALITY",
+    "Case": [
+      {
+        "NameCase": "S401 ARRAY_MAX_CARDINALITY",
+        "Query1": "CREATE TYPE string10 AS VARCHAR(10) ARRAY[]",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TYPE string1000 AS VARCHAR(1000) ARRAY[]",
+        "Query4": "COMMIT",
+        "Query5": "CREATE TYPE string30000 AS VARCHAR(30000) ARRAY[]",
+        "Query6": "COMMIT",
+        "Query7": "CREATE OR ALTER PROCEDURE CardinalityChecker (card1 integer, card2 integer, card3 integer) as DECLARE array10 string10; DECLARE array1000 string1000; DECLARE array30000 string30000; BEGIN card1 = MAX_CARDINALITY(array10); card2 = MAX_CARDINALITY(array1000); card3 = MAX_CARDINALITY(array30000); END;",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test175": {
+    "Name": "S404 TRIM_ARRAY",
+    "Case": [
+      {
+        "NameCase": "S404 TRIM_ARRAY",
+        "Query1": "CREATE OR ALTER FUNCTION array_trim(text[]) RETURNS text[] AS DECLARE text ALIAS FOR $1; retVal text[]; BEGIN FOR I IN array_lower(text, 1)..array_upper(text, 1) LOOP retVal[I] := trim(text[I]); END LOOP; RETURN retVal; END;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test176": {
+    "Name": "T021 BINARY and VARBINARY data types",
+    "Case": [
+      {
+        "NameCase": "T021 BINARY and VARBINARY data types",
+        "Query1": "CREATE TABLE T021_01 (ROW_BIN BINARY(3))",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE T021_02 (ROW_VARBIN VARBINARY(3))",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test177": {
+    "Name": "T022 Advanced support for BINARY and VARBINARY data types",
+    "Case": [
+      {
+        "NameCase": "T022 Advanced support for BINARY and VARBINARY data types",
+        "Query1": "CREATE TABLE T022 ( colBinary BINARY(5), colBinaryMax VARBINARY(Max), colVarBinay VARBINARY(50))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T022 (colBinary, colVarBinary,colVarBinaryMax ) VALUES (0x12345, 0x12345,0x12345)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test178": {
+    "Name": "T023 Compound binary literals",
+    "Case": [
+      {
+        "NameCase": "T023 Compound binary literals",
+        "Query1": "CREATE TABLE T023 (colBinaryMax VARBINARY(Max))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T023 VALUES (E'&#092;&#048;01377'::bytea)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test179": {
+    "Name": "T024 Spaces in binary literals",
+    "Case": [
+      {
+        "NameCase": "T024 Spaces in binary literals",
+        "Query1": "CREATE TABLE T024 (colBinaryMax VARBINARY(Max))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T024 VALUES (E '&#09 2;&  #048;  01377'::bytea)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test180": {
+    "Name": "T031 BOOLEAN data type",
+    "Case": [
+      {
+        "NameCase": "T031 BOOLEAN data type",
+        "Query1": "CREATE TABLE T031 (ROW_ID INT,ROW_BVAL BOOLEAN)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T031 VALUES (1, TRUE)",
+        "Query4": "INSERT INTO T031 VALUES (2, 2 = 4)",
+        "Query5": "INSERT INTO T031 VALUES (3, NULL = 1)",
+        "Query6": "COMMIT",
+        "Query7": "SELECT * FROM T031",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test181": {
+    "Name": "T041 Basic LOB data type support",
+    "Case": [
+      {
+        "NameCase": "T041-01 BLOB data type",
+        "Query1": "CREATE TABLE T041_01 (ROW_ID INT, ROW_BLOB BLOB(4))",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T041-02 CLOB data type",
+        "Query1": "CREATE TABLE T041_021 (ROW_ID INT, ROW_CLOB BLOB SUB_TYPE TEXT)",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE T041_022 (ROW_ID INT, ROW_CLOB CLOB)",
+        "Query4": "COMMIT"
+      },
+      {
+        "NameCase": "T041-03 POSITION, LENGTH, LOWER, TRIM, UPPER, and SUBSTRING functions for\nLOB data types",
+        "Query1": "CREATE TABLE T041_03 (ROW_ID INT, ROW_BLOB BLOB(4))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO t041_03 VALUES (0,'1235425abcd')",
+        "Query4": "COMMIT",
+        "Query5": "SELECT POSITION ('ab' in ROW_BLOB) FROM T041_03",
+        "Query6": "COMMIT",
+        "Query7": "SELECT CHAR_LENGTH (ROW_BLOB) FROM T041_03",
+        "Query8": "COMMIT",
+        "Query9": "INSERT INTO t041_03 VALUES (1,'1235425abCDFG')",
+        "Query10": "COMMIT",
+        "Query11": "SELECT LOWER (ROW_BLOB) FROM T041_03",
+        "Query12": "COMMIT",
+        "Query13": "SELECT TRIM (LEADING '123' from ROW_BLOB) FROM T041_03",
+        "Query14": "COMMIT",
+        "Query15": "SELECT UPPER (ROW_BLOB) FROM T041_03",
+        "Query16": "COMMIT",
+        "Query17": "SELECT SUBSTRING (ROW_BLOB FROM 2 FOR 4) FROM T041_03",
+        "Query18": "COMMIT"
+      },
+      {
+        "NameCase": "T041-04 Concatenation of LOB data types",
+        "Query1": "CREATE TABLE T041_04 (ROW_BLOB1 BLOB(4), ROW_BLOB2 BLOB(4))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T041_04 VALUES ('1234567','8910111213')",
+        "Query4": "COMMIT",
+        "Query5": "SELECT ROW_BLOB1 || ROW_BLOB2 FROM T041_04",
+        "Query6": "COMMIT"
+      },
+      {
+        "NameCase": "T041-05 LOB locator: non-holdable",
+        "Query1": "CREATE TABLE T041_05 (ROW_BLOB1 BLOB(4), ROW_BLOB2 BLOB(4))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T041_05 VALUES ('1234567','8910111213')",
+        "Query4": "COMMIT",
+        "Query5": "CREATE TYPE T041 AS LOCATOR T041_05_LOCATOR",
         "Query6": "COMMIT"
       }
     ]
