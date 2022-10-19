@@ -2963,5 +2963,203 @@
         "Query6": "COMMIT"
       }
     ]
+  },
+  "Test182": {
+    "Name": "T042 Extended LOB data type support",
+    "Case": [
+      {
+        "NameCase": "T042 Extended LOB data type support",
+        "Query1": "CREATE TABLE T042 (ROW_ID INT, ROW_BLOB CLOB)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test183": {
+    "Name": "T051 Row types",
+    "Case": [
+      {
+        "NameCase": "T051 Row types",
+        "Query1": "CREATE ROW TYPE T051 (id INTEGER, name CHAR(20))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test184": {
+    "Name": "T053 Explicit aliases for all-fields reference",
+    "Case": [
+      {
+        "NameCase": "T053 Explicit aliases for all-fields reference",
+        "Query1": "SELECT * as T054 FROM CUSTOMER",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test185": {
+    "Name": "T061 UCS support",
+    "Case": [
+      {
+        "NameCase": "T061 UCS support",
+        "Query1": "CREATE COLLATION lat_ucs FOR iso8859_1 FROM external ('UCS')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test186": {
+    "Name": "T071 BIGINT data type",
+    "Case": [
+      {
+        "NameCase": "T071 BIGINT data type",
+        "Query1": "CREATE TABLE T071 (ROW_ID BIGINT)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T071 VALUES (-236453287458723)",
+        "Query4": "INSERT INTO T071 VALUES (328832607832)",
+        "Query5": "INSERT INTO T071 VALUES (0x6F55A09D42)",
+        "Query6": "INSERT INTO T071 VALUES (0X7FFFFFFFFFFFFFFF)",
+        "Query7": "INSERT INTO T071 VALUES (0xffffffffffffffff)",
+        "Query8": "INSERT INTO T071 VALUES (0XFFFFFFFF)",
+        "Query9": "COMMIT"
+      }
+    ]
+  },
+  "Test187": {
+    "Name": "T101 Enhanced nullability determination",
+    "Case": [
+      {
+        "NameCase": "T101 Enhanced nullability determination",
+        "Query1": "CREATE TABLE T101 (ROW_ID BIGINT NOT NULL)",
+        "Query2": "COMMIT",
+        "Query3": "ALTER TABLE T101 ALTER ROW_ID DROP NOT NULL",
+        "Query4": "COMMIT",
+        "Query5": "ALTER TABLE T101 ALTER ROW_ID SET NOT NULL",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test188": {
+    "Name": "T111 Updatable joins, unions, and columns",
+    "Case": [
+      {
+        "NameCase": "T111 Updatable joins, unions, and columns",
+        "Query1": "CREATE OR ALTER VIEW T111(CUST_CODE, CUST_NAME, AGENT_CODE, AGENT_NAME) AS SELECT c.cust_code,c.cust_name,c.agent_code,a.agent_name FROM customer c LEFT JOIN agents a on a.agent_code = c.agent_code;",
+        "Query2": "COMMIT",
+        "Query3": "UPDATE T111 SET cust_name = 'test' where agent_code = 'a003'",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test189": {
+    "Name": "T121 WITH (excluding RECURSIVE) in query expression",
+    "Case": [
+      {
+        "NameCase": "T121 WITH (excluding RECURSIVE) in query expression",
+        "Query1": "WITH T121 AS (SELECT AGENT_CODE, AGENT_NAME, COMMISSION FROM AGENTS) SELECT C.CUST_NAME, C.CUST_CITY,T.COMMISSION FROM CUSTOMER c LEFT JOIN T121 T ON T.AGENT_CODE = C.AGENT_CODE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test190": {
+    "Name": "T122 WITH (excluding RECURSIVE) in subquery",
+    "Case": [
+      {
+        "NameCase": "T122 WITH (excluding RECURSIVE) in subquery",
+        "Query1": "SELECT C.CUST_NAME, C.CUST_CITY,T.COMMISSION FROM CUSTOMER c WHERE c.agent_code = (WITH T121 AS (SELECT AGENT_CODE, AGENT_NAME, COMMISSION,PHONE_NO FROM AGENTS WHERE COMMISSION > 0.15))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test191": {
+    "Name": "T131 Recursive query",
+    "Case": [
+      {
+        "NameCase": "T131 Recursive query",
+        "Query1": "WITH RECURSIVE T131_1 AS (SELECT AGENT_CODE, AGENT_NAME, COMMISSION FROM AGENTS), T131_2 AS (SELECT CUST_CODE,WORKING_AREA,CUST_COUNTRY FROM CUSTOMER) SELECT C.CUST_NAME, C.CUST_CITY, T2.WORKING_AREA, T1.COMMISSION FROM CUSTOMER c LEFT JOIN T131_1 T1 ON T1.AGENT_CODE = C.AGENT_CODE LEFT JOIN T131_2 T2 ON T2.CUST_CODE = C.CUST_CODE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test192": {
+    "Name": "T132 Recursive query in subquery",
+    "Case": [
+      {
+        "NameCase": "T131 Recursive query",
+        "Query1": "SELECT C.CUST_NAME, C.CUST_CITY,T.COMMISSION FROM CUSTOMER c WHERE c.agent_code = (WITH RECURSIVE T131_1 AS (SELECT AGENT_CODE, AGENT_NAME, COMMISSION,PHONE_NO FROM AGENTS WHERE COMMISSION > 0.15))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test193": {
+    "Name": "T141 SIMILAR predicate",
+    "Case": [
+      {
+        "NameCase": "T141 SIMILAR predicate",
+        "Query1": "CREATE TABLE T141 (ROW_NUM NUMERIC(3) NOT NULL, ROW_NAME VARCHAR(25) NOT NULL, ROW_PHONE VARCHAR(14) CHECK (ROW_PHONE SIMILAR TO '\\([0-9]{3}\\) [0-9]{3}\\-[0-9]{4}' escape '\\'))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T141 VALUES ('000', 'Corporate Headquarters', '(408) 555-1234')"
+      }
+    ]
+  },
+  "Test194": {
+    "Name": "T151 DISTINCT predicate",
+    "Case": [
+      {
+        "NameCase": "T151 DISTINCT predicate",
+        "Query1": "SELECT DISTINCT NAMECOMPANY FROM COMPANY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test195": {
+    "Name": "T152 DISTINCT predicate with negation",
+    "Case": [
+      {
+        "NameCase": "T152 DISTINCT predicate with negation",
+        "Query1": "EXECUTE block RETURNS (s VARCHAR(100)) AS BEGIN IF (NULL IS NOT DISTINCT FROM NULL) THEN BEGIN s = 'null is not distinct from null'; suspend; END END;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test196": {
+    "Name": "T171 LIKE clause in table definition",
+    "Case": [
+      {
+        "NameCase": "T171 LIKE clause in table definition",
+        "Query1": "CREATE TABLE T171 LIKE T141",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test197": {
+    "Name": "T172 AS subquery clause in table definition",
+    "Case": [
+      {
+        "NameCase": "T172 AS subquery clause in table definition",
+        "Query1": "CREATE TABLE T172 AS SELECT * FROM COMPANY WHERE TYPEPRODUCT = 'pc'",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test198": {
+    "Name": "T173 Extended LIKE clause in table definition",
+    "Case": [
+      {
+        "NameCase": "T173 Extended LIKE clause in table definition",
+        "Query1": "CREATE TABLE T171 LIKE T141 LIMIT 0",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test199": {
+    "Name": "T174 Identity columns",
+    "Case": [
+      {
+        "NameCase": "T174 Identity columns",
+        "Query1": "CREATE TABLE T174 (ROW_ID integer generated by default as identity primary key, ROW_NAME varchar(15));",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO t174 (ROW_NAME) values ('Table')",
+        "Query4": "INSERT INTO t174 (ROW_NAME) values ('Book')",
+        "Query5": "INSERT INTO t174 (ROW_ID,ROW_NAME) values (10,'Computer')",
+        "Query6": "COMMIT"
+      }
+    ]
   }
 }
