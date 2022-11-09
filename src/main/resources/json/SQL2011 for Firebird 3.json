@@ -278,7 +278,7 @@
         "NameCase": "E061-08 EXISTS predicate",
         "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (6,'ASUS','printer');",
         "Query2": "COMMIT",
-        "Query3": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany);"
+        "Query3": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company)"
       },
       {
         "NameCase": "E061-09 Subqueries in comparison predicate",
@@ -499,47 +499,47 @@
     "Case": [
       {
         "NameCase": "E121-01 DECLARE CURSOR",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR for\n(select id, namecompany, typeproduct from company where typeproduct = 'pc');\nBEGIN\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS1 before update on Company AS DECLARE cursor1 CURSOR for (select id, namecompany, typeproduct from company where typeproduct = 'pc'); BEGIN end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-02 ORDER BY columns need not be in select list",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS2\nbefore update on Company\nAS\nDECLARE cursor2 CURSOR for\n(select id, namecompany from company order by typeproduct);\nbegin\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS2 before update on Company AS DECLARE cursor2 CURSOR for (select id, namecompany from company order by typeproduct); begin end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-03 Value expressions in ORDER BY clause",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS3\nbefore update on Company\nAS\nDECLARE cursor3 CURSOR for\n(select id, namecompany, typeproduct as type from company order by type);\nbegin\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS3 before update on Company AS DECLARE cursor3 CURSOR for (select id, namecompany, typeproduct as type from company order by type); begin end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-04 OPEN statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS4\nbefore update on Company\nAS\nDECLARE cursor4 CURSOR for\n(select id, namecompany from company order by namecompany desc);\nbegin\nopen cursor4;\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS4 before update on Company AS DECLARE cursor4 CURSOR for (select id, namecompany from company order by namecompany desc); begin open cursor4; end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-06 Positioned UPDATE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS5\nbefore update on Company\nAS\nDECLARE cursor5 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor5;\nupdate company set typeproduct = 'personal computer' where current of cursor5;\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS5 before update on Company AS DECLARE cursor5 CURSOR for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor5; update company set typeproduct = 'personal computer' where current of cursor5; end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-07 Positioned DELETE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS6\nbefore update on Company\nAS\nDECLARE cursor6 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor6;\ndelete from company where current of cursor6;\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS6 before update on Company AS DECLARE cursor6 CURSOR for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor6; delete from company where current of cursor6; end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-08 CLOSE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS7\nbefore update on Company\nAS\nDECLARE cursor7 CURSOR for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor7;\ndelete from company where current of cursor7;\nclose cursor7;\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS7 before update on Company AS DECLARE cursor7 CURSOR for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor7; delete from company where current of cursor7; close cursor7; end",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-09 FETCH statement: implicit NEXT",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY\nRETURNS (NAMECOM CHAR(30))\nAS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc');\nBEGIN\nOPEN curs1;\nWHILE (1=1) DO\nBEGIN\nFETCH curs1 INTO :NAMECOM;\nIF (ROW_COUNT = 0) THEN\nLEAVE;\nSUSPEND;\nEND\nCLOSE curs1;\nEND;",
+        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; WHILE (1=1) DO BEGIN FETCH curs1 INTO :NAMECOM; IF (ROW_COUNT = 0) THEN LEAVE; SUSPEND; END CLOSE curs1; END;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-17 WITH HOLD cursors",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS1\nbefore update on Company\nAS\nDECLARE cursor1 CURSOR WITH HOLD for\n(select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc);\nbegin\nopen cursor1;\nclose cursor1;\nend",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS1 before update on Company AS DECLARE cursor1 CURSOR WITH HOLD for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor1; close cursor1; end",
         "Query2": "COMMIT"
       }
     ]
@@ -1428,7 +1428,7 @@
     "Case": [
       {
         "NameCase": "F301 CORRESPONDING in query expressions",
-        "Query1": "SELECT *\nFROM CUSTOMER\nUNION ALL CORRESPONDING\nSELECT *\nFROM AGENTS\nUNION ALL CORRESPONDING",
+        "Query1": "SELECT * FROM CUSTOMER UNION ALL CORRESPONDING SELECT * FROM AGENTS UNION ALL CORRESPONDING",
         "Query2": "COMMIT"
       }
     ]
@@ -1438,12 +1438,12 @@
     "Case": [
       {
         "NameCase": "F302-01 INTERSECT DISTINCT table operator",
-        "Query1": "SELECT agent_code\n  FROM agents\nINTERSECT DISTINCT\nSELECT agent_code\n  FROM customer",
+        "Query1": "SELECT agent_code FROM agents INTERSECT DISTINCT SELECT agent_code FROM customer",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F302-02 INTERSECT ALL table operator",
-        "Query1": "SELECT agent_code\n  FROM agents\nINTERSECT ALL\nSELECT agent_code\n  FROM customer",
+        "Query1": "SELECT agent_code FROM agents INTERSECT ALL SELECT agent_code FROM customer",
         "Query2": "COMMIT"
       }
     ]
@@ -3442,10 +3442,460 @@
       {
         "NameCase": "T331 Basic roles",
         "Query1": "CREATE ROLE T331",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test223": {
+    "Name": "T332 Extended roles",
+    "Case": [
+      {
+        "NameCase": "T332 Extended roles",
+        "Query1": "GRANT SELECT ON Company to T331",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test224": {
+    "Name": "T351 Bracketed comments",
+    "Case": [
+      {
+        "NameCase": "T351 Bracketed comments",
+        "Query1": "SELECT AGENT_NAME FROM agents /*Bracketed SQL comments*/ WHERE AGENT_NAME like '%u%'",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test225": {
+    "Name": "T431 Extended grouping capabilities",
+    "Case": [
+      {
+        "NameCase": "T431 Extended grouping capabilities",
+        "Query1": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country WITH ROLLUP",
         "Query2": "COMMIT",
-        "Query3": "GRANT SELECT ON Company to T331",
+        "Query3": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country WITH CUBE",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test226": {
+    "Name": "T432 Nested and concatenated GROUPING SETS",
+    "Case": [
+      {
+        "NameCase": "T432 Nested and concatenated GROUPING SETS",
+        "Query1": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY GROUPING SETS (Country)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test227": {
+    "Name": "T433 Multiargument GROUPING function",
+    "Case": [
+      {
+        "NameCase": "T433 Multiargument GROUPING function",
+        "Query1": "SELECT GROUPING(namecompany) FROM F131_01 WHERE price > 1000 GROUP BY namecompany HAVING COUNT(model) > 2",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test228": {
+    "Name": "T434 GROUP BY DISINCT",
+    "Case": [
+      {
+        "NameCase": "T434 GROUP BY DISINCT",
+        "Query1": "SELECT namecompany FROM F131_01 WHERE price > 1000 GROUP BY DISTINCT namecompany HAVING COUNT(model) > 2",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test229": {
+    "Name": "T441 ABS and MOD functions",
+    "Case": [
+      {
+        "NameCase": "T441 ABS and MOD functions",
+        "Query1": "SELECT ABS(RECEIVE_AMT) FROM CUSTOMER",
+        "Query2": "COMMIT",
+        "Query3": "SELECT MOD(RECEIVE_AMT,OPENING_AMT) FROM CUSTOMER",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test230": {
+    "Name": "T461 Symmetric BETWEEN predicate",
+    "Case": [
+      {
+        "NameCase": "T461 Symmetric BETWEEN predicate",
+        "Query1": "CREATE PROCEDURE F865_PROC1 (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR WITH RETURN FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test231": {
+    "Name": "T472 DESCRIBE CURSOR",
+    "Case": [
+      {
+        "NameCase": "T472 DESCRIBE CURSOR",
+        "Query1": "DESCRIBE CURSOR CATALOG_PAGE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test232": {
+    "Name": "T491 LATERAL derived table",
+    "Case": [
+      {
+        "NameCase": "T491 LATERAL derived table",
+        "Query1": "CREATE TABLE T491_01 (ROW_ID INTEGER)",
+        "Query2": "CREATE TABLE T491_02 (ROW_ID INTEGER)",
+        "Query3": "COMMIT",
+        "Query4": "INSERT INTO T491_01 VALUES (0)",
+        "Query5": "INSERT INTO T491_01 VALUES (1)",
+        "Query6": "INSERT INTO T491_01 VALUES (2)",
+        "Query7": "INSERT INTO T491_01 VALUES (3)",
+        "Query8": "INSERT INTO T491_01 VALUES (4)",
+        "Query9": "COMMIT",
+        "Query10": "INSERT INTO T491_02 SELECT * FROM OLD TABLE (DELETE FROM T491_01)",
+        "Query11": "COMMIT"
+      }
+    ]
+  },
+  "Test233": {
+    "Name": "T501 Enhanced EXISTS predicate",
+    "Case": [
+      {
+        "NameCase": "T501 Enhanced EXISTS predicate",
+        "Query1": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test234": {
+    "Name": "T502 Period predicates",
+    "Case": [
+      {
+        "NameCase": "T502 Period predicates",
+        "Query1": "CREATE TABLE T502_01 (EMP_NO EMP_NO, EMP_DEPT_NO DEPT_NO, EMPStart DATE NOT NULL, EMPEnd DATE NOT NULL, PERIOD FOR EMPPeriod (EMPStart, EMPEnd))",
+        "Query2": "CREATE TABLE T502_02 (DEPT_NO DEPT_NO, DEPT_NAME VARCHAR(30), DEPTStart DATE NOT NULL, DEPTEnd DATE NOT NULL, PERIOD FOR DEPTPeriod (DEPTStart, DEPTEnd), PRIMARY KEY (DEPT_NO, DEPTPeriod WITHOUT OVERLAPS))",
+        "Query3": "COMMIT",
+        "Query4": "INSERT INTO T502_01 VALUES (22217, '01.01.2010', '12.11.2011', 3)",
+        "Query5": "INSERT INTO T502_02 VALUES (3, '01.01.2009', '31.12.2011', 'QA')",
+        "Query6": "COMMIT",
+        "Query7": "SELECT EMP_NO FROM T502_01, T502_02 WHERE EMP_DEPT_NO = 3 AND DEPT_NO = 4 AND DEPTPeriod CONTAINS EMPStart",
+        "Query8": "COMMIT",
+        "Query9": "SELECT EMP_NO FROM T502_01, T502_02 WHERE EMP_DEPT_NO = 3 AND DEPT_NO = 4 AND EMPPeriod PRECEDES DEPTPeriod",
+        "Query10": "COMMIT"
+      }
+    ]
+  },
+  "Test235": {
+    "Name": "T511 Transaction counts",
+    "Case": [
+      {
+        "NameCase": "T511 Transaction counts",
+        "Query1": "START TRANSACTION",
+        "Query2": "SELECT AGENT_CODE FROM AGENTS",
+        "Query3": "SELECT @@TRANCOUNT",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test236": {
+    "Name": "T521 Named arguments in CALL statement",
+    "Case": [
+      {
+        "NameCase": "T521 Named arguments in CALL statement",
+        "Query1": "CALL SUMM (a => 1,b => 3)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test237": {
+    "Name": "T522 Default values for IN parameters of SQL-invoked procedures",
+    "Case": [
+      {
+        "NameCase": "T522 Default values for IN parameters of SQL-invoked procedures",
+        "Query1": "create table T522 (ROW_INT INT)",
+        "Query2": "COMMIT",
+        "Query3": "create procedure T522_PROC (i int =10) as begin insert into T522 (ROW_INT) values (:i); end",
         "Query4": "COMMIT",
-        "Query5": ""
+        "Query5": "execute procedure t522_proc",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test238": {
+    "Name": "T551 Optional key words for default syntax",
+    "Case": [
+      {
+        "NameCase": "T551 Optional key words for default syntax",
+        "Query1": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop",
+        "Query2": "COMMIT",
+        "Query3": "SELECT Price FROM Laptop EXCEPT SELECT Price FROM Computers",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test239": {
+    "Name": "T561 Holdable locators",
+    "Case": [
+      {
+        "NameCase": "T561 Holdable locators",
+        "Query1": "CREATE TYPE T561 AS HOLD LOCATOR T561_LOCATOR",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test240": {
+    "Name": "T571 Array-returning external SQL-invoked functions",
+    "Case": [
+      {
+        "NameCase": "T571 Array-returning external SQL-invoked functions",
+        "Query1": "create or alter function T571 (elemment_array integer) returns array as SELECT ARRAY(SELECT COMMISSION FROM AGENTS) BEGIN END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test241": {
+    "Name": "T572 Multiset-returning external SQL-invoked functions",
+    "Case": [
+      {
+        "NameCase": "T572 Multiset-returning external SQL-invoked functions",
+        "Query1": "create or alter function T572 (elemment_array integer) returns multiset as SELECT MULTISET(SELECT COMMISSION FROM AGENTS) BEGIN END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test242": {
+    "Name": "T581 Regular expression substring function",
+    "Case": [
+      {
+        "NameCase": "T581 Regular expression substring function",
+        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from E021_022",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test243": {
+    "Name": "T591 UNIQUE constraints of possibly null columns",
+    "Case": [
+      {
+        "NameCase": "T591 UNIQUE constraints of possibly null columns",
+        "Query1": "CREATE TABLE T591( x int, y int, z int, unique(x,y,z))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T591 values( NULL, 1, 1 )",
+        "Query4": "INSERT INTO T591 values( NULL, NULL, 1 )",
+        "Query5": "INSERT INTO T591 values( NULL, NULL, NULL )",
+        "Query6": "INSERT INTO T591 values( NULL, NULL, NULL )",
+        "Query7": "COMMIT"
+      }
+    ]
+  },
+  "Test244": {
+    "Name": "T601 Local cursor references",
+    "Case": [
+      {
+        "NameCase": "T601 Local cursor references",
+        "Query1": "CREATE OR ALTER TRIGGER DECCURS15 before update on Company AS DECLARE cursor15 CURSOR LOCAL for (select id, namecompany, typeproduct from company where typeproduct = 'pc'); BEGIN end",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test245": {
+    "Name": "T611 Elementary OLAP operations",
+    "Case": [
+      {
+        "NameCase": "T611 Elementary OLAP operations",
+        "Query1": "SELECT AGENT_NAME, min(AGENT_CODE) over(), max(AGENT_CODE) over() FROM AGENTS",
+        "Query2": "COMMIT",
+        "Query3": "SELECT AGENT_NAME,WORKING_AREA, min(AGENT_CODE) over(partition by WORKING_AREA), max(AGENT_CODE) over(partition by WORKING_AREA) FROM AGENTS",
+        "Query4": "COMMIT",
+        "Query5": "SELECT AGENT_NAME,WORKING_AREA, min(AGENT_CODE) over(order by commission), max(AGENT_CODE) over(order by commission) FROM AGENTS",
+        "Query6": "COMMIT",
+        "Query7": "SELECT AGENT_NAME,WORKING_AREA, sum(COMMISSION) over(order by COMMISSION rows between unbounded preceding and unbounded following) sum_commission FROM AGENTS order by commission",
+        "Query8": "COMMIT",
+        "Query9": "SELECT AGENT_NAME,WORKING_AREA, count(*) over(order by COMMISSION range between 1 preceding and 1 following) coun FROM AGENTS order by commission",
+        "Query10": "COMMIT",
+        "Query11": "SELECT CUST_CODE, CUST_NAME, dense_rank() over (order by opening_amt), rank() over (order by opening_amt), row_number() over (order by opening_amt), sum(1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query12": "COMMIT"
+      }
+    ]
+  },
+  "Test246": {
+    "Name": "T612 Advanced OLAP operations",
+    "Case": [
+      {
+        "NameCase": "T612 Advanced OLAP operations",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, row_number() over () FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, PERCENT_RANK() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CUST_CODE, CUST_NAME, cume_dist() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query6": "COMMIT",
+        "Query7": "SELECT CUST_CODE, CUST_NAME, width_bucket (x,0,1,10) FROM CUSTOMER order by opening_amt",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test247": {
+    "Name": "T613 Sampling",
+    "Case": [
+      {
+        "NameCase": "T613 Sampling",
+        "Query1": "SELECT * FROM AGENTS TABLESAMPLE (5 ROWS)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test248": {
+    "Name": "T614 NTILE function",
+    "Case": [
+      {
+        "NameCase": "T614 NTILE function",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), ntile(3) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test249": {
+    "Name": "T615 LEAD and LAG functions",
+    "Case": [
+      {
+        "NameCase": "T615 LEAD and LAG functions",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test250": {
+    "Name": "T616 Null treatment option for LEAD and LAG functions",
+    "Case": [
+      {
+        "NameCase": "T616 Null treatment option for LEAD and LAG functions",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) RESPECT NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) RESPECT NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) IGNORE NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query6": "COMMIT",
+        "Query7": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) IGNORE NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test251": {
+    "Name": "T617 FIRST_VALUE and LAST_VALUE functions",
+    "Case": [
+      {
+        "NameCase": "T617 FIRST_VALUE and LAST_VALUE functions",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), first_value (opening_amt) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), last_value(opening_amt) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test252": {
+    "Name": "T619 Nested window functions",
+    "Case": [
+      {
+        "NameCase": "T619-01 ROW_NUMBER window function",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, row_number() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T619-02 VALUE_OF window function",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, AVG(CASE WHEN opening_amt <> VALUE_OF opening_amt AT CURRENT ROW then cust_name END) over (PARTITION BY CUST_CODE) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test253": {
+    "Name": "T620 WINDOW clause: GROUPS option",
+    "Case": [
+      {
+        "NameCase": "T620 WINDOW clause: GROUPS option",
+        "Query1": "SELECT ceiling (125.24) from AGENTS",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME COVAR_POP (payment_amt - opening_amt) FROM CUSTOMER",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CUST_CODE, CUST_NAME COVAR_SAMP (payment_amt - opening_amt) FROM CUSTOMER",
+        "Query6": "COMMIT",
+        "Query7": "SELECT SQRT(9) FROM AGENTS",
+        "Query8": "COMMIT",
+        "Query9": "SELECT CUST_CODE, CUST_NAME STDDEV_POP (opening_amt) FROM CUSTOMER",
+        "Query10": "COMMIT",
+        "Query11": "SELECT CUST_CODE, CUST_NAME STDDEV_SAMP (opening_amt) FROM CUSTOMER",
+        "Query12": "COMMIT",
+        "Query13": "SELECT VAR_POP (opening_amt) FROM CUSTOMER",
+        "Query14": "COMMIT",
+        "Query15": "SELECT VAR_SAMP (opening_amt) FROM CUSTOMER",
+        "Query16": "COMMIT",
+        "Query17": "SELECT CORR (opening_amt,payment_amt) FROM CUSTOMER",
+        "Query18": "COMMIT",
+        "Query19": "SELECT REGR_SLOPE (opening_amt,payment_amt) FROM CUSTOMER",
+        "Query20": "COMMIT",
+        "Query21": "SELECT REGR_INTERCEPT (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query22": "COMMIT",
+        "Query23": "SELECT REGR_COUNT (opening_amt,payment_amt) FROM CUSTOMER",
+        "Query24": "COMMIT",
+        "Query25": "SELECT REGR_R2 (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query26": "COMMIT",
+        "Query27": "SELECT REGR_AVGX (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query28": "COMMIT",
+        "Query29": "SELECT REGR_SXX (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query30": "COMMIT",
+        "Query31": "SELECT REGR_SYY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query32": "COMMIT",
+        "Query33": "SELECT REGR_SXY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query34": "COMMIT",
+        "Query35": "SELECT REGR_AVGY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query36": "COMMIT"
+      }
+    ]
+  },
+  "Test254": {
+    "Name": "T641 Multiple column assignment",
+    "Case": [
+      {
+        "NameCase": "T641 Multiple column assignment",
+        "Query1": "CREATE TABLE T641 (a INT, b INT, c INT)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T641 VALUES(1,2,3)",
+        "Query4": "COMMIT",
+        "Query5": "UPDATE T641 SET (a,b,c) = (4,5,6)",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test255": {
+    "Name": "T651 SQL-schema statements in SQL routines",
+    "Case": [
+      {
+        "NameCase": "T651 SQL-schema statements in SQL routines",
+        "Query1": "CREATE PROCEDURE TEST.T651_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test256": {
+    "Name": "T652 SQL-dynamic statements in SQL routines",
+    "Case": [
+      {
+        "NameCase": "T652 SQL-dynamic statements in SQL routines",
+        "Query1": "CREATE PROCEDURE T652_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test257": {
+    "Name": "T655 Cyclically dependent routines",
+    "Case": [
+      {
+        "NameCase": "T655 Cyclically dependent routines",
+        "Query1": "CREATE PROCEDURE T655_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN EXECUTE PROCEDURE  T655_PROC(0,3); END",
+        "Query2": "COMMIT"
       }
     ]
   }
