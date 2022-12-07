@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Результат сравнения</title>
+</head>
+<body>
+	<table width = 1024px align = center border = 0>
+		<td align = center>
+			<h2>Отчет по сравнению СУБД PostgreSQL со стандартом SQL2011 for PostgreSQL</h2>
+		</td>
+	</table>
+	<table width = 1024px align = center border = 1>
+		<tr><th colspan = 5> E011 Numeric data types</th></tr>
+<tr><td> E011-01 INTEGER and SMALLINT data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-02 REAL, DOUBLE PRECISION and FLOAT data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-03 DECIMAL and NUMERIC data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-04 Arithmetic operators</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-05 Numeric comparison</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E011-06 Implicit casting among the numeric data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E021 Character string types</th></tr>
+<tr><td> E021-01 CHARACTER data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-02 CHARACTER VARYING data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-03 Character literals</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-04 CHARACTER_LENGTH function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-05 OCTET_LENGTH function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-06 SUBSTRING function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-07 Character concatenation</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-08 UPPER and LOWER functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-09 TRIM function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-10 Implicit casting among the fixed-length and variablelength character string types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-11 POSITION function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E021-12 Character comparison</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E031 Identifiers</th></tr>
+<tr><td> E031-01 Delimited identifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E031-02 Lower case identifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E031-03 Trailing underscore</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E051 Basic query specification</th></tr>
+<tr><td> E051-01 SELECT DISTINCT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-02 GROUP BY clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-04 GROUP BY can contain columns not in '<select list>'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-05 Select list items can be renamed</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-06 HAVING clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-07 Qualified * in select list</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-08 Correlation names in the FROM clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E051-09 Rename columns in the FROM clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E061 Basic predicates and search conditions</th></tr>
+<tr><td> E061-01 Comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-02 BETWEEN predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-03 IN predicate with list of values</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-04 LIKE predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-05 LIKE predicate: ESCAPE clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-06 NULL predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-07 Quantified comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-08 EXISTS predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-09 Subqueries in comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-11 Subqueries in IN predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-12 Subqueries in quantified comparison predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-13 Correlated subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E061-14 Search condition</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E071 Basic query expressions</th></tr>
+<tr><td> E071-01 UNION DISTINCT table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-02 UNION ALL table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-03 EXCEPT DISTINCT table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-05 Columns combined via table operators need not have exactly the same data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E071-06 Table operators in subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E081 Basic Privileges</th></tr>
+<tr><td> E081-01 SELECT privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-02 DELETE privilege</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-03 INSERT privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-04 UPDATE privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-05 UPDATE privilege at the column level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-06 REFERENCES privilege at the table level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-07 REFERENCES privilege at the column level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-08 WITH GRANT OPTION</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-09 USAGE privilege</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E081-10 EXECUTE privilege</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E091 Set functions</th></tr>
+<tr><td> E091-01 AVG</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E091-02 COUNT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E091-03 MAX</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E091-04 MIN</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E091-05 SUM</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E091-06 ALL</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E091-07 DISTINCT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E101 Basic data manipulation</th></tr>
+<tr><td> E101-01 INSERT statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E101-03 Searched UPDATE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E101-04 Searched DELETE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E111 Single row SELECT statement</th></tr>
+<tr><td> E111 Single row SELECT statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E121 Basic cursor support</th></tr>
+<tr><td> E121-01 DECLARE CURSOR</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-02 ORDER BY columns need not be in select list</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-03 Value expressions in ORDER BY clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-04 OPEN statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-06 Positioned UPDATE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-07 Positioned DELETE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-08 CLOSE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-10 FETCH statement: implicit NEXT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E121-17 WITH HOLD cursors</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E131 Null value support (nulls in lieu of values)</th></tr>
+<tr><td> E131 Null value support (nulls in lieu of values)</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E141 Basic integrity constraints</th></tr>
+<tr><td> E141-01 NOT NULL constraints</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-02 UNIQUE constraints of NOT NULL columns</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-03 PRIMARY KEY constraints</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-04 Basic FOREIGN KEY constraint
+with the NO ACTION
+default for both referential
+delete action and referential
+update action</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-06 CHECK constraints</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-07 Column defaults</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-08 NOT NULL inferred on PRIMARY KEY</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E141-10 Names in a foreign key can be specified in any order</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E151 Transaction support</th></tr>
+<tr><td> E151_01 COMMIT statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E151_02 ROLLBACK statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E152 Basic SET TRANSACTION</th></tr>
+<tr><td> E152_01 SET TRANSACTION statement:
+ISOLATION LEVEL
+SERIALIZABLE clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> E152_02 SET TRANSACTION statement:
+READ ONLY and
+READ WRITE clauses</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E153 Updatable queries with subqueries</th></tr>
+<tr><td> E153 Updatable queries with subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E161 SQL comments using leading double minus</th></tr>
+<tr><td> E161 SQL comments using leading double minus</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> E171 SQLSTATE support</th></tr>
+<tr><td> E171 SQLSTATE support</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "table_1" не существует
+  Позиция: 9</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> E182 Host language binding</th></tr>
+<tr><td> E182 Host language binding</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F031 Basic schema manipulation</th></tr>
+<tr><td> F031-01 CREATE TABLE statement to create persistent base tables</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F031-02 CREATE VIEW statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F031-03 GRANT statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F031-04 ALTER TABLE statement: ADD COLUMN clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F031-13 DROP TABLE statement: RESTRICT clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F031-14 DROP VIEW statement: RESTRICT clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F031-19 REVOKE statement: RESTRICT clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F041 Basic joined table</th></tr>
+<tr><td> F041-01 Inner join (but not necessarily the INNER keyword)</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F041-02 INNER keyword</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F041-03 LEFT OUTER JOIN</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F041-04 RIGHT OUTER JOIN</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F041-05 Outer joins can be nested</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F041-07 The inner table in a left or right
+outer join can also be used in
+an inner join</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F041-08 All comparison operators are
+supported (rather than just =)</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F051 Basic date and time</th></tr>
+<tr><td> F051-01 DATE data type (including
+support of DATE literal)</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-02 TIME data type (including
+support of TIME literal) with
+fractional seconds precision of
+at least 0</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-03 TIMESTAMP data type
+(including support of TIMESTAMP
+literal) with fractional
+seconds precision of at least 0
+and 6</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-04 Comparison predicate on
+DATE, TIME, and TIMESTAMP
+data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-05 Explicit CAST between datetime
+types and character string
+types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-06 CURRENT_DATE</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-07 LOCALTIME</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F051-08 LOCALTIMESTAMP</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F081 UNION and EXCEPT in views</th></tr>
+<tr><td> F081-01 UNION in views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F081-02 EXCEPT in views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F131 Grouped operations</th></tr>
+<tr><td> F131-01 WHERE, GROUP BY, and HAVING clauses supported in queries with grouped views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F131-02 Multiple tables supported in
+queries with grouped views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F131-03 Set functions supported in
+queries with grouped views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F131-04 Subqueries with GROUP BY
+and HAVING clauses and
+grouped views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F131-05 Single row SELECT with
+GROUP BY and HAVING
+clauses and grouped views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F181 Multiple module support</th></tr>
+<tr><td> F181 Multiple module support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F201 CAST function</th></tr>
+<tr><td> F201 CAST function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F221 Explicit defaults</th></tr>
+<tr><td> F221 Explicit defaults</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F261 CASE expression</th></tr>
+<tr><td> F261-01 Simple CASE</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F261-02 Searched CASE</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F261-03 NULLIF</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F261-04 COALESCE</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F311 Schema definition statement</th></tr>
+<tr><td> F311-01 CREATE SCHEMA</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F311-02 CREATE TABLE for persistent base tables</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F311-03 CREATE VIEW</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F311-04 CREATE VIEW: WITH CHECK OPTION</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F311-05 GRANT statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F471 Scalar subquery values</th></tr>
+<tr><td> F471 Scalar subquery values</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F481 Expanded NULL predicate</th></tr>
+<tr><td> F481 Expanded NULL predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F812 Basic flagging</th></tr>
+<tr><td> F812 Basic flagging</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S011 Distinct data types</th></tr>
+<tr><td> S011 Distinct data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T321 Basic SQL-invoked routines</th></tr>
+<tr><td> T321-01 User-defined functions with no overloading</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T321-02 User-defined stored procedures with no overloading</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T321-03 Function invocation</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T321-04 CALL statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T321-05 RETURN statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T631 IN predicate with one list element</th></tr>
+<tr><td> T631 IN predicate with one list element</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> B033 Untyped SQL-invoked function arguments</th></tr>
+<tr><td> B033 Untyped SQL-invoked function arguments</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> B034 Dynamic specification of cursor attributes</th></tr>
+<tr><td> B034 Dynamic specification of cursor attributes</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> B041 Extensions to embedded SQL exception declarations</th></tr>
+<tr><td> B041 Extensions to embedded SQL exception declarations</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "WHENEVER")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> B051 Enhanced execution rights</th></tr>
+<tr><td> B051 Enhanced execution rights</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> B128 Routine language SQL</th></tr>
+<tr><td> B128 Routine language SQL</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F032 CASCADE drop behavior</th></tr>
+<tr><td> F032 CASCADE drop behavior</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F033 ALTER TABLE statement: DROP COLUMN clause</th></tr>
+<tr><td> F033 ALTER TABLE statement: DROP COLUMN clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F034 Extended REVOKE statement</th></tr>
+<tr><td> F034-01 REVOKE statement performed by other than the owner of a schema object</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F034-02 REVOKE statement: GRANT OPTION FOR clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F034-03 REVOKE statement to revoke a privilege that the grantee has WITH GRANT OPTION</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F052 Intervals and datetime arithmetic</th></tr>
+<tr><td> F052-01 Intervals arithmetic</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F052-02 datetime arithmetic</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F053 OVERLAPS predicate</th></tr>
+<tr><td> F053 OVERLAPS predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F054 TIMESTAMP in DATE type precedence list</th></tr>
+<tr><td> F054 TIMESTAMP in DATE type precedence list</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F111 Isolation levels other than SERIALIZABLE</th></tr>
+<tr><td> F111-01 READ UNCOMMITTED isolation level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F111-02 READ COMMITTED isolation level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F111-03 REPEATABLE READ isolation level</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F121 Basic diagnostics management</th></tr>
+<tr><td> F121-01 GET DIAGNOSTICS statement</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "GET")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><td> F121-02 SET TRANSACTION statement: DIAGNOSTICS SIZE clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F122 Enhanced diagnostics management</th></tr>
+<tr><td> F122 Enhanced diagnostics management</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "GET")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F123 All diagnostics</th></tr>
+<tr><td> F123 All diagnostics</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "GET")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F171 Multiple schemas per user</th></tr>
+<tr><td> F171 Multiple schemas per user</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F191 Referential delete actions</th></tr>
+<tr><td> F191 Referential delete actions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F200 TRUNCATE TABLE statement</th></tr>
+<tr><td> F200 TRUNCATE TABLE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F202 TRUNCATE TABLE: identity column restart option</th></tr>
+<tr><td> F202 TRUNCATE TABLE: identity column restart option</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F222 INSERT statement: DEFAULT VALUES clause</th></tr>
+<tr><td> F222 INSERT statement: DEFAULT VALUES clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F251 Domain support</th></tr>
+<tr><td> F251 Domain support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F262 Extended CASE expression</th></tr>
+<tr><td> F262 Extended CASE expression</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F263 Comma-separated predicates in simple CASE expression</th></tr>
+<tr><td> F263 Comma-separated predicates in simple CASE expression</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
+  Позиция: 67</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F271 Compound character literals</th></tr>
+<tr><td> F271 Compound character literals</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F281 LIKE enhancements</th></tr>
+<tr><td> F281 LIKE enhancements</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F291 UNIQUE predicate</th></tr>
+<tr><td> F291 UNIQUE predicate</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNIQUE")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F301 CORRESPONDING in query expressions</th></tr>
+<tr><td> F301 CORRESPONDING in query expressions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CORRESPONDING")
+  Позиция: 35</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F302 INTERSECT table operator</th></tr>
+<tr><td> F302-01 INTERSECT DISTINCT table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F302-02 INTERSECT ALL table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F304 EXCEPT ALL table operator</th></tr>
+<tr><td> F304 EXCEPT ALL table operator</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F312 MERGE statement</th></tr>
+<tr><td> F312 MERGE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F313 Enhanced MERGE statement</th></tr>
+<tr><td> F313 Enhanced MERGE statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F314 MERGE statement with DELETE branch</th></tr>
+<tr><td> F314 MERGE statement with DELETE branch</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F321 User authorization</th></tr>
+<tr><td> F321 User authorization</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: столбец "system_user" не существует
+  Позиция: 9</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F381 Extended schema manipulation</th></tr>
+<tr><td> F381-01 ALTER TABLE statement: ALTER COLUMN clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F381-02 ALTER TABLE statement: ADD CONSTRAINT clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F381-03 ALTER TABLE statement: DROP CONSTRAINT clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F382 Alter column data type</th></tr>
+<tr><td> F382 Alter column data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F383 Set column not null clause</th></tr>
+<tr><td> F383 Set column not null clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F384 Drop identity property clause</th></tr>
+<tr><td> F384 Drop identity property clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F385 Drop column generation expression clause</th></tr>
+<tr><td> F385 Drop column generation expression clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F386 Set identity column generation clause</th></tr>
+<tr><td> F386 Set identity column generation clause</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F391 Long identifiers</th></tr>
+<tr><td> F391 Long identifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F392 Unicode escapes in identifiers</th></tr>
+<tr><td> F392 Unicode escapes in identifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F393 Unicode escapes in literals</th></tr>
+<tr><td> F393 Unicode escapes in literals</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F401 Extended joined table</th></tr>
+<tr><td> F401-01 NATURAL JOIN</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F401-02 FULL OUTER JOIN</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F401-03 CROSS JOIN</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F402 Named column joins for LOBs, arrays, and multisets</th></tr>
+<tr><td> F402 Named column joins for LOBs, arrays, and multisets</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F403 Partitioned join tables</th></tr>
+<tr><td> F403 Partitioned join tables</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "PARTITION")
+  Позиция: 46</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F411 Time zone specification</th></tr>
+<tr><td> F411 Time zone specification</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F421 National character</th></tr>
+<tr><td> F421 National character</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F431 Read-only scrollable cursors</th></tr>
+<tr><td> F431-01 FETCH with explicit NEXT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F431-02 FETCH FIRST</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F431-03 FETCH LAST</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F431-04 FETCH PRIOR</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F431-05 FETCH ABSOLUTE</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> F431-06 FETCH RELATIVE</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F441 Extended set function support</th></tr>
+<tr><td> F441 Extended set function support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F442 Mixed column references in set functions</th></tr>
+<tr><td> F442 Mixed column references in set functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F451 Character set definition</th></tr>
+<tr><td> F451 Character set definition</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CHARACTER")
+  Позиция: 9</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F461 Named character sets</th></tr>
+<tr><td> F461 Named character sets</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CHARACTER")
+  Позиция: 125</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F491 Constraint management</th></tr>
+<tr><td> F491 Constraint management</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F492 Optional table constraint enforcement</th></tr>
+<tr><td> F492 Optional table constraint enforcement</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ENFORCED")
+  Позиция: 130</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F521 Assertions</th></tr>
+<tr><td> F521 Assertions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FROM")
+  Позиция: 64</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F531 Temporary tables</th></tr>
+<tr><td> F531 Temporary tables</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F555 Enhanced seconds precision</th></tr>
+<tr><td> F555 Enhanced seconds precision</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F561 Full value expressions</th></tr>
+<tr><td> F561 Full value expressions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F571 Truth value tests</th></tr>
+<tr><td> F571 Truth value tests</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F591 Derived tables</th></tr>
+<tr><td> F591 Derived tables</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F611 Indicator data types</th></tr>
+<tr><td> F611 Indicator data types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса в конце
+  Позиция: 53</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F641 Row and table constructors</th></tr>
+<tr><td> F641 Row and table constructors</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F651 Catalog name qualifiers</th></tr>
+<tr><td> F651 Catalog name qualifiers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F661 Simple tables</th></tr>
+<tr><td> F661 Simple tables</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F671 Subqueries in CHECK constraints</th></tr>
+<tr><td> F671 Subqueries in CHECK constraints</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F672 Retrospective check constraints</th></tr>
+<tr><td> F672 Retrospective check constraints</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F690 Collation support</th></tr>
+<tr><td> F690 Collation support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F692 Enhanced collation support</th></tr>
+<tr><td> F692 Enhanced collation support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F693 SQL-session and client module collations</th></tr>
+<tr><td> F693 SQL-session and client module collations</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "COLLATION")
+  Позиция: 6</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F695 Translation support</th></tr>
+<tr><td> F695 Translation support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F701 Referential update actions</th></tr>
+<tr><td> F701 Referential update actions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F711 ALTER domain</th></tr>
+<tr><td> F711 ALTER domain</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F721 Deferrable constraints</th></tr>
+<tr><td> F721 Deferrable constraints</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "number" не существует
+  Позиция: 27</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F731 INSERT column privileges</th></tr>
+<tr><td> F731 INSERT column privileges</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F741 Referential MATCH types</th></tr>
+<tr><td> F741 Referential MATCH types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: значение поля типа date/time вне диапазона: "9/15/2011"
+  Подсказка: Возможно вам нужно изменить настройку "datestyle".
+  Позиция: 119</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F751 View CHECK enhancements</th></tr>
+<tr><td> F751 View CHECK enhancements</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F761 Session management</th></tr>
+<tr><td> F761 Session management</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F762 CURRENT_CATALOG</th></tr>
+<tr><td> F762 CURRENT_CATALOG</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F763 CURRENT_SCHEMA</th></tr>
+<tr><td> F763 CURRENT_SCHEMA</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F771 Connection management</th></tr>
+<tr><td> F771 Connection management</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F781 Self-referencing operations</th></tr>
+<tr><td> F781 Self-referencing operations</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F791 Insensitive cursors</th></tr>
+<tr><td> F791 Insensitive cursors</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CURSOR")
+  Позиция: 90
+  Где: неверное имя типа "INSENSITIVE CURSOR FOR select agent_name from agents where agent_code "</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F801 Full set function</th></tr>
+<tr><td> F801 Full set function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F821 Local table references</th></tr>
+<tr><td> F821 Local table references</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "#")
+  Позиция: 15</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F831 Full cursor update</th></tr>
+<tr><td> F831-01 Updateable scrollable cursors</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
+  Позиция: 41</td></tr></table>
+</td></tr>
+<tr><td> F831-02 Updateable ordered cursors</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
+  Позиция: 41</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F841 LIKE_REGEX predicate</th></tr>
+<tr><td> F841 LIKE_REGEX predicate</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция like_regex(character varying unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F842 OCCURRENCES_REGEX function</th></tr>
+<tr><td> F842 OCCURRENCES_REGEX function</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция occurrences_regex(character varying unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F843 POSITION_REGEX function function</th></tr>
+<tr><td> F843 POSITION_REGEX function</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция position_regex(character varying unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F844 SUBSTRING_REGEX</th></tr>
+<tr><td> F844 SUBSTRING_REGEX</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция substring_regex(character varying unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F845 TRANSLATE_REGEX</th></tr>
+<tr><td> F845 TRANSLATE_REGEX</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция translate_regex(character varying unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F846 Octet support in regular expression operators</th></tr>
+<tr><td> F846 Octet support in regular expression operators</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция octet(character varying) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F847 Nonconstant regular expressions</th></tr>
+<tr><td> F847 Nonconstant regular expressions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция like_regex(character varying unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F850 Top-level 'order by clause' in 'query expression'</th></tr>
+<tr><td> F850 Top-level 'order by clause' in 'query expression'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F851 'order by clause' in subqueries</th></tr>
+<tr><td> F851 'order by clause' in subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F852 Top-level 'order by clause' in views</th></tr>
+<tr><td> F852 Top-level 'order by clause' in views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F855 Nested 'order by clause' in 'query expression'</th></tr>
+<tr><td> F855 Nested 'order by clause' in 'query expression'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F856 Nested 'fetch first clause' in 'query expression'</th></tr>
+<tr><td> F856 Nested <fetch first clause> in <query expression></td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F857 Top-level 'fetch first clause' in 'query expression'</th></tr>
+<tr><td> F857 Top-level 'fetch first clause' in 'query expression'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F858 'fetch first clause' in subqueries</th></tr>
+<tr><td> F858 'fetch first clause' in subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F859 Top-level 'fetch first clause' in views</th></tr>
+<tr><td> F859 Top-level 'fetch first clause' in views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F860 dynamic 'fetch first row count' in 'fetch first clause'</th></tr>
+<tr><td> F860 dynamic 'fetch first row count' in 'fetch first clause'</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: неверный синтаксис для типа bigint: "@offset_value"
+  Где: функция PL/pgSQL f860_proc(integerinteger) строка 1 оператор OPEN</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F861 Top-level 'result offset clause' in 'query expression'</th></tr>
+<tr><td> F861 Top-level 'result offset clause' in 'query expression'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F862 'result offset clause' in subqueries</th></tr>
+<tr><td> F862 'result offset clause' in subqueries</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F863 Nested 'result offset clause' in 'query expression'</th></tr>
+<tr><td> F863 Nested 'result offset clause' in 'query expression'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F864 Top-level 'result offset clause' in views</th></tr>
+<tr><td> F864 Top-level 'result offset clause' in views</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F865 dynamic <offset row count> in 'result offset clause'</th></tr>
+<tr><td> F865 dynamic <offset row count> in 'result offset clause'</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> F866 FETCH FIRST clause: PERCENT option</th></tr>
+<tr><td> F866 FETCH FIRST clause: PERCENT option</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "PERCENT")
+  Позиция: 78</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> F867 FETCH FIRST clause: WITH TIES option</th></tr>
+<tr><td> F867 FETCH FIRST clause: WITH TIES option</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S023 Basic structured types</th></tr>
+<tr><td> S023 Basic structured types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S024 Enhanced structured types</th></tr>
+<tr><td> S024 Enhanced structured types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S025 Final structured types</th></tr>
+<tr><td> S025 Final structured types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FINAL")
+  Позиция: 70</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S026 Self-referencing structured types</th></tr>
+<tr><td> S026 Self-referencing structured types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NOT")
+  Позиция: 134</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S027 Create method by specific method name</th></tr>
+<tr><td> S027 Create method by specific method name</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "METHOD")
+  Позиция: 9</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S028 Permutable UDT options list</th></tr>
+<tr><td> S028 Permutable UDT options list</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "TABLE")
+  Позиция: 22</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S041 Basic reference types</th></tr>
+<tr><td> S041 Basic reference types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
+  Позиция: 27</td></tr></table>
+</td></tr>
+<tr><th colspan = 5>  S043 Enhanced reference types</th></tr>
+<tr><td> S043 Enhanced reference types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
+  Позиция: 30</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S051 Create table of type</th></tr>
+<tr><td> S051 Create table of type</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NOT")
+  Позиция: 134</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S071 SQL paths in function and type name resolution</th></tr>
+<tr><td> S071 SQL paths in function and type name resolution</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S081 Subtables</th></tr>
+<tr><td> S081 Subtables</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
+  Позиция: 40</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S091 Basic array support</th></tr>
+<tr><td> S091-01 Arrays of built-in data types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> S091-02 Arrays of distinct types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
+  Позиция: 32</td></tr></table>
+</td></tr>
+<tr><td> S091-03 Array expressions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S092 Arrays of user-defined types</th></tr>
+<tr><td> S092 Arrays of user-defined types</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S094 Arrays of reference types</th></tr>
+<tr><td> S094 Arrays of reference types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
+  Позиция: 150</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S095 Array constructors by query</th></tr>
+<tr><td> S095 Array constructors by query</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S096 Optional array bounds</th></tr>
+<tr><td> S096 Optional array bounds</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S097 Array element assignment</th></tr>
+<tr><td> S097 Array element assignment</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S098 ARRAY_AGG</th></tr>
+<tr><td> S098 ARRAY_AGG</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S111 ONLY in query expressions</th></tr>
+<tr><td> S111 ONLY in query expression</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S151 Type predicate</th></tr>
+<tr><td> S151 Type predicate</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NOT")
+  Позиция: 39</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S161 Subtype treatment</th></tr>
+<tr><td> S161 Subtype treatment</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "student_table" не существует
+  Позиция: 59</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S162 Subtype treatment for references</th></tr>
+<tr><td> S162 Subtype treatment for references</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "student_table" не существует
+  Позиция: 59</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S201 SQL-invoked routines on arrays</th></tr>
+<tr><td> S201-01 Array parameters</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> S201-02 Array as result type of functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S202 SQL-invoked routines on multisets</th></tr>
+<tr><td> S202 SQL-invoked routines on multisets</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S211 User-defined cast functions</th></tr>
+<tr><td> S211 User-defined cast functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S231 Structured type locators</th></tr>
+<tr><td> S231 Structured type locators</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "LOCATOR")
+  Позиция: 22</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S232 Array locators</th></tr>
+<tr><td> S232 Array locators</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "INTEGER")
+  Позиция: 19</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S233 Multiset locators</th></tr>
+<tr><td> S233 Multiset locators</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "PRICE")
+  Позиция: 27</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S241 Transform functions</th></tr>
+<tr><td> S241 Transform functions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "group1")
+  Позиция: 29</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S242 Alter transform statement</th></tr>
+<tr><td> S242 Alter transform statement</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "TRANSFORM")
+  Позиция: 8</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S251 User-defined orderings</th></tr>
+<tr><td> S251 User-defined orderings</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция field(character unknown unknown unknown) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
+  Позиция: 33</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S261 Specific type method</th></tr>
+<tr><td> S261 Specific type method</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "alter")
+  Позиция: 12</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S271 Basic multiset support</th></tr>
+<tr><td> S271 Basic multiset support</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "customers" не существует
+  Позиция: 47</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S272 Multisets of user-defined types</th></tr>
+<tr><td> S272 Multisets of user-defined types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "SELECT")
+  Позиция: 66</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S274 Multisets of reference types</th></tr>
+<tr><td> S274 Multisets of reference types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ROW")
+  Позиция: 104</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S275 Advanced multiset support</th></tr>
+<tr><td> S275 Advanced multiset support</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ROW")
+  Позиция: 104</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S281 Nested collection types</th></tr>
+<tr><td> S281 Nested collection types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NESTED")
+  Позиция: 117</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S291 Unique constraint on entire row</th></tr>
+<tr><td> S291 Unique constraint on entire row</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S301 Enhanced UNNEST</th></tr>
+<tr><td> S301 Enhanced UNNEST</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> S401 Distinct types based on array types</th></tr>
+<tr><td> S401 Distinct types based on array types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
+  Позиция: 42</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S402 Distinct types based on distinct types</th></tr>
+<tr><td> S402 Distinct types based on distinct types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
+  Позиция: 22</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S403 ARRAY_MAX_CARDINALITY</th></tr>
+<tr><td> S401 ARRAY_MAX_CARDINALITY</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "VARCHAR")
+  Позиция: 26</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> S404 TRIM_ARRAY</th></tr>
+<tr><td> S404 TRIM_ARRAY</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T021 BINARY and VARBINARY data types</th></tr>
+<tr><td> T021 BINARY and VARBINARY data types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "binary" не существует
+  Позиция: 32</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T022 Advanced support for BINARY and VARBINARY data types</th></tr>
+<tr><td> T022 Advanced support for BINARY and VARBINARY data types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "binary" не существует
+  Позиция: 32</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T023 Compound binary literals</th></tr>
+<tr><td> T023 Compound binary literals</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "varbinary" не существует
+  Позиция: 34</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T024 Spaces in binary literals</th></tr>
+<tr><td> T024 Spaces in binary literals</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "varbinary" не существует
+  Позиция: 34</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T031 BOOLEAN data type</th></tr>
+<tr><td> T031 BOOLEAN data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T041 Basic LOB data type support</th></tr>
+<tr><td> T041-01 BLOB data type</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "blob" не существует
+  Позиция: 45</td></tr></table>
+</td></tr>
+<tr><td> T041-02 CLOB data type</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "SUB_TYPE")
+  Позиция: 51</td></tr></table>
+</td></tr>
+<tr><td> T041-03 POSITION, LENGTH, LOWER, TRIM, UPPER, and SUBSTRING functions for LOB data types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "blob" не существует
+  Позиция: 45</td></tr></table>
+</td></tr>
+<tr><td> T041-04 Concatenation of LOB data types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: текущая транзакция прервана команды до конца блока транзакции игнорируются</td></tr></table>
+</td></tr>
+<tr><td> T041-05 LOB locator: non-holdable</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: текущая транзакция прервана команды до конца блока транзакции игнорируются</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T042 Extended LOB data type support</th></tr>
+<tr><td> T042 Extended LOB data type support</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "t041_04" не существует
+  Позиция: 16</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T043 Multiplier T</th></tr>
+<tr><td> T043 Multiplier T</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: мусорное содержимое после числовой константы (примерное положение: "4T")
+  Позиция: 36</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T044 Multiplier P</th></tr>
+<tr><td> T044 Multiplier P</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: мусорное содержимое после числовой константы (примерное положение: "4P")
+  Позиция: 36</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T051 Row types</th></tr>
+<tr><td> T051 Row types</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ROW")
+  Позиция: 9</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T053 Explicit aliases for all-fields reference</th></tr>
+<tr><td> T053 Explicit aliases for all-fields reference</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "as")
+  Позиция: 11</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T061 UCS support</th></tr>
+<tr><td> T061 UCS support</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
+  Позиция: 27</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T071 BIGINT data type</th></tr>
+<tr><td> T071 BIGINT data type</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T101 Enhanced nullability determination</th></tr>
+<tr><td> T101 Enhanced nullability determination</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T111 Updatable joins, unions, and columns</th></tr>
+<tr><td> T111 Updatable joins, unions, and columns</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: изменить данные в представлении "t111" нельзя
+  Подробности: Представления выбирающие данные не из одной таблицы или представления не обновляются автоматически.
+  Подсказка: Чтобы представление допускало изменение данных установите триггер INSTEAD OF UPDATE или безусловное правило ON UPDATE DO INSTEAD.</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T121 WITH (excluding RECURSIVE) in query expression</th></tr>
+<tr><td> T121 WITH (excluding RECURSIVE) in query expression</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T122 WITH (excluding RECURSIVE) in subquery</th></tr>
+<tr><td> T122 WITH (excluding RECURSIVE) in subquery</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T131 Recursive query</th></tr>
+<tr><td> T131 Recursive query</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T132 Recursive query in subquery</th></tr>
+<tr><td> T131 Recursive query</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T141 SIMILAR predicate</th></tr>
+<tr><td> T141 SIMILAR predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T151 DISTINCT predicate</th></tr>
+<tr><td> T151 DISTINCT predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T152 DISTINCT predicate with negation</th></tr>
+<tr><td> T152 DISTINCT predicate with negation</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T171 LIKE clause in table definition</th></tr>
+<tr><td> T171 LIKE clause in table definition</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T172 AS subquery clause in table definition</th></tr>
+<tr><td> T172 AS subquery clause in table definition</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T173 Extended LIKE clause in table definition</th></tr>
+<tr><td> T173 Extended LIKE clause in table definition</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T174 Identity columns</th></tr>
+<tr><td> T174 Identity columns</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T175 Generated columns</th></tr>
+<tr><td> T175 Generated columns</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "always")
+  Позиция: 48</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T176 Sequence generator support</th></tr>
+<tr><td> T176 Sequence generator support</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T177 Sequence generator support: simple restart option</th></tr>
+<tr><td> T177 Sequence generator support: simple restart option</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T178 Identity columns: simple restart option</th></tr>
+<tr><td> T178 Identity columns: simple restart option</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T180 System-versioned tables</th></tr>
+<tr><td> T180 System-versioned tables</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CLUSTERED")
+  Позиция: 54</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T181 Application-time period tables</th></tr>
+<tr><td> T181 Application-time period tables</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
+  Позиция: 110</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T191 Referential action RESTRICT</th></tr>
+<tr><td> T191 Referential action RESTRICT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T201 Comparable data types for referential constraints</th></tr>
+<tr><td> T201 Comparable data types for referential constraints</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ограничение внешнего ключа "t201_6_id_2015_fkey" нельзя реализовать
+  Подробности: Столбцы ключа "id_2015" и "id" имеют несовместимые типы: date и numeric.</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T211 Basic trigger capability</th></tr>
+<tr><td> T211-01 Triggers activated on UPDATE, INSERT, or DELETE of one base table</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T211-02 BEFORE triggers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T211-03 AFTER triggers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T211-04 FOR EACH ROW triggers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T211-05 Ability to specify a search condition that shall be True before the trigger is invoked</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T211-07 TRIGGER privilege</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "T211_05")
+  Позиция: 27</td></tr></table>
+</td></tr>
+<tr><td> T211-08 Multiple triggers for the same event are executed in the order in which they were
+created in the catalog</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ALTER")
+  Позиция: 12</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T212 Enhanced trigger capability</th></tr>
+<tr><td> T212 Enhanced trigger capability</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T213 INSTEAD OF triggers</th></tr>
+<tr><td> T213 INSTEAD OF triggers</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T231 Sensitive cursors</th></tr>
+<tr><td> T231 Sensitive cursors</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CURSOR")
+  Позиция: 88
+  Где: неверное имя типа "SENSITIVE CURSOR FOR select agent_name from agents where agent_code "</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T241 START TRANSACTION statement</th></tr>
+<tr><td> T241 START TRANSACTION statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T251 SET TRANSACTION statement: LOCAL option</th></tr>
+<tr><td> T251 SET TRANSACTION statement: LOCAL option</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "WAIT")
+  Позиция: 35</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T261 Chained transactions</th></tr>
+<tr><td> T261 Chained transactions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T271 Savepoints</th></tr>
+<tr><td> T271 Savepoints</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T272 Enhanced savepoint management</th></tr>
+<tr><td> T272 Enhanced savepoint management</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "y")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T281 SELECT privilege with column granularity</th></tr>
+<tr><td> T281 SELECT privilege with column granularity</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T285 Enhanced derived column names</th></tr>
+<tr><td> T285 Enhanced derived column names</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T301 Functional dependencies</th></tr>
+<tr><td> T301 Functional dependencies</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T312 OVERLAY function</th></tr>
+<tr><td> T312 OVERLAY function</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "binary" не существует
+  Позиция: 32</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T323 Explicit security for external routines</th></tr>
+<tr><td> T323 Explicit security for external routines</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T324 Explicit security for SQL routines</th></tr>
+<tr><td> T324 Explicit security for SQL routines</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T325 Qualified SQL parameter references</th></tr>
+<tr><td> T325 Qualified SQL parameter references</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T326 Table functions</th></tr>
+<tr><td> T326 Table functions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "AS")
+  Позиция: 46</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T331 Basic roles</th></tr>
+<tr><td> T331 Basic roles</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T332 Extended roles</th></tr>
+<tr><td> T332 Extended roles</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T351 Bracketed comments</th></tr>
+<tr><td> T351 Bracketed comments</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T431 Extended grouping capabilities</th></tr>
+<tr><td> T431 Extended grouping capabilities</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T432 Nested and concatenated GROUPING SETS</th></tr>
+<tr><td> T432 Nested and concatenated GROUPING SETS</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T433 Multiargument GROUPING function</th></tr>
+<tr><td> T433 Multiargument GROUPING function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T434 GROUP BY DISTINCT</th></tr>
+<tr><td> T434 GROUP BY DISTINCT</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T441 ABS and MOD functions</th></tr>
+<tr><td> T441 ABS and MOD functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T461 Symmetric BETWEEN predicate</th></tr>
+<tr><td> T461 Symmetric BETWEEN predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T472 DESCRIBE CURSOR</th></tr>
+<tr><td> T472 DESCRIBE CURSOR</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "DESCRIBE")
+  Позиция: 2</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T491 LATERAL derived table</th></tr>
+<tr><td> T491 LATERAL derived table</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T501 Enhanced EXISTS predicate</th></tr>
+<tr><td> T501 Enhanced EXISTS predicate</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T502 Period predicates</th></tr>
+<tr><td> T502 Period predicates</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
+  Позиция: 113</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T511 Transaction counts</th></tr>
+<tr><td> T511 Transaction counts</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: столбец "trancount" не существует
+  Позиция: 11</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T521 Named arguments in CALL statement</th></tr>
+<tr><td> T521 Named arguments in CALL statement</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T522 Default values for IN parameters of SQL-invoked procedures</th></tr>
+<tr><td> T522 Default values for IN parameters of SQL-invoked procedures</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "t522_proc")
+  Позиция: 20</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T551 Optional key words for default syntax</th></tr>
+<tr><td> T551 Optional key words for default syntax</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T561 Holdable locators</th></tr>
+<tr><td> T561 Holdable locators</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "HOLD")
+  Позиция: 22</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T571 Array-returning external SQL-invoked functions</th></tr>
+<tr><td> T571 Array-returning external SQL-invoked functions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "array")
+  Позиция: 56</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T572 Multiset-returning external SQL-invoked functions</th></tr>
+<tr><td> T572 Multiset-returning external SQL-invoked functions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "SELECT")
+  Позиция: 68</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T581 Regular expression substring function</th></tr>
+<tr><td> T581 Regular expression substring function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T591 UNIQUE constraints of possibly null columns</th></tr>
+<tr><td> T591 UNIQUE constraints of possibly null columns</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T601 Local cursor references</th></tr>
+<tr><td> T601 Local cursor references</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CURSOR")
+  Позиция: 99
+  Где: неверное имя типа "LOCAL CURSOR FOR select agent_name from agents where agent_code "</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T611 Elementary OLAP operations</th></tr>
+<tr><td> T611 Elementary OLAP operations</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T612 Advanced OLAP operations</th></tr>
+<tr><td> T612 Advanced OLAP operations</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T613 Sampling</th></tr>
+<tr><td> T613 Sampling</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T614 NTILE function</th></tr>
+<tr><td> T614 NTILE function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T615 LEAD and LAG functions</th></tr>
+<tr><td> T615 LEAD and LAG functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T616 Null treatment option for LEAD and LAG functions</th></tr>
+<tr><td> T616 Null treatment option for LEAD and LAG functions</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NULLS")
+  Позиция: 95</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T617 FIRST_VALUE and LAST_VALUE functions</th></tr>
+<tr><td> T617 FIRST_VALUE and LAST_VALUE functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T619 Nested window functions</th></tr>
+<tr><td> T619-01 ROW_NUMBER window function</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T619-02 VALUE_OF window function</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "opening_amt")
+  Позиция: 69</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T620 WINDOW clause: GROUPS option</th></tr>
+<tr><td> T620 WINDOW clause: GROUPS option</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T621 Enhanced numeric functions</th></tr>
+<tr><td> T621 Enhanced numeric functions</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T641 Multiple column assignment</th></tr>
+<tr><td> T641 Multiple column assignment</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T651 SQL-schema statements in SQL routines</th></tr>
+<tr><td> T651 SQL-schema statements in SQL routines</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><th colspan = 5> T652 SQL-dynamic statements in SQL routines</th></tr>
+<tr><td> T652 SQL-dynamic statements in SQL routines</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "DECLARE")
+  Позиция: 66</td></tr></table>
+</td></tr>
+<tr><th colspan = 5> T655 Cyclically dependent routines</th></tr>
+<tr><td> T655 Cyclically dependent routines</td>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+
+	</table>
+</body>
+</html>

@@ -34,18 +34,28 @@
       {
         "NameCase": "E011-04 Arithmetic operators",
         "Query1": "SELECT INTD2 + 1000 FROM E011_011",
-        "Query2": "SELECT INTD1 - 1000 FROM E011_011",
-        "Query3": "SELECT SMINTD2 * 1 FROM E011_012",
-        "Query4": "SELECT SMINTD2 / SMINTD1 FROM E011_012"
+        "Query2": "COMMIT",
+        "Query3": "SELECT INTD1 - 1000 FROM E011_011",
+        "Query4": "COMMIT",
+        "Query5": "SELECT SMINTD2 * 1 FROM E011_012",
+        "Query6": "COMMIT",
+        "Query7": "SELECT SMINTD2 / SMINTD1 FROM E011_012",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E011-05 Numeric comparison",
         "Query1": "SELECT * FROM E011_011 WHERE INTD1 > INTD2",
-        "Query2": "SELECT * FROM E011_012 WHERE SMINTD2 < SMINTD3",
-        "Query3": "SELECT * FROM E011_032 WHERE DEC1 = DEC2",
-        "Query4": "SELECT * FROM E011_032 WHERE DEC3 >= DEC2",
-        "Query5": "SELECT * FROM E011_031 WHERE NUMD1 <= NUMD3",
-        "Query6": "SELECT * FROM E011_023 WHERE FLOAT1 <> FLOAT2"
+        "Query2": "COMMIT",
+        "Query3": "SELECT * FROM E011_012 WHERE SMINTD2 < SMINTD3",
+        "Query4": "COMMIT",
+        "Query5": "SELECT * FROM E011_032 WHERE DEC1 = DEC2",
+        "Query6": "COMMIT",
+        "Query7": "SELECT * FROM E011_032 WHERE DEC3 >= DEC2",
+        "Query8": "COMMIT",
+        "Query9": "SELECT * FROM E011_031 WHERE NUMD1 <= NUMD3",
+        "Query10": "COMMIT",
+        "Query11": "SELECT * FROM E011_023 WHERE FLOAT1 <> FLOAT2",
+        "Query12": "COMMIT"
       },
       {
         "NameCase": "E011-06 Implicit casting among the numeric data types",
@@ -53,7 +63,8 @@
         "Query2": "COMMIT",
         "Query3": "Insert into E011_06 (CHARD,DOUBLEP,INTD) values ('128', -50.23, 19248)",
         "Query4": "COMMIT",
-        "Query5": "SELECT INTD * DOUBLEP FROM E011_06"
+        "Query5": "SELECT INTD * DOUBLEP FROM E011_06",
+        "Query6": "COMMIT"
       }
     ]
   },
@@ -73,36 +84,46 @@
         "NameCase": "E021-02 CHARACTER VARYING data type",
         "Query1": "Create table E021_021 (VCAHRD VARCHAR(11),Primary key(VCAHRD))",
         "Query2": "Create table E021_022 (CHARVD CHARACTER VARYING(20),Primary key(CHARVD))",
-        "Query3": "COMMIT",
-        "Query4": "Insert into E021_021 (VCAHRD) values ('VarCharData')",
-        "Query5": "Insert into E021_022 (CHARVD) values ('CharVaryingData')",
-        "Query6": "COMMIT"
+        "Query3": "Create table E021_023 (CVAR CHAR VARYING(20),Primary key(CVAR))",
+        "Query4": "COMMIT",
+        "Query5": "Insert into E021_021 (VCAHRD) values ('VarCharData')",
+        "Query6": "Insert into E021_022 (CHARVD) values ('CharVaryingData')",
+        "Query7": "Insert into E021_023 (CVAR) values ('CharVaryingData')",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E021-03 Character literals",
         "Query1": "Select 'VCHARD VCHARD' from E021_021",
-        "Query2": "Select 'CHARVD \n CHARVD' from E021_022",
-        "Query3": "Select 'CHARD \\ CHARD' from E021_011"
+        "Query2": "COMMIT",
+        "Query3": "Select 'CHARVD \n CHARVD' from E021_022",
+        "Query4": "COMMIT",
+        "Query5": "Select 'CHARD \\ CHARD' from E021_011",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E021-04 CHARACTER_LENGTH function",
-        "Query1": "SELECT CHARACTER_LENGTH(CHARVD) from E021_022"
+        "Query1": "SELECT CHARACTER_LENGTH(CHARVD) from E021_022",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E021-05 OCTET_LENGTH function",
-        "Query1": "SELECT OCTET_LENGTH(CHARVD) from E021_022"
+        "Query1": "SELECT OCTET_LENGTH(CHARVD) from E021_022",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E021-06 SUBSTRING function",
-        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from E021_022"
+        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from E021_022",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E021-07 Character concatenation",
-        "Query1": "SELECT CHARACTERD || CHARACTERD from E021_012"
+        "Query1": "SELECT CHARACTERD || CHARACTERD from E021_012",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E021-08 UPPER and LOWER functions",
-        "Query1": "SELECT CHARACTERD,UPPER(CHARACTERD) as UpSymbol, LOWER(CHARACTERD) as LowSymbol from E021_012"
+        "Query1": "SELECT CHARACTERD,UPPER(CHARACTERD) as UpSymbol, LOWER(CHARACTERD) as LowSymbol from E021_012",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E021-09 TRIM function",
@@ -110,7 +131,8 @@
         "Query2": "COMMIT",
         "Query3": "Insert into E021_09 (TRTEST) values ('.,! Test.')",
         "Query4": "COMMIT",
-        "Query5": "SELECT TRIM ('.,! ' from TRTEST) as ResTrimTest  from E021_09"
+        "Query5": "SELECT TRIM ('.,! ' from TRTEST) as ResTrimTest  from E021_09",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E021-10 Implicit casting among the fixed-length and variablelength character string types",
@@ -119,7 +141,9 @@
         "Query3": "Insert into E021_10 (CHARD1,CHARD2) values ('abcdefhgdg','1234567')",
         "Query4": "COMMIT",
         "Query5": "SELECT CAST(CHARD1 as VARCHAR(30)) from E021_10",
-        "Query6": "SELECT CAST(CHARD2 as VARCHAR(30)) from E021_10"
+        "Query6": "COMMIT",
+        "Query7": "SELECT CAST(CHARD2 as VARCHAR(30)) from E021_10",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E021-11 POSITION function",
@@ -127,7 +151,8 @@
         "Query2": "COMMIT",
         "Query3": "Insert into E021_11 (CHARD) values ('P3SITION1')",
         "Query4": "COMMIT",
-        "Query5": "SELECT POSITION('3' IN CHARD) as PositionRes from E021_11"
+        "Query5": "SELECT POSITION('3' IN CHARD) as PositionRes from E021_11",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E021-12 Character comparison",
@@ -136,11 +161,17 @@
         "Query3": "Insert into E021_12 (CHARD1,CHARD2,CHARD3) values ('String213','Str23','String213')",
         "Query4": "COMMIT",
         "Query5": "SELECT * FROM E021_12 WHERE CHARD2 = CHARD3",
-        "Query6": "SELECT * FROM E021_12 WHERE CHARD2 > CHARD1",
-        "Query7": "SELECT * FROM E021_12 WHERE CHARD2 < CHARD1",
-        "Query8": "SELECT * FROM E021_12 WHERE CHARD2 <= CHARD1",
-        "Query9": "SELECT * FROM E021_12 WHERE CHARD1 >= CHARD3",
-        "Query10": "SELECT * FROM E021_12 WHERE CHARD1 <> CHARD3"
+        "Query6": "COMMIT",
+        "Query7": "SELECT * FROM E021_12 WHERE CHARD2 > CHARD1",
+        "Query8": "COMMIT",
+        "Query9": "SELECT * FROM E021_12 WHERE CHARD2 < CHARD1",
+        "Query10": "COMMIT",
+        "Query11": "SELECT * FROM E021_12 WHERE CHARD2 <= CHARD1",
+        "Query12": "COMMIT",
+        "Query13": "SELECT * FROM E021_12 WHERE CHARD1 >= CHARD3",
+        "Query14": "COMMIT",
+        "Query15": "SELECT * FROM E021_12 WHERE CHARD1 <> CHARD3",
+        "Query16": "COMMIT"
       }
     ]
   },
@@ -149,11 +180,13 @@
     "Case": [
       {
         "NameCase": "E031-01 Delimited identifiers",
-        "Query1": "SELECT \"CHARD1\" from E021_12"
+        "Query1": "SELECT \"chard1\" from E021_12",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E031-02 Lower case identifiers",
-        "Query1": "SELECT chard1 from E021_12"
+        "Query1": "SELECT CHARD1 from E021_12",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E031-03 Trailing underscore",
@@ -173,7 +206,8 @@
         "Query4": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
         "Query5": "Insert into Persons (PersonID,LastName,FirstName,Country,City) values (0,'Ivan','Ivanov','Russia','Moscow')",
         "Query6": "COMMIT",
-        "Query7": "SELECT DISTINCT * FROM Persons"
+        "Query7": "SELECT DISTINCT * FROM Persons",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E051-02 GROUP BY clause",
@@ -185,31 +219,38 @@
         "Query6": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (3,'Peter','Jacson','USA','New-York')",
         "Query7": "Insert into PersonsNew (PersonID,LastName,FirstName,Country,City) values (4,'Claus','Jorgingston','USA','Chicago')",
         "Query8": "COMMIT",
-        "Query9": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country;"
+        "Query9": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country;",
+        "Query10": "COMMIT"
       },
       {
         "NameCase": "E051-04 GROUP BY can contain columns not in '<select list>'",
-        "Query1": "SELECT COUNT(*) FROM PersonsNew GROUP BY Country"
+        "Query1": "SELECT COUNT(*) FROM PersonsNew GROUP BY Country",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E051-05 Select list items can be renamed",
-        "Query1": "SELECT PersonID AS PerID, LastName AS LN, City AS C FROM PersonsNew"
+        "Query1": "SELECT PersonID AS PerID, LastName AS LN, City AS C FROM PersonsNew",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E051-06 HAVING clause",
-        "Query1": "SELECT Country, COUNT(*) AS PersonCount from PersonsNew GROUP BY Country HAVING COUNT(*) > 2"
+        "Query1": "SELECT Country, COUNT(*) AS PersonCount from PersonsNew GROUP BY Country HAVING COUNT(*) > 2",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E051-07 Qualified * in select list",
-        "Query1": "SELECT * FROM PersonsNew"
+        "Query1": "SELECT * FROM PersonsNew",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E051-08 Correlation names in the FROM clause",
-        "Query1": "SELECT * FROM (SELECT Country FROM PersonsNew GROUP BY Country) AS T1 where T1.Country = 'USA'"
+        "Query1": "SELECT * FROM (SELECT Country FROM PersonsNew GROUP BY Country) AS T1 where T1.Country = 'USA'",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E051-09 Rename columns in the FROM clause",
-        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country) AS T1"
+        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country) AS T1",
+        "Query2": "COMMIT"
       }
     ]
   },
@@ -227,20 +268,26 @@
         "Query7": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (4,'1090','400','32','64',1100.00)",
         "Query8": "COMMIT",
         "Query9": "SELECT * FROM Computers WHERE SpeedCPU >= 600 and Price < 1000",
-        "Query10": "SELECT * FROM Computers WHERE RAM <= 1500 and Price <> 1100",
-        "Query11": "SELECT * FROM Computers WHERE Price = 800"
+        "Query10": "COMMIT",
+        "Query11": "SELECT * FROM Computers WHERE RAM <= 1500 and Price <> 1100",
+        "Query12": "COMMIT",
+        "Query13": "SELECT * FROM Computers WHERE Price = 800",
+        "Query14": "COMMIT"
       },
       {
         "NameCase": "E061-02 BETWEEN predicate",
-        "Query1": "SELECT model, SpeedCPU FROM Computers WHERE Price BETWEEN 500 AND 900;"
+        "Query1": "SELECT model, SpeedCPU FROM Computers WHERE Price BETWEEN 500 AND 900;",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-03 IN predicate with list of values",
-        "Query1": "SELECT model, HDD FROM Computers WHERE HDD IN (128,500);"
+        "Query1": "SELECT model, HDD FROM Computers WHERE HDD IN (128,500);",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-04 LIKE predicate",
-        "Query1": "SELECT * FROM Computers WHERE Model LIKE '10%';"
+        "Query1": "SELECT * FROM Computers WHERE Model LIKE '10%';",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-05 LIKE predicate: ESCAPE clause",
@@ -251,14 +298,17 @@
         "Query5": "Insert into Escapepred (Name) values ('Petr')",
         "Query6": "Insert into Escapepred (Name) values ('_Fedor_')",
         "Query7": "COMMIT",
-        "Query8": "SELECT Name FROM Escapepred WHERE Name LIKE '%#_%' ESCAPE '#'"
+        "Query8": "SELECT Name FROM Escapepred WHERE Name LIKE '%#_%' ESCAPE '#'",
+        "Query9": "COMMIT"
       },
       {
         "NameCase": "E061-06 NULL predicate",
         "Query1": "Insert into Computers (ID,Model,SpeedCPU,Ram,HDD,Price) values (5,'1360','2600','4096',null,2000.00);",
         "Query2": "COMMIT",
         "Query3": "SELECT * FROM Computers where HDD IS NULL",
-        "Query4": "SELECT * FROM Computers where HDD IS NOT NULL"
+        "Query4": "COMMIT",
+        "Query5": "SELECT * FROM Computers where HDD IS NOT NULL",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "E061-07 Quantified comparison predicate",
@@ -278,33 +328,41 @@
         "Query14": "Insert into Company (ID,NameCompany,TypeProduct) values (5,'DELL','laptop');",
         "Query15": "COMMIT",
         "Query16": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = ANY (SELECT NameCompany FROM Computers);",
-        "Query17": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = SOME (SELECT NameCompany FROM Computers);"
+        "Query17": "COMMIT",
+        "Query18": "SELECT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NOT NameCompany = SOME (SELECT NameCompany FROM Computers);",
+        "Query19": "COMMIT"
       },
       {
         "NameCase": "E061-08 EXISTS predicate",
         "Query1": "Insert into Company (ID,NameCompany,TypeProduct) values (6,'ASUS','printer');",
         "Query2": "COMMIT",
-        "Query3": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company)"
+        "Query3": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company)",
+        "Query4": "COMMIT"
       },
       {
         "NameCase": "E061-09 Subqueries in comparison predicate",
-        "Query1": "SELECT Model FROM Computers WHERE NameCompany = (SELECT NameCompany FROM Company WHERE NameCompany = 'ASUS' AND TypeProduct = 'pc');"
+        "Query1": "SELECT Model FROM Computers WHERE NameCompany = (SELECT NameCompany FROM Company WHERE NameCompany = 'ASUS' AND TypeProduct = 'pc');",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-11 Subqueries in IN predicate",
-        "Query1": "SELECT Model FROM Computers WHERE SpeedCPU IN(SELECT SpeedCPU FROM Computers WHERE SpeedCPU IN (2600,960));"
+        "Query1": "SELECT Model FROM Computers WHERE SpeedCPU IN(SELECT SpeedCPU FROM Computers WHERE SpeedCPU IN (2600,960));",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-12 Subqueries in quantified comparison predicate",
-        "Query1": "SELECT DISTINCT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NameCompany = (SELECT DISTINCT NameCompany FROM Company WHERE NOT NameCompany = ANY (SELECT NameCompany FROM Computers));"
+        "Query1": "SELECT DISTINCT NameCompany FROM Company WHERE TypeProduct = 'pc' AND NameCompany = (SELECT DISTINCT NameCompany FROM Company WHERE NOT NameCompany = ANY (SELECT NameCompany FROM Computers));",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-13 Correlated subqueries",
-        "Query1": "SELECT Id, Model, NameCompany FROM Computers C1 WHERE SpeedCPU = (SELECT MAX(SpeedCPU) from Computers C2 where C1.Id = C2.Id);"
+        "Query1": "SELECT Id, Model, NameCompany FROM Computers C1 WHERE SpeedCPU = (SELECT MAX(SpeedCPU) from Computers C2 where C1.Id = C2.Id);",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E061-14 Search condition",
-        "Query1": "SELECT Model, Price FROM Computers WHERE SpeedCPU > 800 AND HDD < 512;"
+        "Query1": "SELECT Model, Price FROM Computers WHERE SpeedCPU > 800 AND HDD < 512;",
+        "Query2": "COMMIT"
       }
     ]
   },
@@ -322,24 +380,30 @@
         "Query7": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (4,'9087','900','32','64',2500.00,'DELL')",
         "Query8": "Insert into Laptop (ID,Model,SpeedCPU,Ram,HDD,Price,Namecompany) values (5,'9083','900','32','128',2500.00,'DELL')",
         "Query9": "COMMIT",
-        "Query10": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop"
+        "Query10": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop",
+        "Query11": "COMMIT"
       },
       {
         "NameCase": "E071-02 UNION ALL table operator",
-        "Query1": "SELECT Price FROM Computers UNION ALL SELECT Price FROM Laptop"
+        "Query1": "SELECT Price FROM Computers UNION ALL SELECT Price FROM Laptop",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E071-03 EXCEPT DISTINCT table operator",
-        "Query1": "SELECT Price FROM Laptop EXCEPT SELECT Price FROM Computers"
+        "Query1": "SELECT Price FROM Laptop EXCEPT SELECT Price FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E071-05 Columns combined via table operators need not have exactly the same data type",
-        "Query1": "SELECT Price FROM Laptop UNION SELECT Namecompany FROM Computers",
-        "Query2": "SELECT Price FROM Laptop UNION ALL SELECT Namecompany FROM Computers"
+        "Query1": "SELECT model FROM Laptop UNION SELECT Namecompany FROM Computers",
+        "Query2": "COMMIT",
+        "Query3": "SELECT model FROM Laptop UNION ALL SELECT Namecompany FROM Computers",
+        "Query4": "COMMIT"
       },
       {
         "NameCase": "E071-06 Table operators in subqueries",
-        "Query1": "SELECT distinct Namecompany FROM Company WHERE Namecompany in (SELECT Namecompany FROM Computers WHERE Price < 1000 UNION ALL SELECT Namecompany FROM Laptop WHERE Price < 2000)"
+        "Query1": "SELECT distinct Namecompany FROM Company WHERE Namecompany in (SELECT Namecompany FROM Computers WHERE Price < 1000 UNION ALL SELECT Namecompany FROM Laptop WHERE Price < 2000)",
+        "Query2": "COMMIT"
       }
     ]
   },
@@ -352,8 +416,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT SELECT ON Company to E081_01",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_01",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE SELECT ON Company FROM E081_01",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_01",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-02 DELETE privilege",
@@ -361,8 +427,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT DELETE ON Company to E081_02",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_02",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE DELETE ON Company FROM E081_02",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_02",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-03 INSERT privilege at the table level",
@@ -370,8 +438,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT INSERT ON Company to E081_03",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_03",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE INSERT ON Company FROM E081_03",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_03",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-04 UPDATE privilege at the table level",
@@ -379,8 +449,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT UPDATE ON Company to E081_04",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_04",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE UPDATE ON Company FROM E081_04",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_04",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-05 UPDATE privilege at the column level",
@@ -388,8 +460,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT UPDATE (NameCompany) ON Company to E081_05",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_05",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE UPDATE ON Company FROM E081_05",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_05",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-06 REFERENCES privilege at the table level",
@@ -397,8 +471,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT REFERENCES ON Company to E081_06",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_06",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE REFERENCES ON Company FROM E081_06",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_06",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-07 REFERENCES privilege at the column level",
@@ -406,8 +482,10 @@
         "Query2": "COMMIT",
         "Query3": "GRANT REFERENCES (NameCompany) ON Company to E081_07",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_07",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE REFERENCES ON Company FROM E081_07",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_07",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-08 WITH GRANT OPTION",
@@ -415,24 +493,35 @@
         "Query2": "COMMIT",
         "Query3": "GRANT INSERT ON Company to E081_08 WITH GRANT OPTION",
         "Query4": "COMMIT",
-        "Query5": "DROP USER E081_08",
-        "Query6": "COMMIT"
+        "Query5": "REVOKE INSERT ON Company FROM E081_08",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER E081_08",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "E081-09 USAGE privilege",
-        "Query1": "CREATE ROLE E081_09",
-        "Query2": "CREATE SEQUENCE SEQE081_09",
-        "Query3": "COMMIT",
-        "Query4": "GRANT USAGE ON SEQUENCE SEQE081_09 TO ROLE E081_09",
-        "Query5": "COMMIT"
+        "Query1": "CREATE USER E081_09",
+        "Query2": "COMMIT",
+        "Query3": "CREATE SEQUENCE SEQE081_09",
+        "Query4": "COMMIT",
+        "Query5": "GRANT USAGE ON SEQUENCE SEQE081_09 TO E081_09",
+        "Query6": "COMMIT",
+        "Query7": "REVOKE USAGE ON SEQUENCE SEQE081_09 FROM E081_09",
+        "Query8": "COMMIT",
+        "Query9": "DROP USER E081_09",
+        "Query10": "COMMIT"
       },
       {
         "NameCase": "E081-10 EXECUTE privilege",
         "Query1": "CREATE USER E081_10 PASSWORD '12345678'",
-        "Query2": "CREATE PROCEDURE PROCE081_10 AS BEGIN END",
+        "Query2": "CREATE PROCEDURE PROCE081_10(a integer, b integer, c integer) LANGUAGE SQL AS $$ INSERT INTO e011_011 VALUES (a,b,c); $$;",
         "Query3": "COMMIT",
         "Query4": "GRANT EXECUTE ON PROCEDURE PROCE081_10 to E081_10",
-        "Query5": "COMMIT"
+        "Query5": "COMMIT",
+        "Query6": "REVOKE EXECUTE ON PROCEDURE PROCE081_10 FROM E081_10",
+        "Query7": "COMMIT",
+        "Query8": "DROP USER E081_10",
+        "Query9": "COMMIT"
       }
     ]
   },
@@ -441,31 +530,38 @@
     "Case": [
       {
         "NameCase": "E091-01 AVG",
-        "Query1": "SELECT AVG(price) FROM Computers"
+        "Query1": "SELECT AVG(price) FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E091-02 COUNT",
-        "Query1": "SELECT COUNT(id) FROM Computers"
+        "Query1": "SELECT COUNT(id) FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E091-03 MAX",
-        "Query1": "SELECT MAX(RAM) FROM Computers"
+        "Query1": "SELECT MAX(RAM) FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E091-04 MIN",
-        "Query1": "SELECT MIN(HDD) FROM Computers"
+        "Query1": "SELECT MIN(HDD) FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E091-05 SUM",
-        "Query1": "SELECT SUM(price) FROM Computers"
+        "Query1": "SELECT SUM(price) FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E091-06 ALL",
-        "Query1": "SELECT ALL namecompany FROM Computers"
+        "Query1": "SELECT ALL namecompany FROM Computers",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "E091-07 DISTINCT",
-        "Query1": "SELECT DISTINCT namecompany FROM Computers"
+        "Query1": "SELECT DISTINCT namecompany FROM Computers",
+        "Query2": "COMMIT"
       }
     ]
   },
@@ -500,7 +596,8 @@
         "Query4": "INSERT INTO E111 VALUES (1,25,64)",
         "Query5": "INSERT INTO E111 VALUES (2,84,92)",
         "Query6": "COMMIT",
-        "Query7": "SELECT E111.ROW_ID, E111.ROW_A INTO E111_TEST FROM E111"
+        "Query7": "SELECT E111.ROW_ID, E111.ROW_A INTO E111_TEST FROM E111",
+        "Query8": "COMMIT"
       }
     ]
   },
@@ -509,47 +606,47 @@
     "Case": [
       {
         "NameCase": "E121-01 DECLARE CURSOR",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS1 before update on Company AS DECLARE cursor1 CURSOR for (select id, namecompany, typeproduct from company where typeproduct = 'pc'); BEGIN end",
+        "Query1": "CREATE FUNCTION REFFUNC1() RETURNS REFCURSOR AS $$  DECLARE  ref refcursor;  BEGIN  OPEN ref FOR SELECT NAMECOMPANY FROM COMPANY;  RETURN REF; END; $$ LANGUAGE plpgsql;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-02 ORDER BY columns need not be in select list",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS2 before update on Company AS DECLARE cursor2 CURSOR for (select id, namecompany from company order by typeproduct); begin end",
+        "Query1": "CREATE FUNCTION REFFUNC2() RETURNS REFCURSOR AS $$  DECLARE  ref refcursor;  BEGIN  OPEN ref FOR SELECT NAMECOMPANY FROM COMPANY order by typeproduct;  RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-03 Value expressions in ORDER BY clause",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS3 before update on Company AS DECLARE cursor3 CURSOR for (select id, namecompany, typeproduct as type from company order by type); begin end",
+        "Query1": "CREATE FUNCTION REFFUNC3() RETURNS REFCURSOR AS $$  DECLARE ref refcursor;  BEGIN  OPEN ref FOR select id, namecompany, typeproduct as type from company order by type;  RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-04 OPEN statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS4 before update on Company AS DECLARE cursor4 CURSOR for (select id, namecompany from company order by namecompany desc); begin open cursor4; end",
+        "Query1": "CREATE FUNCTION REFFUNC4() RETURNS REFCURSOR AS $$  DECLARE ref refcursor;  BEGIN  OPEN ref FOR select id, namecompany, typeproduct as type from company order by type;  RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-06 Positioned UPDATE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS5 before update on Company AS DECLARE cursor5 CURSOR for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor5; update company set typeproduct = 'personal computer' where current of cursor5; end",
+        "Query1": "CREATE FUNCTION REFFUNC6() RETURNS REFCURSOR AS $$ DECLARE ref refcursor; BEGIN OPEN ref FOR select id, namecompany from company order by namecompany desc; update company set typeproduct = 'personal computer' where current of ref; RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-07 Positioned DELETE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS6 before update on Company AS DECLARE cursor6 CURSOR for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor6; delete from company where current of cursor6; end",
+        "Query1": "CREATE FUNCTION REFFUNC7() RETURNS REFCURSOR AS $$ DECLARE ref refcursor; BEGIN OPEN ref FOR select id, namecompany from company order by namecompany desc; delete from company where current of ref; RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-08 CLOSE statement",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS7 before update on Company AS DECLARE cursor7 CURSOR for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor7; delete from company where current of cursor7; close cursor7; end",
+        "Query1": "CREATE FUNCTION REFFUNC8() RETURNS REFCURSOR AS $$ DECLARE ref refcursor; BEGIN OPEN ref FOR select id, namecompany from company order by namecompany desc; delete from company where current of ref; CLOSE ref; RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
-        "NameCase": "E121-09 FETCH statement: implicit NEXT",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; WHILE (1=1) DO BEGIN FETCH curs1 INTO :NAMECOM; IF (ROW_COUNT = 0) THEN LEAVE; SUSPEND; END CLOSE curs1; END;",
+        "NameCase": "E121-10 FETCH statement: implicit NEXT",
+        "Query1": "CREATE FUNCTION REFFUNC10() RETURNS REFCURSOR AS $$ DECLARE ref refcursor; namecom record; BEGIN OPEN ref FOR select id, namecompany from company order by namecompany desc; loop fetch ref into namecom; exit when not found; end loop; RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "E121-17 WITH HOLD cursors",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS1 before update on Company AS DECLARE cursor1 CURSOR WITH HOLD for (select id, namecompany from company where typeproduct = 'pc' order by typeproduct desc); begin open cursor1; close cursor1; end",
+        "Query1": "CREATE PROCEDURE proccurs17() LANGUAGE plpgsql AS $$ DECLARE c refcursor := 'curs'; BEGIN EXECUTE $_$DECLARE curs CURSOR WITH HOLD FOR select id, namecompany from company$_$; END; $$;",
         "Query2": "COMMIT"
       }
     ]
@@ -621,9 +718,10 @@
       },
       {
         "NameCase": "E141-10 Names in a foreign key can be specified in any order",
-        "Query1": "CREATE TABLE E141_101 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(IntData),Primary key(ID))",
-        "Query2": "CREATE TABLE E141_102 (ID int, Chdata varchar(255),Intdata int,Datedata DATE,id_141 int,Primary key(ID), Foreign key (id_041) REFERENCES E141_101 (id))",
-        "Query3": "COMMIT"
+        "Query1": "CREATE TABLE E141_101 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(IntData))",
+        "Query2": "CREATE TABLE E141_102 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query3": "CREATE TABLE E141_103 (ID int, Chdata varchar(255),Intdata int,Datedata DATE,id_141 int,id_142 int, Primary key(ID), Foreign key (id_142) REFERENCES E141_102 (ID),Foreign key (id_141) REFERENCES E141_101 (IntData))",
+        "Query4": "COMMIT"
       }
     ]
   },
@@ -651,20 +749,19 @@
     "Case": [
       {
         "NameCase": "E152_01 SET TRANSACTION statement:\nISOLATION LEVEL\nSERIALIZABLE clause",
-        "Query1": "CREATE TABLE E152_01 (ID int ,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
-        "Query2": "COMMIT",
-        "Query3": "INSERT INTO E152_01 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',151,'26.06.2022')",
-        "Query4": "COMMIT",
-        "Query5": "SET TRANSACTION SERIALIZABLE ISOLATION LEVEL SNAPSHOT TABLE STABILITY",
-        "Query6": "COMMIT"
+        "Query1": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE",
+        "Query2": "CREATE TABLE E152_01 (ID int ,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query3": "COMMIT",
+        "Query4": "INSERT INTO E152_01 (ID,Chdata,Intdata,Datedata) values (0,'ROW1',151,'26.06.2022')",
+        "Query5": "COMMIT"
       },
       {
         "NameCase": "E152_02 SET TRANSACTION statement:\nREAD ONLY and\nREAD WRITE clauses",
         "Query1": "SET TRANSACTION READ ONLY",
-        "Query2": "CREATE TABLE E152_021 (ROW_ID INT)",
+        "Query2": "SELECT * FROM E152_01",
         "Query3": "COMMIT",
         "Query4": "SET TRANSACTION READ WRITE",
-        "Query5": "CREATE TABLE E152_022 (ROW_ID INT)",
+        "Query5": "CREATE TABLE E152_021 (ROW_ID INT)",
         "Query6": "COMMIT"
       }
     ]
@@ -765,8 +862,10 @@
       },
       {
         "NameCase": "F031-03 GRANT statement",
-        "Query1": "GRANT SELECT, DELETE ON F31_01 TO E081_09 WITH GRANT OPTION",
-        "Query2": "COMMIT"
+        "Query1": "CREATE USER F031_03_USER PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT SELECT, DELETE ON F31_01 TO F031_03_USER WITH GRANT OPTION",
+        "Query4": "COMMIT"
       },
       {
         "NameCase": "F031-04 ALTER TABLE statement: ADD COLUMN clause",
@@ -775,18 +874,22 @@
       },
       {
         "NameCase": "F031-13 DROP TABLE statement: RESTRICT clause",
-        "Query1": "DROP TABLE F31_01 RESTRICT",
-        "Query2": "COMMIT"
+        "Query1": "CREATE TABLE F31_13 (ROW_ID INT NOT NULL PRIMARY KEY,ROW_NAME CHAR(40), ROW_AREA CHAR(35), ROW_NUM NUMERIC(10,2), ROW_CHAR CHAR(15), ROW_CHAR1 VARCHAR(25))",
+        "Query2": "COMMIT",
+        "Query3": "DROP TABLE F31_13 RESTRICT",
+        "Query4": "COMMIT"
       },
       {
         "NameCase": "F031-14 DROP VIEW statement: RESTRICT clause",
-        "Query1": "DROP VIEW F31_01_ RESTRICT",
+        "Query1": "DROP VIEW F31_01_VIEW RESTRICT",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F031-19 REVOKE statement: RESTRICT clause",
-        "Query1": "REVOKE SELECT ON F31_01 FROM E081_09 RESTRICT",
-        "Query2": "COMMIT"
+        "Query1": "REVOKE SELECT, DELETE ON F31_01 FROM F031_03_USER",
+        "Query2": "COMMIT",
+        "Query3": "DROP USER F031_03_USER",
+        "Query4": "COMMIT"
       }
     ]
   },
@@ -795,7 +898,8 @@
     "Case": [
       {
         "NameCase": "F041-01 Inner join (but not necessarily the INNER keyword)",
-        "Query1": "SELECT a.agent_name, c.cust_name FROM customer c JOIN agents a ON a.agent_code = c.agent_code"
+        "Query1": "SELECT a.agent_name, c.cust_name FROM customer c JOIN agents a ON a.agent_code = c.agent_code",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "F041-02 INNER keyword",
@@ -877,7 +981,7 @@
         "NameCase": "F051-05 Explicit CAST between datetime\ntypes and character string\ntypes",
         "Query1": "CREATE TABLE F51_05 (ROW_ID INT NOT NULL,ROW_DATE1 CHAR(20),ROW_DATE2 DATE,ROW_DATE3 TIME,ROW_DATE4 TIMESTAMP)",
         "Query2": "COMMIT",
-        "Query3": "INSERT INTO F51_05 VALUES ('0', CAST(CURRENT_DATE as DATE),CAST('10.02.2022' as CHAR(10)),CAST(CURRENT_TIMESTAMP as TIME),CAST (CURRENT_DATE as TIMESTAMP))",
+        "Query3": "INSERT INTO F51_05 VALUES ('0', CAST(CURRENT_DATE as DATE),CAST('10.02.2022' as DATE),CAST(CURRENT_TIMESTAMP as TIME),CAST (CURRENT_DATE as TIMESTAMP))",
         "Query4": "COMMIT"
       },
       {
@@ -983,7 +1087,7 @@
         "Query3": "INSERT INTO F221 (ROW_ID) VALUES (0)",
         "Query4": "INSERT INTO F221 VALUES (1,'DEF1','DEF2')",
         "Query5": "COMMIT",
-        "Query6": "UPDATE F221 SET DEFAULT(ROW_DEF1) WHERE ROW_ID = 1",
+        "Query6": "UPDATE F221 SET ROW_DEF1 = DEFAULT WHERE ROW_ID = 1",
         "Query7": "COMMIT"
       }
     ]
@@ -1021,7 +1125,7 @@
       },
       {
         "NameCase": "F261-04 COALESCE",
-        "Query1": "SELECT f.sales_num, COALESCE(f.sales_num,'не задан') FROM f261_01 f",
+        "Query1": "SELECT f.sales_num, COALESCE(f.sales_num, 0) FROM f261_01 f",
         "Query2": "COMMIT"
       }
     ]
@@ -1051,8 +1155,14 @@
       },
       {
         "NameCase": "F311-05 GRANT statement",
-        "Query1": "CREATE SCHEMA F311_05 CREATE TABLE F311_05_Table (title char(30), release date) CREATE VIEW F311_05_VIEW AS SELECT title, release FROM F311_05_Table GRANT select ON F311_05_VIEW TO E081_10",
-        "Query2": "COMMIT"
+        "Query1": "CREATE USER F311_05_USER PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "CREATE SCHEMA F311_05 CREATE TABLE F311_05_Table (title char(30), release date) CREATE VIEW F311_05_VIEW AS SELECT title, release FROM F311_05_Table GRANT select ON F311_05_VIEW TO F311_05_USER",
+        "Query4": "COMMIT",
+        "Query5": "REVOKE ALL PRIVILEGES ON F311_05.F311_05_VIEW FROM F311_05_USER",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER F311_05_USER",
+        "Query8": "COMMIT"
       }
     ]
   },
@@ -1108,12 +1218,12 @@
     "Case": [
       {
         "NameCase": "T321-01 User-defined functions with no overloading",
-        "Query1": "CREATE FUNCTION ADD_INT(A INT, B INT DEFAULT 0) RETURNS INT AS BEGIN  RETURN A+B; END",
+        "Query1": "CREATE FUNCTION ADD_INT(A INT, B INT DEFAULT 0) RETURNS INT AS $$ BEGIN RETURN A+B; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "T321-02 User-defined stored procedures with no overloading",
-        "Query1": "CREATE OR ALTER PROCEDURE SUMM (A INTEGER, B INTEGER) RETURNS(C INTEGER) AS BEGIN c = a + b; SUSPEND; END",
+        "Query1": "CREATE PROCEDURE SUMM(A INTEGER, B INTEGER) LANGUAGE plpgsql AS $$ declare c integer; BEGIN c = a + b; END; $$",
         "Query2": "COMMIT"
       },
       {
@@ -1128,9 +1238,9 @@
       },
       {
         "NameCase": "T321-05 RETURN statement",
-        "Query1": "CREATE OR ALTER PROCEDURE SUMM1 (A INTEGER, B INTEGER) RETURNS(C INTEGER) AS BEGIN c = a + b; SUSPEND; END",
+        "Query1": "CREATE FUNCTION ADD_INT1(A INT, B INT DEFAULT 0) RETURNS INT AS $$ BEGIN RETURN A+B; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT",
-        "Query3": "EXECUTE PROCEDURE SUMM1 (10,10)",
+        "Query3": "SELECT ADD_INT (10,10) FROM e011_011",
         "Query4": "COMMIT"
       }
     ]
@@ -1145,6 +1255,46 @@
     ]
   },
   "Test36": {
+    "Name": "B033 Untyped SQL-invoked function arguments",
+    "Case": [
+      {
+        "NameCase": "B033 Untyped SQL-invoked function arguments",
+        "Query1": "CREATE FUNCTION ADD_INT2(A,B) RETURNS INT AS $$ BEGIN RETURN A+B; END; $$ LANGUAGE PLPGSQL;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test37": {
+    "Name": "B034 Dynamic specification of cursor attributes",
+    "Case": [
+      {
+        "NameCase": "B034 Dynamic specification of cursor attributes",
+        "Query1": "CREATE FUNCTION B034() RETURNS REFCURSOR AS $$ DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET offset_value ROWS FETCH NEXT page_size ROWS ONLY); BEGIN OPEN  catalog_page; END; $$ LANGUAGE PLPGSQL;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test38": {
+    "Name": "B041 Extensions to embedded SQL exception declarations",
+    "Case": [
+      {
+        "NameCase": "B041 Extensions to embedded SQL exception declarations",
+        "Query1": "WHENEVER SQLERROR EXIT SQL.SQLCODE UPDATE Computers SET price = price*1.1",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test39": {
+    "Name": "B051 Enhanced execution rights",
+    "Case": [
+      {
+        "NameCase": "B051 Enhanced execution rights",
+        "Query1": "CREATE SCHEMA AUTHORIZATION postgres FOR STATIC ONLY CREATE TABLE new_product (color VARCHAR(10)  PRIMARY KEY, quantity INTEGER) CREATE VIEW new_product_view AS SELECT color, quantity FROM new_product WHERE color = 'RED' GRANT select ON new_product_view TO postgres",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test40": {
     "Name": "B128 Routine language SQL",
     "Case": [
       {
@@ -1153,17 +1303,19 @@
       }
     ]
   },
-  "Test37": {
+  "Test41": {
     "Name": "F032 CASCADE drop behavior",
     "Case": [
       {
         "NameCase": "F032 CASCADE drop behavior",
-        "Query1": "DROP TABLE AGENTS CASCADE",
-        "Query2": "COMMIT"
+        "Query1": "CREATE TABLE F032 (ROW_ID INT)",
+        "Query2": "COMMIT",
+        "Query3": "DROP TABLE F032 CASCADE",
+        "Query4": "COMMIT"
       }
     ]
   },
-  "Test38": {
+  "Test42": {
     "Name": "F033 ALTER TABLE statement: DROP COLUMN clause",
     "Case": [
       {
@@ -1175,53 +1327,64 @@
       }
     ]
   },
-  "Test39": {
+  "Test43": {
     "Name": "F034 Extended REVOKE statement",
     "Case": [
       {
         "NameCase": "F034-01 REVOKE statement performed by other than the owner of a schema object",
-        "Query1": "REVOKE SELECT ON F31_01 FROM E081_09",
-        "Query2": "COMMIT"
+        "Query1": "CREATE USER F034_USER PASSWORD '12345678'",
+        "Query2": "COMMIT",
+        "Query3": "GRANT SELECT,INSERT,DELETE,UPDATE ON F31_01 to F034_USER",
+        "Query4": "COMMIT",
+        "Query5": "REVOKE SELECT ON Company FROM F034_USER",
+        "Query6": "COMMIT"
       },
       {
         "NameCase": "F034-02 REVOKE statement: GRANT OPTION FOR clause",
-        "Query1": "REVOKE GRANT OPTION FOR DELETE ON F31_01 FROM E081_09",
+        "Query1": "REVOKE GRANT OPTION FOR DELETE ON F31_01 FROM F034_USER",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F034-03 REVOKE statement to revoke a privilege that the grantee has WITH GRANT OPTION",
-        "Query1": "GRANT SELECT, DELETE, UPDATE ON F31_01 TO E081_09 WITH GRANT OPTION",
+        "Query1": "GRANT SELECT, DELETE, UPDATE ON F31_01 TO F034_USER WITH GRANT OPTION",
         "Query2": "COMMIT",
-        "Query3": "REVOKE GRANT OPTION FOR SELECT, DELETE, UPDATE ON F31_01 FROM E081_09",
-        "Query4": "COMMIT"
+        "Query3": "REVOKE GRANT OPTION FOR SELECT, DELETE, UPDATE, INSERT ON F31_01 FROM F034_USER",
+        "Query4": "COMMIT",
+        "Query5": "REVOKE ALL PRIVILEGES ON F31_01 FROM F034_USER",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER F034_USER",
+        "Query8": "COMMIT"
       }
     ]
   },
-  "Test40": {
+  "Test44": {
     "Name": "F052 Intervals and datetime arithmetic",
     "Case": [
       {
         "NameCase": "F052-01 Intervals arithmetic",
-        "Query1": "SELECT ROW_DATE2 + INTERVAL 1 DAY as new_date FROM f51_06"
+        "Query1": "SELECT ROW_DATE2 + INTERVAL '1 DAY' as new_date FROM f51_06",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "F052-02 datetime arithmetic",
-        "Query1": "SELECT ROW_DATE2 + 30 as new_date FROM f51_06"
+        "Query1": "SELECT ROW_DATE2 + 30 as new_date FROM f51_06",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test41": {
+  "Test45": {
     "Name": "F053 OVERLAPS predicate",
     "Case": [
       {
         "NameCase": "F053 OVERLAPS predicate",
         "Query1": "CREATE TABLE F053 (ROW_ID INT NOT NULL,ROW_DATE1 TIMESTAMP,ROW_DATE2 TIMESTAMP)",
         "Query2": "COMMIT",
-        "Query3": "SELECT ROW_ID FROM F053 WHERE (ROW_DATE1, ROW_DATE2) OVERLAPS (DATE '2000-01-15', DATE '2002-12-31')"
+        "Query3": "SELECT ROW_ID FROM F053 WHERE (ROW_DATE1, ROW_DATE2) OVERLAPS (DATE '2000-01-15', DATE '2002-12-31')",
+        "Query4": "COMMIT"
       }
     ]
   },
-  "Test42": {
+  "Test46": {
     "Name": "F054 TIMESTAMP in DATE type precedence list",
     "Case": [
       {
@@ -1233,7 +1396,7 @@
       }
     ]
   },
-  "Test43": {
+  "Test47": {
     "Name": "F111 Isolation levels other than SERIALIZABLE",
     "Case": [
       {
@@ -1253,7 +1416,7 @@
       }
     ]
   },
-  "Test44": {
+  "Test48": {
     "Name": "F121 Basic diagnostics management",
     "Case": [
       {
@@ -1269,7 +1432,7 @@
       }
     ]
   },
-  "Test45": {
+  "Test49": {
     "Name": "F122 Enhanced diagnostics management",
     "Case": [
       {
@@ -1282,7 +1445,7 @@
       }
     ]
   },
-  "Test46": {
+  "Test50": {
     "Name": "F123 All diagnostics",
     "Case": [
       {
@@ -1297,52 +1460,60 @@
       }
     ]
   },
-  "Test47": {
+  "Test51": {
     "Name": "F171 Multiple schemas per user",
     "Case": [
       {
         "NameCase": "F171 Multiple schemas per user",
-        "Query1": "CREATE SCHEMA AUTHORIZATION oe1 CREATE TABLE new_product (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) CREATE VIEW new_product_view AS SELECT color, quantity FROM new_product WHERE color = 'RED' GRANT select ON new_product_view TO hr",
-        "Query2": "CREATE SCHEMA AUTHORIZATION oe2 CREATE TABLE new_product (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) CREATE VIEW new_product_view AS SELECT color, quantity FROM new_product WHERE color = 'RED' GRANT select ON new_product_view TO hr",
+        "Query1": "CREATE SCHEMA F171_01",
+        "Query2": "CREATE SCHEMA F171_02",
         "Query3": "COMMIT"
       }
     ]
   },
-  "Test48": {
+  "Test52": {
     "Name": "F191 Referential delete actions",
     "Case": [
       {
         "NameCase": "F191 Referential delete actions",
         "Query1": "ALTER TABLE CUSTOMER ADD FOREIGN KEY (AGENT_CODE) REFERENCES AGENTS (AGENT_CODE) ON DELETE CASCADE",
-        "Query2": "COMMIT",
-        "Query3": "DELETE FROM AGENTS WHERE AGENT_CODE = 'A010'",
-        "Query4": "COMMIT"
-      }
-    ]
-  },
-  "Test49": {
-    "Name": "F200 TRUNCATE TABLE statement",
-    "Case": [
-      {
-        "NameCase": "F200 TRUNCATE TABLE statement",
-        "Query1": "TRUNCATE TABLE AGENTS",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test50": {
+  "Test53": {
+    "Name": "F200 TRUNCATE TABLE statement",
+    "Case": [
+      {
+        "NameCase": "F200 TRUNCATE TABLE statement",
+        "Query1": "CREATE TABLE F200 (ROW_ID INT, ROW_NAME CHAR(10))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO F200 VALUES(0,'IVAN')",
+        "Query4": "INSERT INTO F200 VALUES(1,'VASILIY')",
+        "Query5": "INSERT INTO F200 VALUES(2,'MICHAIL')",
+        "Query6": "COMMIT",
+        "Query7": "TRUNCATE TABLE F200",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test54": {
     "Name": "F202 TRUNCATE TABLE: identity column restart option",
     "Case": [
       {
         "NameCase": "F202 TRUNCATE TABLE: identity column restart option",
-        "Query1": "TRUNCATE TABLE AGENTS",
+        "Query1": "CREATE TABLE F202 (ROW_ID INT, ROW_NAME CHAR(10))",
         "Query2": "COMMIT",
-        "Query3": "ALTER TABLE AGENTS ALTER COLUMN AGENT_CODE RESTART",
-        "Query4": "COMMIT"
+        "Query3": "INSERT INTO F202 VALUES(0,'IVAN')",
+        "Query4": "INSERT INTO F202 VALUES(1,'VASILIY')",
+        "Query5": "INSERT INTO F202 VALUES(2,'MICHAIL')",
+        "Query6": "COMMIT",
+        "Query7": "TRUNCATE TABLE F202 RESTART IDENTITY",
+        "Query8": "COMMIT"
       }
     ]
   },
-  "Test51": {
+  "Test55": {
     "Name": "F222 INSERT statement: DEFAULT VALUES clause",
     "Case": [
       {
@@ -1354,17 +1525,17 @@
       }
     ]
   },
-  "Test52": {
+  "Test56": {
     "Name": "F251 Domain support",
     "Case": [
       {
         "NameCase": "F251 Domain support",
-        "Query1": "CREATE DOMAIN PONUMBER AS CHAR(8) CHARACTER SET NONE CHECK (VALUE STARTING WITH 'V') COLLATE NONE",
+        "Query1": "CREATE DOMAIN PONUMBER AS VARCHAR NOT NULL CHECK (value !~ '\\s')",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test53": {
+  "Test57": {
     "Name": "F262 Extended CASE expression",
     "Case": [
       {
@@ -1376,38 +1547,42 @@
         "Query5": "INSERT INTO F262 VALUES (111)",
         "Query6": "INSERT INTO F262 VALUES (230)",
         "Query7": "COMMIT",
-        "Query8": "SELECT CASE x WHEN < 0 THEN '< 0' WHEN < 10  THEN '[0, 10[' WHEN < 100 THEN '[10, 100[' ELSE '>100' END FROM F262"
+        "Query8": "SELECT CASE WHEN x < 0 THEN '< 0' WHEN x < 10 THEN '[0, 10[' WHEN x <100 THEN '[10, 100['ELSE '>100' END FROM F262",
+        "Query9": "COMMIT"
       }
     ]
   },
-  "Test54": {
+  "Test58": {
     "Name": "F263 Comma-separated predicates in simple CASE expression",
     "Case": [
       {
         "NameCase": "F263 Comma-separated predicates in simple CASE expression",
-        "Query1": "SELECT f.sales_num, CASE f.sales_status WHEN 'Open' THEN 'открыт', WHEN 'Waiting' THEN 'в ожидании', WHEN 'Shipped' THEN 'отгруженный', WHEN 'Closet' THEN 'закрытый', ELSE 'ошибка определения!!' END FROM F261_01 f"
+        "Query1": "SELECT f.sales_num, CASE f.sales_status WHEN 'Open' THEN 'открыт', WHEN 'Waiting' THEN 'в ожидании', WHEN 'Shipped' THEN 'отгруженный', WHEN 'Closet' THEN 'закрытый', ELSE 'ошибка определения!!' END FROM F261_01 f",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test55": {
+  "Test59": {
     "Name": "F271 Compound character literals",
     "Case": [
       {
         "NameCase": "F271 Compound character literals",
-        "Query1": "SELECT 'Составной' || ' строковый' || ' литерал' FROM F262"
+        "Query1": "SELECT 'Составной' || ' строковый' || ' литерал' FROM F262",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test56": {
+  "Test60": {
     "Name": "F281 LIKE enhancements",
     "Case": [
       {
         "NameCase": "F281 LIKE enhancements",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, WORKING_AREA FROM CUSTOMER where WORKING_AREA LIKE '%ondo%'"
+        "Query1": "SELECT CUST_CODE, CUST_NAME, WORKING_AREA FROM CUSTOMER where WORKING_AREA LIKE '%ondo%'",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test57": {
+  "Test61": {
     "Name": "F291 UNIQUE predicate",
     "Case": [
       {
@@ -1417,29 +1592,32 @@
       }
     ]
   },
-  "Test58": {
+  "Test62": {
     "Name": "F301 CORRESPONDING in query expressions",
     "Case": [
       {
         "NameCase": "F301 CORRESPONDING in query expressions",
-        "Query1": "SELECT * FROM CUSTOMER UNION ALL CORRESPONDING SELECT * FROM AGENTS UNION ALL CORRESPONDING"
+        "Query1": "SELECT * FROM CUSTOMER UNION ALL CORRESPONDING SELECT * FROM AGENTS UNION ALL CORRESPONDING",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test59": {
+  "Test63": {
     "Name": "F302 INTERSECT table operator",
     "Case": [
       {
         "NameCase": "F302-01 INTERSECT DISTINCT table operator",
-        "Query1": "SELECT agent_code FROM agents INTERSECT DISTINCT SELECT agent_code FROM customer"
+        "Query1": "SELECT agent_code FROM agents INTERSECT DISTINCT SELECT agent_code FROM customer",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "F302-02 INTERSECT ALL table operator",
-        "Query1": "SELECT agent_code FROM agents INTERSECT ALL SELECT agent_code FROM customer"
+        "Query1": "SELECT agent_code FROM agents INTERSECT ALL SELECT agent_code FROM customer",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test60": {
+  "Test64": {
     "Name": "F304 EXCEPT ALL table operator",
     "Case": [
       {
@@ -1463,21 +1641,22 @@
         "Query17": "INSERT INTO F304_2 VALUES (4);",
         "Query18": "INSERT INTO F304_2 VALUES (5);",
         "Query19": "COMMIT",
-        "Query20": "SELECT * FROM F304_1 EXCEPT SELECT * FROM F304_2"
+        "Query20": "SELECT * FROM F304_1 EXCEPT SELECT * FROM F304_2",
+        "Query21": "COMMIT"
       }
     ]
   },
-  "Test61": {
+  "Test65": {
     "Name": "F312 MERGE statement",
     "Case": [
       {
         "NameCase": "F312 MERGE statement",
-        "Query1": "MERGE INTO customer c USING (SELECT * FROM agents WHERE commission > 0.15) cd ON (c.agent_code = cd.agent_code) WHEN MATCHED THEN UPDATE SET gent_code = cd.agent_code WHEN NOT MATCHED THEN INSERT (agent_code) VALUES (cd.agent_code)",
+        "Query1": "MERGE INTO agents a USING (SELECT * FROM agents WHERE commission > 0.15) cd ON (a.agent_code = cd.agent_code) WHEN MATCHED THEN UPDATE SET agent_code = cd.agent_code WHEN NOT MATCHED THEN INSERT (agent_code) VALUES (cd.agent_code)",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test62": {
+  "Test66": {
     "Name": "F313 Enhanced MERGE statement",
     "Case": [
       {
@@ -1487,7 +1666,7 @@
       }
     ]
   },
-  "Test63": {
+  "Test67": {
     "Name": "F314 MERGE statement with DELETE branch",
     "Case": [
       {
@@ -1497,23 +1676,31 @@
       }
     ]
   },
-  "Test64": {
+  "Test68": {
     "Name": "F321 User authorization",
     "Case": [
       {
         "NameCase": "F321 User authorization",
         "Query1": "SELECT CURRENT_USER FROM E011_011",
-        "Query2": "SELECT CURRENT_ROLE FROM E011_011",
-        "Query3": "SELECT SESSION_USER FROM E011_011",
-        "Query4": "SELECT SYSTEM_USER FROM E011_011",
-        "Query5": "SELECT CURRENT_CATALOG FROM E011_011",
-        "Query6": "SELECT CURRENT_SCHEMA FROM E011_011",
-        "Query7": "SELECT CURRENT_PATH FROM E011_011",
-        "Query8": "SELECT USER FROM E011_011"
+        "Query2": "COMMIT",
+        "Query3": "SELECT CURRENT_ROLE FROM E011_011",
+        "Query4": "COMMIT",
+        "Query5": "SELECT SESSION_USER FROM E011_011",
+        "Query6": "COMMIT",
+        "Query7": "SELECT SYSTEM_USER FROM E011_011",
+        "Query8": "COMMIT",
+        "Query9": "SELECT CURRENT_CATALOG FROM E011_011",
+        "Query10": "COMMIT",
+        "Query11": "SELECT CURRENT_SCHEMA FROM E011_011",
+        "Query12": "COMMIT",
+        "Query13": "SELECT CURRENT_PATH FROM E011_011",
+        "Query14": "COMMIT",
+        "Query15": "SELECT USER FROM E011_011",
+        "Query16": "COMMIT"
       }
     ]
   },
-  "Test65": {
+  "Test69": {
     "Name": "F381 Extended schema manipulation",
     "Case": [
       {
@@ -1538,7 +1725,7 @@
       }
     ]
   },
-  "Test66": {
+  "Test70": {
     "Name": "F382 Alter column data type",
     "Case": [
       {
@@ -1550,7 +1737,7 @@
       }
     ]
   },
-  "Test67": {
+  "Test71": {
     "Name": "F383 Set column not null clause",
     "Case": [
       {
@@ -1560,7 +1747,7 @@
       }
     ]
   },
-  "Test68": {
+  "Test72": {
     "Name": "F384 Drop identity property clause",
     "Case": [
       {
@@ -1572,61 +1759,61 @@
       }
     ]
   },
-  "Test69": {
+  "Test73": {
     "Name": "F385 Drop column generation expression clause",
     "Case": [
       {
         "NameCase": "F385 Drop column generation expression clause",
-        "Query1": "DROP GENERATOR SEQE081_09",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test70": {
-    "Name": "F386 Set identity column generation clause",
-    "Case": [
-      {
-        "NameCase": "F386 Set identity column generation clause",
-        "Query1": "CREATE GENERATOR GEN_F386",
+        "Query1": "CREATE TABLE F385 (ROW_A INT, ROW_B INT, ROW_C INT GENERATED ALWAYS AS (ROW_A + ROW_B) STORED )",
         "Query2": "COMMIT",
-        "Query3": "SET GENERATOR GEN_F386 TO 1000",
+        "Query3": "ALTER TABLE F385 ALTER COLUMN ROW_C DROP EXPRESSION",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test71": {
+  "Test74": {
+    "Name": "F386 Set identity column generation clause",
+    "Case": [
+      {
+        "NameCase": "F386 Set identity column generation clause",
+        "Query1": "CREATE TABLE F386 (ROW_A INT, ROW_B INT, ROW_C INT GENERATED ALWAYS AS (ROW_A + ROW_B) STORED)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test75": {
     "Name": "F391 Long identifiers",
     "Case": [
       {
         "NameCase": "F391 Long identifiers",
-        "Query1": "CREATE TABLE F3911 (LONG_IDENTIFIER_123456789_ABCDF INT NOT NULL)",
+        "Query1": "CREATE TABLE F391 (LONG_IDENTIFIER_123456789_ABCDF INT NOT NULL)",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test72": {
+  "Test76": {
     "Name": "F392 Unicode escapes in identifiers",
     "Case": [
       {
         "NameCase": "F392 Unicode escapes in identifiers",
-        "Query1": "CREATE TABLE F392 (\"ROW_1\\\"ROW_1\\\"ROW_1\" INT NOT NULL)",
+        "Query1": "SELECT U&'d!0061t!+000061' UESCAPE '!' FROM F391",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test73": {
+  "Test77": {
     "Name": "F393 Unicode escapes in literals",
     "Case": [
       {
         "NameCase": "F393 Unicode escapes in literals",
         "Query1": "CREATE TABLE F393 (ROW_1 CHAR(20))",
         "Query2": "COMMIT",
-        "Query3": "INSERT INTO F393 VALUES (\"Literals\\\"escapes\\\"escapes\")",
+        "Query3": "SELECT U&'d!0061t!+000061' UESCAPE '!' FROM F393",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test74": {
+  "Test78": {
     "Name": "F401 Extended joined table",
     "Case": [
       {
@@ -1641,19 +1828,48 @@
         "Query8": "INSERT INTO F401_2 VALUES (1,0,3)",
         "Query9": "INSERT INTO F401_2 VALUES (2,2,4)",
         "Query10": "COMMIT",
-        "Query11": "SELECT * FROM F401_1 NATURAL RIGHT JOIN F401_2"
+        "Query11": "SELECT * FROM F401_1 NATURAL RIGHT JOIN F401_2",
+        "Query12": "COMMIT"
       },
       {
         "NameCase": "F401-02 FULL OUTER JOIN",
-        "Query1": "SELECT * FROM F401_1 FULL OUTER JOIN F401_2 ON F401_2.A = F401_1.A"
+        "Query1": "SELECT * FROM F401_1 FULL OUTER JOIN F401_2 ON F401_2.A = F401_1.A",
+        "Query2": "COMMIT"
       },
       {
         "NameCase": "F401-03 CROSS JOIN",
-        "Query1": "SELECT F401_1.A AS AA, F401_1.B AS AB, F401_1.C AS AC, F401_2.A AS BA, F401_2.B AS BB, F401_2.D AS BD FROM F401_1 CROSS JOIN F401_2"
+        "Query1": "SELECT F401_1.A AS AA, F401_1.B AS AB, F401_1.C AS AC, F401_2.A AS BA, F401_2.B AS BB, F401_2.D AS BD FROM F401_1 CROSS JOIN F401_2",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test75": {
+  "Test79": {
+    "Name": "F402 Named column joins for LOBs, arrays, and multisets",
+    "Case": [
+      {
+        "NameCase": "F402 Named column joins for LOBs, arrays, and multisets",
+        "Query1": "SELECT * FROM f401_1 JOIN F401_2 USING (A)",
+        "Query2": "COMMIT",
+        "Query3": "SELECT * FROM f401_1 T1 LEFT JOIN F401_2 T2 ON T1.a = T2.a",
+        "Query4": "COMMIT",
+        "Query5": "SELECT * FROM f401_1 T1 RIGHT JOIN F401_2 T2 ON T1.a = T2.a",
+        "Query6": "COMMIT",
+        "Query7": "SELECT * FROM f401_1 T1 FULL JOIN F401_2 T2 ON T1.a = T2.a",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test80": {
+    "Name": "F403 Partitioned join tables",
+    "Case": [
+      {
+        "NameCase": "F403 Partitioned join tables",
+        "Query1": "SELECT * FROM f401_1 T1 LEFT JOIN F401_2 T2 PARTITION BY (b) ON T1.a > 1",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test81": {
     "Name": "F411 Time zone specification",
     "Case": [
       {
@@ -1663,7 +1879,7 @@
       }
     ]
   },
-  "Test76": {
+  "Test82": {
     "Name": "F421 National character",
     "Case": [
       {
@@ -1675,42 +1891,65 @@
       }
     ]
   },
-  "Test77": {
+  "Test83": {
     "Name": "F431 Read-only scrollable cursors",
     "Case": [
       {
         "NameCase": "F431-01 FETCH with explicit NEXT",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY4 RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; FETCH NEXT FROM curs1; NAMECOM = curs1.namecompany; SUSPEND; CLOSE curs1; END",
+        "Query1": "CREATE OR REPLACE FUNCTION F401_01(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; FETCH NEXT FROM curs into _code; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F431-02 FETCH FIRST",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY3 RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; FETCH FIRST FROM curs1; NAMECOM = curs1.namecompany; SUSPEND; CLOSE curs1; END",
+        "Query1": "CREATE OR REPLACE FUNCTION F401_02(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; FETCH FIRST FROM curs into _code; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F431-03 FETCH LAST",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY1 RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; FETCH LAST FROM curs1; NAMECOM = curs1.namecompany; SUSPEND; CLOSE curs1; END",
+        "Query1": "CREATE OR REPLACE FUNCTION F401_03(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; FETCH LAST FROM curs into _code; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F431-04 FETCH PRIOR",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY2 RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; FETCH PRIOR FROM curs1; NAMECOM = curs1.namecompany; SUSPEND; CLOSE curs1; END",
+        "Query1": "CREATE OR REPLACE FUNCTION F401_04(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; FETCH PRIOR FROM curs into _code; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F431-05 FETCH ABSOLUTE",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY5 RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; FETCH ABSOLUTE 5 FROM curs1; NAMECOM = curs1.namecompany; SUSPEND; CLOSE curs1; END",
+        "Query1": "CREATE OR REPLACE FUNCTION F401_05(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; FETCH ABSOLUTE 1 FROM curs into _code; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "F431-06 FETCH RELATIVE",
-        "Query1": "CREATE OR ALTER PROCEDURE GET_NAMECOMPANY6 RETURNS (NAMECOM CHAR(30)) AS DECLARE curs1 CURSOR FOR (Select namecompany from Company where typeproduct = 'pc'); BEGIN OPEN curs1; FETCH RELATIVE 3 FROM curs1; NAMECOM = curs1.namecompany; SUSPEND; CLOSE curs1; END",
+        "Query1": "CREATE OR REPLACE FUNCTION F401_06(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; FETCH RELATIVE -1 FROM curs into _code; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test78": {
+  "Test84": {
+    "Name": "F441 Extended set function support",
+    "Case": [
+      {
+        "NameCase": "F441 Extended set function support",
+        "Query1": "SELECT COUNT (*) FROM AGENTS",
+        "Query2": "SELECT MAX(OPENING_AMT) FROM CUSTOMER",
+        "Query3": "SELECT MIN(OPENING_AMT) FROM CUSTOMER",
+        "Query4": "SELECT SUM(OPENING_AMT) FROM CUSTOMER",
+        "Query5": "SELECT ALL CUST_CODE FROM CUSTOMER",
+        "Query6": "SELECT DISTINCT CUST_CODE FROM CUSTOMER"
+      }
+    ]
+  },
+  "Test85": {
+    "Name": "F442 Mixed column references in set functions",
+    "Case": [
+      {
+        "NameCase": "F442 Mixed column references in set functions",
+        "Query1": "SELECT MAX(OPENING_AMT),MIN (OPENING_AMT), SUM(OPENING_AMT) FROM CUSTOMER"
+      }
+    ]
+  },
+  "Test86": {
     "Name": "F451 Character set definition",
     "Case": [
       {
@@ -1722,7 +1961,7 @@
       }
     ]
   },
-  "Test79": {
+  "Test87": {
     "Name": "F461 Named character sets",
     "Case": [
       {
@@ -1732,7 +1971,7 @@
       }
     ]
   },
-  "Test80": {
+  "Test88": {
     "Name": "F491 Constraint management",
     "Case": [
       {
@@ -1748,7 +1987,7 @@
       }
     ]
   },
-  "Test81": {
+  "Test89": {
     "Name": "F492 Optional table constraint enforcement",
     "Case": [
       {
@@ -1761,7 +2000,7 @@
       }
     ]
   },
-  "Test82": {
+  "Test90": {
     "Name": "F521 Assertions",
     "Case": [
       {
@@ -1771,7 +2010,7 @@
       }
     ]
   },
-  "Test83": {
+  "Test91": {
     "Name": "F531 Temporary tables",
     "Case": [
       {
@@ -1783,7 +2022,7 @@
       }
     ]
   },
-  "Test84": {
+  "Test92": {
     "Name": "F555 Enhanced seconds precision",
     "Case": [
       {
@@ -1805,7 +2044,7 @@
       }
     ]
   },
-  "Test85": {
+  "Test93": {
     "Name": "F561 Full value expressions",
     "Case": [
       {
@@ -1814,7 +2053,7 @@
       }
     ]
   },
-  "Test86": {
+  "Test94": {
     "Name": "F571 Truth value tests",
     "Case": [
       {
@@ -1829,26 +2068,29 @@
       }
     ]
   },
-  "Test87": {
+  "Test95": {
     "Name": "F591 Derived tables",
     "Case": [
       {
         "NameCase": "F591 Derived tables",
-        "Query1": "SELECT * FROM (SELECT AGENT_CODE, AGENT_NAME FROM AGENTS) AS A (AGENT_CODE, AGENT_NAME)"
+        "Query1": "SELECT * FROM (SELECT AGENT_CODE, AGENT_NAME FROM AGENTS) AS A (AGENT_CODE, AGENT_NAME)",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test88": {
+  "Test96": {
     "Name": "F611 Indicator data types",
     "Case": [
       {
         "NameCase": "F611 Indicator data types",
         "Query1": "SELECT CASE WHEN A.A IS NULL THEN 0 ELSE 1 END as Match FROM A LEFT OUTER JOIN B ON A.A = B.A",
-        "Query2": "SELECT ROW_ID FROM F51_01 WHERE ROW_DATE = %%date%%"
+        "Query2": "COMMIT",
+        "Query3": "SELECT ROW_ID FROM F51_01 WHERE ROW_DATE = %%date%%",
+        "Query4": "COMMIT"
       }
     ]
   },
-  "Test89": {
+  "Test97": {
     "Name": "F641 Row and table constructors",
     "Case": [
       {
@@ -1860,28 +2102,29 @@
       }
     ]
   },
-  "Test90": {
+  "Test98": {
     "Name": "F651 Catalog name qualifiers",
     "Case": [
       {
         "NameCase": "F651 Catalog name qualifiers",
-        "Query1": "SELECT * FROM FB.AGENTS"
+        "Query1": "SELECT * FROM public.AGENTS",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test91": {
+  "Test99": {
     "Name": "F661 Simple tables",
     "Case": [
       {
         "NameCase": "F661 Simple tables",
         "Query1": "CREATE TABLE F661_EXPL (row_id INT, row_name CHAR(50))",
         "Query2": "COMMIT",
-        "Query3": "CREATE TABLE F661 AS (SELECT * FROM F651_EXPL)",
+        "Query3": "CREATE TABLE F661 AS (SELECT * FROM F661_EXPL)",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test92": {
+  "Test100": {
     "Name": "F671 Subqueries in CHECK constraints",
     "Case": [
       {
@@ -1891,7 +2134,7 @@
       }
     ]
   },
-  "Test93": {
+  "Test101": {
     "Name": "F672 Retrospective check constraints",
     "Case": [
       {
@@ -1901,41 +2144,52 @@
       }
     ]
   },
-  "Test94": {
+  "Test102": {
     "Name": "F690 Collation support",
     "Case": [
       {
         "NameCase": "F690 Collation support",
-        "Query1": "CREATE COLLATION lat_uni FOR iso8859_1 FROM external ('ISO8859_1_UNICODE')",
+        "Query1": "CREATE COLLATION F690 (locale = 'fr_FR.utf8')",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test95": {
+  "Test103": {
     "Name": "F692 Enhanced collation support",
     "Case": [
       {
         "NameCase": "F692 Enhanced collation support",
-        "Query1": "CREATE COLLATION es_es_ci_compr FOR iso8859_1 FROM es_es CASE insensitive 'DISABLE-COMPRESSIONS=0'",
+        "Query1": "CREATE DOMAIN F692 AS VARCHAR COLLATE F690 NOT NULL CHECK (value !~ '\\s')",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test96": {
+  "Test104": {
+    "Name": "F693 SQL-session and client module collations",
+    "Case": [
+      {
+        "NameCase": "F693 SQL-session and client module collations",
+        "Query1": "SET COLLATION lat_uni FOR iso8859_1",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test105": {
     "Name": "F695 Translation support",
     "Case": [
       {
         "NameCase": "F695 Translation support",
-        "Query1": "SELECT TRANSLATE('džiná lasaí ireo dana kýrne číraž', 'ážíýč', 'AZIYC') FROM AGENTS"
+        "Query1": "SELECT TRANSLATE('džiná lasaí ireo dana kýrne číraž', 'ážíýč', 'AZIYC') FROM AGENTS",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test97": {
+  "Test106": {
     "Name": "F701 Referential update actions",
     "Case": [
       {
         "NameCase": "F701 Referential update actions",
-        "Query1": "CREATE TABLE E141_041 (ID int,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
+        "Query1": "CREATE TABLE F701 (ID int,id_701 int, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
         "Query2": "COMMIT",
         "Query3": "CREATE TABLE F701_01 (ID int,id_701 int, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_701) REFERENCES F701 (id)ON UPDATE CASCADE)",
         "Query4": "COMMIT",
@@ -1944,11 +2198,13 @@
         "Query7": "CREATE TABLE F701_03 (ID int,id_701 int, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_701) REFERENCES F701 (id)ON UPDATE NO ACTION)",
         "Query8": "COMMIT",
         "Query9": "CREATE TABLE F701_04 (ID int,id_701 int, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_701) REFERENCES F701 (id)ON UPDATE SET DEFAULT)",
-        "Query10": "COMMIT"
+        "Query10": "COMMIT",
+        "Query11": "CREATE TABLE F701_05 (ID int,id_701 int, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_701) REFERENCES F701 (id)ON DELETE CASCADE)",
+        "Query12": "COMMIT"
       }
     ]
   },
-  "Test98": {
+  "Test107": {
     "Name": "F711 ALTER domain",
     "Case": [
       {
@@ -1958,7 +2214,7 @@
       }
     ]
   },
-  "Test99": {
+  "Test108": {
     "Name": "F721 Deferrable constraints",
     "Case": [
       {
@@ -1968,17 +2224,23 @@
       }
     ]
   },
-  "Test100": {
+  "Test109": {
     "Name": "F731 INSERT column privileges",
     "Case": [
       {
         "NameCase": "F731 INSERT column privileges",
-        "Query1": "GRANT INSERT (MAN_NAME, MAN_AGE) ON F672 TO E081_09",
-        "Query2": "COMMIT"
+        "Query1": "CREATE USER F731",
+        "Query2": "COMMIT",
+        "Query3": "GRANT INSERT (MAN_NAME, MAN_AGE) ON F672 TO F731",
+        "Query4": "COMMIT",
+        "Query5": "REVOKE INSERT ON F672 FROM F731",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER F731",
+        "Query8": "COMMIT"
       }
     ]
   },
-  "Test101": {
+  "Test110": {
     "Name": "F741 Referential MATCH types",
     "Case": [
       {
@@ -1994,38 +2256,56 @@
         "Query9": "INSERT INTO friend VALUES ((SELECT id FROM Person WHERE name = 'Alice'),(SELECT id FROM Person WHERE name = 'Jacob'), '10/15/2011')",
         "Query10": "INSERT INTO friend VALUES ((SELECT id FROM Person WHERE name = 'John'),(SELECT id FROM Person WHERE name = 'Jacob'), '10/15/2012')",
         "Query11": "COMMIT",
-        "Query12": "SELECT Person2.name AS FriendName FROM Person Person1, friend, Person Person2 WHERE MATCH(Person1-(friend)->Person2) AND Person1.name = 'Alice'"
+        "Query12": "SELECT Person2.name AS FriendName FROM Person Person1, friend, Person Person2 WHERE MATCH(Person1-(friend)->Person2) AND Person1.name = 'Alice'",
+        "Query13": "COMMIT"
       }
     ]
   },
-  "Test102": {
+  "Test111": {
+    "Name": "F751 View CHECK enhancements",
+    "Case": [
+      {
+        "NameCase": "F751 View CHECK enhancements",
+        "Query1": "CREATE VIEW F751_1_VIEW AS SELECT * FROM AGENTS WHERE COMMISSION > 0.13  WITH CASCADED CHECK OPTION",
+        "Query2": "COMMIT",
+        "Query3": "CREATE VIEW F751_2_VIEW AS SELECT * FROM AGENTS WHERE COMMISSION > 0.13  WITH LOCAL CHECK OPTION",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test112": {
     "Name": "F761 Session management",
     "Case": [
       {
         "NameCase": "F761 Session management",
-        "Query1": "SELECT session_id, login_name, status FROM RDB$SESSIONS"
+        "Query1": "SELECT SESSION_USER, CURRENT_USER",
+        "Query2": "COMMIT",
+        "Query3": "SET SESSION AUTHORIZATION 'postgres'",
+        "Query4": "COMMIT"
       }
     ]
   },
-  "Test103": {
+  "Test113": {
     "Name": "F762 CURRENT_CATALOG",
     "Case": [
       {
         "NameCase": "F762 CURRENT_CATALOG",
-        "Query1": "SELECT current_catalog FROM RDB$DATABASE"
+        "Query1": "SELECT current_catalog",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test104": {
+  "Test114": {
     "Name": "F763 CURRENT_SCHEMA",
     "Case": [
       {
         "NameCase": "F763 CURRENT_SCHEMA",
-        "Query1": "SELECT current_schema FROM RDB$DATABASE"
+        "Query1": "SELECT current_schema",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test105": {
+  "Test115": {
     "Name": "F771 Connection management",
     "Case": [
       {
@@ -2034,7 +2314,7 @@
       }
     ]
   },
-  "Test106": {
+  "Test116": {
     "Name": "F781 Self-referencing operations",
     "Case": [
       {
@@ -2050,26 +2330,27 @@
       }
     ]
   },
-  "Test107": {
+  "Test117": {
     "Name": "F791 Insensitive cursors",
     "Case": [
       {
         "NameCase": "F791 Insensitive cursors",
-        "Query1": "DECLARE INSENSITIVE CURSOR WITH RETURN TO CLIENT FOR SELECT * FROM A; OPEN A; DELETE FROM A;",
+        "Query1": "CREATE OR REPLACE FUNCTION F791(numeric) RETURNS numeric AS $$ DECLARE curs INSENSITIVE CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; RETURN _rezult; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test108": {
+  "Test118": {
     "Name": "F801 Full set function",
     "Case": [
       {
         "NameCase": "F801 Full set function",
-        "Query1": "SELECT c.agent_code, SET(working_area) agents FROM customer ORDER BY c.agent_code"
+        "Query1": "CREATE FUNCTION getfoo(int) RETURNS SETOF agents AS $$ SELECT * FROM agents; $$ LANGUAGE SQL;",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test109": {
+  "Test119": {
     "Name": "F821 Local table references",
     "Case": [
       {
@@ -2079,7 +2360,7 @@
       }
     ]
   },
-  "Test110": {
+  "Test120": {
     "Name": "F831 Full cursor update",
     "Case": [
       {
@@ -2091,109 +2372,119 @@
         "Query5": "INSERT INTO F831_01 VALUES ('Idaho', 'ID')",
         "Query6": "INSERT INTO F831_01 VALUES ('Alaska','AK')",
         "Query7": "COMMIT",
-        "Query8": "CREATE OR ALTER TRIGGER F831_01_CURS FOR F831_01 ACTIVE BEFORE UPDATE POSITION 0 AS DECLARE f831_01_cursor CURSOR FOR (SELECT StateName, StateAbbr FROM F831_01 FOR UPDATE); DECLARE @StateName varchar(50); DECLARE @StateAbbr char(2); OPEN f831_01_cursor; FETCH NEXT FROM f831_01_cursor INTO @StateName, @StateAbbr; WHILE @@FETCH_STATUS = 0 BEGIN IF (@StateAbbr = 'WA') UPDATE F831_01 SET StateName = 'California', StateAbbr = 'CA' WHERE CURRENT OF f831_01_cursor; IF (@StateAbbr = 'OR') UPDATE F831_01 SET StateName = 'Arizona', StateAbbr = 'AZ' WHERE CURRENT OF f831_01_cursor; FETCH NEXT FROM f831_01_cursor INTO @StateName, @StateAbbr; END",
+        "Query8": "CREATE OR REPLACE TRIGGER F831_01_CURS FOR F831_01 ACTIVE BEFORE UPDATE POSITION 0 AS DECLARE f831_01_cursor CURSOR FOR (SELECT StateName, StateAbbr FROM F831_01 FOR UPDATE); DECLARE @StateName varchar(50); DECLARE @StateAbbr char(2); OPEN f831_01_cursor; FETCH NEXT FROM f831_01_cursor INTO @StateName, @StateAbbr; WHILE @@FETCH_STATUS = 0 BEGIN IF (@StateAbbr = 'WA') UPDATE F831_01 SET StateName = 'California', StateAbbr = 'CA' WHERE CURRENT OF f831_01_cursor; IF (@StateAbbr = 'OR') UPDATE F831_01 SET StateName = 'Arizona', StateAbbr = 'AZ' WHERE CURRENT OF f831_01_cursor; FETCH NEXT FROM f831_01_cursor INTO @StateName, @StateAbbr; END",
         "Query9": "COMMIT"
       },
       {
         "NameCase": "F831-02 Updateable ordered cursors",
-        "Query1": "CREATE OR ALTER TRIGGER F831_02_CURS FOR F831_01 ACTIVE BEFORE UPDATE POSITION 0 AS DECLARE f831_02_cursor CURSOR SCROLL FOR SELECT StateName, StateAbbr FROM F831_01 ORDER BY StateName; SELECT StateName, StateAbbr FROM F831_01 ORDER BY StateName;DECLARE @StateName varchar(50); DECLARE @StateAbbr char(2); OPEN f831_02_cursor; FETCH LAST FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH PRIOR FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH ABSOLUTE 2 FROM f831_02_cursor INTO @StateName, @StateAbbr;SELECT @StateName, @StateAbbr; FETCH RELATIVE 2 FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH RELATIVE -3 FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr;",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test111": {
-    "Name": "F841 LIKE_REGEX predicate",
-    "Case": [
-      {
-        "NameCase": "F841 LIKE_REGEX predicate",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEXP_LIKE(CUST_NAME,'luc+?hes+?i','i')"
-      }
-    ]
-  },
-  "Test112": {
-    "Name": "F842 OCCURRENCES_REGEX function",
-    "Case": [
-      {
-        "NameCase": "F842 OCCURRENCES_REGEX function",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEX_OCCURRENCES(CUST_NAME,'luc+?hes+?i','i')"
-      }
-    ]
-  },
-  "Test113": {
-    "Name": "F843 POSITION_REGEX function function",
-    "Case": [
-      {
-        "NameCase": "F843 POSITION_REGEX function",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEX_POSITION(CUST_NAME,'luc+?hes+?i','i')"
-      }
-    ]
-  },
-  "Test114": {
-    "Name": "F844 SUBSTRING_REGEX",
-    "Case": [
-      {
-        "NameCase": "F844 SUBSTRING_REGEX",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE REGEXP_SUBSTR(CUST_NAME,'luc+?hes+?i','i')"
-      }
-    ]
-  },
-  "Test115": {
-    "Name": "F845 TRANSLATE_REGEX",
-    "Case": [
-      {
-        "NameCase": "F845 TRANSLATE_REGEX",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE CUST_NAME = "
-      }
-    ]
-  },
-  "Test116": {
-    "Name": "F846 Octet support in regular expression operators",
-    "Case": [
-      {
-        "NameCase": "F846 Octet support in regular expression operators",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET_LENGTH(CUST_CODE)>5",
-        "Query2": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET(CUST_CODE) > 10032"
-      }
-    ]
-  },
-  "Test117": {
-    "Name": "F847 Nonconstant regular expressions",
-    "Case": [
-      {
-        "NameCase": "F847 Nonconstant regular expressions",
-        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET_LENGTH(CUST_CODE)>5"
-      }
-    ]
-  },
-  "Test118": {
-    "Name": "F850 Top-level 'order by clause' in 'query expression'",
-    "Case": [
-      {
-        "NameCase": "F850 Top-level 'order by clause' in 'query expression'",
-        "Query1": "SELECT id, namecompany FROM company ORDER BY typeproduct"
-      }
-    ]
-  },
-  "Test119": {
-    "Name": "F851 'order by clause' in subqueries",
-    "Case": [
-      {
-        "NameCase": "F851 'order by clause' in subqueries",
-        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country)"
-      }
-    ]
-  },
-  "Test120": {
-    "Name": "F852 Top-level 'order by clause' in views",
-    "Case": [
-      {
-        "NameCase": "F852 Top-level 'order by clause' in views",
-        "Query1": "CREATE OR ALTER VIEW F852(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct",
+        "Query1": "CREATE OR REPLACE TRIGGER F831_02_CURS FOR F831_01 ACTIVE BEFORE UPDATE POSITION 0 AS DECLARE f831_02_cursor CURSOR SCROLL FOR SELECT StateName, StateAbbr FROM F831_01 ORDER BY StateName; SELECT StateName, StateAbbr FROM F831_01 ORDER BY StateName;DECLARE @StateName varchar(50); DECLARE @StateAbbr char(2); OPEN f831_02_cursor; FETCH LAST FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH PRIOR FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH ABSOLUTE 2 FROM f831_02_cursor INTO @StateName, @StateAbbr;SELECT @StateName, @StateAbbr; FETCH RELATIVE 2 FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr; FETCH RELATIVE -3 FROM f831_02_cursor INTO @StateName, @StateAbbr; SELECT @StateName, @StateAbbr;",
         "Query2": "COMMIT"
       }
     ]
   },
   "Test121": {
+    "Name": "F841 LIKE_REGEX predicate",
+    "Case": [
+      {
+        "NameCase": "F841 LIKE_REGEX predicate",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE LIKE_REGEX(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test122": {
+    "Name": "F842 OCCURRENCES_REGEX function",
+    "Case": [
+      {
+        "NameCase": "F842 OCCURRENCES_REGEX function",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE OCCURRENCES_REGEX(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test123": {
+    "Name": "F843 POSITION_REGEX function function",
+    "Case": [
+      {
+        "NameCase": "F843 POSITION_REGEX function",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE POSITION_REGEX(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test124": {
+    "Name": "F844 SUBSTRING_REGEX",
+    "Case": [
+      {
+        "NameCase": "F844 SUBSTRING_REGEX",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE SUBSTRING_REGEX(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test125": {
+    "Name": "F845 TRANSLATE_REGEX",
+    "Case": [
+      {
+        "NameCase": "F845 TRANSLATE_REGEX",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE TRANSLATE_REGEX(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test126": {
+    "Name": "F846 Octet support in regular expression operators",
+    "Case": [
+      {
+        "NameCase": "F846 Octet support in regular expression operators",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET_LENGTH(CUST_CODE)>5",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE FROM CUSTOMER WHERE OCTET(CUST_CODE) > 10032",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test127": {
+    "Name": "F847 Nonconstant regular expressions",
+    "Case": [
+      {
+        "NameCase": "F847 Nonconstant regular expressions",
+        "Query1": "SELECT CUST_CODE FROM CUSTOMER WHERE LIKE_REGEX(CUST_NAME,'luc+?hes+?i','i')",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test128": {
+    "Name": "F850 Top-level 'order by clause' in 'query expression'",
+    "Case": [
+      {
+        "NameCase": "F850 Top-level 'order by clause' in 'query expression'",
+        "Query1": "SELECT id, namecompany FROM company ORDER BY typeproduct",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test129": {
+    "Name": "F851 'order by clause' in subqueries",
+    "Case": [
+      {
+        "NameCase": "F851 'order by clause' in subqueries",
+        "Query1": "SELECT * FROM (SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country) as foo",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test130": {
+    "Name": "F852 Top-level 'order by clause' in views",
+    "Case": [
+      {
+        "NameCase": "F852 Top-level 'order by clause' in views",
+        "Query1": "CREATE OR REPLACE VIEW F852(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test131": {
     "Name": "F855 Nested 'order by clause' in 'query expression'",
     "Case": [
       {
@@ -2206,159 +2497,168 @@
         "Query6": "INSERT INTO F855 VALUES ('man', 'jerry', 2, null)",
         "Query7": "INSERT INTO F855 VALUES ('man', 'sam', 3, null)",
         "Query8": "COMMIT",
-        "Query9": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC"
-      }
-    ]
-  },
-  "Test122": {
-    "Name": "F856 Nested 'fetch first clause' in 'query expression'",
-    "Case": [
-      {
-        "NameCase": "F856 Nested <fetch first clause> in <query expression>",
-        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC OFFSET 0 ROWS FETCH FIRST 2 ROWS ONLY"
-      }
-    ]
-  },
-  "Test123": {
-    "Name": "F857 Top-level 'fetch first clause' in 'query expression'",
-    "Case": [
-      {
-        "NameCase": "F857 Top-level 'fetch first clause' in 'query expression'",
-        "Query1": "SELECT term,user_name,score FROM F855 OFFSET 0 ROWS FETCH FIRST 4 ROWS ONLY"
-      }
-    ]
-  },
-  "Test124": {
-    "Name": "F858 'fetch first clause' in subqueries",
-    "Case": [
-      {
-        "NameCase": "F858 'fetch first clause' in subqueries",
-        "Query1": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name OFFSET 0 ROWS FETCH FIRST 3 ROWS ONLY) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC"
-      }
-    ]
-  },
-  "Test125": {
-    "Name": "F859 Top-level 'fetch first clause' in views",
-    "Case": [
-      {
-        "NameCase": "F859 Top-level 'fetch first clause' in views",
-        "Query1": "CREATE OR ALTER VIEW F859(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct OFFSET 0 ROWS FETCH FIRST 4 ROWS ONLY",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test126": {
-    "Name": "F860 dynamic 'fetch first row count' in 'fetch first clause'",
-    "Case": [
-      {
-        "NameCase": "F860 dynamic 'fetch first row count' in 'fetch first clause'",
-        "Query1": "CREATE PROCEDURE F860_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
-        "Query2": "COMMIT",
-        "Query3": "EXECUTE PROCEDURE F860_PROC(0,3)",
-        "Query4": "COMMIT"
-      }
-    ]
-  },
-  "Test127": {
-    "Name": "F861 Top-level 'result offset clause' in 'query expression'",
-    "Case": [
-      {
-        "NameCase": "F861 Top-level 'result offset clause' in 'query expression'",
-        "Query1": "SELECT term,user_name,score FROM F855 OFFSET 3 ROWS"
-      }
-    ]
-  },
-  "Test128": {
-    "Name": "F862 'result offset clause' in subqueries",
-    "Case": [
-      {
-        "NameCase": "F862 'result offset clause' in subqueries",
-        "Query1": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name OFFSET 2 ROWS) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC"
-      }
-    ]
-  },
-  "Test129": {
-    "Name": "F863 Nested 'result offset clause' in 'query expression'",
-    "Case": [
-      {
-        "NameCase": "F863 Nested 'result offset clause' in 'query expression'",
-        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC OFFSET 3 ROWS"
-      }
-    ]
-  },
-  "Test130": {
-    "Name": "F864 Top-level 'result offset clause' in views",
-    "Case": [
-      {
-        "NameCase": "F864 Top-level 'result offset clause' in views",
-        "Query1": "CREATE OR ALTER VIEW F864(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct OFFSET 2 ROWS",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test131": {
-    "Name": "F865 dynamic <offset row count> in 'result offset clause'",
-    "Case": [
-      {
-        "NameCase": "F865 dynamic <offset row count> in 'result offset clause'",
-        "Query1": "CREATE PROCEDURE F865_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
-        "Query2": "COMMIT",
-        "Query3": "EXECUTE PROCEDURE F860_PROC(2,1)",
-        "Query4": "COMMIT"
+        "Query9": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC",
+        "Query10": "COMMIT"
       }
     ]
   },
   "Test132": {
-    "Name": "F866 FETCH FIRST clause: PERCENT option",
+    "Name": "F856 Nested 'fetch first clause' in 'query expression'",
     "Case": [
       {
-        "NameCase": "F866 FETCH FIRST clause: PERCENT option",
-        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC FETCH FIRST 50 PERCENT ROWS ONLY"
+        "NameCase": "F856 Nested <fetch first clause> in <query expression>",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC OFFSET 0 ROWS FETCH FIRST 2 ROWS ONLY",
+        "Query2": "COMMIT"
       }
     ]
   },
   "Test133": {
-    "Name": "F867 FETCH FIRST clause: WITH TIES option",
+    "Name": "F857 Top-level 'fetch first clause' in 'query expression'",
     "Case": [
       {
-        "NameCase": "F867 FETCH FIRST clause: WITH TIES option",
-        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC FETCH FIRST 25 ROWS WITH TIES"
+        "NameCase": "F857 Top-level 'fetch first clause' in 'query expression'",
+        "Query1": "SELECT term,user_name,score FROM F855 OFFSET 0 ROWS FETCH FIRST 4 ROWS ONLY",
+        "Query2": "COMMIT"
       }
     ]
   },
   "Test134": {
-    "Name": "S023 Basic structured types",
+    "Name": "F858 'fetch first clause' in subqueries",
     "Case": [
       {
-        "NameCase": "S023 Basic structured types",
-        "Query1": "CREATE  TYPE S023 as(UserId int, Name varchar(10), Address varchar(255))",
+        "NameCase": "F858 'fetch first clause' in subqueries",
+        "Query1": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name OFFSET 0 ROWS FETCH FIRST 3 ROWS ONLY) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC",
         "Query2": "COMMIT"
       }
     ]
   },
   "Test135": {
+    "Name": "F859 Top-level 'fetch first clause' in views",
+    "Case": [
+      {
+        "NameCase": "F859 Top-level 'fetch first clause' in views",
+        "Query1": "CREATE OR REPLACE VIEW F859(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct OFFSET 0 ROWS FETCH FIRST 4 ROWS ONLY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test136": {
+    "Name": "F860 dynamic 'fetch first row count' in 'fetch first clause'",
+    "Case": [
+      {
+        "NameCase": "F860 dynamic 'fetch first row count' in 'fetch first clause'",
+        "Query1": "CREATE PROCEDURE F860_PROC (offset_value INT, page_size INT)LANGUAGE PLPGSQL AS $$ DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET '@offset_value' ROWS FETCH NEXT '@page_size' ROWS ONLY); BEGIN OPEN catalog_page; END;$$",
+        "Query2": "COMMIT",
+        "Query3": "CALL F860_PROC(0,3)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test137": {
+    "Name": "F861 Top-level 'result offset clause' in 'query expression'",
+    "Case": [
+      {
+        "NameCase": "F861 Top-level 'result offset clause' in 'query expression'",
+        "Query1": "SELECT term,user_name,score FROM F855 OFFSET 3 ROWS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test138": {
+    "Name": "F862 'result offset clause' in subqueries",
+    "Case": [
+      {
+        "NameCase": "F862 'result offset clause' in subqueries",
+        "Query1": "SELECT USER_NAME, (SELECT MAX(Score) FROM F855 t2 WHERE t2.Term = t1.Term AND t2.User_name = t1.User_name GROUP BY t2.Term, t2. User_name OFFSET 2 ROWS) as max_score FROM F855 t1 WHERE term = 'man' ORDER BY max_score DESC, ITEM_NO ASC",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test139": {
+    "Name": "F863 Nested 'result offset clause' in 'query expression'",
+    "Case": [
+      {
+        "NameCase": "F863 Nested 'result offset clause' in 'query expression'",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC OFFSET 3 ROWS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test140": {
+    "Name": "F864 Top-level 'result offset clause' in views",
+    "Case": [
+      {
+        "NameCase": "F864 Top-level 'result offset clause' in views",
+        "Query1": "CREATE OR REPLACE VIEW F864(ID, namecompany) AS SELECT id, namecompany FROM company ORDER BY typeproduct OFFSET 2 ROWS",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test141": {
+    "Name": "F865 dynamic <offset row count> in 'result offset clause'",
+    "Case": [
+      {
+        "NameCase": "F865 dynamic <offset row count> in 'result offset clause'",
+        "Query1": "CREATE PROCEDURE F865_PROC() LANGUAGE PLPGSQL AS $$ DECLARE c refcursor := 'curs'; BEGIN EXECUTE $_$DECLARE curs CURSOR WITH HOLD FOR select id, namecompany from company$_$; END; $$;",
+        "Query2": "COMMIT",
+        "Query3": "CALL F865_PROC()",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test142": {
+    "Name": "F866 FETCH FIRST clause: PERCENT option",
+    "Case": [
+      {
+        "NameCase": "F866 FETCH FIRST clause: PERCENT option",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC FETCH FIRST 50 PERCENT ROWS ONLY",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test143": {
+    "Name": "F867 FETCH FIRST clause: WITH TIES option",
+    "Case": [
+      {
+        "NameCase": "F867 FETCH FIRST clause: WITH TIES option",
+        "Query1": "SELECT term,user_name,score FROM F855 ORDER BY user_name ASC FETCH FIRST 25 ROWS WITH TIES",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test144": {
+    "Name": "S023 Basic structured types",
+    "Case": [
+      {
+        "NameCase": "S023 Basic structured types",
+        "Query1": "CREATE TYPE S023 as(UserId int, Name varchar(10), Address varchar(255))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test145": {
     "Name": "S024 Enhanced structured types",
     "Case": [
       {
         "NameCase": "S024 Enhanced structured types",
-        "Query1": "CREATE  TYPE  Person_Type  AS  OBJECT  (person_title VARCHAR2  ( 10 ) , person_first_name VARCHAR2  ( 20 ) , person_last_name VARCHAR2  ( 20 ))",
+        "Query1": "CREATE  TYPE  Person_Type  AS (person_title VARCHAR ( 10 ) , person_first_name VARCHAR ( 20 ) , person_last_name VARCHAR( 20 ))",
         "Query2": "COMMIT",
         "Query3": "CREATE  TABLE  Person_Table  OF  Person_Type",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test136": {
+  "Test146": {
     "Name": "S025 Final structured types",
     "Case": [
       {
         "NameCase": "S025 Final structured types",
-        "Query1": "CREATE  TYPE  Student_Type  UNDER  Person_Type  (matriculation_number  NUMBER ( 10 ))",
+        "Query1": "CREATE  TYPE  Student_Type AS (matriculation_number  NUMBER ( 10 )) FINAL",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test137": {
+  "Test147": {
     "Name": "S026 Self-referencing structured types",
     "Case": [
       {
@@ -2368,7 +2668,7 @@
       }
     ]
   },
-  "Test138": {
+  "Test148": {
     "Name": "S027 Create method by specific method name",
     "Case": [
       {
@@ -2378,7 +2678,17 @@
       }
     ]
   },
-  "Test139": {
+  "Test149": {
+    "Name": "S028 Permutable UDT options list",
+    "Case": [
+      {
+        "NameCase": "S028 Permutable UDT options list",
+        "Query1": "CREATE TYPE S028 AS TABLE ( Name NVARCHAR(50) NOT NULL, SupplierId BIGINT NOT NULL, Price DECIMAL (18, 4) NULL, PRIMARY KEY (Name), INDEX IX_InventoryItem_Price (Price))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test150": {
     "Name": "S041 Basic reference types",
     "Case": [
       {
@@ -2388,7 +2698,7 @@
       }
     ]
   },
-  "Test140": {
+  "Test151": {
     "Name": " S043 Enhanced reference types",
     "Case": [
       {
@@ -2398,7 +2708,7 @@
       }
     ]
   },
-  "Test141": {
+  "Test152": {
     "Name": "S051 Create table of type",
     "Case": [
       {
@@ -2408,19 +2718,19 @@
       }
     ]
   },
-  "Test142": {
+  "Test153": {
     "Name": "S071 SQL paths in function and type name resolution",
     "Case": [
       {
         "NameCase": "S071 SQL paths in function and type name resolution",
-        "Query1": "CREATE FUNCTION FB.S071_FUNC(A INT, B INT DEFAULT 0) RETURNS INT AS BEGIN  RETURN A+B; END",
+        "Query1": "CREATE FUNCTION public.S071_FUNC() RETURNS REFCURSOR AS $$ DECLARE ref refcursor; namecom record; BEGIN OPEN ref FOR select id, namecompany from company order by namecompany desc; loop fetch ref into namecom; exit when not found; end loop; RETURN REF; END; $$ LANGUAGE PLPGSQL;",
         "Query2": "COMMIT",
-        "Query3": "CREATE  TYPE  FB.S071_TYPE  AS  OBJECT  (person_title VARCHAR2  ( 10 ) , person_first_name VARCHAR2  ( 20 ) , person_last_name VARCHAR2  ( 20 ) , )",
+        "Query3": "CREATE  TYPE  public.S071_TYPE  AS  (person_title VARCHAR( 10 ) , person_first_name VARCHAR( 20 ) , person_last_name VARCHAR( 20 ) )",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test143": {
+  "Test154": {
     "Name": "S081 Subtables",
     "Case": [
       {
@@ -2432,12 +2742,12 @@
       }
     ]
   },
-  "Test144": {
+  "Test155": {
     "Name": "S091 Basic array support",
     "Case": [
       {
         "NameCase": "S091-01 Arrays of built-in data types",
-        "Query1": "CREATE TABLE S091_01 (ARR_INT2 INTEGER[4,5], ARR_INT3 INTEGER[4,5,6], ARR_INT6 INTEGER[4,5,6,7])",
+        "Query1": "CREATE TABLE S091_01 (ARR_INT2 INTEGER[4], ARR_INT3 INTEGER[4], ARR_INT6 INTEGER[4])",
         "Query2": "COMMIT"
       },
       {
@@ -2452,29 +2762,29 @@
       }
     ]
   },
-  "Test145": {
+  "Test156": {
     "Name": "S092 Arrays of user-defined types",
     "Case": [
       {
         "NameCase": "S092 Arrays of user-defined types",
-        "Query1": "CREATE TYPE BOOK AS TABLE (id nvarchar(36), title nvarchar(100), author nvarchar(100), student_id nvarchar(36))",
+        "Query1": "CREATE TYPE BOOK AS (id varchar(36), title varchar(100), author varchar(100), student_id varchar(36))",
         "Query2": "COMMIT",
-        "Query3": "CREATE TYPE STUDENT AS TABLE (id nvarchar(36), name nvarchar(100), ationality nvarchar(100),books BOOK)",
+        "Query3": "CREATE TYPE STUDENT AS (id varchar(36), name varchar(100), ationality varchar(100),books BOOK)",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test146": {
+  "Test157": {
     "Name": "S094 Arrays of reference types",
     "Case": [
       {
         "NameCase": "S094 Arrays of reference types",
-        "Query1": "CREATE TABLE S094 (ARR_INT2 INTEGER[4,5], ARR_INT3 INTEGER[4,5,6], ARR_INT6 INTEGER[4,5,6,7], PRIMARY KEY(ARR_INT6), FOREIGN KEY (ARR_INT2)  REFERENCES S091_01([ARR_INT2,ARR_INT3]))",
+        "Query1": "CREATE TABLE S094 (ARR_INT2 INTEGER[4], ARR_INT3 INTEGER[4], ARR_INT6 INTEGER[4], PRIMARY KEY(ARR_INT6), FOREIGN KEY (ARR_INT2)  REFERENCES S091_01([ARR_INT2,ARR_INT3]))",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test147": {
+  "Test158": {
     "Name": "S095 Array constructors by query",
     "Case": [
       {
@@ -2484,7 +2794,7 @@
       }
     ]
   },
-  "Test148": {
+  "Test159": {
     "Name": "S096 Optional array bounds",
     "Case": [
       {
@@ -2494,7 +2804,7 @@
       }
     ]
   },
-  "Test149": {
+  "Test160": {
     "Name": "S097 Array element assignment",
     "Case": [
       {
@@ -2506,7 +2816,7 @@
       }
     ]
   },
-  "Test150": {
+  "Test161": {
     "Name": "S098 ARRAY_AGG",
     "Case": [
       {
@@ -2517,48 +2827,53 @@
       }
     ]
   },
-  "Test151": {
+  "Test162": {
     "Name": "S111 ONLY in query expressions",
     "Case": [
       {
         "NameCase": "S111 ONLY in query expression",
         "Query1": "CREATE TABLE S111_base (id integer, some_data varchar(100))",
         "Query2": "COMMIT",
-        "Query3": "CREATE TABLE S111_child (id integer, some_data varchar(100)) inherits (base)",
+        "Query3": "CREATE TABLE S111_child (id integer, some_data varchar(100)) inherits (S111_base)",
         "Query4": "COMMIT",
-        "Query5": "SELECT * FROM ONLY (S111_base)"
+        "Query5": "SELECT * FROM ONLY (S111_base)",
+        "Query6": "COMMIT"
       }
     ]
   },
-  "Test152": {
+  "Test163": {
     "Name": "S151 Type predicate",
     "Case": [
       {
         "NameCase": "S151 Type predicate",
         "Query1": "SELECT MODEL FROM COMPUTERS WHERE IS NOT OF (NAMECOMPANY = 'AMD') and PRICE < 1000000",
-        "Query2": "SELECT MODEL FROM COMPUTERS WHERE IS OF (NAMECOMPANY = 'AMD') and PRICE < 1000000"
+        "Query2": "COMMIT",
+        "Query3": "SELECT MODEL FROM COMPUTERS WHERE IS OF (NAMECOMPANY = 'AMD') and PRICE < 1000000",
+        "Query4": "COMMIT"
       }
     ]
   },
-  "Test153": {
+  "Test164": {
     "Name": "S161 Subtype treatment",
     "Case": [
       {
         "NameCase": "S161 Subtype treatment",
-        "Query1": "SELECT TREAT (matriculation_number AS Student_Type) FROM Student_Table"
+        "Query1": "SELECT TREAT (matriculation_number AS Student_Type) FROM Student_Table",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test154": {
+  "Test165": {
     "Name": "S162 Subtype treatment for references",
     "Case": [
       {
         "NameCase": "S162 Subtype treatment for references",
-        "Query1": "SELECT TREAT (matriculation_number AS Student_Type) FROM Student_Table"
+        "Query1": "SELECT TREAT (matriculation_number AS Student_Type) FROM Student_Table",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test155": {
+  "Test166": {
     "Name": "S201 SQL-invoked routines on arrays",
     "Case": [
       {
@@ -2570,33 +2885,32 @@
       },
       {
         "NameCase": "S201-02 Array as result type of functions",
-        "Query1": "create or alter function S201_02 ( A[] integer) returns res[] as BEGIN SELECT ARR_INT2 FROM S091_01 RETURN ARR_INT2; END",
+        "Query1": "CREATE OR REPLACE FUNCTION S201_02() RETURNS numeric[] AS $$ DECLARE _code numeric[]; BEGIN SELECT ARR_INT2 FROM S091_01; RETURN ARR_INT2; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test156": {
+  "Test167": {
     "Name": "S202 SQL-invoked routines on multisets",
     "Case": [
       {
         "NameCase": "S202 SQL-invoked routines on multisets",
-        "Query1": "create or alter function S202 (price integer) returns price as BEGIN RETURN (SELECT PRICE FROM COMPUTERS); END",
+        "Query1": "CREATE OR REPLACE FUNCTION S202(numeric) RETURNS numeric AS $$ DECLARE _code numeric; BEGIN RETURN (SELECT PRICE FROM COMPUTERS); END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test157": {
+  "Test168": {
     "Name": "S211 User-defined cast functions",
     "Case": [
       {
         "NameCase": "S211 User-defined cast functions",
-        "Query1": "CREATE TYPE foo FROM int NOT NULL",
-        "Query2": "COMMIT",
-        "Query3": "SELECT cast(1 AS foo)"
+        "Query1": "CREATE CAST (integer AS int4) WITH FUNCTION add_int(integer,integer)",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test158": {
+  "Test169": {
       "Name": "S231 Structured type locators",
     "Case": [
       {
@@ -2606,7 +2920,7 @@
       }
     ]
   },
-  "Test159": {
+  "Test170": {
     "Name": "S232 Array locators",
     "Case": [
       {
@@ -2616,7 +2930,7 @@
       }
     ]
   },
-  "Test160": {
+  "Test171": {
     "Name": "S233 Multiset locators",
     "Case": [
       {
@@ -2626,7 +2940,7 @@
       }
     ]
   },
-  "Test161": {
+  "Test172": {
     "Name": "S241 Transform functions",
     "Case": [
       {
@@ -2636,7 +2950,7 @@
       }
     ]
   },
-  "Test162": {
+  "Test173": {
     "Name": "S242 Alter transform statement",
     "Case": [
       {
@@ -2646,7 +2960,7 @@
       }
     ]
   },
-  "Test163": {
+  "Test174": {
     "Name": "S251 User-defined orderings",
     "Case": [
       {
@@ -2660,11 +2974,12 @@
         "Query7": "INSERT INTO S251 VALUES ('JPN','e')",
         "Query8": "INSERT INTO S251 VALUES ('DAN','f')",
         "Query9": "COMMIT",
-        "Query10": "SELECT TEXT FROM S251 ORDER BY FIELD (LANG,'ENU','JPN','DAN')"
+        "Query10": "SELECT TEXT FROM S251 ORDER BY FIELD (LANG,'ENU','JPN','DAN')",
+        "Query11": "COMMIT"
       }
     ]
   },
-  "Test164": {
+  "Test175": {
     "Name": "S261 Specific type method",
     "Case": [
       {
@@ -2674,7 +2989,7 @@
       }
     ]
   },
-  "Test165": {
+  "Test176": {
     "Name": "S271 Basic multiset support",
     "Case": [
       {
@@ -2690,7 +3005,7 @@
       }
     ]
   },
-  "Test166": {
+  "Test177": {
     "Name": "S272 Multisets of user-defined types",
     "Case": [
       {
@@ -2700,7 +3015,7 @@
       }
     ]
   },
-  "Test167": {
+  "Test178": {
     "Name": "S274 Multisets of reference types",
     "Case": [
       {
@@ -2710,7 +3025,7 @@
       }
     ]
   },
-  "Test168": {
+  "Test179": {
     "Name": "S275 Advanced multiset support",
     "Case": [
       {
@@ -2728,7 +3043,7 @@
       }
     ]
   },
-  "Test169": {
+  "Test180": {
     "Name": "S281 Nested collection types",
     "Case": [
       {
@@ -2738,7 +3053,7 @@
       }
     ]
   },
-  "Test170": {
+  "Test181": {
     "Name": "S291 Unique constraint on entire row",
     "Case": [
       {
@@ -2748,19 +3063,19 @@
       }
     ]
   },
-  "Test171": {
+  "Test182": {
     "Name": "S301 Enhanced UNNEST",
     "Case": [
       {
         "NameCase": "S301 Enhanced UNNEST",
         "Query1": "CREATE TABLE S301 (row_id integer not null, row_num character varying(100) not null, constraint numbers_pkey primary key (row_id,row_num))",
         "Query2": "COMMIT",
-        "Query3": "INSERT INTO S301 VALUES(row_id, row_num) select 5, unnest(array['123', '456', '789', '258', '147'])",
+        "Query3": "select unnest(array['123', '456', '789', '258', '147']) FROM S301",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test172": {
+  "Test183": {
     "Name": "S401 Distinct types based on array types",
     "Case": [
       {
@@ -2772,7 +3087,7 @@
       }
     ]
   },
-  "Test173": {
+  "Test184": {
     "Name": "S402 Distinct types based on distinct types",
     "Case": [
       {
@@ -2784,7 +3099,7 @@
       }
     ]
   },
-  "Test174": {
+  "Test185": {
     "Name": "S403 ARRAY_MAX_CARDINALITY",
     "Case": [
       {
@@ -2800,17 +3115,17 @@
       }
     ]
   },
-  "Test175": {
+  "Test186": {
     "Name": "S404 TRIM_ARRAY",
     "Case": [
       {
         "NameCase": "S404 TRIM_ARRAY",
-        "Query1": "CREATE OR ALTER FUNCTION array_trim(text[]) RETURNS text[] AS DECLARE text ALIAS FOR $1; retVal text[]; BEGIN FOR I IN array_lower(text, 1)..array_upper(text, 1) LOOP retVal[I] := trim(text[I]); END LOOP; RETURN retVal; END;",
+        "Query1": "SELECT trim_array(ARRAY[1, 2, 3, 4, 5, 6], 3)",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test176": {
+  "Test187": {
     "Name": "T021 BINARY and VARBINARY data types",
     "Case": [
       {
@@ -2822,7 +3137,7 @@
       }
     ]
   },
-  "Test177": {
+  "Test188": {
     "Name": "T022 Advanced support for BINARY and VARBINARY data types",
     "Case": [
       {
@@ -2834,7 +3149,7 @@
       }
     ]
   },
-  "Test178": {
+  "Test189": {
     "Name": "T023 Compound binary literals",
     "Case": [
       {
@@ -2846,7 +3161,7 @@
       }
     ]
   },
-  "Test179": {
+  "Test190": {
     "Name": "T024 Spaces in binary literals",
     "Case": [
       {
@@ -2858,7 +3173,7 @@
       }
     ]
   },
-  "Test180": {
+  "Test191": {
     "Name": "T031 BOOLEAN data type",
     "Case": [
       {
@@ -2873,7 +3188,7 @@
       }
     ]
   },
-  "Test181": {
+  "Test192": {
     "Name": "T041 Basic LOB data type support",
     "Case": [
       {
@@ -2922,7 +3237,7 @@
       }
     ]
   },
-  "Test182": {
+  "Test193": {
     "Name": "T042 Extended LOB data type support",
     "Case": [
       {
@@ -2934,7 +3249,27 @@
       }
     ]
   },
-  "Test183": {
+  "Test194": {
+    "Name": "T043 Multiplier T",
+    "Case": [
+      {
+        "NameCase": "T043 Multiplier T",
+        "Query1": "CREATE TABLE T043 (ROW_BLOB1 BLOB(4T))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test195": {
+    "Name": "T044 Multiplier P",
+    "Case": [
+      {
+        "NameCase": "T044 Multiplier P",
+        "Query1": "CREATE TABLE T044 (ROW_BLOB1 BLOB(4P))",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test196": {
     "Name": "T051 Row types",
     "Case": [
       {
@@ -2944,7 +3279,7 @@
       }
     ]
   },
-  "Test184": {
+  "Test197": {
     "Name": "T053 Explicit aliases for all-fields reference",
     "Case": [
       {
@@ -2953,7 +3288,7 @@
       }
     ]
   },
-  "Test185": {
+  "Test198": {
     "Name": "T061 UCS support",
     "Case": [
       {
@@ -2963,7 +3298,7 @@
       }
     ]
   },
-  "Test186": {
+  "Test199": {
     "Name": "T071 BIGINT data type",
     "Case": [
       {
@@ -2972,15 +3307,11 @@
         "Query2": "COMMIT",
         "Query3": "INSERT INTO T071 VALUES (-236453287458723)",
         "Query4": "INSERT INTO T071 VALUES (328832607832)",
-        "Query5": "INSERT INTO T071 VALUES (0x6F55A09D42)",
-        "Query6": "INSERT INTO T071 VALUES (0X7FFFFFFFFFFFFFFF)",
-        "Query7": "INSERT INTO T071 VALUES (0xffffffffffffffff)",
-        "Query8": "INSERT INTO T071 VALUES (0XFFFFFFFF)",
-        "Query9": "COMMIT"
+        "Query5": "COMMIT"
       }
     ]
   },
-  "Test187": {
+  "Test200": {
     "Name": "T101 Enhanced nullability determination",
     "Case": [
       {
@@ -2994,19 +3325,19 @@
       }
     ]
   },
-  "Test188": {
+  "Test201": {
     "Name": "T111 Updatable joins, unions, and columns",
     "Case": [
       {
         "NameCase": "T111 Updatable joins, unions, and columns",
-        "Query1": "CREATE OR ALTER VIEW T111(CUST_CODE, CUST_NAME, AGENT_CODE, AGENT_NAME) AS SELECT c.cust_code,c.cust_name,c.agent_code,a.agent_name FROM customer c LEFT JOIN agents a on a.agent_code = c.agent_code;",
+        "Query1": "CREATE VIEW T111(CUST_CODE, CUST_NAME, AGENT_CODE, AGENT_NAME) AS SELECT c.cust_code,c.cust_name,c.agent_code,a.agent_name FROM customer c LEFT JOIN agents a on a.agent_code = c.agent_code;",
         "Query2": "COMMIT",
         "Query3": "UPDATE T111 SET cust_name = 'test' where agent_code = 'a003'",
         "Query4": "COMMIT"
       }
     ]
   },
-  "Test189": {
+  "Test202": {
     "Name": "T121 WITH (excluding RECURSIVE) in query expression",
     "Case": [
       {
@@ -3016,16 +3347,17 @@
       }
     ]
   },
-  "Test190": {
+  "Test203": {
     "Name": "T122 WITH (excluding RECURSIVE) in subquery",
     "Case": [
       {
         "NameCase": "T122 WITH (excluding RECURSIVE) in subquery",
-        "Query1": "SELECT C.CUST_NAME, C.CUST_CITY,T.COMMISSION FROM CUSTOMER c WHERE c.agent_code = (WITH T121 AS (SELECT AGENT_CODE, AGENT_NAME, COMMISSION,PHONE_NO FROM AGENTS WHERE COMMISSION > 0.15))"
+        "Query1": "SELECT C.CUST_NAME, C.CUST_CITY FROM CUSTOMER c WHERE c.agent_code in (WITH T121 AS (SELECT AGENT_CODE FROM AGENTS) SELECT C.CUST_NAME FROM CUSTOMER c LEFT JOIN T121 T ON T.AGENT_CODE = C.AGENT_CODE)",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test191": {
+  "Test204": {
     "Name": "T131 Recursive query",
     "Case": [
       {
@@ -3035,16 +3367,17 @@
       }
     ]
   },
-  "Test192": {
+  "Test205": {
     "Name": "T132 Recursive query in subquery",
     "Case": [
       {
         "NameCase": "T131 Recursive query",
-        "Query1": "SELECT C.CUST_NAME, C.CUST_CITY,T.COMMISSION FROM CUSTOMER c WHERE c.agent_code = (WITH RECURSIVE T131_1 AS (SELECT AGENT_CODE, AGENT_NAME, COMMISSION,PHONE_NO FROM AGENTS WHERE COMMISSION > 0.15))"
+        "Query1": "SELECT C.CUST_NAME, C.CUST_CITY FROM CUSTOMER c WHERE c.agent_code in (WITH RECURSIVE T121 AS (SELECT AGENT_CODE FROM AGENTS) SELECT C.CUST_NAME FROM CUSTOMER c LEFT JOIN T121 T ON T.AGENT_CODE = C.AGENT_CODE)",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test193": {
+  "Test206": {
     "Name": "T141 SIMILAR predicate",
     "Case": [
       {
@@ -3056,36 +3389,37 @@
       }
     ]
   },
-  "Test194": {
+  "Test207": {
     "Name": "T151 DISTINCT predicate",
     "Case": [
       {
         "NameCase": "T151 DISTINCT predicate",
-        "Query1": "SELECT DISTINCT NAMECOMPANY FROM COMPANY"
+        "Query1": "SELECT DISTINCT NAMECOMPANY FROM COMPANY",
+        "Query2": "COMMIT"
       }
     ]
   },
-  "Test195": {
+  "Test208": {
     "Name": "T152 DISTINCT predicate with negation",
     "Case": [
       {
         "NameCase": "T152 DISTINCT predicate with negation",
-        "Query1": "EXECUTE block RETURNS (s VARCHAR(100)) AS BEGIN IF (NULL IS NOT DISTINCT FROM NULL) THEN BEGIN s = 'null is not distinct from null'; suspend; END END;",
+        "Query1": "select 1 is not distinct from 1",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test196": {
+  "Test209": {
     "Name": "T171 LIKE clause in table definition",
     "Case": [
       {
         "NameCase": "T171 LIKE clause in table definition",
-        "Query1": "CREATE TABLE T171 LIKE T141",
+        "Query1": "CREATE TABLE T171(LIKE T141)",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test197": {
+  "Test210": {
     "Name": "T172 AS subquery clause in table definition",
     "Case": [
       {
@@ -3095,17 +3429,27 @@
       }
     ]
   },
-  "Test198": {
+  "Test211": {
     "Name": "T173 Extended LIKE clause in table definition",
     "Case": [
       {
         "NameCase": "T173 Extended LIKE clause in table definition",
-        "Query1": "CREATE TABLE T171 LIKE T141 LIMIT 0",
-        "Query2": "COMMIT"
+        "Query1": "CREATE TABLE T173_01 (LIKE T141 INCLUDING IDENTITY)",
+        "Query2": "COMMIT",
+        "Query3": "CREATE TABLE T173_02 (LIKE T141 EXCLUDING IDENTITY)",
+        "Query4": "COMMIT",
+        "Query5": "CREATE TABLE T173_03 (LIKE T141 INCLUDING DEFAULTS)",
+        "Query6": "COMMIT",
+        "Query7": "CREATE TABLE T173_04 (LIKE T141 EXCLUDING DEFAULTS)",
+        "Query8": "COMMIT",
+        "Query9": "CREATE TABLE T173_05 (LIKE T141 INCLUDING GENERATED)",
+        "Query10": "COMMIT",
+        "Query11": "CREATE TABLE T173_06 (LIKE T141 EXCLUDING GENERATED)",
+        "Query12": "COMMIT"
       }
     ]
   },
-  "Test199": {
+  "Test212": {
     "Name": "T174 Identity columns",
     "Case": [
       {
@@ -3119,7 +3463,7 @@
       }
     ]
   },
-  "Test200": {
+  "Test213": {
     "Name": "T175 Generated columns",
     "Case": [
       {
@@ -3129,7 +3473,7 @@
       }
     ]
   },
-  "Test201": {
+  "Test214": {
     "Name": "T176 Sequence generator support",
     "Case": [
       {
@@ -3139,17 +3483,17 @@
       }
     ]
   },
-  "Test202": {
+  "Test215": {
     "Name": "T177 Sequence generator support: simple restart option",
     "Case": [
       {
         "NameCase": "T177 Sequence generator support: simple restart option",
-        "Query1": "ALTER SEQUENCE T176 RESTART WITH 0",
+        "Query1": "ALTER SEQUENCE T176 RESTART WITH 1",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test203": {
+  "Test216": {
     "Name": "T178 Identity columns: simple restart option",
     "Case": [
       {
@@ -3159,7 +3503,7 @@
       }
     ]
   },
-  "Test204": {
+  "Test217": {
     "Name": "T180 System-versioned tables",
     "Case": [
       {
@@ -3169,7 +3513,7 @@
       }
     ]
   },
-  "Test205": {
+  "Test218": {
     "Name": "T181 Application-time period tables",
     "Case": [
       {
@@ -3179,7 +3523,7 @@
       }
     ]
   },
-  "Test206": {
+  "Test219": {
     "Name": "T191 Referential action RESTRICT",
     "Case": [
       {
@@ -3189,7 +3533,7 @@
       }
     ]
   },
-  "Test207": {
+  "Test220": {
     "Name": "T201 Comparable data types for referential constraints",
     "Case": [
       {
@@ -3204,49 +3548,56 @@
         "Query8": "COMMIT",
         "Query9": "CREATE TABLE T201_5 (ID numeric,Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID))",
         "Query10": "COMMIT",
-        "Query11": "CREATE TABLE T201_6 (ID varchar(255),id_2015 DATE, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_2015) REFERENCES T201_3 (id))",
+        "Query11": "CREATE TABLE T201_6 (ID varchar(255),id_2015 DATE, Chdata varchar(255),Intdata int,Datedata DATE,Primary key(ID), Foreign key(id_2015) REFERENCES T201_5 (id))",
         "Query12": "COMMIT"
       }
     ]
   },
-  "Test208": {
+  "Test221": {
     "Name": "T211 Basic trigger capability",
     "Case": [
       {
         "NameCase": "T211-01 Triggers activated on UPDATE, INSERT, or DELETE of one base table",
-        "Query1": "CREATE OR ALTER trigger company_bi1 for company active before insert position 0 AS begin if (new.typeproduct = 'PC') then begin new.typeproduct = 'pc'; end end",
+        "Query1": "CREATE FUNCTION t211_proc () RETURNS trigger AS ' BEGIN if (select count(*) from agents a where trim(a.agent_code)=trim(OLD.agent_code))>0 then delete from agents where trim(a.agent_code)=trim(OLD.agent_code); end if; return OLD; END;' LANGUAGE plpgsql;",
         "Query2": "COMMIT",
-        "Query3": "CREATE OR ALTER trigger company_bi2 for company active before update position 0 AS begin if (new.typeproduct = 'PC') then begin new.typeproduct = 'pc'; end end",
+        "Query3": "CREATE TRIGGER T211_011 BEFORE DELETE ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
         "Query4": "COMMIT",
-        "Query5": "CREATE OR ALTER trigger company_bi3 for company active before delete position 0 AS begin if (old.typeproduct = 'PC') then begin delete from company where old.typeproduct = 'PC'; end end",
-        "Query6": "COMMIT"
+        "Query5": "CREATE TRIGGER T211_012 BEFORE UPDATE ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
+        "Query6": "COMMIT",
+        "Query7": "CREATE TRIGGER T211_013 BEFORE INSERT ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
+        "Query8": "COMMIT"
       },
       {
         "NameCase": "T211-02 BEFORE triggers",
-        "Query1": "CREATE OR ALTER trigger company_bi4 for company active before insert position 0 AS begin if (new.typeproduct = 'PC') then begin new.typeproduct = 'pc'; end end",
+        "Query1": "CREATE TRIGGER T211_02 BEFORE INSERT ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "T211-03 AFTER triggers",
-        "Query1": "CREATE OR ALTER trigger company_bi5 for company active after insert position 0 AS begin if (new.typeproduct = 'PC') then begin update company set typeproduct = 'pc' where (id = new.id) ; end end",
+        "Query1": "CREATE TRIGGER T211_03 AFTER INSERT ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "T211-04 FOR EACH ROW triggers",
-        "Query1": "CREATE OR ALTER TRIGGER upd_check for agents active before insert position 0 FOR EACH ROW AS BEGIN IF(new.commission < 0.15) THEN new.commission = 0.1; IF(new.commission > 0.15) THEN new.commission = 0.2; END;",
+        "Query1": "CREATE TRIGGER T211_04 AFTER INSERT ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "T211-05 Ability to specify a search condition that shall be True before the trigger is invoked",
-        "Query1": "CREATE TRIGGER T201_05 AFTER INSERT on CUSTOMER (SELECT count(*) FROM CUSTOMER) > 20 BEGIN DELETE FROM CUSTOMER WHERE CUST_COUNTRY = 'USA' END;",
+        "Query1": "CREATE TRIGGER T211_05 AFTER INSERT ON A FOR EACH ROW EXECUTE PROCEDURE t211_proc();",
         "Query2": "COMMIT"
       },
       {
         "NameCase": "T211-07 TRIGGER privilege",
         "Query1": "CREATE USER T211_07 PASSWORD '12345678'",
         "Query2": "COMMIT",
-        "Query3": "GRANT EXECUTE ON TRIGGER company_bi4 to T211_07",
-        "Query4": "COMMIT"
+        "Query3": "GRANT EXECUTE ON TRIGGER T211_05 to T211_07",
+        "Query4": "COMMIT",
+        "Query5": "REVOKE ALL PRIVILEGES ON T211_07 FROM T211_05",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER T211_07",
+        "Query8": "COMMIT"
+
       },
       {
         "NameCase": "T211-08 Multiple triggers for the same event are executed in the order in which they were\ncreated in the catalog",
@@ -3259,27 +3610,37 @@
       }
     ]
   },
-  "Test209": {
+  "Test222": {
+    "Name": "T212 Enhanced trigger capability",
+    "Case": [
+      {
+        "NameCase": "T212 Enhanced trigger capability",
+        "Query1": "CREATE TRIGGER T212 AFTER INSERT ON A FOR EACH STATEMENT EXECUTE PROCEDURE t211_proc()",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test223": {
     "Name": "T213 INSTEAD OF triggers",
     "Case": [
       {
         "NameCase": "T213 INSTEAD OF triggers",
-        "Query1": "CREATE OR ALTER TRIGGER AGENTS_BI2 FOR AGENTS ACTIVE INSTEAD OF DELETE POSITION 1 AS begin UPDATE agents SET commission = 0 WHERE agent_code = (SELECT agent_code FROM deleted) end",
+        "Query1": "CREATE TRIGGER T213 INSTEAD OF INSERT ON F081_union FOR EACH ROW EXECUTE PROCEDURE t211_proc()",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test210": {
+  "Test224": {
     "Name": "T231 Sensitive cursors",
     "Case": [
       {
         "NameCase": "T231 Sensitive cursors",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS10 SENSITIVE before update on Company AS DECLARE cursor10 CURSOR for (select id, namecompany from company order by typeproduct); begin end",
+        "Query1": "CREATE OR REPLACE FUNCTION T231(numeric) RETURNS numeric AS $$ DECLARE curs SENSITIVE CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; RETURN _rezult; END; $$ LANGUAGE PLPGSQL",
         "Query2": "COMMIT"
       }
     ]
   },
-  "Test211": {
+  "Test225": {
     "Name": "T241 START TRANSACTION statement",
     "Case": [
       {
@@ -3290,7 +3651,7 @@
       }
     ]
   },
-  "Test212": {
+  "Test226": {
     "Name": "T251 SET TRANSACTION statement: LOCAL option",
     "Case": [
       {
@@ -3300,7 +3661,7 @@
       }
     ]
   },
-  "Test213": {
+  "Test227": {
     "Name": "T261 Chained transactions",
     "Case": [
       {
@@ -3313,7 +3674,7 @@
       }
     ]
   },
-  "Test214": {
+  "Test228": {
     "Name": "T271 Savepoints",
     "Case": [
       {
@@ -3329,637 +3690,7 @@
       }
     ]
   },
-  "Test215": {
-    "Name": "T285 Enhanced derived column names",
-    "Case": [
-      {
-        "NameCase": "T285 Enhanced derived column names",
-        "Query1": "SELECT AVG(CUSTOMER.outstanding_amt) AS \"Column1 test\" FROM CUSTOMER"
-      }
-    ]
-  },
-  "Test216": {
-    "Name": "T301 Functional dependencies",
-    "Case": [
-      {
-        "NameCase": "T301 Functional dependencies",
-        "Query1": "SELECT SUM (CUSTOMER.outstanding_amt),AGENTS.agent_code FROM CUSTOMER INNER JOIN agents using (agent_code) group by agents.agent_code"
-      }
-    ]
-  },
-  "Test217": {
-    "Name": "T312 OVERLAY function",
-    "Case": [
-      {
-        "NameCase": "T312 OVERLAY function",
-        "Query1": "SELECT OVERLAY ('Goodbye' placing 'Hello' from 2) FROM agents",
-        "Query2": "CREATE TABLE T312 ( colBinary BINARY(5), colBinaryMax VARBINARY(Max), colVarBinay VARBINARY(50))",
-        "Query3": "COMMIT",
-        "Query4": "INSERT INTO T312 (colBinary, colVarBinary,colVarBinaryMax ) VALUES (0x12345, 0x12345,0x12345)",
-        "Query5": "COMMIT",
-        "Query6": "SELECT OVERLAY (colBinary placing colVarBinay from 2) FROM T312"
-      }
-    ]
-  },
-  "Test218": {
-    "Name": "T323 Explicit security for external routines",
-    "Case": [
-      {
-        "NameCase": "T323 Explicit security for external routines",
-        "Query1": "create or alter procedure T323 EXTERNAL SECURITY INVOKER as BEGIN delete from agents; END;",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test219": {
-    "Name": "T324 Explicit security for SQL routines",
-    "Case": [
-      {
-        "NameCase": "T324 Explicit security for SQL routines",
-        "Query1": "create or alter procedure T324 SQL SECURITY INVOKER as BEGIN delete from agents; END;",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test220": {
-    "Name": "T325 Qualified SQL parameter references",
-    "Case": [
-      {
-        "NameCase": "T325 Qualified SQL parameter references",
-        "Query1": "CREATE OR ALTER PROCEDURE T325 (T1 integer, T2 integer) returns (T3 integer) as begin EXECUTE PROCEDURE SUMM(T1,T2); end",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test221": {
-    "Name": "T326 Table functions",
-    "Case": [
-      {
-        "NameCase": "T326 Table functions",
-        "Query1": "CREATE FUNCTION T326 (id INT) RETURNS TABLE AS RETURN (SELECT * FROM table WHERE id = :id)",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test222": {
-    "Name": "T331 Basic roles",
-    "Case": [
-      {
-        "NameCase": "T331 Basic roles",
-        "Query1": "CREATE ROLE T331",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test223": {
-    "Name": "T332 Extended roles",
-    "Case": [
-      {
-        "NameCase": "T332 Extended roles",
-        "Query1": "GRANT SELECT ON Company to T331",
-        "Query2": "COMMIT",
-        "Query3": "CRANT SELECT ON Company to CURRENT_ROLE",
-        "Query4": "COMMIT"
-      }
-    ]
-  },
-  "Test224": {
-    "Name": "T351 Bracketed comments",
-    "Case": [
-      {
-        "NameCase": "T351 Bracketed comments",
-        "Query1": "SELECT AGENT_NAME FROM agents /*Bracketed SQL comments*/ WHERE AGENT_NAME like '%u%'"
-      }
-    ]
-  },
-  "Test225": {
-    "Name": "T431 Extended grouping capabilities",
-    "Case": [
-      {
-        "NameCase": "T431 Extended grouping capabilities",
-        "Query1": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country WITH ROLLUP",
-        "Query2": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY Country WITH CUBE"
-      }
-    ]
-  },
-  "Test226": {
-    "Name": "T432 Nested and concatenated GROUPING SETS",
-    "Case": [
-      {
-        "NameCase": "T432 Nested and concatenated GROUPING SETS",
-        "Query1": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY GROUPING SETS (Country)"
-      }
-    ]
-  },
-  "Test227": {
-    "Name": "T433 Multiargument GROUPING function",
-    "Case": [
-      {
-        "NameCase": "T433 Multiargument GROUPING function",
-        "Query1": "SELECT GROUPING(namecompany) FROM F131_01 WHERE price > 1000 GROUP BY namecompany HAVING COUNT(model) > 2"
-      }
-    ]
-  },
-  "Test228": {
-    "Name": "T434 GROUP BY DISTINCT",
-    "Case": [
-      {
-        "NameCase": "T434 GROUP BY DISTINCT",
-        "Query1": "SELECT namecompany FROM F131_01 WHERE price > 1000 GROUP BY DISTINCT namecompany HAVING COUNT(model) > 2"
-      }
-    ]
-  },
   "Test229": {
-    "Name": "T441 ABS and MOD functions",
-    "Case": [
-      {
-        "NameCase": "T441 ABS and MOD functions",
-        "Query1": "SELECT ABS(RECEIVE_AMT) FROM CUSTOMER",
-        "Query2": "SELECT MOD(RECEIVE_AMT,OPENING_AMT) FROM CUSTOMER"
-      }
-    ]
-  },
-  "Test230": {
-    "Name": "T461 Symmetric BETWEEN predicate",
-    "Case": [
-      {
-        "NameCase": "T461 Symmetric BETWEEN predicate",
-        "Query1": "CREATE PROCEDURE F865_PROC1 (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR WITH RETURN FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test231": {
-    "Name": "T472 DESCRIBE CURSOR",
-    "Case": [
-      {
-        "NameCase": "T472 DESCRIBE CURSOR",
-        "Query1": "DESCRIBE CURSOR CATALOG_PAGE",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test232": {
-    "Name": "T491 LATERAL derived table",
-    "Case": [
-      {
-        "NameCase": "T491 LATERAL derived table",
-        "Query1": "CREATE TABLE T491_01 (ROW_ID INTEGER)",
-        "Query2": "CREATE TABLE T491_02 (ROW_ID INTEGER)",
-        "Query3": "COMMIT",
-        "Query4": "INSERT INTO T491_01 VALUES (0)",
-        "Query5": "INSERT INTO T491_01 VALUES (1)",
-        "Query6": "INSERT INTO T491_01 VALUES (2)",
-        "Query7": "INSERT INTO T491_01 VALUES (3)",
-        "Query8": "INSERT INTO T491_01 VALUES (4)",
-        "Query9": "COMMIT",
-        "Query10": "INSERT INTO T491_02 SELECT * FROM OLD TABLE (DELETE FROM T491_01)",
-        "Query11": "COMMIT"
-      }
-    ]
-  },
-  "Test233": {
-    "Name": "T501 Enhanced EXISTS predicate",
-    "Case": [
-      {
-        "NameCase": "T501 Enhanced EXISTS predicate",
-        "Query1": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany)"
-      }
-    ]
-  },
-  "Test234": {
-    "Name": "T502 Period predicates",
-    "Case": [
-      {
-        "NameCase": "T502 Period predicates",
-        "Query1": "CREATE TABLE T502_01 (EMP_NO EMP_NO, EMP_DEPT_NO DEPT_NO, EMPStart DATE NOT NULL, EMPEnd DATE NOT NULL, PERIOD FOR EMPPeriod (EMPStart, EMPEnd))",
-        "Query2": "CREATE TABLE T502_02 (DEPT_NO DEPT_NO, DEPT_NAME VARCHAR(30), DEPTStart DATE NOT NULL, DEPTEnd DATE NOT NULL, PERIOD FOR DEPTPeriod (DEPTStart, DEPTEnd), PRIMARY KEY (DEPT_NO, DEPTPeriod WITHOUT OVERLAPS))",
-        "Query3": "COMMIT",
-        "Query4": "INSERT INTO T502_01 VALUES (22217, '01.01.2010', '12.11.2011', 3)",
-        "Query5": "INSERT INTO T502_02 VALUES (3, '01.01.2009', '31.12.2011', 'QA')",
-        "Query6": "COMMIT",
-        "Query7": "SELECT EMP_NO FROM T502_01, T502_02 WHERE EMP_DEPT_NO = 3 AND DEPT_NO = 4 AND DEPTPeriod CONTAINS EMPStart",
-        "Query8": "SELECT EMP_NO FROM T502_01, T502_02 WHERE EMP_DEPT_NO = 3 AND DEPT_NO = 4 AND EMPPeriod PRECEDES DEPTPeriod"
-      }
-    ]
-  },
-  "Test235": {
-    "Name": "T511 Transaction counts",
-    "Case": [
-      {
-        "NameCase": "T511 Transaction counts",
-        "Query1": "START TRANSACTION",
-        "Query2": "SELECT AGENT_CODE FROM AGENTS",
-        "Query3": "SELECT @@TRANCOUNT",
-        "Query4": "COMMIT"
-      }
-    ]
-  },
-  "Test236": {
-    "Name": "T521 Named arguments in CALL statement",
-    "Case": [
-      {
-        "NameCase": "T521 Named arguments in CALL statement",
-        "Query1": "CALL SUMM (a => 1,b => 3)",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test237": {
-    "Name": "T522 Default values for IN parameters of SQL-invoked procedures",
-    "Case": [
-      {
-        "NameCase": "T522 Default values for IN parameters of SQL-invoked procedures",
-        "Query1": "create table T522 (ROW_INT INT)",
-        "Query2": "COMMIT",
-        "Query3": "create procedure T522_PROC (i int =10) as begin insert into T522 (ROW_INT) values (:i); end",
-        "Query4": "COMMIT",
-        "Query5": "execute procedure t522_proc",
-        "Query6": "COMMIT"
-      }
-    ]
-  },
-  "Test238": {
-    "Name": "T551 Optional key words for default syntax",
-    "Case": [
-      {
-        "NameCase": "T551 Optional key words for default syntax",
-        "Query1": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop",
-        "Query2": "SELECT Price FROM Laptop EXCEPT SELECT Price FROM Computers",
-        "Query3": "SELECT Price FROM Laptop INTERSECT SELECT Price FROM Computers"
-      }
-    ]
-  },
-  "Test239": {
-    "Name": "T561 Holdable locators",
-    "Case": [
-      {
-        "NameCase": "T561 Holdable locators",
-        "Query1": "CREATE TYPE T561 AS HOLD LOCATOR T561_LOCATOR",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test240": {
-    "Name": "T571 Array-returning external SQL-invoked functions",
-    "Case": [
-      {
-        "NameCase": "T571 Array-returning external SQL-invoked functions",
-        "Query1": "create or alter function T571 (elemment_array integer) returns array as SELECT ARRAY(SELECT COMMISSION FROM AGENTS) BEGIN END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test241": {
-    "Name": "T572 Multiset-returning external SQL-invoked functions",
-    "Case": [
-      {
-        "NameCase": "T572 Multiset-returning external SQL-invoked functions",
-        "Query1": "create or alter function T572 (elemment_array integer) returns multiset as SELECT MULTISET(SELECT COMMISSION FROM AGENTS) BEGIN END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test242": {
-    "Name": "T581 Regular expression substring function",
-    "Case": [
-      {
-        "NameCase": "T581 Regular expression substring function",
-        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from E021_022"
-      }
-    ]
-  },
-  "Test243": {
-    "Name": "T591 UNIQUE constraints of possibly null columns",
-    "Case": [
-      {
-        "NameCase": "T591 UNIQUE constraints of possibly null columns",
-        "Query1": "CREATE TABLE T591( x int, y int, z int, unique(x,y,z))",
-        "Query2": "COMMIT",
-        "Query3": "INSERT INTO T591 values( NULL, 1, 1 )",
-        "Query4": "INSERT INTO T591 values( NULL, NULL, 1 )",
-        "Query5": "INSERT INTO T591 values( NULL, NULL, NULL )",
-        "Query6": "INSERT INTO T591 values( NULL, NULL, NULL )",
-        "Query7": "COMMIT"
-      }
-    ]
-  },
-  "Test244": {
-    "Name": "T601 Local cursor references",
-    "Case": [
-      {
-        "NameCase": "T601 Local cursor references",
-        "Query1": "CREATE OR ALTER TRIGGER DECCURS15 before update on Company AS DECLARE cursor15 CURSOR LOCAL for (select id, namecompany, typeproduct from company where typeproduct = 'pc'); BEGIN end",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test245": {
-    "Name": "T611 Elementary OLAP operations",
-    "Case": [
-      {
-        "NameCase": "T611 Elementary OLAP operations",
-        "Query1": "SELECT AGENT_NAME, min(AGENT_CODE) over(), max(AGENT_CODE) over() FROM AGENTS",
-        "Query2": "SELECT AGENT_NAME,WORKING_AREA, min(AGENT_CODE) over(partition by WORKING_AREA), max(AGENT_CODE) over(partition by WORKING_AREA) FROM AGENTS",
-        "Query3": "SELECT AGENT_NAME,WORKING_AREA, min(AGENT_CODE) over(order by commission), max(AGENT_CODE) over(order by commission) FROM AGENTS",
-        "Query4": "SELECT AGENT_NAME,WORKING_AREA, sum(COMMISSION) over(order by COMMISSION rows between unbounded preceding and unbounded following) sum_commission FROM AGENTS order by commission",
-        "Query5": "SELECT AGENT_NAME,WORKING_AREA, count(*) over(order by COMMISSION range between 1 preceding and 1 following) coun FROM AGENTS order by commission",
-        "Query6": "SELECT CUST_CODE, CUST_NAME, dense_rank() over (order by opening_amt), rank() over (order by opening_amt), row_number() over (order by opening_amt), sum(1) over (order by opening_amt) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test246": {
-    "Name": "T612 Advanced OLAP operations",
-    "Case": [
-      {
-        "NameCase": "T612 Advanced OLAP operations",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, row_number() over () FROM CUSTOMER order by opening_amt",
-        "Query2": "SELECT CUST_CODE, CUST_NAME, PERCENT_RANK() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query3": "SELECT CUST_CODE, CUST_NAME, cume_dist() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query4": "SELECT CUST_CODE, CUST_NAME, width_bucket (x,0,1,10) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test247": {
-    "Name": "T613 Sampling",
-    "Case": [
-      {
-        "NameCase": "T613 Sampling",
-        "Query1": "SELECT * FROM AGENTS TABLESAMPLE (5 ROWS)"
-      }
-    ]
-  },
-  "Test248": {
-    "Name": "T614 NTILE function",
-    "Case": [
-      {
-        "NameCase": "T614 NTILE function",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), ntile(3) over (order by opening_amt) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test249": {
-    "Name": "T615 LEAD and LAG functions",
-    "Case": [
-      {
-        "NameCase": "T615 LEAD and LAG functions",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query2": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) over (order by opening_amt) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test250": {
-    "Name": "T616 Null treatment option for LEAD and LAG functions",
-    "Case": [
-      {
-        "NameCase": "T616 Null treatment option for LEAD and LAG functions",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) RESPECT NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query2": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) RESPECT NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) IGNORE NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query4": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) IGNORE NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test251": {
-    "Name": "T617 FIRST_VALUE and LAST_VALUE functions",
-    "Case": [
-      {
-        "NameCase": "T617 FIRST_VALUE and LAST_VALUE functions",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), first_value (opening_amt) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
-        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), last_value(opening_amt) over (order by opening_amt) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test252": {
-    "Name": "T619 Nested window functions",
-    "Case": [
-      {
-        "NameCase": "T619-01 ROW_NUMBER window function",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, row_number() over (order by opening_amt) FROM CUSTOMER order by opening_amt"
-      },
-      {
-        "NameCase": "T619-02 VALUE_OF window function",
-        "Query1": "SELECT CUST_CODE, CUST_NAME, AVG(CASE WHEN opening_amt <> VALUE_OF opening_amt AT CURRENT ROW then cust_name END) over (PARTITION BY CUST_CODE) FROM CUSTOMER order by opening_amt"
-      }
-    ]
-  },
-  "Test253": {
-    "Name": "T620 WINDOW clause: GROUPS option",
-    "Case": [
-      {
-        "NameCase": "T620 WINDOW clause: GROUPS option",
-        "Query1": "SELECT ceiling (125.24) from AGENTS",
-        "Query2": "SELECT CUST_CODE, CUST_NAME COVAR_POP (payment_amt - opening_amt) FROM CUSTOMER",
-        "Query3": "SELECT CUST_CODE, CUST_NAME COVAR_SAMP (payment_amt - opening_amt) FROM CUSTOMER",
-        "Query4": "SELECT SQRT(9) FROM AGENTS",
-        "Query5": "SELECT CUST_CODE, CUST_NAME STDDEV_POP (opening_amt) FROM CUSTOMER",
-        "Query6": "SELECT CUST_CODE, CUST_NAME STDDEV_SAMP (opening_amt) FROM CUSTOMER",
-        "Query7": "SELECT VAR_POP (opening_amt) FROM CUSTOMER",
-        "Query8": "SELECT VAR_SAMP (opening_amt) FROM CUSTOMER",
-        "Query9": "SELECT CORR (opening_amt,payment_amt) FROM CUSTOMER",
-        "Query10": "SELECT REGR_SLOPE (opening_amt,payment_amt) FROM CUSTOMER",
-        "Query11": "SELECT REGR_INTERCEPT (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
-        "Query12": "SELECT REGR_COUNT (opening_amt,payment_amt) FROM CUSTOMER",
-        "Query13": "SELECT REGR_R2 (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
-        "Query14": "SELECT REGR_AVGX (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
-        "Query15": "SELECT REGR_SXX (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
-        "Query16": "SELECT REGR_SYY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
-        "Query17": "SELECT REGR_SXY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
-        "Query18": "SELECT REGR_AVGY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER"
-      }
-    ]
-  },
-  "Test254": {
-    "Name": "T641 Multiple column assignment",
-    "Case": [
-      {
-        "NameCase": "T641 Multiple column assignment",
-        "Query1": "CREATE TABLE T641 (a INT, b INT, c INT)",
-        "Query2": "COMMIT",
-        "Query3": "INSERT INTO T641 VALUES(1,2,3)",
-        "Query4": "COMMIT",
-        "Query5": "UPDATE T641 SET (a,b,c) = (4,5,6)",
-        "Query6": "COMMIT"
-      }
-    ]
-  },
-  "Test255": {
-    "Name": "T651 SQL-schema statements in SQL routines",
-    "Case": [
-      {
-        "NameCase": "T651 SQL-schema statements in SQL routines",
-        "Query1": "CREATE PROCEDURE TEST.T651_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test256": {
-    "Name": "T652 SQL-dynamic statements in SQL routines",
-    "Case": [
-      {
-        "NameCase": "T652 SQL-dynamic statements in SQL routines",
-        "Query1": "CREATE PROCEDURE T652_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test257": {
-    "Name": "T655 Cyclically dependent routines",
-    "Case": [
-      {
-        "NameCase": "T655 Cyclically dependent routines",
-        "Query1": "CREATE PROCEDURE T655_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN EXECUTE PROCEDURE  T655_PROC(0,3); END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test258": {
-    "Name": "B033 Untyped SQL-invoked function arguments",
-    "Case": [
-      {
-        "NameCase": "B033 Untyped SQL-invoked function arguments",
-        "Query1": "CREATE FUNCTION ADD_INT(A , B DEFAULT 0) RETURNS INT AS BEGIN  RETURN A+B; END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test259": {
-    "Name": "B034 Dynamic specification of cursor attributes",
-    "Case": [
-      {
-        "NameCase": "B034 Dynamic specification of cursor attributes",
-        "Query1": "CREATE PROCEDURE B034_PROC () as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test260": {
-    "Name": "B041 Extensions to embedded SQL exception declarations",
-    "Case": [
-      {
-        "NameCase": "B041 Extensions to embedded SQL exception declarations",
-        "Query1": "WHENEVER SQLERROR EXIT SQL.SQLCODE UPDATE Computers SET price = price*1.1",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test261": {
-    "Name": "B051 Enhanced execution rights",
-    "Case": [
-      {
-        "NameCase": "B051 Enhanced execution rights",
-        "Query1": "CREATE SCHEMA AUTHORIZATION oe CREATE TABLE new_product (color VARCHAR2(10)  PRIMARY KEY, quantity NUMBER) CREATE VIEW new_product_view AS SELECT color, quantity FROM new_product WHERE color = 'RED' GRANT select ON new_product_view TO hr; ",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test262": {
-    "Name": "F402 Named column joins for LOBs, arrays, and multisets",
-    "Case": [
-      {
-        "NameCase": "F402 Named column joins for LOBs, arrays, and multisets",
-        "Query1": "SELECT * FROM f401_1 JOIN F401_2 USING (A)",
-        "Query2": "SELECT * FROM f401_1 T1 LEFT JOIN F401_2 T2 ON T1.a = T2.a",
-        "Query3": "SELECT * FROM f401_1 T1 RIGHT JOIN F401_2 T2 ON T1.a = T2.a",
-        "Query4": "SELECT * FROM f401_1 T1 FULL JOIN F401_2 T2 ON T1.a = T2.a"
-      }
-    ]
-  },
-  "Test263": {
-    "Name": "F403 Partitioned join tables",
-    "Case": [
-      {
-        "NameCase": "F403 Partitioned join tables",
-        "Query1": "SELECT * FROM f401_1 T1 LEFT JOIN F401_2 T2 PARTITION BY (b) ON T1.a > 1"
-      }
-    ]
-  },
-  "Test264": {
-    "Name": "F441 Extended set function support",
-    "Case": [
-      {
-        "NameCase": "F441 Extended set function support",
-        "Query1": "SELECT COUNT (*) FROM AGENTS",
-        "Query2": "SELECT MAX(OPENING_AMT) FROM CUSTOMER",
-        "Query3": "SELECT MIN(OPENING_AMT) FROM CUSTOMER",
-        "Query4": "SELECT SUM(OPENING_AMT) FROM CUSTOMER",
-        "Query5": "SELECT ALL CUST_CODE FROM CUSTOMER",
-        "Query6": "SELECT DISTINCT CUST_CODE FROM CUSTOMER"
-      }
-    ]
-  },
-  "Test265": {
-    "Name": "F442 Mixed column references in set functions",
-    "Case": [
-      {
-        "NameCase": "F442 Mixed column references in set functions",
-        "Query1": "SELECT MAX(OPENING_AMT),MIN (OPENING_AMT), SUM(OPENING_AMT) FROM CUSTOMER"
-      }
-    ]
-  },
-  "Test266": {
-    "Name": "F693 SQL-session and client module collations",
-    "Case": [
-      {
-        "NameCase": "F693 SQL-session and client module collations",
-        "Query1": "SET COLLATION lat_uni FOR iso8859_1",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test267": {
-    "Name": "F751 View CHECK enhancements",
-    "Case": [
-      {
-        "NameCase": "F751 View CHECK enhancements",
-        "Query1": "CREATE VIEW F751_1_VIEW AS SELECT * FROM AGENTS WHERE COMMISSION > 0.13  WITH CASCADED CHECK OPTION",
-        "Query2": "COMMIT",
-        "Query3": "CREATE VIEW F751_2_VIEW AS SELECT * FROM AGENTS WHERE COMMISSION > 0.13  WITH LOCAL CHECK OPTION",
-        "Query4": "COMMIT"
-      }
-    ]
-  },
-  "Test268": {
-    "Name": "S028 Permutable UDT options list",
-    "Case": [
-      {
-        "NameCase": "S028 Permutable UDT options list",
-        "Query1": "CREATE TYPE S028 AS TABLE ( Name NVARCHAR(50) NOT NULL, SupplierId BIGINT NOT NULL, Price DECIMAL (18, 4) NULL, PRIMARY KEY (Name), INDEX IX_InventoryItem_Price (Price))",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test269": {
-    "Name": "T043 Multiplier T",
-    "Case": [
-      {
-        "NameCase": "T043 Multiplier T",
-        "Query1": "CREATE TABLE T043 (ROW_BLOB1 BLOB(4T))",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test270": {
-    "Name": "T044 Multiplier P",
-    "Case": [
-      {
-        "NameCase": "T044 Multiplier P",
-        "Query1": "CREATE TABLE T044 (ROW_BLOB1 BLOB(4P))",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test271": {
-    "Name": "T212 Enhanced trigger capability",
-    "Case": [
-      {
-        "NameCase": "T212 Enhanced trigger capability",
-        "Query1": "CREATE OR ALTER TRIGGER upd_check1 for agents active before insert position 0 FOR EACH ROW AS BEGIN IF(new.commission < 0.15) THEN new.commission = 0.1; IF(new.commission > 0.15) THEN new.commission = 0.2; END;",
-        "Query2": "COMMIT"
-      }
-    ]
-  },
-  "Test272": {
     "Name": "T272 Enhanced savepoint management",
     "Case": [
       {
@@ -3978,33 +3709,578 @@
       }
     ]
   },
-  "Test273": {
+  "Test230": {
     "Name": "T281 SELECT privilege with column granularity",
     "Case": [
       {
         "NameCase": "T281 SELECT privilege with column granularity",
         "Query1": "CREATE USER T281 PASSWORD '12345678'",
         "Query2": "COMMIT",
-        "Query3": "GRANT SELECT ON Company.ID to T281",
+        "Query3": "GRANT SELECT (id) on Company to T281",
         "Query4": "COMMIT",
-        "Query5": "DROP USER T281",
+        "Query5": "REVOKE ALL PRIVILEGES ON Company FROM T281",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER T281",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test231": {
+    "Name": "T285 Enhanced derived column names",
+    "Case": [
+      {
+        "NameCase": "T285 Enhanced derived column names",
+        "Query1": "SELECT AVG(CUSTOMER.outstanding_amt) AS \"Column1 test\" FROM CUSTOMER"
+      }
+    ]
+  },
+  "Test232": {
+    "Name": "T301 Functional dependencies",
+    "Case": [
+      {
+        "NameCase": "T301 Functional dependencies",
+        "Query1": "SELECT SUM (CUSTOMER.outstanding_amt),AGENTS.agent_code FROM CUSTOMER INNER JOIN agents using (agent_code) group by agents.agent_code"
+      }
+    ]
+  },
+  "Test233": {
+    "Name": "T312 OVERLAY function",
+    "Case": [
+      {
+        "NameCase": "T312 OVERLAY function",
+        "Query1": "SELECT OVERLAY ('Goodbye' placing 'Hello' from 2) FROM agents",
+        "Query2": "CREATE TABLE T312 ( colBinary BINARY(5), colBinaryMax VARBINARY(Max), colVarBinay VARBINARY(50))",
+        "Query3": "COMMIT",
+        "Query4": "INSERT INTO T312 (colBinary, colVarBinary,colVarBinaryMax ) VALUES (0x12345, 0x12345,0x12345)",
+        "Query5": "COMMIT",
+        "Query6": "SELECT OVERLAY (colBinary placing colVarBinay from 2) FROM T312",
+        "Query7": "COMMIT"
+      }
+    ]
+  },
+  "Test234": {
+    "Name": "T323 Explicit security for external routines",
+    "Case": [
+      {
+        "NameCase": "T323 Explicit security for external routines",
+        "Query1": "CREATE FUNCTION T323 (T1 integer, T2 integer) RETURNS integer EXTERNAL SECURITY INVOKER as $$ begin CALL SUMM(@T1,@T2); end; $$ LANGUAGE plpgsql;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test235": {
+    "Name": "T324 Explicit security for SQL routines",
+    "Case": [
+      {
+        "NameCase": "T324 Explicit security for SQL routines",
+        "Query1": "CREATE FUNCTION T324 (T1 integer, T2 integer) RETURNS integer SECURITY INVOKER as $$ begin CALL SUMM(@T1,@T2); end; $$ LANGUAGE plpgsql;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test236": {
+    "Name": "T325 Qualified SQL parameter references",
+    "Case": [
+      {
+        "NameCase": "T325 Qualified SQL parameter references",
+        "Query1": "CREATE FUNCTION T325(T1 integer, T2 integer) RETURNS integer as $$ begin CALL SUMM(@T1,@T2); end; $$ LANGUAGE plpgsql;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test237": {
+    "Name": "T326 Table functions",
+    "Case": [
+      {
+        "NameCase": "T326 Table functions",
+        "Query1": "CREATE FUNCTION T326 (id INT) RETURNS TABLE AS RETURN (SELECT * FROM table WHERE id = :id)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test238": {
+    "Name": "T331 Basic roles",
+    "Case": [
+      {
+        "NameCase": "T331 Basic roles",
+        "Query1": "CREATE ROLE T331",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test239": {
+    "Name": "T332 Extended roles",
+    "Case": [
+      {
+        "NameCase": "T332 Extended roles",
+        "Query1": "GRANT SELECT ON Company to T331",
+        "Query2": "COMMIT",
+        "Query3": "GRANT SELECT ON Company to CURRENT_ROLE",
+        "Query4": "COMMIT",
+        "Query5": "REVOKE ALL PRIVILEGES ON COMPANY FROM T331",
+        "Query6": "COMMIT",
+        "Query7": "DROP USER T331",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test240": {
+    "Name": "T351 Bracketed comments",
+    "Case": [
+      {
+        "NameCase": "T351 Bracketed comments",
+        "Query1": "SELECT AGENT_NAME FROM agents /*Bracketed SQL comments*/ WHERE AGENT_NAME like '%u%'",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test241": {
+    "Name": "T431 Extended grouping capabilities",
+    "Case": [
+      {
+        "NameCase": "T431 Extended grouping capabilities",
+        "Query1": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY ROLLUP (Country)",
+        "Query2": "COMMIT",
+        "Query3": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY CUBE (Country)",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test242": {
+    "Name": "T432 Nested and concatenated GROUPING SETS",
+    "Case": [
+      {
+        "NameCase": "T432 Nested and concatenated GROUPING SETS",
+        "Query1": "SELECT Country, COUNT(*) AS PersonCount FROM PersonsNew GROUP BY GROUPING SETS (Country)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test243": {
+    "Name": "T433 Multiargument GROUPING function",
+    "Case": [
+      {
+        "NameCase": "T433 Multiargument GROUPING function",
+        "Query1": "SELECT GROUPING(namecompany) FROM F131_01 WHERE price > 1000 GROUP BY namecompany HAVING COUNT(model) > 2",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test244": {
+    "Name": "T434 GROUP BY DISTINCT",
+    "Case": [
+      {
+        "NameCase": "T434 GROUP BY DISTINCT",
+        "Query1": "SELECT namecompany FROM F131_01 WHERE price > 1000 GROUP BY DISTINCT namecompany HAVING COUNT(model) > 2",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test245": {
+    "Name": "T441 ABS and MOD functions",
+    "Case": [
+      {
+        "NameCase": "T441 ABS and MOD functions",
+        "Query1": "SELECT ABS(RECEIVE_AMT) FROM CUSTOMER",
+        "Query2": "COMMIT",
+        "Query3": "SELECT MOD(RECEIVE_AMT,OPENING_AMT) FROM CUSTOMER",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test246": {
+    "Name": "T461 Symmetric BETWEEN predicate",
+    "Case": [
+      {
+        "NameCase": "T461 Symmetric BETWEEN predicate",
+        "Query1": "SELECT model, SpeedCPU FROM Computers WHERE Price BETWEEN SYMMETRIC 900 AND 500",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test247": {
+    "Name": "T472 DESCRIBE CURSOR",
+    "Case": [
+      {
+        "NameCase": "T472 DESCRIBE CURSOR",
+        "Query1": "DESCRIBE CURSOR CATALOG_PAGE",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test248": {
+    "Name": "T491 LATERAL derived table",
+    "Case": [
+      {
+        "NameCase": "T491 LATERAL derived table",
+        "Query1": "SELECT c.cust_code,c.cust_name,c.agent_code,a.agent_name FROM customer c LEFT JOIN LATERAL (SELECT a.agent_name from agents a where a.agent_code = c.agent_code) as a on true",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test249": {
+    "Name": "T501 Enhanced EXISTS predicate",
+    "Case": [
+      {
+        "NameCase": "T501 Enhanced EXISTS predicate",
+        "Query1": "SELECT NameCompany FROM Company as C1 WHERE TypeProduct = 'pc' AND EXISTS (SELECT NameCompany FROM Company WHERE TypeProduct = 'printer' and NameCompany = C1.NameCompany)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test250": {
+    "Name": "T502 Period predicates",
+    "Case": [
+      {
+        "NameCase": "T502 Period predicates",
+        "Query1": "CREATE TABLE T502_01 (EMP_NO EMP_NO, EMP_DEPT_NO DEPT_NO, EMPStart DATE NOT NULL, EMPEnd DATE NOT NULL, PERIOD FOR EMPPeriod (EMPStart, EMPEnd))",
+        "Query2": "CREATE TABLE T502_02 (DEPT_NO DEPT_NO, DEPT_NAME VARCHAR(30), DEPTStart DATE NOT NULL, DEPTEnd DATE NOT NULL, PERIOD FOR DEPTPeriod (DEPTStart, DEPTEnd), PRIMARY KEY (DEPT_NO, DEPTPeriod WITHOUT OVERLAPS))",
+        "Query3": "COMMIT",
+        "Query4": "INSERT INTO T502_01 VALUES (22217, '01.01.2010', '12.11.2011', 3)",
+        "Query5": "INSERT INTO T502_02 VALUES (3, '01.01.2009', '31.12.2011', 'QA')",
+        "Query6": "COMMIT",
+        "Query7": "SELECT EMP_NO FROM T502_01, T502_02 WHERE EMP_DEPT_NO = 3 AND DEPT_NO = 4 AND DEPTPeriod CONTAINS EMPStart",
+        "Query8": "COMMIT",
+        "Query9": "SELECT EMP_NO FROM T502_01, T502_02 WHERE EMP_DEPT_NO = 3 AND DEPT_NO = 4 AND EMPPeriod PRECEDES DEPTPeriod",
+        "Query10": "COMMIT"
+      }
+    ]
+  },
+  "Test251": {
+    "Name": "T511 Transaction counts",
+    "Case": [
+      {
+        "NameCase": "T511 Transaction counts",
+        "Query1": "START TRANSACTION",
+        "Query2": "SELECT AGENT_CODE FROM AGENTS",
+        "Query3": "SELECT @@TRANCOUNT",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test252": {
+    "Name": "T521 Named arguments in CALL statement",
+    "Case": [
+      {
+        "NameCase": "T521 Named arguments in CALL statement",
+        "Query1": "CALL SUMM (a => 1,b => 3)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test253": {
+    "Name": "T522 Default values for IN parameters of SQL-invoked procedures",
+    "Case": [
+      {
+        "NameCase": "T522 Default values for IN parameters of SQL-invoked procedures",
+        "Query1": "create table T522 (ROW_INT INT)",
+        "Query2": "COMMIT",
+        "Query3": "create procedure T522_PROC (i int =10) LANGUAGE PLPGSQL AS $$ DECLARE c int; BEGIN insert into T522 (ROW_INT) values (@i); end; $$",
+        "Query4": "COMMIT",
+        "Query5": "execute procedure t522_proc",
         "Query6": "COMMIT"
       }
     ]
   },
-  "Test274": {
+  "Test254": {
+    "Name": "T551 Optional key words for default syntax",
+    "Case": [
+      {
+        "NameCase": "T551 Optional key words for default syntax",
+        "Query1": "SELECT Price FROM Computers UNION SELECT Price FROM Laptop",
+        "Query2": "COMMIT",
+        "Query3": "SELECT Price FROM Laptop EXCEPT SELECT Price FROM Computers",
+        "Query4": "COMMIT",
+        "Query5": "SELECT Price FROM Laptop INTERSECT SELECT Price FROM Computers",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test255": {
+    "Name": "T561 Holdable locators",
+    "Case": [
+      {
+        "NameCase": "T561 Holdable locators",
+        "Query1": "CREATE TYPE T561 AS HOLD LOCATOR T561_LOCATOR",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test256": {
+    "Name": "T571 Array-returning external SQL-invoked functions",
+    "Case": [
+      {
+        "NameCase": "T571 Array-returning external SQL-invoked functions",
+        "Query1": "create function T571 (elemment_array integer) returns array as SELECT ARRAY(SELECT COMMISSION FROM AGENTS) BEGIN END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test257": {
+    "Name": "T572 Multiset-returning external SQL-invoked functions",
+    "Case": [
+      {
+        "NameCase": "T572 Multiset-returning external SQL-invoked functions",
+        "Query1": "create function T572 (elemment_array integer) returns multiset as SELECT MULTISET(SELECT COMMISSION FROM AGENTS) BEGIN END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test258": {
+    "Name": "T581 Regular expression substring function",
+    "Case": [
+      {
+        "NameCase": "T581 Regular expression substring function",
+        "Query1": "SELECT CHARVD, SUBSTRING(CHARVD FROM 3 FOR 4) as FirstSymbol, SUBSTRING(CHARVD FROM 3 FOR 2) as ThirdAndFourthCharacters from E021_022",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test259": {
+    "Name": "T591 UNIQUE constraints of possibly null columns",
+    "Case": [
+      {
+        "NameCase": "T591 UNIQUE constraints of possibly null columns",
+        "Query1": "CREATE TABLE T591( x int, y int, z int, unique(x,y,z))",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T591 values( NULL, 1, 1 )",
+        "Query4": "INSERT INTO T591 values( NULL, NULL, 1 )",
+        "Query5": "INSERT INTO T591 values( NULL, NULL, NULL )",
+        "Query6": "INSERT INTO T591 values( NULL, NULL, NULL )",
+        "Query7": "COMMIT"
+      }
+    ]
+  },
+  "Test260": {
+    "Name": "T601 Local cursor references",
+    "Case": [
+      {
+        "NameCase": "T601 Local cursor references",
+        "Query1": "CREATE OR REPLACE FUNCTION T601(numeric) RETURNS numeric AS $$ DECLARE _code numeric; curs LOCAL CURSOR FOR select agent_name from agents where agent_code = _code; BEGIN OPEN curs; RETURN _rezult; END; $$ LANGUAGE PLPGSQL",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test261": {
+    "Name": "T611 Elementary OLAP operations",
+    "Case": [
+      {
+        "NameCase": "T611 Elementary OLAP operations",
+        "Query1": "SELECT AGENT_NAME, min(AGENT_CODE) over(), max(AGENT_CODE) over() FROM AGENTS",
+        "Query2": "COMMIT",
+        "Query3": "SELECT AGENT_NAME,WORKING_AREA, min(AGENT_CODE) over(partition by WORKING_AREA), max(AGENT_CODE) over(partition by WORKING_AREA) FROM AGENTS",
+        "Query4": "COMMIT",
+        "Query5": "SELECT AGENT_NAME,WORKING_AREA, min(AGENT_CODE) over(order by commission), max(AGENT_CODE) over(order by commission) FROM AGENTS",
+        "Query6": "COMMIT",
+        "Query7": "SELECT AGENT_NAME,WORKING_AREA, sum(COMMISSION) over(order by COMMISSION rows between unbounded preceding and unbounded following) sum_commission FROM AGENTS order by commission",
+        "Query8": "COMMIT",
+        "Query9": "SELECT AGENT_NAME,WORKING_AREA, count(*) over(order by COMMISSION range between 1 preceding and 1 following) coun FROM AGENTS order by commission",
+        "Query10": "COMMIT",
+        "Query11": "SELECT CUST_CODE, CUST_NAME, dense_rank() over (order by opening_amt), rank() over (order by opening_amt), row_number() over (order by opening_amt), sum(1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query12": "COMMIT"
+      }
+    ]
+  },
+  "Test262": {
+    "Name": "T612 Advanced OLAP operations",
+    "Case": [
+      {
+        "NameCase": "T612 Advanced OLAP operations",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, row_number() over () FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, PERCENT_RANK() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CUST_CODE, CUST_NAME, cume_dist() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query6": "COMMIT",
+        "Query7": "SELECT CUST_CODE, CUST_NAME, width_bucket (1,0,1,10) FROM CUSTOMER order by opening_amt",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test263": {
+    "Name": "T613 Sampling",
+    "Case": [
+      {
+        "NameCase": "T613 Sampling",
+        "Query1": "SELECT * FROM AGENTS TABLESAMPLE SYSTEM (5)",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test264": {
+    "Name": "T614 NTILE function",
+    "Case": [
+      {
+        "NameCase": "T614 NTILE function",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), ntile(3) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test265": {
+    "Name": "T615 LEAD and LAG functions",
+    "Case": [
+      {
+        "NameCase": "T615 LEAD and LAG functions",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test266": {
+    "Name": "T616 Null treatment option for LEAD and LAG functions",
+    "Case": [
+      {
+        "NameCase": "T616 Null treatment option for LEAD and LAG functions",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) RESPECT NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) RESPECT NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lead(opening_amt,1) IGNORE NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query6": "COMMIT",
+        "Query7": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), lag(opening_amt,1) IGNORE NULLS over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query8": "COMMIT"
+      }
+    ]
+  },
+  "Test267": {
+    "Name": "T617 FIRST_VALUE and LAST_VALUE functions",
+    "Case": [
+      {
+        "NameCase": "T617 FIRST_VALUE and LAST_VALUE functions",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), first_value (opening_amt) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME, rank() over (order by opening_amt), last_value(opening_amt) over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query4": "COMMIT"
+      }
+    ]
+  },
+  "Test268": {
+    "Name": "T619 Nested window functions",
+    "Case": [
+      {
+        "NameCase": "T619-01 ROW_NUMBER window function",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, row_number() over (order by opening_amt) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT"
+      },
+      {
+        "NameCase": "T619-02 VALUE_OF window function",
+        "Query1": "SELECT CUST_CODE, CUST_NAME, AVG(CASE WHEN opening_amt <> VALUE_OF opening_amt AT CURRENT ROW then cust_name END) over (PARTITION BY CUST_CODE) FROM CUSTOMER order by opening_amt",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test269": {
+    "Name": "T620 WINDOW clause: GROUPS option",
+    "Case": [
+      {
+        "NameCase": "T620 WINDOW clause: GROUPS option",
+        "Query1": "SELECT ceiling (125.24) from AGENTS",
+        "Query2": "COMMIT",
+        "Query3": "SELECT CUST_CODE, CUST_NAME,COVAR_POP(payment_amt,opening_amt) FROM CUSTOMER GROUP By CUST_CODE",
+        "Query4": "COMMIT",
+        "Query5": "SELECT CUST_CODE, CUST_NAME, COVAR_SAMP (payment_amt, opening_amt) FROM CUSTOMER GROUP By CUST_CODE",
+        "Query6": "COMMIT",
+        "Query7": "SELECT SQRT(9) FROM AGENTS",
+        "Query8": "COMMIT",
+        "Query9": "SELECT CUST_CODE, CUST_NAME,STDDEV_POP (opening_amt) FROM CUSTOMER GROUP By CUST_CODE",
+        "Query10": "COMMIT",
+        "Query11": "SELECT CUST_CODE, CUST_NAME,STDDEV_SAMP (opening_amt) FROM CUSTOMER GROUP By CUST_CODE",
+        "Query12": "COMMIT",
+        "Query13": "SELECT VAR_POP (opening_amt) FROM CUSTOMER",
+        "Query14": "COMMIT",
+        "Query15": "SELECT VAR_SAMP (opening_amt) FROM CUSTOMER",
+        "Query16": "COMMIT",
+        "Query17": "SELECT CORR (opening_amt,payment_amt) FROM CUSTOMER",
+        "Query18": "COMMIT",
+        "Query19": "SELECT REGR_SLOPE (opening_amt,payment_amt) FROM CUSTOMER",
+        "Query20": "COMMIT",
+        "Query21": "SELECT REGR_INTERCEPT (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query22": "COMMIT",
+        "Query23": "SELECT REGR_COUNT (opening_amt,payment_amt) FROM CUSTOMER",
+        "Query24": "COMMIT",
+        "Query25": "SELECT REGR_R2 (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query26": "COMMIT",
+        "Query27": "SELECT REGR_AVGX (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query28": "COMMIT",
+        "Query29": "SELECT REGR_SXX (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query30": "COMMIT",
+        "Query31": "SELECT REGR_SYY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query32": "COMMIT",
+        "Query33": "SELECT REGR_SXY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query34": "COMMIT",
+        "Query35": "SELECT REGR_AVGY (opening_amt - payment_amt, receive_amt) FROM CUSTOMER",
+        "Query36": "COMMIT"
+      }
+    ]
+  },
+  "Test270": {
     "Name": "T621 Enhanced numeric functions",
     "Case": [
       {
         "NameCase": "T621 Enhanced numeric functions",
         "Query1": "SELECT LN(25) FROM AGENTS",
-        "Query2": "SELECT EXP(2) FROM AGENTS",
-        "Query3": "SELECT POWER(3,2) FROM AGENTS",
-        "Query4": "SELECT SQRT(4) FROM AGENTS",
-        "Query5": "SELECT FLOOR(123.123) FROM AGENTS",
-        "Query6": "SELECT CEIL(32.65) FROM AGENTS",
-        "Query7": "SELECT CEILING(32.65) FROM AGENTS",
-        "Query8": "SELECT EXP(LOG(2)) FROM AGENTS"
+        "Query2": "COMMIT",
+        "Query3": "SELECT EXP(2) FROM AGENTS",
+        "Query4": "COMMIT",
+        "Query5": "SELECT POWER(3,2) FROM AGENTS",
+        "Query6": "COMMIT",
+        "Query7": "SELECT SQRT(4) FROM AGENTS",
+        "Query8": "COMMIT",
+        "Query9": "SELECT FLOOR(123.123) FROM AGENTS",
+        "Query10": "COMMIT",
+        "Query11": "SELECT CEIL(32.65) FROM AGENTS",
+        "Query12": "COMMIT",
+        "Query13": "SELECT CEILING(32.65) FROM AGENTS",
+        "Query14": "COMMIT",
+        "Query15": "SELECT EXP(LOG(2)) FROM AGENTS",
+        "Query16": "COMMIT"
+      }
+    ]
+  },
+  "Test271": {
+    "Name": "T641 Multiple column assignment",
+    "Case": [
+      {
+        "NameCase": "T641 Multiple column assignment",
+        "Query1": "CREATE TABLE T641 (a INT, b INT, c INT)",
+        "Query2": "COMMIT",
+        "Query3": "INSERT INTO T641 VALUES(1,2,3)",
+        "Query4": "COMMIT",
+        "Query5": "UPDATE T641 SET (a,b,c) = (4,5,6)",
+        "Query6": "COMMIT"
+      }
+    ]
+  },
+  "Test272": {
+    "Name": "T651 SQL-schema statements in SQL routines",
+    "Case": [
+      {
+        "NameCase": "T651 SQL-schema statements in SQL routines",
+        "Query1": "CREATE PROCEDURE public.T651_PROC() LANGUAGE PLPGSQL AS $$ DECLARE c refcursor := 'curs'; BEGIN EXECUTE $_$DECLARE curs CURSOR WITH HOLD FOR select id, namecompany from company$_$; EXECUTE PROCEDURE T651_PROC; END; $$;",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test273": {
+    "Name": "T652 SQL-dynamic statements in SQL routines",
+    "Case": [
+      {
+        "NameCase": "T652 SQL-dynamic statements in SQL routines",
+        "Query1": "CREATE PROCEDURE T652_PROC (offset_value INT, page_size INT) as DECLARE catalog_page CURSOR FOR (SELECT * FROM company ORDER BY namecompany OFFSET :offset_value ROWS FETCH NEXT :page_size ROWS ONLY); BEGIN OPEN catalog_page; END",
+        "Query2": "COMMIT"
+      }
+    ]
+  },
+  "Test274": {
+    "Name": "T655 Cyclically dependent routines",
+    "Case": [
+      {
+        "NameCase": "T655 Cyclically dependent routines",
+        "Query1": "CREATE PROCEDURE T655_PROC() LANGUAGE PLPGSQL AS $$ DECLARE c refcursor := 'curs'; BEGIN EXECUTE $_$DECLARE curs CURSOR WITH HOLD FOR select id, namecompany from company$_$; EXECUTE PROCEDURE T655_PROC; END; $$;",
+        "Query2": "COMMIT"
       }
     ]
   }
