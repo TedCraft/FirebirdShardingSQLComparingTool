@@ -51,6 +51,11 @@ public class Tester {
                         exctres = -1;
                     }
                     System.out.println(throwables.getMessage());
+                    try {
+                        statement.close();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         }

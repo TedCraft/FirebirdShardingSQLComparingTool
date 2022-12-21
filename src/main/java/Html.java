@@ -22,7 +22,7 @@ public class Html {
         htmlString = htmlString.replace("$SYDB", sydb);
         htmlString = htmlString.replace("$Standart", Main.stand);
         htmlString = htmlString.replace("$result", body);
-        File newHtmlFile = new File("src/main/resources/results.html");
+        File newHtmlFile = new File("src/main/resources/results "+sydb+".html");
         try {
             FileUtils.writeStringToFile(newHtmlFile, htmlString,"UTF-8");
         } catch (IOException e) {

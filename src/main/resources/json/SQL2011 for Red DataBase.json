@@ -1533,7 +1533,7 @@
         "Query6": "INSERT INTO F262 VALUES (230)",
         "Query7": "COMMIT",
         "Query8": "SELECT CASE x WHEN < 0 THEN '< 0' WHEN < 10  THEN '[0, 10[' WHEN < 100 THEN '[10, 100[' ELSE '>100' END FROM F262",
-        "Query10": "COMMIT"
+        "Query9": "COMMIT"
       }
     ]
   },
@@ -2683,7 +2683,7 @@
     ]
   },
   "Test151": {
-    "Name": " S043 Enhanced reference types",
+    "Name": "S043 Enhanced reference types",
     "Case": [
       {
         "NameCase": "S043 Enhanced reference types",
@@ -3374,7 +3374,7 @@
     "Name": "T132 Recursive query in subquery",
     "Case": [
       {
-        "NameCase": "T131 Recursive query",
+        "NameCase": "T132 Recursive query in subquery",
         "Query1": "SELECT C.CUST_NAME, C.CUST_CITY FROM CUSTOMER c WHERE c.agent_code in (WITH RECURSIVE T121 AS (SELECT AGENT_CODE FROM AGENTS) SELECT C.CUST_NAME FROM CUSTOMER c LEFT JOIN T121 T ON T.AGENT_CODE = C.AGENT_CODE)",
         "Query2": "COMMIT"
       }

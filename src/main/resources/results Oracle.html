@@ -10,7 +10,7 @@
 <body>
 	<table width = 1024px align = center border = 0>
 		<td align = center>
-			<h2>Отчет по сравнению СУБД PostgreSQL со стандартом SQL2011 for PostgreSQL</h2>
+			<h2>Отчет по сравнению СУБД Oracle со стандартом SQL2011 for Oracle</h2>
 		</td>
 	</table>
 	<table width = 1024px align = center border = 1>
@@ -35,11 +35,17 @@
 <tr><td> E021-03 Character literals</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E021-04 CHARACTER_LENGTH function</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "CHARACTER_LENGTH": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><td> E021-05 OCTET_LENGTH function</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "OCTET_LENGTH": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><td> E021-06 SUBSTRING function</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
+</td></tr>
 <tr><td> E021-07 Character concatenation</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E021-08 UPPER and LOWER functions</td>
@@ -49,12 +55,16 @@
 <tr><td> E021-10 Implicit casting among the fixed-length and variablelength character string types</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E021-11 POSITION function</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
+</td></tr>
 <tr><td> E021-12 Character comparison</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> E031 Identifiers</th></tr>
 <tr><td> E031-01 Delimited identifiers</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "chard1": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><td> E031-02 Lower case identifiers</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E031-03 Trailing underscore</td>
@@ -73,9 +83,13 @@
 <tr><td> E051-07 Qualified * in select list</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E051-08 Correlation names in the FROM clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><td> E051-09 Rename columns in the FROM clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> E061 Basic predicates and search conditions</th></tr>
 <tr><td> E061-01 Comparison predicate</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -132,7 +146,9 @@
 <tr><td> E081-08 WITH GRANT OPTION</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E081-09 USAGE privilege</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00990: отсутствует или неверна привилегия
+</td></tr></table>
+</td></tr>
 <tr><td> E081-10 EXECUTE privilege</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> E091 Set functions</th></tr>
@@ -178,7 +194,13 @@
 <tr><td> E121-10 FETCH statement: implicit NEXT</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E121-17 WITH HOLD cursors</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 16:
+PLS-00103: Встретился символ "WITH" в то время как ожидалось одно из следующих:
+
+   <идентификатор>
+   <идентификатор с двойными кавычками-разделителями>
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> E131 Null value support (nulls in lieu of values)</th></tr>
 <tr><td> E131 Null value support (nulls in lieu of values)</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -194,7 +216,9 @@ with the NO ACTION
 default for both referential
 delete action and referential
 update action</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
+</td></tr>
 <tr><td> E141-06 CHECK constraints</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> E141-07 Column defaults</td>
@@ -216,7 +240,9 @@ SERIALIZABLE clause</td>
 <tr><td> E152_02 SET TRANSACTION statement:
 READ ONLY and
 READ WRITE clauses</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01466: невозможно прочитать данные - описание таблицы изменилось
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> E153 Updatable queries with subqueries</th></tr>
 <tr><td> E153 Updatable queries with subqueries</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -225,8 +251,8 @@ READ WRITE clauses</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> E171 SQLSTATE support</th></tr>
 <tr><td> E171 SQLSTATE support</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "table_1" не существует
-  Позиция: 9</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00942: таблица или представление пользователя не существует
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> E182 Host language binding</th></tr>
 <tr><td> E182 Host language binding</td>
@@ -241,9 +267,13 @@ READ WRITE clauses</td>
 <tr><td> F031-04 ALTER TABLE statement: ADD COLUMN clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> F031-13 DROP TABLE statement: RESTRICT clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><td> F031-14 DROP VIEW statement: RESTRICT clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><td> F031-19 REVOKE statement: RESTRICT clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F041 Basic joined table</th></tr>
@@ -272,7 +302,9 @@ support of DATE literal)</td>
 support of TIME literal) with
 fractional seconds precision of
 at least 0</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
+</td></tr>
 <tr><td> F051-03 TIMESTAMP data type
 (including support of TIMESTAMP
 literal) with fractional
@@ -290,7 +322,9 @@ types</td>
 <tr><td> F051-06 CURRENT_DATE</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> F051-07 LOCALTIME</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
+</td></tr>
 <tr><td> F051-08 LOCALTIMESTAMP</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F081 UNION and EXCEPT in views</th></tr>
@@ -378,13 +412,13 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> B041 Extensions to embedded SQL exception declarations</th></tr>
 <tr><td> B041 Extensions to embedded SQL exception declarations</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "WHENEVER")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> B051 Enhanced execution rights</th></tr>
 <tr><td> B051 Enhanced execution rights</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-02422: отсутствует или неверный элемент схемы
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> B128 Routine language SQL</th></tr>
 <tr><td> B128 Routine language SQL</td>
@@ -399,7 +433,9 @@ clauses and grouped views</td>
 <tr><td> F034-01 REVOKE statement performed by other than the owner of a schema object</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> F034-02 REVOKE statement: GRANT OPTION FOR clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00990: отсутствует или неверна привилегия
+</td></tr></table>
+</td></tr>
 <tr><td> F034-03 REVOKE statement to revoke a privilege that the grantee has WITH GRANT OPTION</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F052 Intervals and datetime arithmetic</th></tr>
@@ -419,27 +455,32 @@ clauses and grouped views</td>
 <tr><td> F111-02 READ COMMITTED isolation level</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> F111-03 REPEATABLE READ isolation level</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-02179: верные опции: ISOLATION LEVEL { SERIALIZABLE | READ COMMITTED }
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F121 Basic diagnostics management</th></tr>
 <tr><td> F121-01 GET DIAGNOSTICS statement</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "GET")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><td> F121-02 SET TRANSACTION statement: DIAGNOSTICS SIZE clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F122 Enhanced diagnostics management</th></tr>
 <tr><td> F122 Enhanced diagnostics management</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "GET")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F123 All diagnostics</th></tr>
 <tr><td> F123 All diagnostics</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "GET")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F171 Multiple schemas per user</th></tr>
 <tr><td> F171 Multiple schemas per user</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-02425: сбой при создании таблицы
+ORA-00955: имя уже задействовано для существующего объекта
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F191 Referential delete actions</th></tr>
 <tr><td> F191 Referential delete actions</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -448,20 +489,24 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F202 TRUNCATE TABLE: identity column restart option</th></tr>
 <tr><td> F202 TRUNCATE TABLE: identity column restart option</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-03291: Неверное усечение опции - отсутствует ключевое слово STORAGE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F222 INSERT statement: DEFAULT VALUES clause</th></tr>
 <tr><td> F222 INSERT statement: DEFAULT VALUES clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F251 Domain support</th></tr>
 <tr><td> F251 Domain support</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F262 Extended CASE expression</th></tr>
 <tr><td> F262 Extended CASE expression</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F263 Comma-separated predicates in simple CASE expression</th></tr>
 <tr><td> F263 Comma-separated predicates in simple CASE expression</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
-  Позиция: 67</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F271 Compound character literals</th></tr>
 <tr><td> F271 Compound character literals</td>
@@ -471,13 +516,13 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F291 UNIQUE predicate</th></tr>
 <tr><td> F291 UNIQUE predicate</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNIQUE")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F301 CORRESPONDING in query expressions</th></tr>
 <tr><td> F301 CORRESPONDING in query expressions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CORRESPONDING")
-  Позиция: 35</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00928: отсутствует ключевое слово SELECT
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F302 INTERSECT table operator</th></tr>
 <tr><td> F302-01 INTERSECT DISTINCT table operator</td>
@@ -498,28 +543,38 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F321 User authorization</th></tr>
 <tr><td> F321 User authorization</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: столбец "system_user" не существует
-  Позиция: 9</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "CURRENT_USER": недопустимый идентификатор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F381 Extended schema manipulation</th></tr>
 <tr><td> F381-01 ALTER TABLE statement: ALTER COLUMN clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
+</td></tr>
 <tr><td> F381-02 ALTER TABLE statement: ADD CONSTRAINT clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
+</td></tr>
 <tr><td> F381-03 ALTER TABLE statement: DROP CONSTRAINT clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F382 Alter column data type</th></tr>
 <tr><td> F382 Alter column data type</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F383 Set column not null clause</th></tr>
 <tr><td> F383 Set column not null clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F384 Drop identity property clause</th></tr>
 <tr><td> F384 Drop identity property clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "ROW_ID": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F385 Drop column generation expression clause</th></tr>
 <tr><td> F385 Drop column generation expression clause</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F386 Set identity column generation clause</th></tr>
 <tr><td> F386 Set identity column generation clause</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -528,7 +583,9 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F392 Unicode escapes in identifiers</th></tr>
 <tr><td> F392 Unicode escapes in identifiers</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00923: ключевое слово FROM не найдено там где оно ожидалось
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F393 Unicode escapes in literals</th></tr>
 <tr><td> F393 Unicode escapes in literals</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -544,9 +601,7 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F403 Partitioned join tables</th></tr>
 <tr><td> F403 Partitioned join tables</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "PARTITION")
-  Позиция: 46</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F411 Time zone specification</th></tr>
 <tr><td> F411 Time zone specification</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -555,17 +610,62 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F431 Read-only scrollable cursors</th></tr>
 <tr><td> F431-01 FETCH with explicit NEXT</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 149:
+PLS-00103: Встретился символ "C11" в то время как ожидалось одно из следующих:
+
+   . into bulk
+Символ "." заменен на "C11" чтобы можно было продолжать.
+</td></tr></table>
+</td></tr>
 <tr><td> F431-02 FETCH FIRST</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 150:
+PLS-00103: Встретился символ "C11" в то время как ожидалось одно из следующих:
+
+   . into bulk
+Символ "." заменен на "C11" чтобы можно было продолжать.
+</td></tr></table>
+</td></tr>
 <tr><td> F431-03 FETCH LAST</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 149:
+PLS-00103: Встретился символ "C11" в то время как ожидалось одно из следующих:
+
+   . into bulk
+Символ "." заменен на "C11" чтобы можно было продолжать.
+</td></tr></table>
+</td></tr>
 <tr><td> F431-04 FETCH PRIOR</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 144:
+PLS-00103: Встретился символ "PRIOR" в то время как ожидалось одно из следующих:
+
+   <идентификатор>
+   <идентификатор с двойными кавычками-разделителями>
+   <переменная привязки> standard
+ORA-06550: Строка 1 столбец 169:
+PLS-00103: Встретился символ "EXIT" 
+ORA-06550: Строка 1 столбец 191:
+PLS-00103: Встретился символ ";" в то время как ожидалось одно из следующих:
+
+   . (  * @ % & = - + < / > at in is loop mod remainder not rem
+   <показатель (**)> <> or != or ~= >= <= <> and or
+   like like2 like4 likec between || multiset member submultiset
+</td></tr></table>
+</td></tr>
 <tr><td> F431-05 FETCH ABSOLUTE</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 153:
+PLS-00103: Встретился символ "C11" в то время как ожидалось одно из следующих:
+
+   . into bulk
+Символ "." заменен на "C11" чтобы можно было продолжать.
+</td></tr></table>
+</td></tr>
 <tr><td> F431-06 FETCH RELATIVE</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 153:
+PLS-00103: Встретился символ "C11" в то время как ожидалось одно из следующих:
+
+   . into bulk
+Символ "." заменен на "C11" чтобы можно было продолжать.
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F441 Extended set function support</th></tr>
 <tr><td> F441 Extended set function support</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -574,30 +674,30 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F451 Character set definition</th></tr>
 <tr><td> F451 Character set definition</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CHARACTER")
-  Позиция: 9</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F461 Named character sets</th></tr>
 <tr><td> F461 Named character sets</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CHARACTER")
-  Позиция: 125</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F491 Constraint management</th></tr>
 <tr><td> F491 Constraint management</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F492 Optional table constraint enforcement</th></tr>
 <tr><td> F492 Optional table constraint enforcement</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ENFORCED")
-  Позиция: 130</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F521 Assertions</th></tr>
 <tr><td> F521 Assertions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FROM")
-  Позиция: 64</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F531 Temporary tables</th></tr>
 <tr><td> F531 Temporary tables</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00922: отсутствует или неверна опция
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F555 Enhanced seconds precision</th></tr>
 <tr><td> F555 Enhanced seconds precision</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -606,18 +706,22 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F571 Truth value tests</th></tr>
 <tr><td> F571 Truth value tests</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F591 Derived tables</th></tr>
 <tr><td> F591 Derived tables</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F611 Indicator data types</th></tr>
 <tr><td> F611 Indicator data types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса в конце
-  Позиция: 53</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00911: неверный символ
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F641 Row and table constructors</th></tr>
 <tr><td> F641 Row and table constructors</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F651 Catalog name qualifiers</th></tr>
 <tr><td> F651 Catalog name qualifiers</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -632,50 +736,63 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F690 Collation support</th></tr>
 <tr><td> F690 Collation support</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F692 Enhanced collation support</th></tr>
 <tr><td> F692 Enhanced collation support</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F693 SQL-session and client module collations</th></tr>
 <tr><td> F693 SQL-session and client module collations</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "COLLATION")
-  Позиция: 6</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00922: отсутствует или неверна опция
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F695 Translation support</th></tr>
 <tr><td> F695 Translation support</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F701 Referential update actions</th></tr>
 <tr><td> F701 Referential update actions</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F711 ALTER domain</th></tr>
 <tr><td> F711 ALTER domain</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00940: неверная команда ALTER
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F721 Deferrable constraints</th></tr>
 <tr><td> F721 Deferrable constraints</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "number" не существует
-  Позиция: 27</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F731 INSERT column privileges</th></tr>
 <tr><td> F731 INSERT column privileges</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F741 Referential MATCH types</th></tr>
 <tr><td> F741 Referential MATCH types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: значение поля типа date/time вне диапазона: "9/15/2011"
-  Подсказка: Возможно вам нужно изменить настройку "datestyle".
-  Позиция: 119</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00936: отсутствует выражение
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F751 View CHECK enhancements</th></tr>
 <tr><td> F751 View CHECK enhancements</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F761 Session management</th></tr>
 <tr><td> F761 Session management</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00922: отсутствует или неверна опция
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F762 CURRENT_CATALOG</th></tr>
 <tr><td> F762 CURRENT_CATALOG</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "CURRENT_CATALOG": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F763 CURRENT_SCHEMA</th></tr>
 <tr><td> F763 CURRENT_SCHEMA</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "CURRENT_SCHEMA": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> F771 Connection management</th></tr>
 <tr><td> F771 Connection management</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -684,68 +801,57 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F791 Insensitive cursors</th></tr>
 <tr><td> F791 Insensitive cursors</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CURSOR")
-  Позиция: 90
-  Где: неверное имя типа "INSENSITIVE CURSOR FOR select agent_name from agents where agent_code "</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 28:
+PLS-00103: Встретился символ "C11" в то время как ожидалось одно из следующих:
+
+   := . ( @ % ; not null range default character
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F801 Full set function</th></tr>
 <tr><td> F801 Full set function</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F821 Local table references</th></tr>
 <tr><td> F821 Local table references</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "#")
-  Позиция: 15</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F831 Full cursor update</th></tr>
 <tr><td> F831-01 Updateable scrollable cursors</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
-  Позиция: 41</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> F831-02 Updateable ordered cursors</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
-  Позиция: 41</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F841 LIKE_REGEX predicate</th></tr>
 <tr><td> F841 LIKE_REGEX predicate</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция like_regex(character varying unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F842 OCCURRENCES_REGEX function</th></tr>
 <tr><td> F842 OCCURRENCES_REGEX function</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция occurrences_regex(character varying unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F843 POSITION_REGEX function function</th></tr>
 <tr><td> F843 POSITION_REGEX function</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция position_regex(character varying unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F844 SUBSTRING_REGEX</th></tr>
 <tr><td> F844 SUBSTRING_REGEX</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция substring_regex(character varying unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F845 TRANSLATE_REGEX</th></tr>
 <tr><td> F845 TRANSLATE_REGEX</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция translate_regex(character varying unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F846 Octet support in regular expression operators</th></tr>
 <tr><td> F846 Octet support in regular expression operators</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция octet(character varying) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "OCTET_LENGTH": недопустимый идентификатор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F847 Nonconstant regular expressions</th></tr>
 <tr><td> F847 Nonconstant regular expressions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция like_regex(character varying unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> F850 Top-level 'order by clause' in 'query expression'</th></tr>
 <tr><td> F850 Top-level 'order by clause' in 'query expression'</td>
@@ -773,9 +879,7 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F860 dynamic 'fetch first row count' in 'fetch first clause'</th></tr>
 <tr><td> F860 dynamic 'fetch first row count' in 'fetch first clause'</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: неверный синтаксис для типа bigint: "@offset_value"
-  Где: функция PL/pgSQL f860_proc(integerinteger) строка 1 оператор OPEN</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F861 Top-level 'result offset clause' in 'query expression'</th></tr>
 <tr><td> F861 Top-level 'result offset clause' in 'query expression'</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -793,9 +897,7 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F866 FETCH FIRST clause: PERCENT option</th></tr>
 <tr><td> F866 FETCH FIRST clause: PERCENT option</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "PERCENT")
-  Позиция: 78</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> F867 FETCH FIRST clause: WITH TIES option</th></tr>
 <tr><td> F867 FETCH FIRST clause: WITH TIES option</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -807,99 +909,95 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S025 Final structured types</th></tr>
 <tr><td> S025 Final structured types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FINAL")
-  Позиция: 70</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S026 Self-referencing structured types</th></tr>
 <tr><td> S026 Self-referencing structured types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NOT")
-  Позиция: 134</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S027 Create method by specific method name</th></tr>
 <tr><td> S027 Create method by specific method name</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "METHOD")
-  Позиция: 9</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S028 Permutable UDT options list</th></tr>
 <tr><td> S028 Permutable UDT options list</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "TABLE")
-  Позиция: 22</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S041 Basic reference types</th></tr>
 <tr><td> S041 Basic reference types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
-  Позиция: 27</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S043 Enhanced reference types</th></tr>
 <tr><td> S043 Enhanced reference types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
-  Позиция: 30</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-02303: невозможно удалить или заменить тип от кот. зависят типы или таблицы
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S051 Create table of type</th></tr>
 <tr><td> S051 Create table of type</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NOT")
-  Позиция: 134</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S071 SQL paths in function and type name resolution</th></tr>
 <tr><td> S071 SQL paths in function and type name resolution</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S081 Subtables</th></tr>
 <tr><td> S081 Subtables</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
-  Позиция: 40</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00922: отсутствует или неверна опция
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S091 Basic array support</th></tr>
 <tr><td> S091-01 Arrays of built-in data types</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
+</td></tr>
 <tr><td> S091-02 Arrays of distinct types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
-  Позиция: 32</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
 </td></tr>
 <tr><td> S091-03 Array expressions</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00936: отсутствует выражение
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> S092 Arrays of user-defined types</th></tr>
 <tr><td> S092 Arrays of user-defined types</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S094 Arrays of reference types</th></tr>
 <tr><td> S094 Arrays of reference types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
-  Позиция: 150</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S095 Array constructors by query</th></tr>
 <tr><td> S095 Array constructors by query</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00936: отсутствует выражение
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> S096 Optional array bounds</th></tr>
 <tr><td> S096 Optional array bounds</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> S097 Array element assignment</th></tr>
 <tr><td> S097 Array element assignment</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
-  Позиция: 39</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S098 ARRAY_AGG</th></tr>
 <tr><td> S098 ARRAY_AGG</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "ARRAY_AGG": недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> S111 ONLY in query expressions</th></tr>
 <tr><td> S111 ONLY in query expression</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S151 Type predicate</th></tr>
 <tr><td> S151 Type predicate</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NOT")
-  Позиция: 39</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S161 Subtype treatment</th></tr>
 <tr><td> S161 Subtype treatment</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "student_table" не существует
-  Позиция: 59</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S162 Subtype treatment for references</th></tr>
 <tr><td> S162 Subtype treatment for references</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "student_table" не существует
-  Позиция: 59</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S201 SQL-invoked routines on arrays</th></tr>
 <tr><td> S201-01 Array parameters</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><td> S201-02 Array as result type of functions</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S202 SQL-invoked routines on multisets</th></tr>
@@ -907,176 +1005,162 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S211 User-defined cast functions</th></tr>
 <tr><td> S211 User-defined cast functions</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> S231 Structured type locators</th></tr>
 <tr><td> S231 Structured type locators</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "LOCATOR")
-  Позиция: 22</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S232 Array locators</th></tr>
 <tr><td> S232 Array locators</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "INTEGER")
-  Позиция: 19</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S233 Multiset locators</th></tr>
 <tr><td> S233 Multiset locators</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "PRICE")
-  Позиция: 27</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S241 Transform functions</th></tr>
 <tr><td> S241 Transform functions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "group1")
-  Позиция: 29</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S242 Alter transform statement</th></tr>
 <tr><td> S242 Alter transform statement</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "TRANSFORM")
-  Позиция: 8</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00940: неверная команда ALTER
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S251 User-defined orderings</th></tr>
 <tr><td> S251 User-defined orderings</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: функция field(character unknown unknown unknown) не существует
-  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно вам следует добавить явные приведения типов.
-  Позиция: 33</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: "FIELD": недопустимый идентификатор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S261 Specific type method</th></tr>
 <tr><td> S261 Specific type method</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "alter")
-  Позиция: 12</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S271 Basic multiset support</th></tr>
 <tr><td> S271 Basic multiset support</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "customers" не существует
-  Позиция: 47</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-22912: указанный столбец или атрибут не является типом вложенной таблицы
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S272 Multisets of user-defined types</th></tr>
 <tr><td> S272 Multisets of user-defined types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "SELECT")
-  Позиция: 66</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-22907: неверн. CAST к типу который не является вложенной таблицей или VARRAY
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S274 Multisets of reference types</th></tr>
 <tr><td> S274 Multisets of reference types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ROW")
-  Позиция: 104</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: : недопустимый идентификатор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S275 Advanced multiset support</th></tr>
 <tr><td> S275 Advanced multiset support</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ROW")
-  Позиция: 104</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: : недопустимый идентификатор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S281 Nested collection types</th></tr>
 <tr><td> S281 Nested collection types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NESTED")
-  Позиция: 117</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> S291 Unique constraint on entire row</th></tr>
 <tr><td> S291 Unique constraint on entire row</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S301 Enhanced UNNEST</th></tr>
 <tr><td> S301 Enhanced UNNEST</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> S401 Distinct types based on array types</th></tr>
 <tr><td> S401 Distinct types based on array types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "")
-  Позиция: 42</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S402 Distinct types based on distinct types</th></tr>
 <tr><td> S402 Distinct types based on distinct types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "UNDER")
-  Позиция: 22</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S403 ARRAY_MAX_CARDINALITY</th></tr>
 <tr><td> S401 ARRAY_MAX_CARDINALITY</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "VARCHAR")
-  Позиция: 26</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> S404 TRIM_ARRAY</th></tr>
 <tr><td> S404 TRIM_ARRAY</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T021 BINARY and VARBINARY data types</th></tr>
 <tr><td> T021 BINARY and VARBINARY data types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "binary" не существует
-  Позиция: 32</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T022 Advanced support for BINARY and VARBINARY data types</th></tr>
 <tr><td> T022 Advanced support for BINARY and VARBINARY data types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "binary" не существует
-  Позиция: 32</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T023 Compound binary literals</th></tr>
 <tr><td> T023 Compound binary literals</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "varbinary" не существует
-  Позиция: 34</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T024 Spaces in binary literals</th></tr>
 <tr><td> T024 Spaces in binary literals</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "varbinary" не существует
-  Позиция: 34</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T031 BOOLEAN data type</th></tr>
 <tr><td> T031 BOOLEAN data type</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T041 Basic LOB data type support</th></tr>
 <tr><td> T041-01 BLOB data type</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "blob" не существует
-  Позиция: 45</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> T041-02 CLOB data type</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "SUB_TYPE")
-  Позиция: 51</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> T041-03 POSITION, LENGTH, LOWER, TRIM, UPPER, and SUBSTRING functions for LOB data types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "blob" не существует
-  Позиция: 45</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><td> T041-04 Concatenation of LOB data types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: текущая транзакция прервана команды до конца блока транзакции игнорируются</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> T041-05 LOB locator: non-holdable</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: текущая транзакция прервана команды до конца блока транзакции игнорируются</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T042 Extended LOB data type support</th></tr>
 <tr><td> T042 Extended LOB data type support</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: отношение "t041_04" не существует
-  Позиция: 16</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T043 Multiplier T</th></tr>
 <tr><td> T043 Multiplier T</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: мусорное содержимое после числовой константы (примерное положение: "4T")
-  Позиция: 36</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T044 Multiplier P</th></tr>
 <tr><td> T044 Multiplier P</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: мусорное содержимое после числовой константы (примерное положение: "4P")
-  Позиция: 36</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T051 Row types</th></tr>
 <tr><td> T051 Row types</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ROW")
-  Позиция: 9</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T053 Explicit aliases for all-fields reference</th></tr>
 <tr><td> T053 Explicit aliases for all-fields reference</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "as")
-  Позиция: 11</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00923: ключевое слово FROM не найдено там где оно ожидалось
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T061 UCS support</th></tr>
 <tr><td> T061 UCS support</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
-  Позиция: 27</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00901: неверный оператор CREATE
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T071 BIGINT data type</th></tr>
 <tr><td> T071 BIGINT data type</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T101 Enhanced nullability determination</th></tr>
 <tr><td> T101 Enhanced nullability determination</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T111 Updatable joins, unions, and columns</th></tr>
 <tr><td> T111 Updatable joins, unions, and columns</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: изменить данные в представлении "t111" нельзя
-  Подробности: Представления выбирающие данные не из одной таблицы или представления не обновляются автоматически.
-  Подсказка: Чтобы представление допускало изменение данных установите триггер INSTEAD OF UPDATE или безусловное правило ON UPDATE DO INSTEAD.</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T121 WITH (excluding RECURSIVE) in query expression</th></tr>
 <tr><td> T121 WITH (excluding RECURSIVE) in query expression</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -1085,102 +1169,132 @@ clauses and grouped views</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T131 Recursive query</th></tr>
 <tr><td> T131 Recursive query</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T132 Recursive query in subquery</th></tr>
-<tr><td> T131 Recursive query</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<tr><td> T132 Recursive query in subquery</td>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T141 SIMILAR predicate</th></tr>
 <tr><td> T141 SIMILAR predicate</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00920: неверен реляционный оператор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T151 DISTINCT predicate</th></tr>
 <tr><td> T151 DISTINCT predicate</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T152 DISTINCT predicate with negation</th></tr>
 <tr><td> T152 DISTINCT predicate with negation</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00923: ключевое слово FROM не найдено там где оно ожидалось
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T171 LIKE clause in table definition</th></tr>
 <tr><td> T171 LIKE clause in table definition</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: : недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T172 AS subquery clause in table definition</th></tr>
 <tr><td> T172 AS subquery clause in table definition</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T173 Extended LIKE clause in table definition</th></tr>
 <tr><td> T173 Extended LIKE clause in table definition</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00904: : недопустимый идентификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T174 Identity columns</th></tr>
 <tr><td> T174 Identity columns</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T175 Generated columns</th></tr>
 <tr><td> T175 Generated columns</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "always")
-  Позиция: 48</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T176 Sequence generator support</th></tr>
 <tr><td> T176 Sequence generator support</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T177 Sequence generator support: simple restart option</th></tr>
 <tr><td> T177 Sequence generator support: simple restart option</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T178 Identity columns: simple restart option</th></tr>
 <tr><td> T178 Identity columns: simple restart option</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01735: неверная опция в ALTER TABLE
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T180 System-versioned tables</th></tr>
 <tr><td> T180 System-versioned tables</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CLUSTERED")
-  Позиция: 54</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T181 Application-time period tables</th></tr>
 <tr><td> T181 Application-time period tables</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
-  Позиция: 110</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T191 Referential action RESTRICT</th></tr>
 <tr><td> T191 Referential action RESTRICT</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T201 Comparable data types for referential constraints</th></tr>
 <tr><td> T201 Comparable data types for referential constraints</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ограничение внешнего ключа "t201_6_id_2015_fkey" нельзя реализовать
-  Подробности: Столбцы ключа "id_2015" и "id" имеют несовместимые типы: date и numeric.</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-02267: тип столбца несовместим с типом столбца в ссылке
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T211 Basic trigger capability</th></tr>
 <tr><td> T211-01 Triggers activated on UPDATE, INSERT, or DELETE of one base table</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00922: отсутствует или неверна опция
+</td></tr></table>
+</td></tr>
 <tr><td> T211-02 BEFORE triggers</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00942: таблица или представление пользователя не существует
+</td></tr></table>
+</td></tr>
 <tr><td> T211-03 AFTER triggers</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00942: таблица или представление пользователя не существует
+</td></tr></table>
+</td></tr>
 <tr><td> T211-04 FOR EACH ROW triggers</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00942: таблица или представление пользователя не существует
+</td></tr></table>
+</td></tr>
 <tr><td> T211-05 Ability to specify a search condition that shall be True before the trigger is invoked</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00942: таблица или представление пользователя не существует
+</td></tr></table>
+</td></tr>
 <tr><td> T211-07 TRIGGER privilege</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "T211_05")
-  Позиция: 27</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01920: имя пользователя 'T211_07' противоречит имени другого пользователя или роли
+</td></tr></table>
 </td></tr>
 <tr><td> T211-08 Multiple triggers for the same event are executed in the order in which they were
 created in the catalog</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "ALTER")
-  Позиция: 12</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T212 Enhanced trigger capability</th></tr>
 <tr><td> T212 Enhanced trigger capability</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00942: таблица или представление пользователя не существует
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T213 INSTEAD OF triggers</th></tr>
 <tr><td> T213 INSTEAD OF triggers</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T231 Sensitive cursors</th></tr>
 <tr><td> T231 Sensitive cursors</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CURSOR")
-  Позиция: 88
-  Где: неверное имя типа "SENSITIVE CURSOR FOR select agent_name from agents where agent_code "</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 26:
+PLS-00103: Встретился символ "C1" в то время как ожидалось одно из следующих:
+
+   := . ( @ % ; not null range default character
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T241 START TRANSACTION statement</th></tr>
 <tr><td> T241 START TRANSACTION statement</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T251 SET TRANSACTION statement: LOCAL option</th></tr>
 <tr><td> T251 SET TRANSACTION statement: LOCAL option</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "WAIT")
-  Позиция: 35</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00922: отсутствует или неверна опция
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T261 Chained transactions</th></tr>
 <tr><td> T261 Chained transactions</td>
@@ -1190,22 +1304,26 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T272 Enhanced savepoint management</th></tr>
 <tr><td> T272 Enhanced savepoint management</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "y")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T281 SELECT privilege with column granularity</th></tr>
 <tr><td> T281 SELECT privilege with column granularity</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01920: имя пользователя 'T281' противоречит имени другого пользователя или роли
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T285 Enhanced derived column names</th></tr>
 <tr><td> T285 Enhanced derived column names</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T301 Functional dependencies</th></tr>
 <tr><td> T301 Functional dependencies</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-25154: столбцовая часть фразы USING не может иметь квалификатор
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T312 OVERLAY function</th></tr>
 <tr><td> T312 OVERLAY function</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: тип "binary" не существует
-  Позиция: 32</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T323 Explicit security for external routines</th></tr>
 <tr><td> T323 Explicit security for external routines</td>
@@ -1218,15 +1336,17 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T326 Table functions</th></tr>
 <tr><td> T326 Table functions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "AS")
-  Позиция: 46</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T331 Basic roles</th></tr>
 <tr><td> T331 Basic roles</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01921: имя роли 'T331' противоречит имени другого пользователя или роли
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T332 Extended roles</th></tr>
 <tr><td> T332 Extended roles</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01918: пользователь 'T331' не существует
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T351 Bracketed comments</th></tr>
 <tr><td> T351 Bracketed comments</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -1241,17 +1361,21 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T434 GROUP BY DISTINCT</th></tr>
 <tr><td> T434 GROUP BY DISTINCT</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00936: отсутствует выражение
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T441 ABS and MOD functions</th></tr>
 <tr><td> T441 ABS and MOD functions</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T461 Symmetric BETWEEN predicate</th></tr>
 <tr><td> T461 Symmetric BETWEEN predicate</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T472 DESCRIBE CURSOR</th></tr>
 <tr><td> T472 DESCRIBE CURSOR</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "DESCRIBE")
-  Позиция: 2</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T491 LATERAL derived table</th></tr>
 <tr><td> T491 LATERAL derived table</td>
@@ -1261,51 +1385,47 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T502 Period predicates</th></tr>
 <tr><td> T502 Period predicates</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "FOR")
-  Позиция: 113</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00902: неверн.тип данных
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T511 Transaction counts</th></tr>
 <tr><td> T511 Transaction counts</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: столбец "trancount" не существует
-  Позиция: 11</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00900: неверно предложение на языке SQL
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T521 Named arguments in CALL statement</th></tr>
 <tr><td> T521 Named arguments in CALL statement</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T522 Default values for IN parameters of SQL-invoked procedures</th></tr>
 <tr><td> T522 Default values for IN parameters of SQL-invoked procedures</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "t522_proc")
-  Позиция: 20</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T551 Optional key words for default syntax</th></tr>
 <tr><td> T551 Optional key words for default syntax</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T561 Holdable locators</th></tr>
 <tr><td> T561 Holdable locators</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "HOLD")
-  Позиция: 22</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T571 Array-returning external SQL-invoked functions</th></tr>
 <tr><td> T571 Array-returning external SQL-invoked functions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "array")
-  Позиция: 56</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T572 Multiset-returning external SQL-invoked functions</th></tr>
 <tr><td> T572 Multiset-returning external SQL-invoked functions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "SELECT")
-  Позиция: 68</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T581 Regular expression substring function</th></tr>
 <tr><td> T581 Regular expression substring function</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00907: отсутствует правая скобка
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T591 UNIQUE constraints of possibly null columns</th></tr>
 <tr><td> T591 UNIQUE constraints of possibly null columns</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T601 Local cursor references</th></tr>
 <tr><td> T601 Local cursor references</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "CURSOR")
-  Позиция: 99
-  Где: неверное имя типа "LOCAL CURSOR FOR select agent_name from agents where agent_code "</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-06550: Строка 1 столбец 22:
+PLS-00103: Встретился символ "T601" в то время как ожидалось одно из следующих:
+
+   := . ( @ % ; not null range default character
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T611 Elementary OLAP operations</th></tr>
 <tr><td> T611 Elementary OLAP operations</td>
@@ -1315,7 +1435,9 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T613 Sampling</th></tr>
 <tr><td> T613 Sampling</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00933: неверное завершение SQL-предложения
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T614 NTILE function</th></tr>
 <tr><td> T614 NTILE function</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -1324,9 +1446,7 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T616 Null treatment option for LEAD and LAG functions</th></tr>
 <tr><td> T616 Null treatment option for LEAD and LAG functions</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "NULLS")
-  Позиция: 95</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T617 FIRST_VALUE and LAST_VALUE functions</th></tr>
 <tr><td> T617 FIRST_VALUE and LAST_VALUE functions</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
@@ -1334,8 +1454,8 @@ created in the catalog</td>
 <tr><td> T619-01 ROW_NUMBER window function</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><td> T619-02 VALUE_OF window function</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "opening_amt")
-  Позиция: 69</td></tr></table>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-00905: отсутствует ключевое слово
+</td></tr></table>
 </td></tr>
 <tr><th colspan = 5> T620 WINDOW clause: GROUPS option</th></tr>
 <tr><td> T620 WINDOW clause: GROUPS option</td>
@@ -1345,15 +1465,15 @@ created in the catalog</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T641 Multiple column assignment</th></tr>
 <tr><td> T641 Multiple column assignment</td>
-<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
+<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ORA-01767: Выражение UPDATE ... SET должно быть подзапросом
+</td></tr></table>
+</td></tr>
 <tr><th colspan = 5> T651 SQL-schema statements in SQL routines</th></tr>
 <tr><td> T651 SQL-schema statements in SQL routines</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T652 SQL-dynamic statements in SQL routines</th></tr>
 <tr><td> T652 SQL-dynamic statements in SQL routines</td>
-<td colspan = 3 align = right>Failed</td><td width = 50%><table><tr><td>ОШИБКА: ошибка синтаксиса (примерное положение: "DECLARE")
-  Позиция: 66</td></tr></table>
-</td></tr>
+<td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>
 <tr><th colspan = 5> T655 Cyclically dependent routines</th></tr>
 <tr><td> T655 Cyclically dependent routines</td>
 <td colspan = 3 align = right><b>OK</td><td width = 50%> no error</td></tr>

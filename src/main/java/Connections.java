@@ -65,7 +65,7 @@ public class Connections {
                     DB_Pass = in.next();
                     break;
             }
-            DB_URL = "jdbc:firebirdsql://"+DB_Host+":"+DB_Port+"/"+DB_Path;
+            DB_URL = "jdbc:firebirdsql://"+DB_Host+":"+DB_Port+"/"+DB_Path+"?encoding=utf8;useUnicode=true&amp;characterEncoding=utf8";
             System.out.println(DB_URL);//Для отладки
             try{
                 Class.forName(DB_Driver);
@@ -129,11 +129,12 @@ public class Connections {
                     DB_Pass = in.next();
                     break;
             }
-            DB_URL = "jdbc:firebirdsql://"+DB_Host+":"+DB_Port+"/"+DB_Path;
+            DB_URL = "jdbc:firebirdsql://"+DB_Host+":"+DB_Port+"/"+DB_Path+"?encoding=utf8;useUnicode=true&amp;characterEncoding=utf8";
             System.out.println(DB_URL);//Для отладки
             try{
                 Class.forName(DB_Driver);
                 Connection con = DriverManager.getConnection(DB_URL,DB_User,DB_Pass);
+                con.setAutoCommit(false);
                 System.out.println("Соединение с СУБД выполнено.");
                 tester.testcheck("Ред База Данных",con);
                 con.close();
@@ -146,7 +147,7 @@ public class Connections {
                 System.out.println("JDBC драйвер для субд не найден!");
             }
         }
-        //Работа с oracle
+        //Работа с Oracle
         if (db == 3){
             System.out.println("Вы выбрали Oracle.");
             System.out.println("Внимание! Перед выполнение дальнейших действий убедитесь что" +
@@ -158,19 +159,46 @@ public class Connections {
             DB_Host = in.next();
             System.out.println("Порт:");
             DB_Port = in.next();
-            System.out.println("Пользователь:");
-            DB_User = in.next();
-            System.out.println("Пароль:");
+            DB_User = "SYSTEM";
+            System.out.println("Пароль от схемы SYSTEM:");
             DB_Pass = in.next();
-            DB_URL = "jdbc:oracle:thin:@"+DB_Host+":"+DB_Port+":"+DB_Name;
+            DB_URL = "jdbc:oracle:thin:@"+DB_Host+":"+DB_Port+"/"+DB_Name;
             System.out.println(DB_URL);
             try{
                 Class.forName(DB_Driver);
                 Connection con = DriverManager.getConnection(DB_URL, DB_User, DB_Pass);
                 System.out.println("Соединение с СУБД выполнено.");
+                System.out.println("Создание схемы");
+                System.out.println("Имя создаваемой схемы: SQLTESTS");
+                DB_User = "SQLTESTS";
+                System.out.println("Введите пароль схемы:");
+                DB_Pass = in.next();
+                Statement stmt = con.createStatement();
+                //Создание схемы в базе данных
+                String sql = "CREATE USER \""+DB_User+"\" IDENTIFIED BY \""+DB_Pass+"\"";
+                stmt.executeUpdate(sql);
+                sql = "GRANT \"RESOURCE\" TO \""+DB_User+"\"";
+                stmt.executeUpdate(sql);
+                sql = "GRANT \"DBA\" TO \""+DB_User+"\"";
+                stmt.executeUpdate(sql);
+                sql = "GRANT \"CONNECT\" TO \""+DB_User+"\"";
+                stmt.executeUpdate(sql);
+                sql = "GRANT \"EXP_FULL_DATABASE\" TO \""+DB_User+"\"";
+                stmt.executeUpdate(sql);
+                sql = "GRANT \"IMP_FULL_DATABASE\" TO \""+DB_User+"\"";
+                stmt.executeUpdate(sql);
+                System.out.println("Создание схемы выполнено!");
+                con.close();
+                //
+                // Подключение к созданной схеме
+                DB_URL = "jdbc:oracle:thin:@"+DB_Host+":"+DB_Port+"/"+DB_Name;
+                con = DriverManager.getConnection(DB_URL, DB_User, DB_Pass);
+                con.setAutoCommit(false);
+                System.out.println("Соединение с СУБД выполнено.");
                 tester.testcheck("Oracle",con);
                 con.close();
                 System.out.println("Отключение от СУБД выполнено");
+                //
             }catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException throwables) {
@@ -192,6 +220,7 @@ public class Connections {
             try {
                 Class.forName(DB_Driver);
                 Connection con = DriverManager.getConnection(DB_URL);
+                con.setAutoCommit(false);
                 System.out.println("Соединение с СУБД выполнено.");
                 tester.testcheck("H2",con);
                 con.close();
@@ -206,24 +235,58 @@ public class Connections {
         //Работа с Postgre
         if (db == 5){
             System.out.println("Вы выбрали PostgreSQL.");
-            System.out.println("Внимание! Перед выполнение дальнейших действий убедитесь что" +
-                    "база данных создана стандартными средствами PostgreSQL.");
             DB_Driver = "org.postgresql.Driver";
-            System.out.println("Имя базы данных:");
-            DB_Name = in.next();
-            System.out.println("Сервер:");
-            DB_Host = in.next();
-            System.out.println("Порт:");
-            DB_Port = in.next();
-            System.out.println("Пользователь:");
-            DB_User = in.next();
-            System.out.println("Пароль:");
-            DB_Pass = in.next();
-            DB_URL = "jdbc:postgresql://"+DB_Host+":"+DB_Port+"/"+DB_Name;
+            System.out.println("Создать новую базу данных? Y(Да)/N(Нет)");
+            r = in.nextLine();
+            switch (r){
+                case "Y":
+                    System.out.println("Сервер:");
+                    DB_Host = in.next();
+                    System.out.println("Порт (по умолчанию: 5432):");
+                    DB_Port = in.next();
+                    System.out.println("Имя базы данных:");
+                    DB_Name = in.next().toLowerCase();
+                    System.out.println("Пользователь:");
+                    DB_User = in.next();
+                    System.out.println("Пароль:");
+                    DB_Pass = in.next();
+                    DB_URL = "jdbc:postgresql://"+DB_Host+"/";
+                    System.out.println(DB_URL);
+                    try{
+                        Class.forName(DB_Driver);
+                        Connection con = DriverManager.getConnection(DB_URL, DB_User, DB_Pass);
+                        Statement stmt = con.createStatement();
+                        String sql = "CREATE DATABASE "+DB_Name;
+                        System.out.println(sql);
+                        stmt.executeUpdate(sql);
+                        System.out.println("База данных успешно создана.");
+                        con.close();
+
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case "N":
+                    System.out.println("Имя базы данных:");
+                    DB_Name = in.next();
+                    System.out.println("Сервер:");
+                    DB_Host = in.next();
+                    System.out.println("Порт (по умолчанию:5432):");
+                    DB_Port = in.next();
+                    System.out.println("Пользователь:");
+                    DB_User = in.next();
+                    System.out.println("Пароль:");
+                    DB_Pass = in.next();
+                    break;
+            }
+            DB_URL = "jdbc:postgresql://"+DB_Host+":"+DB_Port+"/"+DB_Name+"?encoding=utf8;useUnicode=true&amp;characterEncoding=utf8";
             System.out.println(DB_URL);
             try {
                 Class.forName(DB_Driver);
                 Connection con = DriverManager.getConnection(DB_URL, DB_User, DB_Pass);
+                con.setAutoCommit(false);
                 System.out.println("Соединение с СУБД выполнено.");
                 tester.testcheck("PostgreSQL",con);
                 con.close();
