@@ -3,16 +3,18 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.InputStream;
 import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Parser {
     public static ArrayList<String> testcase = new ArrayList<>();
-    public void parsejson(String file){
+    public void parsejson(BufferedReader br){
         try{
-            Object obj = new JSONParser().parse(new FileReader("src/main/resources/json/" + file));
+            Object obj = new JSONParser().parse(br);
             JSONObject jsobj1 = (JSONObject) obj;
             for(int i = 0;i<jsobj1.size();i++){
                 JSONObject jsobj2 = (JSONObject) jsobj1.get("Test"+(i+1));

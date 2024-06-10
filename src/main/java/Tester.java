@@ -1,31 +1,35 @@
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.sql.Connection;
 
 public class Tester {
     Html htmlgen = new Html();
     int exctres;
-    public static ArrayList<String> results = new ArrayList<>();
+//    public static ArrayList<String> results = new ArrayList<>();
     public static ArrayList<String> errors = new ArrayList<>();
-    public void testcheck(String sydb, Connection con){
-        for (Object obj : Parser.testcase){
+    public LinkedHashMap<String, ArrayList<String>> testcheck(String sydb, Connection con){
+        LinkedHashMap<String, ArrayList<String>> results = new LinkedHashMap<>();
+        String curName = "";
+        for (Object obj : Parser.testcase) {
             String str = (String) obj;
-            System.out.println(str);
+//            System.out.println(str);
             if(str.contains("Name:")){
                 exctres = 0;
                 str = str.replace("Name:","");
-                results.add("<tr><th colspan = 5>" + str + "</th></tr>"+"\n");
+                curName = "<tr><th colspan = 5>" + str + "</th></tr>"+"\n";
+                results.put(curName, new ArrayList<>());
             }
             if(str.contains("Case:")){
                 exctres = 0;
                 errors.clear();
                 str = str.replace("Case:","");
-                results.add("<tr><td>"+str+"</td>"+"\n");
+                results.get(curName).add("<tr><td>"+str+"</td>"+"\n");
             }
             if (str.contains("Query:")){
                 if (exctres == 0)
-                    results.add("none");
+                    results.get(curName).add("none");
                 str = str.replace("Query:","");
                 Statement statement = null;
                 try {
@@ -37,20 +41,20 @@ public class Tester {
                     else
                         statement.execute(str);
                     if (exctres == 1 || exctres == 0) {
-                        results.remove(results.size() - 1);
-                        results.add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>"+"\n");
+                        results.get(curName).remove(results.get(curName).size() - 1);
+                        results.get(curName).add("<td colspan = 3 align = right><b>" + "OK" + "</td><td width = 50%> no error</td></tr>"+"\n");
                         exctres = 1;
                     }
-                    System.out.println("Запрос выполнен!");
-                } catch (SQLException throwables) {
+//                    System.out.println("Запрос выполнен!");
+                } catch (Exception throwables) {
                     errors.add("<table><tr><td>"+throwables.getMessage()+"</td></tr></table>"+"\n");
                     if (exctres == 1 || exctres == 0){
-                        System.out.println("Запрос не выполнен!");
-                        results.remove(results.size()-1);
-                        results.add("<td colspan = 3 align = right>" + "Failed" + "</td><td width = 50%>"+ errors.toString().replace("[", "").replace("]","").replace(",","") +"</td></tr>"+"\n");
+//                        System.out.println("Запрос не выполнен!");
+                        results.get(curName).remove(results.get(curName).size()-1);
+                        results.get(curName).add("<td colspan = 3 align = right>" + "Failed" + "</td><td width = 50%>"+ errors.toString().replace("[", "").replace("]","").replace(",","") +"</td></tr>"+"\n");
                         exctres = -1;
                     }
-                    System.out.println(throwables.getMessage());
+//                    System.out.println(throwables.getMessage());
                     try {
                         statement.close();
                     } catch (SQLException e) {
@@ -59,6 +63,7 @@ public class Tester {
                 }
             }
         }
-        htmlgen.Genhtml(results,sydb);
+//        htmlgen.Genhtml(results,sydb);
+        return results;
     }
 }
