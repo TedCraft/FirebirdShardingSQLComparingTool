@@ -1,5 +1,6 @@
 src/main/resources/database/shard.FDB
 src/main/resources/database/jdbc.FDB
+src/main/resources/results of comparing.html
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
