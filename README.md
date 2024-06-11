@@ -86,7 +86,7 @@ java -jar SQLStandComparator-1.0-SNAPSHOT.jar
 <hr>
 
 Для начала необходимо по аналогии с "ручной" сборкой выполнить maven-комманду package. Для этого при открытии проекта в IDEA необходимо справа нажать на иконку Maven и выбрать скрипт package.
-![](https://github.com/TedCraft/FirebirdShardingSQLComparingTool/blob/main/win_build/windows_build.bat)
+![](img/package.png)
 
 После этого необходимо создать конфигурацию (кнопка add configuration справа сверху). В качестве типа конфигурации выбрать Jar Application и указать путь до jar-файла: `target/SQLStandComparator-1.0-SNAPSHOT.jar`.
 
