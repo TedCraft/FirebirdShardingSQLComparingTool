@@ -1,4 +1,4 @@
-## Гайд на сборку и тестирования Apache ShardingSphere
+## Гайд на сборку и тестирование Apache ShardingSphere
 
 **Официальный сайт:** [https://shardingsphere.apache.org/](https://shardingsphere.apache.org/)
 
