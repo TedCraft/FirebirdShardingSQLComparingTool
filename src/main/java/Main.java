@@ -28,7 +28,7 @@ public class Main {
         ClassLoader cl = Main.class.getClassLoader();
         URL res = cl.getResource("json/SQL2011 for Red DataBase.json");
         File file = new File(res.getPath());
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(cl.getResourceAsStream("json/SQL2011 for Red DataBase.json")));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(cl.getResourceAsStream("json/SQL2011 for Red DataBase.json"), "UTF-8"));
         stand = file.getName();
         stand = stand.replace(".json", "");
         parser.parsejson(bufferedReader);

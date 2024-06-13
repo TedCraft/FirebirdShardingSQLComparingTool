@@ -412,7 +412,7 @@ public class Connections {
 
             //JDBC
             DB_Driver = "org.firebirdsql.jdbc.FBDriver";
-            DB_URL = String.format("jdbc:firebirdsql://localhost:3050/%s/src/main/resources/database/jdbc.FDB", System.getProperty("user.dir"));
+            DB_URL = String.format("jdbc:firebirdsql://localhost:3050/%s/src/main/resources/database/jdbc.FDB?characterEncoding=utf-8", System.getProperty("user.dir"));
 
             File jdbcDB = new File("src/main/resources/database/jdbc.FDB");
             FileUtils.copyFile(emptyDB, jdbcDB);

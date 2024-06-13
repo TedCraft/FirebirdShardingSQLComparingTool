@@ -64,7 +64,7 @@ mvnw.cmd pacakge
 Для запуска данного файла необходимо выполнить следующую комманду:
 
 ```
-java -jar SQLStandComparator-1.0-SNAPSHOT.jar
+java -jar -Dfile.encoding=windows-1251 -jar SQLStandComparator-1.0-SNAPSHOT.jar
 ```
 
 В конце выполнения данного файла результат сравнения сохраняется в файле `src/main/resources/results of comparing.html`.

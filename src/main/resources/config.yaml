@@ -27,7 +27,7 @@ dataSources:
   ds_0:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: org.firebirdsql.jdbc.FBDriver
-    jdbcUrl: jdbc:firebirdsql://localhost:3050/$PROJECT_DIR$/src/main/resources/database/shard.FDB
+    jdbcUrl: jdbc:firebirdsql://localhost:3050/$PROJECT_DIR$/src/main/resources/database/shard.FDB?characterEncoding=utf-8
     username: sysdba
     password: masterkey
 
