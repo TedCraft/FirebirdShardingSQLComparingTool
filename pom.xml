@@ -10,8 +10,8 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
-            <artifactId>shardingsphere-jdbc-core</artifactId>
-            <version>5.4.1</version>
+            <artifactId>shardingsphere-jdbc</artifactId>
+            <version>5.5.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <artifactId>snakeyaml</artifactId>

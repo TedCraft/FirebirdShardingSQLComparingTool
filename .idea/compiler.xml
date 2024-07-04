@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="sql-compare" target="11" />
+      <module name="SQLStandComparator" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>
