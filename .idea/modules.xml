@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/FirebirdShardingSQLComparingTool.iml" filepath="$PROJECT_DIR$/.idea/FirebirdShardingSQLComparingTool.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SQLStandComparator.iml" filepath="$PROJECT_DIR$/SQLStandComparator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sql-compare.iml" filepath="$PROJECT_DIR$/sql-compare.iml" />
     </modules>
   </component>
 </project>

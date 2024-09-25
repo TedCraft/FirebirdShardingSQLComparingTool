@@ -1,6 +1,7 @@
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.sql.Connection;
 
@@ -47,7 +48,7 @@ public class Tester {
                     }
 //                    System.out.println("Запрос выполнен!");
                 } catch (Exception throwables) {
-                    errors.add("<table><tr><td>"+throwables.getMessage()+"</td></tr></table>"+"\n");
+                    errors.add("<table border=\"1\"><tr><td>"+throwables.getMessage()+"</td></tr><tr><td>"+Arrays.toString(throwables.getStackTrace())+"</td></tr></table>"+"\n");
                     if (exctres == 1 || exctres == 0){
 //                        System.out.println("Запрос не выполнен!");
                         results.get(curName).remove(results.get(curName).size()-1);

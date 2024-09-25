@@ -2,6 +2,6 @@
 
 cd ..
 
-call mvnw package
+call mvnw.cmd package
 
 pause

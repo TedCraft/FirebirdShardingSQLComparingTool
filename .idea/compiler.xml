@@ -6,13 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="sql-compare" />
         <module name="SQLStandComparator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="sql-compare" target="11" />
-      <module name="SQLStandComparator" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>
